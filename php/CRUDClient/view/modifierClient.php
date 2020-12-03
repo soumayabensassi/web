@@ -27,13 +27,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>sign up</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link href="../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/libs/css/style.css">
-    <link rel="stylesheet" href="../assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
-   <!-- Site Icons -->
-   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="stylesheet" href="../../../assets/vendor/bootstrap/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="../../../assets/libs/css/style.css">
+    
+   
+   <style>
+        html,
+        body {
+            height: 100%;
+        }
+        
+        body {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-align: center;
+            align-items: center;
+            padding-top: 150px;
+            padding-bottom: 100px;
+            }
+           
+    </style>
 	</head>
 	<body>
     
@@ -45,11 +59,12 @@
                 
                
         ?>
-		<form action="" method="POST">
-       
+		<form class="splash-container" action="" method="POST">
+      
           <div class="card">
             <div class="card-header">
-                <h3 class="mb-1">Registrations Form</h3>
+                <h3 class="mb-1">Modifier les données du Clients
+                </h3>
                 <p>Please enter your user information.</p>
             </div>
             <div class="card-body">
@@ -72,7 +87,7 @@
                     <button class="btn btn-block btn-primary" type="submit">Modifier </button>
                 </div>
                
-                
+            
              </div>
                
  </div>

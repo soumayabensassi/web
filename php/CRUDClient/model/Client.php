@@ -5,6 +5,7 @@ class Client
     private ?string $emailClient = null;
     private ?string $password = null;
     private ?string $passwordVerif = null;
+    
     function getIdClient(): int{
         return $this->idClient;
     }
