@@ -69,10 +69,10 @@ class clientcontroller
                 WHERE idClient = :idClient'
             );
             $query->execute([
-                'nomClient'=>$Client->getNomClient,
-                'emailClient'=>$Client->getEmailClient,
-                'password'=>$Client->getPassword,
-                'passwordVerif'=>$Client->getPasswordVerif,
+                'nomClient'=>$Client->getNomClient(),
+                'emailClient'=>$Client->getEmailClient(),
+                'password'=>$Client->getPassword(),
+                'passwordVerif'=>$Client->getPasswordVerif(),
                 'idClient' => $idClient
             ]);
             echo $query->rowCount() . " records UPDATED successfully <br>";

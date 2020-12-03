@@ -1,11 +1,11 @@
 <?php
 class Client
-{ private $idClient;
-    private $nomClient;
-    private $emailClient;
-    private $password;
-    private $passwordVerif;
-    function getidClient(): string{
+{ private ?int $idClient = null;
+    private  ?string $nomClient = null;
+    private ?string $emailClient = null;
+    private ?string $password = null;
+    private ?string $passwordVerif = null;
+    function getIdClient(): int{
         return $this->idClient;
     }
     function getNomClient(): string{

@@ -343,10 +343,7 @@ $liste=$Client1->afficherClient();
                                                    </form>
                                                     </td>
                                                     <td> 
-                                                        <form method="POST" action="modifier.php">
-                                                   <input type="submit" name="Modifier" value="Modifier">
-                                                   <input type="hidden" value=<?PHP echo $CLient['idClient']; ?> name="idClient">
-                                                   </form>
+                                                    <a href="modifierClient.php?id=<?PHP echo $CLient['idClient']; ?>">Modifier</a>
                                                     </td>
                                             </tr>
                                             <?PHP
