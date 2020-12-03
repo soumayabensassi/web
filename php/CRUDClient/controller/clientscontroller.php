@@ -56,25 +56,30 @@ class clientcontroller
             die('Erreur: '.$e->getMessage());
         }
     }  
-    function modifierClient($Client, $idClient){
+    function modifierClient($Cli, $idClient){
         try {
+            
             $db = config::getConnexion();
             $query = $db->prepare(
                 'UPDATE client SET 
-                    nomClient = :nomClient, 
-                    emailClient = :emailClient,
-                    password = :password,
-                    passwordVerif= :passwordVerif
+                    nomClient=:nomClient, 
+                    emailClient=:emailClient,
+                    password=:password,
+                    passwordVerif=:passwordVerif
     
-                WHERE idClient = :idClient'
+    
+                WHERE idClient=:idClient'
             );
+         
             $query->execute([
-                'nomClient'=>$Client->getNomClient(),
-                'emailClient'=>$Client->getEmailClient(),
-                'password'=>$Client->getPassword(),
-                'passwordVerif'=>$Client->getPasswordVerif(),
-                'idClient' => $idClient
-            ]);
+                'nomClient'=>$Cli->getNom(),
+               'emailClient'=>$Cli->getEmail(),
+               'password'=>$Cli->getPassword(),
+               'passwordVerif'=>$Cli->getPasswordV(),
+               'idClient'=>$idClient   
+               ]
+);
+            
             echo $query->rowCount() . " records UPDATED successfully <br>";
         } catch (PDOException $e) {
             $e->getMessage();

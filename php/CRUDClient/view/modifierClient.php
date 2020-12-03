@@ -4,21 +4,22 @@
 
 	$utilisateur1= new clientcontroller();
 	
-	
 	if (
-		isset($_POST["name"]) && 
-        isset($_POST["email"]) && 
-        isset($_POST["pass"]) && 
-        isset($_POST["passV"])
+		isset($_POST["nom"]) && 
+        isset($_POST["email"])
+       
+   
 	){
-		
-            $user = new Client($_POST['name'],$_POST['email'],$_POST['pass'],$_POST['passV']);
-            $utilisateur1->modifierClient($user, $_GET['id']);
-          //  header('refresh:5;url=patients.php');
+        
+        
+            $user=new Client($_POST['nom'],$_POST['email'],$_POST['password'],$_POST['passwordVerif']);
+            $utilisateur1->modifierClient($user,$_GET['idClient']);
+            
+            header('refresh:1;url=patients.php');
+             
         }
       
-     
-    
+        
 ?>
 <html>
 	<head>
@@ -54,37 +55,37 @@
        
         <?php
   
-			if (isset($_GET['id'])){
-				$user=$utilisateur1->recupererClient($_GET['id']);
+			if (isset($_GET['idClient'])){
+				$user=$utilisateur1->recupererClient($_GET['idClient']);
                 
-               
+                 
         ?>
 		<form class="splash-container" action="" method="POST">
       
           <div class="card">
             <div class="card-header">
-                <h3 class="mb-1">Modifier les données du Clients
+                <h3 class="mb-1">Modifier les données d'un' Client
                 </h3>
-                <p>Please enter your user information.</p>
+                <p> Changer les informations.</p>
             </div>
             <div class="card-body">
             <div class="form-group">
 						<input type="text" name="idClient" id="idClient"  value = "<?php echo $user['idClient']; ?>" disabled>
                         </div>
                 <div class="form-group">
-                    <input class="form-control form-control-lg" type="text" name="name" required="" placeholder="Username" autocomplete="off" value = "<?php echo $user['nomClient']; ?>">
+                    <input class="form-control form-control-lg" type="text" name="nom" id="nom"  placeholder="Username" autocomplete="off" value = "<?php echo $user['nomClient']; ?>">
                 </div>
                 <div class="form-group">
-                    <input class="form-control form-control-lg" type="email" name="email" required="" placeholder="E-mail" autocomplete="off" value="<?php echo $user['emailClient']; ?>">
+                    <input class="form-control form-control-lg" type="email" name="email" id="email" required="" placeholder="E-mail" autocomplete="off" value="<?php echo $user['emailClient']; ?>">
                 </div>
                 <div class="form-group">
-                    <input class="form-control form-control-lg" id="pass1" type="password" name="pass" required="" placeholder="Password"value = "<?php echo $user['pass']; ?>">
+                    <input class="form-control form-control-lg"  type="password"  name="password" id="pass" required="" placeholder="Password"value = "<?php echo $user['password']; ?>" >
                 </div>
                 <div class="form-group">
-                    <input class="form-control form-control-lg" type="password" required=""name="passV" placeholder="Confirm" value = "<?php echo $user['passV']; ?>">
+                    <input class="form-control form-control-lg" type="password" name="passwordVerif" id="passVerif" required=""  placeholder="Confirm" value = "<?php echo $user['passwordVerif']; ?>" >
                 </div>
                 <div class="form-group pt-2">
-                    <button class="btn btn-block btn-primary" type="submit">Modifier </button>
+                    <button class="btn btn-block btn-primary" type="submit" name="submit">Modifier </button>
                 </div>
                
             

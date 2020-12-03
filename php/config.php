@@ -12,7 +12,7 @@ class config
                 PDO::ATTR_DEFAULT_FETCH_MODE=>PDO::FETCH_ASSOC]);
                
             }
-            catch (Exception $e)
+            catch (Exception $e) 
             {die('Erreur: ' .$e->getMessage());}
 
         }

@@ -19,7 +19,7 @@ $liste=$Client1->afficherClient();
     <link href="../../../concept-master/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../concept-master/assets/libs/css/style.css">
     <link rel="stylesheet" href="../../../concept-master/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
-   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
     <title>Concept - Bootstrap 4 Admin Dashboard Template</title>
 </head>
 
@@ -337,13 +337,14 @@ $liste=$Client1->afficherClient();
                                                    <td><?PHP echo $CLient['password']; ?></td> 
                                                    <td><?PHP echo $CLient['passwordVerif']; ?></td> 
                                                     <td> 
+                                                        
                                                         <form method="POST" action="deleteClient.php">
                                                    <input type="submit" name="supprimer" value="supprimer">
                                                    <input type="hidden" value=<?PHP echo $CLient['idClient']; ?> name="idClient">
                                                    </form>
                                                     </td>
                                                     <td> 
-                                                    <a href="modifierClient.php?id=<?PHP echo $CLient['idClient']; ?>">Modifier</a>
+                                                    <a href="modifierClient.php?idClient=<?PHP echo $CLient['idClient']; ?>">Modifier</a>
                                                     </td>
                                             </tr>
                                             <?PHP
