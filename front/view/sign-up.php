@@ -1,3 +1,5 @@
+
+
 <!doctype html>
 <html lang="en">
 
@@ -11,7 +13,7 @@
     
     <link rel="stylesheet" href="../assets/libs/css/style.css">
     
-  
+    
 
    
     <style>
@@ -48,6 +50,7 @@
                 <p>Please enter your user information.</p>
             </div>
             <div class="card-body">
+            
                 <div class="form-group">
                     <input class="form-control form-control-lg" type="text" name="nick" required="" placeholder="Username" autocomplete="off">
                 </div>
@@ -76,7 +79,7 @@
                 </div>
              </div>
                  <div class="card-footer bg-white">
-                  <p>Already member? <a href="login.html" class="text-secondary">Login Here.</a></p>
+                  <p>Already member? <a href="login.php" class="text-secondary">Login Here.</a></p>
                  </div>
  </div>
     </form>

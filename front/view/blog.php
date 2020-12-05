@@ -25,9 +25,8 @@
     <link rel="stylesheet" href="../assets/css/style.css">    
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="../assets/css/responsive.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="../assets/css/custom.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
+
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -35,7 +34,7 @@
 
 </head>
 <body id="home" data-spy="scroll" data-target="#navbar-wd" data-offset="98">
-    <script src="../assets/js/test.js"></script>
+
 	<!-- LOADER -->
      <!-- <div id="preloader">
 		<div class="loader">
@@ -76,7 +75,7 @@
 	<header class="top-header">
 		<nav class="navbar header-nav navbar-expand-lg">
             <div class="container">
-				<a class="navbar-brand" href="index.html"><img src="../assets/images/logo.png" alt="image"></a>
+				<a class="navbar-brand" href="index.php"><img src="../assets/images/logo.png" alt="image"></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-wd" aria-controls="navbar-wd" aria-expanded="false" aria-label="Toggle navigation">
 					<span></span>
 					<span></span>
@@ -84,74 +83,102 @@
 				</button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
                     <ul class="navbar-nav">
-                        <li><a class="nav-link " href="index.html">Accueil</a></li>
-                        <li><a class="nav-link" href="#about">Notre Site</a></li>
-                        
-						<li><a class="nav-link" href="rendez-vous.html">Rendez-vous</a></li>
-                        <li><a class="nav-link" href="gallery.html">Les médicaments</a></li>
-						<li><a class="nav-link" href="doctor.html">Les médecins</a></li>
-                        <li><a class="nav-link " href="blog.html">Blog</a></li>
-						<li><a class="nav-link active" href="Réclamation.html">Réclamation</a></li>
-                        <li><a class="nav-link" href="#contact">Contact</a></li>
-                       
+                        <li><a class="nav-link " href="index.php">Accueil</a></li>
+                        <li><a class="nav-link" href="#about">Site</a></li>
+                     
+						<li><a class="nav-link" href="rendez-vous.php">Rendez-vous</a></li>
+                        <li><a class="nav-link" href="gallery.php">Médicaments</a></li>
+						<li><a class="nav-link" href="doctor.php">Médecins</a></li>
+                        <li><a class="nav-link active" href="blog.php">Blog</a></li>
+						<li><a class="nav-link" href="Réclamation.php">Réclamation</a></li>
+						<li><a class="nav-link" href="#contact">Contact</a></li>
+						<?php
+session_start();
+if (empty($_SESSION['m_un'])) {?>
+    <li class="nav-link"><a  href="login.php">Se connecter</a></li>
+    
+<?php } else { ?> 
+    <li class="nav-link" ><?php include "logged.php"; ?></li>
+    
+
+<?php
+
+}
+?>
                     </ul>
                 </div>
             </div>
         </nav>
 	</header>
     <!-- End header -->
-    <script src="../assets/js/test.js"></script>
+   <!-- Start Blog -->
+	<div id="blog" class="blog-box">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="title-box">
+						<h2>Blog</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					<div class="blog-inner">
+						<div class="blog-img">
+							<img class="img-fluid" src="../assets/images/blog-img-01.jpg" alt="" />
+						</div>
+						<div class="item-meta">
+							<a href="#"><i class="fab fa-comments-o"></i> 5 Comment </a>
+							<a href="#"><i class="fab fa-user-o"></i> Admin</a>
+							<span class="dti">25 July 2018</span>
+						</div>
+						<h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard </p>
+						<a class="new-btn-d br-2" href="#">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					<div class="blog-inner">
+						<div class="blog-img">
+							<img class="img-fluid" src="../assets/images/blog-img-02.jpg" alt="" />
+						</div>
+						<div class="item-meta">
+							<a href="#"><i class="fab fa-comments-o"></i> 5 Comment </a>
+							<a href="#"><i class="fab fa-user-o"></i> Admin</a>
+							<span class="dti">25 July 2018</span>
+						</div>
+						<h2>Proin vel sem ut lorem rhoncus lacinia. </h2>
+						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard </p>
+						<a class="new-btn-d br-2" href="#">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					<div class="blog-inner">
+						<div class="blog-img">
+							<img class="img-fluid" src="../assets/images/blog-img-03.jpg" alt="" />
+						</div>
+						<div class="item-meta">
+							<a href="#"><i class="fab fa-comments-o"></i> 5 Comment </a>
+							<a href="#"><i class="fab fa-user-o"></i> Admin</a>
+							<span class="dti">25 July 2018</span>
+						</div>
+						<h2>Aliquam egestas magna a malesuada rutrum. </h2>
+						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard </p>
+						<a class="new-btn-d br-2" href="#">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Blog -->
 <!-- Start Contact -->
-<div id="Réclamation" class="contact-box">
+<div id="contact" class="contact-box">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="title-box">
-                    <h2>Réclamation</h2>
-                    <p>Ajouter une réclamation . </p>
-                </div>
-            </div>
-        </div>
+        
         <div class="row">
             
-            <div class="col-lg-12 col-xs-12">
-              <div class="contact-block">
-                <form name="f" action="ajouterreclamation.php" method="POST">
-                  <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required data-error="Please enter your name">
-                            <div class="help-block with-errors"></div>
-                        </div>                                 
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <input type="text" placeholder="Your Email" id="email" class="form-control" name="email" required data-error="Please enter your email">
-                            <div class="help-block with-errors"></div>
-                        </div> 
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <input type="text" placeholder="Your number" id="number" class="form-control" name="number" required data-error="Please enter your number">
-                            <div class="help-block with-errors"></div>
-                        </div> 
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group"> 
-                            <textarea class="form-control" id="message" placeholder="Your Message" rows="8"name="msg" data-error="Write your message" required></textarea>
-                            <div class="help-block with-errors"></div>
-                        </div>
-                        <div class="submit-button text-center">
-                            <input type="submit"  id="submit" class="btn btn-common" value="Envoyer une réclamation " onclick="test();" >
-                            
-                            <div id="msgSubmit" class="h3 text-center hidden"></div> 
-                            <div class="clearfix"></div> 
-                        </div>
-                    </div>
-                  </div>            
-                </form>
-              </div>
-            </div>
+        
             
             
             <div id="contact"class="col-lg-12 col-xs-12">
@@ -201,7 +228,7 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="subscribe-inner text-center clearfix">
-            <h2>Subscribe</h2>
+            <h2>S'inscrire</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             <form action="#" method="post">
                 <div class="form-group">
@@ -209,7 +236,7 @@
                 </div>
                 <div class="form-group">
                     <button type="submit" class="new-btn-d br-2">
-                        Subscribe
+                        S'inscrire
                     </button>
                 </div>
             </form>
@@ -219,7 +246,6 @@
 </div>
 </div>
 <!-- End Subscribe -->
-
 
 
 <a href="#" id="scroll-to-top" class="new-btn-d br-2"><i class="fa fa-angle-up"></i></a>
@@ -241,6 +267,5 @@
 <script src="../assets/js/isotope.min.js"></script>	
 <script src="../assets/js/images-loded.min.js"></script>	
 <script src="../assets/js/custom.js"></script>
-
 </body>
 </html>

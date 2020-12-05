@@ -9,7 +9,7 @@ include_once "../controller/reclamationscontroller.php";
      
 $reclamation= new reclamationcontroller();
 $reclamation->ajouterreclamation($nom_reclamation,$email_reclamation,$number_reclamation,$message_reclamation);
-header('Location:index.html');
+header('Location:index.php');
 ?>
 
 

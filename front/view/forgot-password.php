@@ -41,11 +41,11 @@
                     <div class="form-group">
                         <input class="form-control form-control-lg" type="email" name="email" required="" placeholder="Your Email" autocomplete="off">
                     </div>
-                    <div class="form-group pt-1"><a class="btn btn-block btn-primary btn-xl" href="../index.html">Reset Password</a></div>
+                    <div class="form-group pt-1"><a class="btn btn-block btn-primary btn-xl" href="index.php">Reset Password</a></div>
                 </form>
             </div>
             <div class="card-footer text-center">
-                <span>Don't have an account? <a href="../pages/sign-up.html">Sign Up</a></span>
+                <span>Don't have an account? <a href="sign-up.php">Sign Up</a></span>
             </div>
         </div>
     </div>

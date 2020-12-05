@@ -36,6 +36,7 @@
 	<link href="../assets/css/main.css" rel="stylesheet">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
 
+
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -84,7 +85,7 @@
 	<header class="top-header">
 		<nav class="navbar header-nav navbar-expand-lg">
             <div class="container">
-				<a class="navbar-brand" href="index.html"><img src="../assets/images/logo.png" alt="image"></a>
+				<a class="navbar-brand" href="index.php"><img src="../assets/images/logo.png" alt="image"></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-wd" aria-controls="navbar-wd" aria-expanded="false" aria-label="Toggle navigation">
 					<span></span>
 					<span></span>
@@ -92,11 +93,24 @@
 				</button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
                     <ul class="navbar-nav">
-                        <li><a class="nav-link " href="index.html">Home</a></li>
-						<li><a class="nav-link active" href="consultermedsansordonnance.html">Médicament sans ordonnance</a></li>
-						<li><a class="nav-link " href="consultermedavecordonnance.html">Médicament avec ordonnance</a></li>
+                        <li><a class="nav-link " href="index.php">Accueil</a></li>
+						<li><a class="nav-link active" href="consultermedsansordonnance.php">Médicament sans ordonnance</a></li>
+						<li><a class="nav-link " href="consultermedavecordonnance.php">Médicament avec ordonnance</a></li>
 						<li><a class="nav-link" href="#Réclamation">Réclamation</a></li>
 						<li><a class="nav-link" href="#contact">Contact</a></li>
+						<?php
+session_start();
+if (empty($_SESSION['m_un'])) {?>
+    <li class="nav-link"><a  href="login.php">Se connecter</a></li>
+    
+<?php } else { ?> 
+    <li class="nav-link" ><?php include "logged.php"; ?></li>
+    
+
+<?php
+
+}
+?>
                     </ul>
                 </div>
             </div>
@@ -208,7 +222,7 @@
 						<div class="product-details"><!--product-details-->
 							<div class="col-sm-5">
 								<div class="view-product">
-									<img src="../assets/images/home/product2.1.jpg" alt="" />
+									<img src="../assets/images/home/product1.1.jpg" alt="" />
 									
 								</div>
 						
@@ -218,8 +232,8 @@
 								<div class="product-information"><!--/product-information-->
 									
 									<h2>
-										Drill Pastilles Miel Rosat x 24</h2>
-									<p>Ce médicament est indiqué en cas de mal de gorge peu intense et sans fièvre, d'aphtes et de petites plaies de la bouche. Plusieurs parfums disponibles, avec ou sans sucre.</p>
+										Maxilase Maux de gorge Sirop 200 ml</h2>
+									<p>Ce médicament est indiqué dans les maux de gorge peu intenses et sans fièvre.</p>
 									
 									<span>
 										<span>5DT</span>
@@ -227,13 +241,13 @@
 										<input type="text" value="0" />
 										<button type="button" class="btn btn-fefault cart">
 											<i class="fa fa-shopping-cart"></i>
-											<a href="acheter_medicament.html">Acheter Maintenant</a>
+											<a href="acheter_medicament.php">Acheter Maintenant</a>
 										</button>
 									</span>
 									<p><b>Mode d'administration ?
 									</b> Voie orale</p>
-									<p><b>Femme enciente</b> Sur avis du médecin</p>
-									<p><b>Pour qui?</b>A partir de 6 ans </p>
+									<p><b>Femme enciente</b> Interdit</p>
+									<p><b>Pour qui?</b>Convient à tous les âges </p>
 									
 								</div><!--/product-information-->
 							</div>
@@ -306,6 +320,8 @@
 					</form>
 				  </div>
 				</div>
+				
+				
 				<div id="contact" class="col-lg-12 col-xs-12">
 					<div class="left-contact">
 						<h2>Adresse</h2>
@@ -376,9 +392,8 @@
 	
 	<a href="#" id="scroll-to-top" class="new-btn-d br-2"><i class="fa fa-angle-up"></i></a>
 
-
 	<!-- ALL JS FILES -->
-	<script src="../assets/js/jquery.min.js"></script>
+	<script src="../assets/js/jquery.js"></script>
 	<script src="../assets/js/popper.min.js"></script>
 	<script src="../assets/js/bootstrap.min.js"></script>
     <!-- ALL PLUGINS -->

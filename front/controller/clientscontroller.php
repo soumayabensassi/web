@@ -85,4 +85,40 @@ class clientcontroller
             $e->getMessage();
         }
     }
+    function connexionAccount($Email,$Password) {
+        $sql="SELECT * FROM client WHERE emailClient='" . $Email ."' and Password = '". $Password."'";
+        $db = config::getConnexion();
+        try {
+            $query=$db->prepare($sql);
+            $query->execute();
+            $count=$query->rowCount();
+            if($count==0)
+            {$message= "pseudo ou mot de passe incorrect";
+            
+            }
+            else { 
+                $x = $query->fetch();
+                $message = $x['role'];
+            }
+        }            catch (Exception $e)
+        {
+            $message= " ".$e->getMessage();        
+            }
+            return $message;
+    }
+    function afficherusername($Email){
+
+        $sql="SELECT nomClient FROM client WHERE emailClient='" . $Email ."' ";
+        $db = config::getConnexion();
+        try{
+            $liste = $db->query($sql);
+            return $liste;
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+    
+    }
+     
+ 
 }

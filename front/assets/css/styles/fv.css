@@ -1,0 +1,38 @@
+
+
+
+
+
+/* alerts (when validation fails) */
+.item .alert{ font-size:12px; float:left; margin:-50px 0 0 250px; padding:3px 10px; color:#FFF; border-radius:3px 4px 4px 3px; background-color:#CE5454;  white-space:pre; position:relative; left:-15px; opacity:0; z-index:1; transition:0.15s ease-out; }
+.item .alert::after{ font-size:12px;  content:''; display:block; height:0; width:0; border-color:transparent #CE5454 transparent transparent; border-style:solid; border-width:11px 7px; position:absolute; left:-13px; top:1px; }
+.item.bad .alert{ font-size:12px; left:0; opacity:1; }
+
+
+@keyframes shake{
+    15%{ transform:translateX(-5px); }
+    30%{ transform:translateX(5px); }
+	45%{ transform:translateX(-3px); }
+	60%{ transform:translateX(3px); }
+	75%{ transform:translateX(2px); }
+
+}
+@-webkit-keyframes shake{
+    25%{ -webkit-transform:translateX(-6px); }
+    75%{ -webkit-transform:translateX(6px); }
+}
+
+	.item select{ float:left; width:220px; padding:2px 0; margin:0; border:1px solid #CCC; text-transform:capitalize; }
+		.item select option{ padding:1px; }
+
+	.item input, .item textarea{  padding:3px 4px; width:210px; -webkit-transition:0.2s; -moz-transition:0.2s; transition:0.2s; }
+	
+
+
+
+
+	.bad input,
+	.bad select,
+	.bad textarea{ border:1px solid #CE5454; box-shadow:0 0 4px -2px #CE5454; position:relative; left:0; -moz-animation:.7s 1 shake linear; -webkit-animation:0.7s 1 shake linear; }
+
+

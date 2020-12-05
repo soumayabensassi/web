@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en"><!-- Basic -->
 <head>
@@ -74,7 +77,7 @@
 	<header class="top-header">
 		<nav class="navbar header-nav navbar-expand-lg">
             <div class="container">
-				<a class="navbar-brand" href="index.html"><img src="../assets/images/logo.png" alt="image"></a>
+				<a class="navbar-brand" href="index.php"><img src="../assets/images/logo.png" alt="image"></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-wd" aria-controls="navbar-wd" aria-expanded="false" aria-label="Toggle navigation">
 					<span></span>
 					<span></span>
@@ -82,16 +85,30 @@
 				</button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
                     <ul class="navbar-nav">
-                        <li><a class="nav-link active" href="index.html">Accueil</a></li>
+                        <li><a class="nav-link active" href="index.php">Accueil</a></li>
                         <li><a class="nav-link" href="#about">Site</a></li>
                         
-						<li><a class="nav-link" href="rendez-vous.html">Rendez-vous</a></li>
-                        <li><a class="nav-link" href="gallery.html">Médicaments</a></li>
-						<li><a class="nav-link" href="doctor.html">Médecins</a></li>
-                        <li><a class="nav-link" href="blog.html">Blog</a></li>
-						<li><a class="nav-link" href="Réclamation.html">Réclamation</a></li>
+						<li><a class="nav-link" href="rendez-vous.php">Rendez-vous</a></li>
+                        <li><a class="nav-link" href="gallery.php">Médicaments</a></li>
+						<li><a class="nav-link" href="doctor.php">Médecins</a></li>
+                        <li><a class="nav-link" href="blog.php">Blog</a></li>
+						<li><a class="nav-link" href="Réclamation.php">Réclamation</a></li>
 						<li><a class="nav-link" href="#contact">Contact</a></li>
-						<li><a class="nav-link" href="sign-up.html">S'inscrire</a></li>
+						
+						<?php
+session_start();
+if (empty($_SESSION['m_un'])) {?>
+    <li class="nav-link"><a  href="login.php">Se connecter</a></li>
+    
+<?php } else { ?> 
+    <li class="nav-link" ><?php include "logged.php"; ?></li>
+    
+
+<?php
+
+}
+?>
+						
                     </ul>
                 </div>
             </div>

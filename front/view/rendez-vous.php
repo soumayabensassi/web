@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <!-- Site Metas -->
-    <title>Pick Medico - Responsive HTML5 Template</title>
+    <title>Pick Medico </title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -30,7 +30,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
 
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/php5shiv/3.7.0/php5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script src="../assets/js/test.js"></script>
@@ -79,7 +79,7 @@
     <header class="top-header">
         <nav class="navbar header-nav navbar-expand-lg">
             <div class="container">
-                <a class="navbar-brand" href="index.html"><img src="../assets/images/logo.png" alt="image"></a>
+                <a class="navbar-brand" href="index.php"><img src="../assets/images/logo.png" alt="image"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-wd" aria-controls="navbar-wd" aria-expanded="false" aria-label="Toggle navigation">
 					<span></span>
 					<span></span>
@@ -87,15 +87,18 @@
 				</button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
                     <ul class="navbar-nav">
-                        <li><a class="nav-link " href="index.html">Accueil</a></li>
-                        <li><a class="nav-link" href="#about">Notre Site</a></li>
+                        <li><a class="nav-link " href="index.php">Accueil</a></li>
+                        <li><a class="nav-link" href="#about">Site</a></li>
 
                         <li><a class="nav-link active" href="#appointment">Rendez-vous</a></li>
-                        <li><a class="nav-link" href="gallery.html">Les médicaments</a></li>
-                        <li><a class="nav-link" href="doctor.html">Les médecins</a></li>
-                        <li><a class="nav-link" href="blog.html">Blog</a></li>
-                        <li><a class="nav-link" href="Réclamation.html">Réclamation</a></li>
+                        <li><a class="nav-link" href="gallery.php">Mdicaments</a></li>
+                        <li><a class="nav-link" href="doctor.php">Médecins</a></li>
+                        <li><a class="nav-link" href="blog.php">Blog</a></li>
+                        <li><a class="nav-link" href="Réclamation.php">Réclamation</a></li>
                         <li><a class="nav-link" href="#contact">Contact</a></li>
+                       
+
+		
                         
                     </ul>
                 </div>

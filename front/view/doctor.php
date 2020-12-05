@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
  
      <!-- Site Metas -->
-    <title>Pick Medico - Responsive HTML5 Template</title>  
+    <title>Pick Medico </title>  
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -25,7 +25,10 @@
     <link rel="stylesheet" href="../assets/css/style.css">    
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="../assets/css/responsive.css">
-    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/custom.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
+
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -61,7 +64,7 @@
 							<li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
 							<li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
 							<li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
-							
+						
 						</ul>
 					</div>
 				</div>
@@ -74,7 +77,7 @@
 	<header class="top-header">
 		<nav class="navbar header-nav navbar-expand-lg">
             <div class="container">
-				<a class="navbar-brand" href="index.html"><img src="../assets/images/logo.png" alt="image"></a>
+				<a class="navbar-brand" href="index.php"><img src="../assets/images/logo.png" alt="image"></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-wd" aria-controls="navbar-wd" aria-expanded="false" aria-label="Toggle navigation">
 					<span></span>
 					<span></span>
@@ -82,83 +85,107 @@
 				</button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
                     <ul class="navbar-nav">
-                        <li><a class="nav-link " href="index.html">Accueil</a></li>
+                        <li><a class="nav-link " href="index.php">Accueil</a></li>
                         <li><a class="nav-link" href="#about">Site</a></li>
-                     
-						<li><a class="nav-link" href="rendez-vous.html">Rendez-vous</a></li>
-                        <li><a class="nav-link" href="gallery.html">Médicaments</a></li>
-						<li><a class="nav-link" href="doctor.html">Médecins</a></li>
-                        <li><a class="nav-link active" href="blog.html">Blog</a></li>
-						<li><a class="nav-link" href="Réclamation.html">Réclamation</a></li>
-						<li><a class="nav-link" href="#contact">Contact</a></li>
-						<li><a class="nav-link" href="pages1/sign-up.html">S'inscrire</a></li>
+                        
+						<li><a class="nav-link" href="rendez-vous.php">Rendez-vous</a></li>
+                        <li><a class="nav-link " href="gallery.php">Médicaments</a></li>
+						<li><a class="nav-link active" href="#team">Médecins</a></li>
+                        <li><a class="nav-link" href="blog.php">Blog</a></li>
+						<li><a class="nav-link" href="Réclamation.php">Réclamation</a></li>
+                        <li><a class="nav-link" href="#contact">Contact</a></li>
+                        <?php
+session_start();
+if (empty($_SESSION['m_un'])) {?>
+    <li class="nav-link"><a  href="login.php">Se connecter</a></li>
+    
+<?php } else { ?> 
+    <li class="nav-link" ><?php include "logged.php"; ?></li>
+    
+
+<?php
+
+}
+?>
                     </ul>
                 </div>
             </div>
         </nav>
 	</header>
     <!-- End header -->
-   <!-- Start Blog -->
-	<div id="blog" class="blog-box">
+ 
+	<!-- Start Team -->
+	<div id="team" class="team-box">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="title-box">
-						<h2>Blog</h2>
+						<h2>Our Doctor</h2>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
 					</div>
 				</div>
 			</div>
+			
 			<div class="row">
-				<div class="col-lg-4 col-md-6 col-sm-12">
-					<div class="blog-inner">
-						<div class="blog-img">
-							<img class="img-fluid" src="../assets/images/blog-img-01.jpg" alt="" />
-						</div>
-						<div class="item-meta">
-							<a href="#"><i class="fab fa-comments-o"></i> 5 Comment </a>
-							<a href="#"><i class="fab fa-user-o"></i> Admin</a>
-							<span class="dti">25 July 2018</span>
-						</div>
-						<h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard </p>
-						<a class="new-btn-d br-2" href="#">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-12">
-					<div class="blog-inner">
-						<div class="blog-img">
-							<img class="img-fluid" src="../assets/images/blog-img-02.jpg" alt="" />
-						</div>
-						<div class="item-meta">
-							<a href="#"><i class="fab fa-comments-o"></i> 5 Comment </a>
-							<a href="#"><i class="fab fa-user-o"></i> Admin</a>
-							<span class="dti">25 July 2018</span>
-						</div>
-						<h2>Proin vel sem ut lorem rhoncus lacinia. </h2>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard </p>
-						<a class="new-btn-d br-2" href="#">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-12">
-					<div class="blog-inner">
-						<div class="blog-img">
-							<img class="img-fluid" src="../assets/images/blog-img-03.jpg" alt="" />
-						</div>
-						<div class="item-meta">
-							<a href="#"><i class="fab fa-comments-o"></i> 5 Comment </a>
-							<a href="#"><i class="fab fa-user-o"></i> Admin</a>
-							<span class="dti">25 July 2018</span>
-						</div>
-						<h2>Aliquam egestas magna a malesuada rutrum. </h2>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard </p>
-						<a class="new-btn-d br-2" href="#">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-					</div>
-				</div>
-			</div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="our-team">
+                        <div class="pic">
+                            <img src="../assets/images/img-1.jpg" alt="">
+                        </div>
+                        <div class="team-content">
+                            <h3 class="title">Williamson</h3>
+                            <span class="post">web developer</span>
+                            <ul class="social">
+                                <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus" aria-hidden="true"></i></a></li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="our-team">
+                        <div class="pic">
+                            <img src="../assets/images/img-2.jpg" alt="">
+                        </div>
+                        <div class="team-content">
+                            <h3 class="title">kristina</h3>
+                            <span class="post">Web Designer</span>
+                            <ul class="social">
+                                <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus" aria-hidden="true"></i></a></li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="our-team">
+                        <div class="pic">
+                            <img src="../assets/images/img-3.jpg" alt="">
+                        </div>
+                        <div class="team-content">
+                            <h3 class="title">Steve Thomas</h3>
+                            <span class="post">web developer</span>
+                            <ul class="social">
+                                <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus" aria-hidden="true"></i></a></li>
+                               
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			
 		</div>
 	</div>
-	<!-- End Blog -->
+	
+	<!-- End Team -->
 <!-- Start Contact -->
 <div id="contact" class="contact-box">
     <div class="container">
@@ -215,7 +242,7 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="subscribe-inner text-center clearfix">
-            <h2>S'inscrire</h2>
+            <h2>S'inscrire'</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             <form action="#" method="post">
                 <div class="form-group">
@@ -223,7 +250,7 @@
                 </div>
                 <div class="form-group">
                     <button type="submit" class="new-btn-d br-2">
-                        S'inscrire
+                        S'inscrire'
                     </button>
                 </div>
             </form>
@@ -233,6 +260,7 @@
 </div>
 </div>
 <!-- End Subscribe -->
+
 
 
 <a href="#" id="scroll-to-top" class="new-btn-d br-2"><i class="fa fa-angle-up"></i></a>

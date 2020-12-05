@@ -217,7 +217,7 @@ a {
 }
 
 a:hover {
-    color: #ff407b;
+    color: #12557f;
     text-decoration: none;
 }
 
@@ -232,7 +232,10 @@ ul {}
 
 ol li,
 ul li {}
-
+.ba{
+    position:absolute;
+    right: 500px;
+}
 .lead {
     font-size: 1.25rem;
     font-weight: 300;
@@ -490,7 +493,7 @@ Parsley Varifation
     margin-bottom: 0;
     padding: 7px 29px;
     position: relative;
-    background-color: #f96a6a;
+    background-color: #12557f;
     color: #FFF;
 }
 
@@ -825,7 +828,7 @@ html body .display-7 {
     position: absolute;
     left: 0;
     font-size: 14px;
-    color: #ff407b;
+    color: #12557f;
     content: '\f058';
     font-style: initial;
 }
@@ -866,7 +869,7 @@ Background Color / Color
 }
 
 .bg-secondary {
-    background-color: #ff407b !important;
+    background-color: #12557f !important;
     color: #fff !important;
 }
 
@@ -967,7 +970,7 @@ Borders
 }
 
 .text-secondary {
-    color: #ff407b !important;
+    color: #12557f !important;
 }
 
 .text-success {
@@ -1020,7 +1023,7 @@ Borders
 }
 
 .border-secondary {
-    border-color: #ff407b !important;
+    border-color: #12557f !important;
 }
 
 .border-brand {
@@ -2723,7 +2726,7 @@ input[type=radio] {
 }
 
 .btn-wishlist:hover {
-    background-color: #ff407b;
+    background-color: #12557f;
     color: #fff;
 }
 
@@ -2792,8 +2795,8 @@ input[type=radio] {
 
 .btn-secondary {
     color: #fff;
-    background-color: #ff407b;
-    border-color: #ff407b;
+    background-color: #12557f;
+    border-color: #12557f;
 }
 
 .btn-secondary:hover {
@@ -3038,22 +3041,22 @@ input[type=radio] {
 /*--- btn outline secondary --*/
 
 .btn-outline-secondary {
-    color: #ff407b;
+    color: #12557f;
     background-color: transparent;
-    border-color: #ff407b;
+    border-color: #12557f;
 }
 
 .btn-outline-secondary:hover {
     color: #fff;
-    background-color: #ff407b;
-    border-color: #ff407b;
+    background-color: #12557f;
+    border-color: #12557f;
 }
 
 .btn-outline-secondary.focus,
 .btn-outline-secondary:focus {
     color: #fff;
-    background-color: #ff407b;
-    border-color: #ff407b;
+    background-color: #12557f;
+    border-color: #12557f;
     box-shadow: 0 0 0 1px rgb(227, 45, 201);
 }
 
@@ -3061,8 +3064,8 @@ input[type=radio] {
 .btn-outline-secondary:not(:disabled):not(.disabled):active,
 .show>.btn-outline-secondary.dropdown-toggle {
     color: #fff;
-    background-color: #ff407b;
-    border-color: #ff407b;
+    background-color: #12557f;
+    border-color: #12557f;
 }
 
 
@@ -3291,7 +3294,7 @@ btn-link
 }
 
 .btn-secondary-link {
-    color: #ff407b !important;
+    color: #12557f !important;
 }
 
 
@@ -4118,13 +4121,13 @@ Pills vertical
 }
 
 .badge-secondary {
-    background-color: #ff407b;
+    background-color: #12557f;
 }
 
 .badge-secondary[href]:focus,
 .badge-secondary[href]:hover {
     color: #fff;
-    background-color: #ff407b;
+    background-color: #12557f;
     text-decoration: none;
 }
 

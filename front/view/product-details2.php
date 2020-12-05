@@ -1,4 +1,6 @@
 
+
+
 <!DOCTYPE html>
 <html lang="en"><!-- Basic -->
 <head>
@@ -9,7 +11,7 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
  
      <!-- Site Metas -->
-    <title>Pick Medico - Responsive HTML5 Template</title>  
+    <title>Pick-Medico</title>  
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -31,6 +33,7 @@
 
 	<link href="../assets/css/aaa.css" rel="stylesheet">
 
+	<link href="../assets/css/main.css" rel="stylesheet">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
 
     <!--[if lt IE 9]>
@@ -68,6 +71,7 @@
 							<li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
 							<li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
 							<li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+						
 						</ul>
 					</div>
 				</div>
@@ -80,7 +84,7 @@
 	<header class="top-header">
 		<nav class="navbar header-nav navbar-expand-lg">
             <div class="container">
-				<a class="navbar-brand" href="index.html"><img src="../assets/images/logo.png" alt="image"></a>
+				<a class="navbar-brand" href="index.php"><img src="../assets/images/logo.png" alt="image"></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-wd" aria-controls="navbar-wd" aria-expanded="false" aria-label="Toggle navigation">
 					<span></span>
 					<span></span>
@@ -88,11 +92,24 @@
 				</button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
                     <ul class="navbar-nav">
-                        <li><a class="nav-link " href="index.html">Accueil</a></li>
-						<li><a class="nav-link active" href="consultermedsansordonnance.html">Médicament sans ordonnance</a></li>
-						<li><a class="nav-link " href="consultermedavecordonnance.html">Médicament avec ordonnance</a></li>
+                        <li><a class="nav-link " href="index.php">Accueil</a></li>
+						<li><a class="nav-link active" href="consultermedsansordonnance.php">Médicament sans ordonnance</a></li>
+						<li><a class="nav-link " href="consultermedavecordonnance.php">Médicament avec ordonnance</a></li>
 						<li><a class="nav-link" href="#Réclamation">Réclamation</a></li>
 						<li><a class="nav-link" href="#contact">Contact</a></li>
+						<?php
+session_start();
+if (empty($_SESSION['m_un'])) {?>
+    <li class="nav-link"><a  href="login.php">Se connecter</a></li>
+    
+<?php } else { ?> 
+    <li class="nav-link" ><?php include "logged.php"; ?></li>
+    
+
+<?php
+
+}
+?>
                     </ul>
                 </div>
             </div>
@@ -191,131 +208,52 @@
 				
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"><!--features_items-->
-						<h2 class="title text-center">Nos Médicaments sans ordonnance</h2>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-										<div class="productinfo text-center">
-											<a href="product-details.html"><img src="../assets/images/home/product1.jpg" alt="" /></a>
-											<h2>5DT</h2>
-											<p>Maxilase</p>
-											<a href="product-details.html" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
-										</div>
-										<div class="product-overlay">
-											<div class="overlay-content">
-												<h2>5DT</h2>
-												<p>Maxilase</p>
-												<a href="product-details.html" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
-											</div>
-										</div>
-								</div>
+						<h2 class="title text-center"> Médicament - Allopathie </h2>
+						
+						
+						
 								
-							</div>
-						</div>
-						
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="../assets/images/home/product3.jpg" alt="" />
-										<h2>5DT</h2>
-										<p>Drill</p>
-										<a href="product-details1.html" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>5DT</h2>
-											<p>Drill</p>
-											<a href="product-details1.html" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
-										</div>
-									</div>
-								</div>
 								
+							
+							
+					</div><!--/category-products-->
+					<div class="col-sm-9 padding-right">
+						<div class="product-details"><!--product-details-->
+							<div class="col-sm-5">
+								<div class="view-product">
+									<img src="../assets/images/home/product2.1.jpg" alt="" />
+									
+								</div>
+						
+	
 							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="../assets/images/home/product4.jpg" alt="" />
-										<h2>5DT</h2>
-										<p>HEXASPRAY</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>5DT</h2>
-											<p>HEXASPRAY</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
-										</div>
-									</div>
-							
-								</div>
-								</div>
-						</div>
-						
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="../assets/images/home/product5.jpg" alt="" />
-										<h2>5DT</h2>
-										<p>Bronchokod</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>5DT</h2>
-											<p>Bronchokod</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
-										</div>
-									</div>
-							
-								</div>
-								</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="../assets/images/home/product6.jpg" alt="" />
-										<h2>5DT</h2>
-										<p>Doliprane 1000 mg</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>5DT</h2>
-											<p>Doliprane 1000 mg</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
-										</div>
-									</div>
-							
-								</div>
-								</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="../assets/images/home/product2.jpg" alt="" />
-										<h2>5DT</h2>
-										<p>Colludol</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>5DT</h2>
-											<p>Colludol</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
-										</div>
-									</div>
-							
-								</div>
-								</div>
-						</div>
+							<div class="col-sm-7">
+								<div class="product-information"><!--/product-information-->
+									
+									<h2>
+										Drill Pastilles Miel Rosat x 24</h2>
+									<p>Ce médicament est indiqué en cas de mal de gorge peu intense et sans fièvre, d'aphtes et de petites plaies de la bouche. Plusieurs parfums disponibles, avec ou sans sucre.</p>
+									
+									<span>
+										<span>5DT</span>
+										<label>Quantité</label>
+										<input type="text" value="0" />
+										<button type="button" class="btn btn-fefault cart">
+											<i class="fa fa-shopping-cart"></i>
+											<a href="acheter_medicament.php">Acheter Maintenant</a>
+										</button>
+									</span>
+									<p><b>Mode d'administration ?
+									</b> Voie orale</p>
+									<p><b>Femme enciente</b> Sur avis du médecin</p>
+									<p><b>Pour qui?</b>A partir de 6 ans </p>
+									
+								</div><!--/product-information-->
+							</div>
+						</div><!--/product-details-->
 						
 						
+					
 						
 					</div><!--features_items-->
 
@@ -381,7 +319,6 @@
 					</form>
 				  </div>
 				</div>
-				
 				<div id="contact" class="col-lg-12 col-xs-12">
 					<div class="left-contact">
 						<h2>Adresse</h2>
@@ -448,7 +385,7 @@
 	</div>
 	<!-- End Subscribe -->
 	
-
+	
 	
 	<a href="#" id="scroll-to-top" class="new-btn-d br-2"><i class="fa fa-angle-up"></i></a>
 
@@ -466,9 +403,10 @@
 	<script src="../assets/js/owl.carousel.min.js"></script>
 	<script src="../assets/js/form-validator.min.js"></script>
     <script src="../assets/js/contact-form-script.js"></script>
-	<script src="js/isotope.min.js"></script>	
+	<script src="../assets/js/isotope.min.js"></script>	
 	<script src="../assets/js/images-loded.min.js"></script>	
 	<script src="../assets/js/custom.js"></script>
 
 </body>
 </html>
+			

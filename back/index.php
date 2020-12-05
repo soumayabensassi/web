@@ -28,7 +28,7 @@
         <!-- ============================================================== -->
         <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <a class="navbar-brand" href="index.html">Pick Medico</a>
+                <a class="navbar-brand" href="index.php">Pick Medico</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -157,10 +157,10 @@
                                 <div id="submenu-1" class="collapse submenu" >
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="../php/CRUDClient/view/patients.php">Patients</a>
+                                            <a class="nav-link" href="../front/view/patients.php">Patients</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Medecins</a>
+                                            <a class="nav-link" href="doctor-finder.php">Medecins</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="#">Admins</a>
@@ -179,16 +179,16 @@
                                             <a class="nav-link" href="#">Medecins</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="gestionreclamation.html">Réclamations</a>
+                                            <a class="nav-link" href="gestionreclamation.php">Réclamations</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="#">Rendez-vous</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="livraison.html">Livraisons</a>
+                                            <a class="nav-link" href="livraison.php">Livraisons</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="gestion medicaments.html">Medicaments</a>
+                                            <a class="nav-link" href="gestion medicaments.php">Medicaments</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="#">Ordonances</a>

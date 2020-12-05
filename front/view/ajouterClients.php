@@ -8,6 +8,6 @@ include_once "../controller/clientscontroller.php";
        $passwordVerif= $_POST['passV'];
 $album=new clientcontroller();
 $album->ajouterClient($nomClient,$emailClient,$password,$passwordVerif);
-header('Location:index.html');
+header('Location:index.php');
 
 ?>

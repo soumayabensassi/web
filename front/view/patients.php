@@ -35,7 +35,7 @@ $liste=$Client1->afficherClient();
         <!-- ============================================================== -->
         <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <a class="navbar-brand" href="../back/index.html">PICK MEDICO</a>
+                <a class="navbar-brand" href="../../back/index.php">PICK MEDICO</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -121,13 +121,13 @@ $liste=$Client1->afficherClient();
                                 <div id="submenu-1" class="collapse submenu" >
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="dashboard-finance.html">patients</a>
+                                            <a class="nav-link" href="patients.php">patients</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="dashboard-finance.html">medecins</a>
+                                            <a class="nav-link" href="../../back/doctor-finder.php">medecins</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="dashboard-sales.html">admins</a>
+                                            <a class="nav-link" href="#">admins</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -140,7 +140,7 @@ $liste=$Client1->afficherClient();
                                             <a class="nav-link" href="#">blogs <span class="badge badge-secondary">New</span></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">medecins</a>
+                                            <a class="nav-link" href="../../back/doctor-finder.php">medecins</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="#">reclamations</a>
@@ -149,10 +149,10 @@ $liste=$Client1->afficherClient();
                                             <a class="nav-link" href="#">rendez vous</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="../back/livraison.html">livraisons</a>
+                                            <a class="nav-link" href="../../back/livraison.php">livraisons</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="../back/gestion medicaments.html">medicaments</a>
+                                            <a class="nav-link" href="../../back/gestion medicaments.php">medicaments</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="#">ordonances</a>
