@@ -1,3 +1,12 @@
+
+<?PHP
+require_once "../front/controller/medicamentcontroller.php";
+
+$MED=new medicamentcontroller();
+$liste=$MED->affichermedicament();
+
+
+?>
 <!doctype html>
 <html lang="en">
 
@@ -15,7 +24,8 @@
     <link rel="stylesheet" href="assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
     <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
-    <title>Concept - Bootstrap 4 Admin Dashboard Template</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <title>pick Medico</title>
 </head>
 
 <body>
@@ -39,53 +49,7 @@
                                 <input class="form-control" type="text" placeholder="Search..">
                             </div>
                         </li>
-                        <li class="nav-item dropdown notification">
-                            <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span class="indicator"></span></a>
-                            <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
-                                <li>
-                                    <div class="notification-title"> Notification</div>
-                                    <div class="notification-list">
-                                        <div class="list-group">
-                                            <a href="#" class="list-group-item list-group-item-action active">
-                                                <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img src="assets/images/avatar-2.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Jeremy Rakestraw</span>accepted your invitation to join the team.
-                                                        <div class="notification-date">2 min ago</div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="#" class="list-group-item list-group-item-action">
-                                                <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img src="assets/images/avatar-3.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">John Abraham </span>is now following you
-                                                        <div class="notification-date">2 days ago</div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="#" class="list-group-item list-group-item-action">
-                                                <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img src="assets/images/avatar-4.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Monaan Pechi</span> is watching your main repository
-                                                        <div class="notification-date">2 min ago</div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="#" class="list-group-item list-group-item-action">
-                                                <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img src="assets/images/avatar-5.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Jessica Caruso</span>accepted your invitation to join the team.
-                                                        <div class="notification-date">2 min ago</div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="list-footer"> <a href="#">View all notifications</a></div>
-                                </li>
-                            </ul>
-                        </li>
+                       
                         <li class="nav-item dropdown connection">
                             <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-fw fa-th"></i> </a>
                             <ul class="dropdown-menu dropdown-menu-right connection-dropdown">
@@ -157,13 +121,13 @@
                                 <div id="submenu-1" class="collapse submenu" >
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="../front/view/patients.php">patients</a>
+                                            <a class="nav-link" href="../front/view/patients.php">Patients</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">medecins</a>
+                                            <a class="nav-link" href="#">Medecins</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">admins</a>
+                                            <a class="nav-link" href="#">Admins</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -173,76 +137,31 @@
                                 <div id="submenu-2" class="collapse submenu" >
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">blogs <span class="badge badge-secondary">New</span></a>
+                                            <a class="nav-link" href="#">Blogs <span class="badge badge-secondary">New</span></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">medecins</a>
+                                            <a class="nav-link" href="#">Medecins</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">reclamations</a>
+                                            <a class="nav-link" href="#">Reclamations</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">rendez vous</a>
+                                            <a class="nav-link" href="#">Rendez vous</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="livraison.php">livraisons</a>
+                                            <a class="nav-link" href="livraison.php">Livraisons</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="gestion medicaments.php">medicaments</a>
+                                            <a class="nav-link" href="gestion medicaments.php">Medicaments</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">ordonances</a>
+                                            <a class="nav-link" href="#">Ordonnance</a>
                                         </li>
                                     </ul>
                                 </div>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3"><i class="fas fa-fw fa-chart-pie"></i>Chart</a>
-                                <div id="submenu-3" class="collapse submenu" >
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">C3 Charts</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#l">Chartist Charts</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Chart</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Morris</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Sparkline</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Guage</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-4" aria-controls="submenu-4"><i class="fab fa-fw fa-wpforms"></i>Forms</a>
-                                <div id="submenu-4" class="collapse submenu">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Form Elements</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Parsely Validations</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Multiselect</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Date Picker</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Bootstrap Select</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
+                           
+                           
                             <li class="nav-item">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class="fas fa-fw fa-table"></i>Tables</a>
                                 <div id="submenu-5" class="collapse submenu" >
@@ -280,79 +199,33 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">admin pannel</h2>
+                            <h2 class="pageheader-title">Medicament</h2>
                             <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">admin pannel</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Medicament pannel</li>
                                     </ol>
                                 </nav>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- end pageheader  -->
-                <!-- ============================================================== -->
-
-                <!-- ============================================================== -->
-
-                <!-- ============================================================== -->
-
-                <!-- recent orders  -->
-                <!-- ============================================================== -->
-
-                <!-- ============================================================== -->
-                <!-- end recent orders  -->
-
-
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- customer acquistion  -->
-                <!-- ============================================================== -->
-
-                <!-- ============================================================== -->
-                <!-- end product category  -->
-                <!-- product sales  -->
-                <!-- ============================================================== -->
-
-                <!-- ============================================================== -->
-                <!-- end product sales  -->
-                <!-- ============================================================== -->
-
-                <!-- ============================================================== -->
-                <!-- total revenue  -->
-                <!-- ============================================================== -->
-
-
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- category revenue  -->
-                <!-- ============================================================== -->
-
-                <!-- end category revenue  -->
-                <!-- ============================================================== -->
-
-
-                <!-- ============================================================== -->
-                <!-- footer -->
-                <!-- ============================================================== -->
                 <div class="footer">
                     <div class="container-fluid">
 
 
 
                         <div class="card">
-                            <h5 class="card-header">stock</h5>
-                            <td colspan="9"><a href="ajout med.php" class="btn btn-outline-light float-right">ajouter</a></td>
+                            <h5 class="card-header">STOCK</h5>
+                            <td colspan="9"><a href="ajout med.php" class="btn btn-outline-light float-right"><i class="fas fa-plus"></i></a></td>
                             <div class="card-body p-0">
                                 <div class="table-responsive">
                                     <table class="table">
                                         <thead class="bg-light">
                                             <tr class="border-0">
-                                                <th class="border-0">#</th>
+                                               
                                                 <th class="border-0">Image</th>
                                                 <th class="border-0">Nom de produit</th>
                                                 <th class="border-0">Id</th>
@@ -364,88 +237,26 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        <?php foreach($liste as $CLient) { ?>
                                             <tr>
                                                 <td>1</td>
                                                 <td>
                                                     <div class="m-r-10"><img src="assets/images/product-pic.jpg" alt="user" class="rounded" width="45"></div>
                                                 </td>
-                                                <td>Product #1 </td>
-                                                <td>id000001 </td>
-                                                <td><input type='number'></td>
-                                                <td><input type='text'></td>
-
-
-
-                                                <td>
-                                                    <label class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" name="radio-inline" checked="" class="custom-control-input"><span class="custom-control-label">avec ordonnance</span>
-                                    </label>
-                                                    <label class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" name="radio-inline" class="custom-control-input"><span class="custom-control-label">sans ordonnance</span>
-                                    </label></td>
+                                               
+                                                <td><?PHP echo $CLient['idMedicament']; ?></td>
+                                                <td><?PHP echo $CLient['quantite']; ?></td>
+                                                <td><?PHP echo $CLient['prix']; ?></td>
+                                                <td><?PHP echo $CLient['typeClient']?> </td>
+                                   
                                                 <td colspan="9"><a href="#" class="btn btn-outline-light float-right">supprimer</a></td>
                                             </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>
-                                                    <div class="m-r-10"><img src="assets/images/product-pic-2.jpg" alt="user" class="rounded" width="45"></div>
-                                                </td>
-                                                <td>Product #2 </td>
-                                                <td>id000002 </td>
-                                                <td><input type='number'></td>
-                                                <td><input type='text'></td>
-
-                                                <td>
-                                                    <label class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" name="radio-inline1" checked="" class="custom-control-input"><span class="custom-control-label">avec ordonnance</span>
-                                    </label>
-                                                    <label class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" name="radio-inline1" class="custom-control-input"><span class="custom-control-label">sans ordonnance</span>
-                                    </label>
-                                                </td>
-                                                <td colspan="9"><a href="#" class="btn btn-outline-light float-right">supprimer</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>
-                                                    <div class="m-r-10"><img src="assets/images/product-pic-3.jpg" alt="user" class="rounded" width="45"></div>
-                                                </td>
-                                                <td>Product #3 </td>
-                                                <td>id000003 </td>
-                                                <td><input type='number'></td>
-                                                <td><input type='text'></td>
-
-                                                <td>
-                                                    <label class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" name="radio-inline2" checked="" class="custom-control-input"><span class="custom-control-label">avec ordonnance</span>
-                                    </label>
-                                                    <label class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" name="radio-inline2" class="custom-control-input"><span class="custom-control-label">sans ordonnance</span>
-                                    </label></td>
-                                                <td colspan="9"><a href="#" class="btn btn-outline-light float-right">supprimer</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>
-                                                    <div class="m-r-10"><img src="assets/images/product-pic-4.jpg" alt="user" class="rounded" width="45"></div>
-                                                </td>
-                                                <td>Product #4 </td>
-                                                <td>id000004 </td>
-                                                <td><input type='number'></td>
-                                                <td><input type='text'></td>
-
-                                                <td>
-                                                    <label class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" name="radio-inline3" checked="" class="custom-control-input"><span class="custom-control-label">avec ordonnance</span>
-                                    </label>
-                                                    <label class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" name="radio-inline3" class="custom-control-input"><span class="custom-control-label">sans ordonnance</span>
-                                    </label></td>
-                                                <td colspan="9"><a href="#" class="btn btn-outline-light float-right">supprimer</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="9"><a href="#" class="btn btn-outline-light float-right">View Details</a></td>
-                                            </tr>
+                                           
+                                           
+                                         
+                                            <?PHP
+                                              }
+                                              ?>
                                         </tbody>
                                     </table>
                                 </div>

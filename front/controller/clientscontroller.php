@@ -56,6 +56,7 @@ class clientcontroller
             die('Erreur: '.$e->getMessage());
         }
     }  
+   
     function modifierClient($Cli, $idClient){
         try {
             
@@ -88,8 +89,13 @@ class clientcontroller
     function connexionAccount($Email,$Password) {
         $sql="SELECT * FROM client WHERE emailClient='" . $Email ."' and Password = '". $Password."'";
         $db = config::getConnexion();
+        
+        
+
         try {
             $query=$db->prepare($sql);
+
+            
             $query->execute();
             $count=$query->rowCount();
             if($count==0)
@@ -99,6 +105,12 @@ class clientcontroller
             else { 
                 $x = $query->fetch();
                 $message = $x['role'];
+              
+
+             session_start(); 
+    $_SESSION['idClient']= $x['idClient'];
+    $_SESSION['nom']=$x['nomClient'];
+    
             }
         }            catch (Exception $e)
         {
@@ -106,19 +118,7 @@ class clientcontroller
             }
             return $message;
     }
-    function afficherusername($Email){
-
-        $sql="SELECT nomClient FROM client WHERE emailClient='" . $Email ."' ";
-        $db = config::getConnexion();
-        try{
-            $liste = $db->query($sql);
-            return $liste;
-        }
-        catch (Exception $e){
-            die('Erreur: '.$e->getMessage());
-        }
-    
-    }
+  
      
  
 }

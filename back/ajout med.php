@@ -35,27 +35,27 @@
     <!-- ============================================================== -->
     <!-- signup form  -->
     <!-- ============================================================== -->
-    <form class="splash-container">
+    <form class="splash-container" action="../front/view/ajouterMedicament.php" method="POST">
         <div class="card">
             <div class="card-header">
                 <h3 class="mb-1">Ajout medicaments</h3>
             </div>
             <div class="card-body">
                 <div class="form-group">
-                    <input class="form-control form-control-lg" type="text" name="nick" required="" placeholder="nom medicament" autocomplete="off">
+                    <input class="form-control form-control-lg" type="text" name="nomMedicament" required="" placeholder="nom medicament" autocomplete="off">
                 </div>
                 <div class="form-group">
-                    <input class="form-control form-control-lg" type="number" name="email" required="" placeholder="quantité" autocomplete="off">
+                    <input class="form-control form-control-lg" type="number" name="quantite" required="" placeholder="quantité" autocomplete="off">
                 </div>
                 <div class="form-group">
-                    <input class="form-control form-control-lg" id="pass1" type="text" required="" placeholder="prix">
+                    <input class="form-control form-control-lg" id="pass1" type="text" name="prix" required="" placeholder="prix">
                 </div>
                 			<td>
                               <label class="custom-control custom-radio custom-control-inline">
-                                                <input type="radio" name="radio-inline" checked="" class="custom-control-input"><span class="custom-control-label">avec ordonnance</span>
+                                                <input type="radio" name="typeMedicament"  value="avec ordonnance"checked="" class="custom-control-input"><span class="custom-control-label">avec ordonnance</span>
                                             </label>
                                             <label class="custom-control custom-radio custom-control-inline">
-                                                <input type="radio" name="radio-inline" class="custom-control-input"><span class="custom-control-label">sans ordonnance</span>
+                                                <input type="radio" name="typeMedicament"value="sans ordonnance" class="custom-control-input"><span class="custom-control-label">sans ordonnance</span>
                                             </label></td>
 											
                 <div class="form-group pt-2">
@@ -63,7 +63,7 @@
                 
                 <p>photo de medicament.</p>
             </div>
-                   <td><input type='file'></td>
+                   <td><input type='file' name="imgMedicament"></td>
                 </div>
                 <div class="form-group pt-2">
                     <button class="btn btn-block btn-primary" type="submit">ajouter medicament</button>

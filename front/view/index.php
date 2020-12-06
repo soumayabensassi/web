@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en"><!-- Basic -->
 <head>
