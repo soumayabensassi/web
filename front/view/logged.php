@@ -14,7 +14,7 @@
                 <div class="dropdown">
                     <ul>
                       <li><a href="#"><br><i class="fas fa-user"></i>Profile</a></li>
-                      
+                      <li><a href="#"><br><i class="fas fa-shopping-basket"></i> Panier</a></li>
                       <li><a href="signout.php"><i class="fas fa-sign-out-alt"></i>Signout</a></li>
                   </ul>
                 </div>
