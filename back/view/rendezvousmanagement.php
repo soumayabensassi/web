@@ -1,3 +1,12 @@
+<?PHP
+include_once "../controller/rendezvouscontroller.php";
+
+$admin=new rendezvouscontroller();
+$liste=$admin->afficherrendezvous();
+
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -119,7 +128,7 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown nav-user">
-                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"></a>
+                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"></a>
                             <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
                                 <div class="nav-user-info">
                                     <h5 class="mb-0 text-white nav-user-name">John Abraham </h5>
@@ -157,7 +166,7 @@
                                 <div id="submenu-1" class="collapse submenu" >
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="../front/view/patients.php">Patients</a>
+                                            <a class="nav-link" href="../../front/view/patients.php">Patients</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="doctor-finder.php">Medecins</a>
@@ -176,7 +185,7 @@
                                             <a class="nav-link" href="blog manegment.php">Blogs <span class="badge badge-secondary">New</span></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Medecins</a>
+                                            <a class="nav-link" href="doctor-finder.php">Medecins</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="reclamationmanagement.php">Réclamations</a>
@@ -250,37 +259,123 @@
     <div class="dashboard-wrapper">
         <div class="dashboard-ecommerce">
             <div class="container-fluid dashboard-content ">
+            <div class="container-fluid dashboard-content ">
                 <!-- ============================================================== -->
-                <!-- pageheader  -->
+                <!-- end pageheader  -->
                 <!-- ============================================================== -->
-                <div class="row">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <div class="page-header">
-                            <h2 class="pageheader-title">admin pannel</h2>
-                            <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
-                            <div class="page-breadcrumb">
-                                <nav aria-label="breadcrumb">
-                                    <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">admin pannel</li>
-                                    </ol>
-                                </nav>
-                               
+
+                <!-- ============================================================== -->
+
+                <!-- ============================================================== -->
+
+                <!-- recent orders  -->
+                <!-- ============================================================== -->
+
+                <!-- ============================================================== -->
+                <!-- end recent orders  -->
+
+
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- customer acquistion  -->
+                <!-- ============================================================== -->
+
+                <!-- ============================================================== -->
+                <!-- end product category  -->
+                <!-- product sales  -->
+                <!-- ============================================================== -->
+
+                <!-- ============================================================== -->
+                <!-- end product sales  -->
+                <!-- ============================================================== -->
+
+                <!-- ============================================================== -->
+                <!-- total revenue  -->
+                <!-- ============================================================== -->
+
+
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- category revenue  -->
+                <!-- ============================================================== -->
+
+                <!-- end category revenue  -->
+                <!-- ============================================================== -->
+
+
+                <!-- ============================================================== -->
+                <!-- footer -->
+                <!-- ============================================================== -->
+                <div class="footer">
+                    <div class="container-fluid">
+
+
+
+                        <div class="card">
+                            <h5 class="card-header">les rendezvouss</h5>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class="bg-light">
+                                            <tr class="border-0">
+                                                <th class="border-0">Id</th>
+                                                <th class="border-0">Nom </th>
+                                                <th class="border-0">penom </th>
+                                                <th class="border-0">email</th>
+                                                <th class="border-0">date</th>
+                                                <th class="border-0">heure</th>
+                                                <th class="border-0">docteur</th>
+                                                <th class="border-0">accepter</th>
+                                                <th class="border-0">supprimer</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                  
+                                            <?php foreach($liste as $rendezvous) { ?>
+                                            <tr>
+                                                   
+                                                   
+                                                   <td><?PHP echo $rendezvous['id_rendezvous']; ?></td> 
+                                                   <td><?PHP echo $rendezvous['nom']; ?></td>
+                                                   <td><?PHP echo $rendezvous['prenom']; ?></td>
+                                                   <td><?PHP echo $rendezvous['email']; ?></td>
+                                                   <td><?PHP echo $rendezvous['date']; ?></td>
+                                                   <td><?PHP echo $rendezvous['heure']; ?></td>
+                                                   <td><?PHP echo $rendezvous['doctor']; ?></td> 
+                                                   <td>
+                                                   <input type="submit" class="btn btn-outline-light float" value="accepter" name="accepter">
+                                                    </td>
+                                                    <td> 
+                                                        <form method="POST" action="deleterendezvous.php">
+                                                        <input type="submit" class="btn btn-outline-light float" value="delete" name="delete">
+                                                   <input type="hidden" value=<?PHP echo $rendezvous['id_rendezvous']; ?> name="id_rendezvous">
+                                                   </form>
+                                                    </td>
+                                                   
+                                            </tr><?PHP
+                                        }?>
+
+                                                <tr>
+                                                    <td colspan="9"><a href="#" class="btn btn-outline-light float-right">View Details</a></td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-                            
                         </div>
+
                     </div>
-                  
                 </div>
                 <!-- ============================================================== -->
-                <img src="../assets/images/1.png">
+                <!-- end footer -->
+                <!-- ============================================================== -->
             </div>
-            
             <!-- ============================================================== -->
             <!-- end wrapper  -->
             <!-- ============================================================== -->
         </div>
-        
         <!-- ============================================================== -->
         <!-- end main wrapper  -->
         <!-- ============================================================== -->
@@ -290,7 +385,7 @@
         <!-- bootstap bundle js -->
         <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
         <!-- slimscroll js -->
-        <script src="../assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+        <script src="../vassets/vendor/slimscroll/jquery.slimscroll.js"></script>
         <!-- main js -->
         <script src="../assets/libs/js/main-js.js"></script>
         <!-- chart chartist js -->

@@ -123,7 +123,7 @@
                         <div class="well-title">
                             <h2>Prendre un Rendez-vous</h2>
                         </div>
-                        <form>
+                        <form name="f" action="ajouterrendezvous.php" method="POST">
                             <!-- Form start -->
                             <div class="row">
                                 <div class="col-md-6">

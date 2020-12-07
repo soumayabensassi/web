@@ -121,10 +121,10 @@ $liste=$blog->afficherblog();
                                 <div id="submenu-1" class="collapse submenu" >
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="../front/view/patients.php">Patients</a>
+                                            <a class="nav-link" href="../../front/view/patients.php">Patients</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Medecins</a>
+                                            <a class="nav-link" href="doctor-finder.php">Medecins</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="#">Admins</a>
@@ -140,13 +140,13 @@ $liste=$blog->afficherblog();
                                             <a class="nav-link" href="#">Blogs <span class="badge badge-secondary">New</span></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Medecins</a>
+                                            <a class="nav-link" href="doctor-finder.php">Medecins</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Reclamations</a>
+                                            <a class="nav-link" href="reclamationmanagement.php">Reclamations</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Rendez vous</a>
+                                            <a class="nav-link" href="rendezvousmanagement.php">Rendez vous</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="livraison.php">Livraisons</a>

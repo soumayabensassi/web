@@ -32,4 +32,21 @@ class reclamationcontroller
      }
 
 
+    function afficherreclamation(){
+
+        $sql="SELECT * FROM reclamation";
+        $db = config::getConnexion();
+        try{
+            $liste = $db->query($sql);
+            return $liste;
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+    
+       }
+     
+
+
+     
 }
