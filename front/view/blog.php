@@ -1,3 +1,12 @@
+<?PHP
+include_once "../../back/controller/blogscontroller.php";
+
+$blog=new blogcontroller();
+$liste=$blog->afficherblog();
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en"><!-- Basic -->
 <head>
@@ -112,7 +121,7 @@ if (empty($_SESSION['m_un'])) {?>
 	</header>
     <!-- End header -->
    <!-- Start Blog -->
-	<div id="blog" class="blog-box">
+   <div id="blog" class="blog-box">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
@@ -121,54 +130,28 @@ if (empty($_SESSION['m_un'])) {?>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
 					</div>
 				</div>
-			</div>
-			<div class="row">
+            </div>
+            <div class="row">
+			<?php foreach($liste as $blog) { ?>
+			
 				<div class="col-lg-4 col-md-6 col-sm-12">
 					<div class="blog-inner">
 						<div class="blog-img">
 							<img class="img-fluid" src="../assets/images/blog-img-01.jpg" alt="" />
 						</div>
 						<div class="item-meta">
-							<a href="#"><i class="fab fa-comments-o"></i> 5 Comment </a>
-							<a href="#"><i class="fab fa-user-o"></i> Admin</a>
-							<span class="dti">25 July 2018</span>
+							
+							<a href="#"><i class="fas fa-user"></i><?PHP echo $blog['nom']; ?></a>
+							<span class="dti"><?PHP echo $blog['date']; ?></span>
 						</div>
-						<h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard </p>
+						<h2><?PHP echo $blog['nomarticle']; ?></h2>
+						
 						<a class="new-btn-d br-2" href="#">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
 					</div>
 				</div>
-				<div class="col-lg-4 col-md-6 col-sm-12">
-					<div class="blog-inner">
-						<div class="blog-img">
-							<img class="img-fluid" src="../assets/images/blog-img-02.jpg" alt="" />
-						</div>
-						<div class="item-meta">
-							<a href="#"><i class="fab fa-comments-o"></i> 5 Comment </a>
-							<a href="#"><i class="fab fa-user-o"></i> Admin</a>
-							<span class="dti">25 July 2018</span>
-						</div>
-						<h2>Proin vel sem ut lorem rhoncus lacinia. </h2>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard </p>
-						<a class="new-btn-d br-2" href="#">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-12">
-					<div class="blog-inner">
-						<div class="blog-img">
-							<img class="img-fluid" src="../assets/images/blog-img-03.jpg" alt="" />
-						</div>
-						<div class="item-meta">
-							<a href="#"><i class="fab fa-comments-o"></i> 5 Comment </a>
-							<a href="#"><i class="fab fa-user-o"></i> Admin</a>
-							<span class="dti">25 July 2018</span>
-						</div>
-						<h2>Aliquam egestas magna a malesuada rutrum. </h2>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard </p>
-						<a class="new-btn-d br-2" href="#">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-					</div>
-				</div>
-			</div>
+			
+            <?PHP }?>
+            </div>
 		</div>
 	</div>
 	<!-- End Blog -->
@@ -205,7 +188,7 @@ if (empty($_SESSION['m_un'])) {?>
                     </div>
                     <div class="media cont-line">
                         <div class="media-left icon-b">
-                            <i class="fa fa-volume-control-phone" aria-hidden="true"></i>
+                            <i class="fab fa-volume-control-phone" aria-hidden="true"></i>
                         </div>
                         <div class="media-body dit-right">
                             <h4>Phone Number</h4>

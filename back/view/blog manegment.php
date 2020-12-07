@@ -1,9 +1,9 @@
 
 <?PHP
-require_once "../controller/medicamentcontroller.php";
+include_once "../controller/blogscontroller.php";
 
-$MED=new medicamentcontroller();
-$liste=$MED->affichermedicament();
+$blog=new blogcontroller();
+$liste=$blog->afficherblog();
 
 
 ?>
@@ -137,7 +137,7 @@ $liste=$MED->affichermedicament();
                                 <div id="submenu-2" class="collapse submenu" >
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="blog manegment.php">Blogs <span class="badge badge-secondary">New</span></a>
+                                            <a class="nav-link" href="#">Blogs <span class="badge badge-secondary">New</span></a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="#">Medecins</a>
@@ -196,80 +196,61 @@ $liste=$MED->affichermedicament();
                 <!-- ============================================================== -->
                 <!-- pageheader  -->
                 <!-- ============================================================== -->
-                <div class="row">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <div class="page-header">
-                            <h2 class="pageheader-title">Medicament</h2>
-                            <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
-                            <div class="page-breadcrumb">
-                                <nav aria-label="breadcrumb">
-                                    <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Medicament pannel</li>
-                                    </ol>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+               
                 <div class="footer">
                     <div class="container-fluid">
 
-
-
-                        <div class="card">
-                            <h5 class="card-header">STOCK</h5>
-                            <td colspan="9"><a href="ajout med.php" class="btn btn-outline-light float-right"><i class="fas fa-plus"></i></a></td>
-                            <div class="card-body p-0">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead class="bg-light">
-                                            <tr class="border-0">
-                                               
-                                                <th class="border-0">Image</th>
-                                                <th class="border-0">Nom de produit</th>
-                                                <th class="border-0">Id</th>
-                                                <th class="border-0">Qantité</th>
-                                                <th class="border-0">Prix</th>
-                                                <th class="border-0">Status</th>
-                                                <th class="border-0">Supprimer</th>
-                                                <th class="border-0">Modifier</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        <?php foreach($liste as $MED) { ?>
+                    <div class="col-xl-9 col-lg-12 col-md-6 col-sm-12 col-12">
+        <div class="card">
+            <h5 class="card-header">Blog</h5>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class="bg-light">
+                            <tr class="border-0">
+                            
+                                <th class="border-0">nom de medecin</th>
+                                <th class="border-0">id</th>
+                                <th class="border-0">nom d'article</th>
+                                <th class="border-0">date</th>
+                                <th class="border-0">supprimer</th>
+                                <th class="border-0">modifier</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <?php foreach($liste as $blog) { ?>
                                             <tr>
-                                               
-                                                <td>
-                                                    <?PHP $a=$MED['imgMedicament']; print"<img src='../assets/images/$a' >"?>
-                                                </td>
-                                                <td><?PHP echo $MED['nomMedicament']; ?></td>
-                                                <td><?PHP echo $MED['idMedicament']; ?></td>
-                                                <td><?PHP echo $MED['quantite']; ?></td>
-                                                <td><?PHP echo $MED['prix']; ?></td>
-                                                <td><?PHP echo $MED['typeMedicament']?> </td>
-                                   
-                                                <td >
+                                                   
+                                                   
+                                                   <td><?PHP echo $blog['nom']; ?></td> 
+                                                   <td><?PHP echo $blog['id']; ?></td>
+                                                   <td><?PHP echo $blog['nomarticle']; ?></td> 
+                                                   <td><?PHP echo $blog['date']; ?></td>
+                                                   
+                                                    <td> 
+                                                        <form method="POST" action="deleteblog.php">
+                                                        <input type="submit" name="supprimer" value="supprimer">
+                                                        <input type="hidden" value=<?PHP echo $blog['id']; ?> name="id">
+                                                        </form>
+                                                    </td>
+                                                    <td> 
+                                                    <a href="modifierblog.php?id=<?PHP echo $blog['id']; ?>">Modifier</a>
+                            </td>
                                                     
-                                                   <form method="POST" action="deleteMedicament.php">
-                                                      <input type="submit" name="supprimer"  class="btn btn-outline-light float-right" value="supprimer">
-                                                      <input type="hidden" value=<?PHP echo  $MED['idMedicament']; ?> name="idMedicament">
-                                                   </form>
-                                                
-                                                </td>
-                                                <td><a href="modifierMedicament.php?idMedicament=<?PHP echo $MED['idMedicament']; ?>" class="btn btn-outline-light float-right">Modifier</a></td>
-                                            </tr>
-                                           
-                                           
-                                         
-                                            <?PHP
-                                              }
-                                              ?>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
+                                            </tr><?PHP
+                                        }?>
+                            <tr>
+                            <td colspan="9"><a href="ajoutblog.php" class="btn btn-outline-light float-right">add blogs</a></td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
                     </div>
                 </div>

@@ -5,15 +5,19 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../assets/css/styles/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/styles/fv.css" type="text/css" />
+
+    
     
     
     <title>Acheter Maintenant </title>
 </head>
 
 <body>
+
 
         <div class="dashboard-wrapper">
             <div class="dashboard-ecommerce">
@@ -42,7 +46,6 @@
                     <!-- ============================================================== -->
                     <!-- end pageheader  -->
                     <!-- ============================================================== -->
-                    <script src="../assets/js/test.js"></script>
                     <div class="row">
                         <div class="offset-xl-2 col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="row">
@@ -52,47 +55,66 @@
                                             <h4 class="mb-0">Adresse de facturation</h4>
                                         </div>
                                         <div class="card-body">
-                                            <form class="needs-validation" novalidate="">
+                                            <form action="" method="post" class="needs-validation" novalidate="">
+                                                <fieldset>
                                                 <div class="row">
+                                                    <div class="item">
                                                     <div class="col-md-6 mb-3">
-                                                        <label for="firstName">Nom</label>
-                                                        <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
                                                         
+                                                        <label> <span>Nom</span>
+                                                        <input type="text" class="form-control" id="firstName" placeholder="" value="" required="required">
+                                                    </label>
                                                     </div>
+        
+                                                       </div>
+                                                       <div class="item">
                                                     <div class="col-md-6 mb-3">
-                                                        <label for="lastName">Prénom</label>
-                                                        <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
-                                                        
+                                                        <label> <span>Prenom</span>
+                                                        <input   type="text" class="form-control" id="lastName" placeholder="" value="" required="required">
+                                                    </label>
                                                     </div>
                                                 </div>
-                                                <div class="mb-3">
+                                                </div>
+                                                <div class="item">
+                                                <div class="col-md-6 mb-3">
                                                     <label for="username">Nom d'utilisateur</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text">@</span>
                                                         </div>
-                                                        <input type="text" class="form-control" id="username" placeholder="Nom d'utilisateur" required="">
-                                                        
+                                                        <input type="text" class="form-control" id="username" placeholder="Nom d'utilisateur" required="required">
+                                                    </label> 
                                                     </div>
                                                 </div>
+                                                </div>
+                                                <div class="item">
                                                 <div class="mb-3">
                                                     <label for="email">Email </label>
-                                                    <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                                                    <input type="email" class="form-control" id="email"  placeholder="you@example.com" required="required">
                                                    
                                                 </div>
+                                                </div>
+                                                
+                                                <div class="item">
                                                 <div class="mb-3">
                                                     <label for="address">Adresse</label>
-                                                    <input type="text" class="form-control" id="address" placeholder="x rue XXXX" required="">
+                                                    <input type="text" class="form-control" id="address" placeholder="x rue XXXX" required="required">
                                                     
                                                 </div>
+                                                </div>
+
+                                                <div class="item">
                                                 <div class="mb-3">
                                                     <label for="address2">Adresse 2 <span class="text-muted">(Optionnel)</span></label>
-                                                    <input type="text" class="form-control" id="address2" placeholder="Appartement ou suite">
+                                                    
+                                                    <input type="text" class="form-control" id="address2" placeholder="Appartement ou suite" required="required">
+                                                    </div>
                                                 </div>
                                                 <div class="row">
+                                                    <div class="item">
                                                     <div class="col-md-5 mb-3">
                                                         <label for="country">ville</label>
-                                                        <select class="custom-select d-block w-100" id="country" required="">
+                                                        <select class="required" class="custom-select d-block w-100" id="country" >
                                                             <option value="">Choisir...</option>
                                                             
                                                             <option>Tunis</option>
@@ -109,17 +131,20 @@
                                                             <option>Gabes</option>
                                                             <option>Kairoun</option>
                                                         </select>
-                                                      
+                                                        </div>
                                                     </div>
                                                     
                                                     
                                                 </div>
+                                                <div class="item">
                                                 <hr class="mb-4">
                                                 <div class="custom-control custom-checkbox">
                                                     <input type="checkbox" class="custom-control-input" id="same-address">
                                                     <label class="custom-control-label" for="same-address">L'adresse de livraison est la même que mon adresse de facturation</label>
                                                 </div>
-                                                
+                                                </div>
+
+                                                <div class="item">
                                                 <hr class="mb-4">
                                                 <h4 class="mb-3">Paiement</h4>
                                                 <div class="d-block my-3">
@@ -133,25 +158,35 @@
                                                     </div>
                                                    
                                                 </div>
+                                                </div>
+
                                                 <div class="row">
+                                                    <div class="item">
                                                     <div class="col-md-6 mb-3">
                                                         <label for="cc-name">Nom sur la carte</label>
                                                         <input type="text" class="form-control" id="cc-name" placeholder="" required="">
                                                         <small class="text-muted">Nom complet tel qu'affiché sur la carte</small>
                                                         
                                                     </div>
+                                                    </div>
+                                                    <div class="item">
                                                     <div class="col-md-6 mb-3">
                                                         <label for="cc-number">Numéro de Carte </label>
-                                                        <input type="text" class="form-control" id="cc-number" placeholder="" required="">
+                                                        <input  type="number" class="form-control" id="cc-number" placeholder="" required="">
                                                       
+                                                    </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
+                                                    <div class="item">
                                                     <div class="col-md-3 mb-3">
                                                         <label for="cc-expiration">Expiration</label>
-                                                        <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
+                                                        <input type="number" class="form-control" id="cc-expiration" placeholder="" required="">
                                                        
                                                     </div>
+                                                    </div>
+
+                                                    <div class="item">
                                                     <div class="col-md-3 mb-3">
                                                         <label for="cc-cvv">CVV</label>
                                                         <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
@@ -159,13 +194,15 @@
                                                             Security code required
                                                         </div>
                                                     </div>
+                                                    </div>
                                                 </div>
                                                <!-- <hr class="mb-4">
                                                 <h4 class="mb-3">Déposer l'odonnance</h4>
                                                 <div class="col-md-3 mb-3">
                                                 <input type = "file" name = "ordonnance" ></div>-->
+                                            </fieldset>
                                                 <hr class="mb-4">
-                                                <button class="btn btn-primary btn-lg btn-block" type="submit" onclick="verif_achatmed();">Acheter Maintenant</button>
+                                                <button class="btn btn-primary btn-lg btn-block" type="submit">Acheter Maintenant</button>
                                             </form>
                                         </div>
                                     </div>
@@ -183,7 +220,7 @@
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="multifield.js"></script>
+  
     <script src="../assets/js/validator.js"></script>
 	<script>
 		// initialize the validator function
@@ -229,6 +266,7 @@
 				$('form .alert').remove();
 		}).prop('checked',false);
 	</script>
+    
 </body>
 
  

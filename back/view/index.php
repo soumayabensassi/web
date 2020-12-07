@@ -173,7 +173,7 @@
                                 <div id="submenu-2" class="collapse submenu" >
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Blogs <span class="badge badge-secondary">New</span></a>
+                                            <a class="nav-link" href="blog manegment.php">Blogs <span class="badge badge-secondary">New</span></a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="#">Medecins</a>
