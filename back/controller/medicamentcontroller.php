@@ -63,22 +63,23 @@ class medicamentcontroller
             $db = config::getConnexion();
             $query = $db->prepare(
                 'UPDATE medicament SET 
-                    nomMedicament=:nomMedicament, 
-                    quantite=:quantite,
-                    prix=:prix,
-                    typeMedicament=:typeMedicament,
-                    imgMedicament=:imgMedicament
+                    nomMedicament= :nomMedicament, 
+                    quantite= :quantite,
+                    prix= :prix,
+                    typeMedicament= :typeMedicament,
+                    imgMedicament= :imgMedicament
     
     
                 WHERE idMedicament= :idMedicament'
             );
          
             $query->execute([
-                'nom9edicament'=>$Med->getNom(),
+                'nomMedicament'=>$Med->getNom(),
                'quantite'=>$Med->getQuantite(),
                'prix'=>$Med->getPrix(),
                'typeMedicament'=>$Med->getTypeMedicament(),
                'imgMedicament'=>$Med->getImgMedicament(),
+
                'idMedicament'=>$idMedicament   
                ]
 );

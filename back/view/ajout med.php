@@ -5,12 +5,12 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Concept - Bootstrap 4 Admin Dashboard Template</title>
+    <title>Pick Medico</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/libs/css/style.css">
-    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/libs/css/style.css">
+    <link rel="stylesheet" href="../assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
     <style>
     html,
     body {
@@ -35,7 +35,7 @@
     <!-- ============================================================== -->
     <!-- signup form  -->
     <!-- ============================================================== -->
-    <form class="splash-container" action="../front/view/ajouterMedicament.php" method="POST">
+    <form class="splash-container" action="ajouterMedicament.php" method="POST">
         <div class="card">
             <div class="card-header">
                 <h3 class="mb-1">Ajout medicaments</h3>
@@ -61,7 +61,7 @@
                 <div class="form-group pt-2">
 				<div class="card-header">
                 
-                <p>photo de medicament.</p>
+               photo de medicament
             </div>
                    <td><input type='file' name="imgMedicament"></td>
                 </div>

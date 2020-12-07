@@ -9,6 +9,6 @@ include_once "../controller/medicamentcontroller.php";
        $imgMedicament= $_POST['imgMedicament'];
 $Med=new medicamentcontroller();
 $Med->ajoutermedicament($nomMedicament,$quantite,$prix,$typeMedicament,$imgMedicament);
-header('Location:../../back/gestion medicaments.php');
+header('Location:gestion medicaments.php');
 
 ?>

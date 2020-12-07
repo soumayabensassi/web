@@ -6,16 +6,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/libs/css/style.css">
-    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
-    <link rel="stylesheet" href="assets/vendor/charts/chartist-bundle/chartist.css">
-    <link rel="stylesheet" href="assets/vendor/charts/morris-bundle/morris.css">
-    <link rel="stylesheet" href="assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
-    <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
-    <title>Concept - Bootstrap 4 Admin Dashboard Template</title>
+    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/libs/css/style.css">
+
+    
+  
+   
+    
+    
+    <title>Pick Medico</title>
 </head>
 
 <body>
@@ -28,7 +28,7 @@
         <!-- ============================================================== -->
         <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <a class="navbar-brand" href="index.php">PICK MEDICO</a>
+                <a class="navbar-brand" href="index.php">Pick Medico</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -48,7 +48,7 @@
                                         <div class="list-group">
                                             <a href="#" class="list-group-item list-group-item-action active">
                                                 <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img src="assets/images/avatar-2.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-2.jpg" alt="" class="user-avatar-md rounded-circle"></div>
                                                     <div class="notification-list-user-block"><span class="notification-list-user-name">Jeremy Rakestraw</span>accepted your invitation to join the team.
                                                         <div class="notification-date">2 min ago</div>
                                                     </div>
@@ -56,7 +56,7 @@
                                             </a>
                                             <a href="#" class="list-group-item list-group-item-action">
                                                 <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img src="assets/images/avatar-3.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-3.jpg" alt="" class="user-avatar-md rounded-circle"></div>
                                                     <div class="notification-list-user-block"><span class="notification-list-user-name">John Abraham </span>is now following you
                                                         <div class="notification-date">2 days ago</div>
                                                     </div>
@@ -64,7 +64,7 @@
                                             </a>
                                             <a href="#" class="list-group-item list-group-item-action">
                                                 <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img src="assets/images/avatar-4.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-4.jpg" alt="" class="user-avatar-md rounded-circle"></div>
                                                     <div class="notification-list-user-block"><span class="notification-list-user-name">Monaan Pechi</span> is watching your main repository
                                                         <div class="notification-date">2 min ago</div>
                                                     </div>
@@ -72,7 +72,7 @@
                                             </a>
                                             <a href="#" class="list-group-item list-group-item-action">
                                                 <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img src="assets/images/avatar-5.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-5.jpg" alt="" class="user-avatar-md rounded-circle"></div>
                                                     <div class="notification-list-user-block"><span class="notification-list-user-name">Jessica Caruso</span>accepted your invitation to join the team.
                                                         <div class="notification-date">2 min ago</div>
                                                     </div>
@@ -92,24 +92,24 @@
                                 <li class="connection-list">
                                     <div class="row">
                                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                            <a href="#" class="connection-item"><img src="assets/images/github.png" alt=""> <span>Github</span></a>
+                                            <a href="#" class="connection-item"><img src="../assets/images/github.png" alt=""> <span>Github</span></a>
                                         </div>
                                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                            <a href="#" class="connection-item"><img src="assets/images/dribbble.png" alt=""> <span>Dribbble</span></a>
+                                            <a href="#" class="connection-item"><img src="../assets/images/dribbble.png" alt=""> <span>Dribbble</span></a>
                                         </div>
                                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                            <a href="#" class="connection-item"><img src="assets/images/dropbox.png" alt=""> <span>Dropbox</span></a>
+                                            <a href="#" class="connection-item"><img src="../assets/images/dropbox.png" alt=""> <span>Dropbox</span></a>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                            <a href="#" class="connection-item"><img src="assets/images/bitbucket.png" alt=""> <span>Bitbucket</span></a>
+                                            <a href="#" class="connection-item"><img src="../assets/images/bitbucket.png" alt=""> <span>Bitbucket</span></a>
                                         </div>
                                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                            <a href="#" class="connection-item"><img src="assets/images/mail_chimp.png" alt=""><span>Mail chimp</span></a>
+                                            <a href="#" class="connection-item"><img src="../assets/images/mail_chimp.png" alt=""><span>Mail chimp</span></a>
                                         </div>
                                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                            <a href="#" class="connection-item"><img src="assets/images/slack.png" alt=""> <span>Slack</span></a>
+                                            <a href="#" class="connection-item"><img src="../assets/images/slack.png" alt=""> <span>Slack</span></a>
                                         </div>
                                     </div>
                                 </li>
@@ -157,13 +157,13 @@
                                 <div id="submenu-1" class="collapse submenu" >
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="../front/view/patients.php">patients</a>
+                                            <a class="nav-link" href="../front/view/patients.php">Patients</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">medecins</a>
+                                            <a class="nav-link" href="doctor-finder.php">Medecins</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">admins</a>
+                                            <a class="nav-link" href="#">Admins</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -179,16 +179,16 @@
                                             <a class="nav-link" href="#">Medecins</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Reclamations</a>
+                                            <a class="nav-link" href="gestionreclamation.php">Réclamations</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Rendez vous</a>
+                                            <a class="nav-link" href="#">Rendez-vous</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="livraison.php">Livraisons</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="gestion medicaments.html">Medicaments</a>
+                                            <a class="nav-link" href="gestion medicaments.php">Medicaments</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="#">Ordonances</a>
@@ -196,31 +196,7 @@
                                     </ul>
                                 </div>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3"><i class="fas fa-fw fa-chart-pie"></i>Chart</a>
-                                <div id="submenu-3" class="collapse submenu" >
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">C3 Charts</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Chartist Charts</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Chart</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Morris</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Sparkline</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Guage</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
+                           
                             <li class="nav-item ">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-4" aria-controls="submenu-4"><i class="fab fa-fw fa-wpforms"></i>Forms</a>
                                 <div id="submenu-4" class="collapse submenu" >
@@ -248,7 +224,7 @@
                                 <div id="submenu-5" class="collapse submenu" >
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">General Tables</a>
+                                            <a class="nav-link" href="#"></a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="#">Data Tables</a>
@@ -289,158 +265,46 @@
                                         <li class="breadcrumb-item active" aria-current="page">admin pannel</li>
                                     </ol>
                                 </nav>
+                               
                             </div>
+                            
                         </div>
                     </div>
+                  
                 </div>
                 <!-- ============================================================== -->
-                <!-- end pageheader  -->
-                <!-- ============================================================== -->
-
-                <!-- ============================================================== -->
-
-                <!-- ============================================================== -->
-
-                <!-- recent orders  -->
-                <!-- ============================================================== -->
-
-                <!-- ============================================================== -->
-                <!-- end recent orders  -->
-
-
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- customer acquistion  -->
-                <!-- ============================================================== -->
-
-                <!-- ============================================================== -->
-                <!-- end product category  -->
-                <!-- product sales  -->
-                <!-- ============================================================== -->
-
-                <!-- ============================================================== -->
-                <!-- end product sales  -->
-                <!-- ============================================================== -->
-
-                <!-- ============================================================== -->
-                <!-- total revenue  -->
-                <!-- ============================================================== -->
-
-
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- category revenue  -->
-                <!-- ============================================================== -->
-
-                <!-- end category revenue  -->
-                <!-- ============================================================== -->
-
-
-                <!-- ============================================================== -->
-                <!-- footer -->
-                <!-- ============================================================== -->
-                <div class="footer">
-                    <div class="container-fluid">
-
-
-
-                        <div class="card">
-                            <h5 class="card-header">les reclamations</h5>
-                            <div class="card-body p-0">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead class="bg-light">
-                                            <tr class="border-0">
-                                                <th class="border-0">#</th>
-                                                <th class="border-0">photo de profil</th>
-                                                <th class="border-0">Nom d'utilisateur</th>
-                                                <th class="border-0">Id</th>
-                                                <th class="border-0">role</th>
-                                                <th class="border-0">Temps</th>
-                                                <th class="border-0">reclamtion</th>
-                                                <th class="border-0">Status</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>
-                                                    <div class="m-r-10"><img src="assets/images/product-pic.jpg" alt="user" class="rounded" width="45"></div>
-                                                </td>
-                                                <td>seif </td>
-                                                <td>id000001 </td>
-                                                <td>medecin</td>
-                                                <td>27-08-2018 01:22:12</td>
-                                                <td><a href="#" class="btn btn-outline-light float">lire reclamation</a></td>
-                                                <td>
-                                                    <label class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" name="radio-inline" checked="" class="custom-control-input"><span class="custom-control-label">traiter</span>
-                                    </label>
-                                                    <label class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" name="radio-inline" class="custom-control-input"><span class="custom-control-label">en attente</span>
-                                    </label></td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>
-                                                    <div class="m-r-10"><img src="assets/images/product-pic-2.jpg" alt="user" class="rounded" width="45"></div>
-                                                </td>
-
-                                                <td>seif </td>
-                                                <td>id000001 </td>
-                                                <td>medecin</td>
-                                                <td>27-08-2018 01:22:12</td>
-                                                <td><a href="#" class="btn btn-outline-light float">lire reclamation</a></td>
-                                                <td>
-                                                    <label class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" name="radio-inline1" checked="" class="custom-control-input"><span class="custom-control-label">traiter</span>
-                                    </label>
-                                                    <label class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" name="radio-inline1" class="custom-control-input"><span class="custom-control-label">en attente</span>
-                                    </label></td>
-                                                <tr>
-                                                    <td colspan="9"><a href="#" class="btn btn-outline-light float-right">View Details</a></td>
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <!-- ============================================================== -->
-                <!-- end footer -->
-                <!-- ============================================================== -->
+                <img src="../assets/images/1.png">
             </div>
+            
             <!-- ============================================================== -->
             <!-- end wrapper  -->
             <!-- ============================================================== -->
         </div>
+        
         <!-- ============================================================== -->
         <!-- end main wrapper  -->
         <!-- ============================================================== -->
         <!-- Optional JavaScript -->
         <!-- jquery 3.3.1 -->
-        <script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+        <script src="../assets/vendor/jquery/jquery-3.3.1.min.js"></script>
         <!-- bootstap bundle js -->
-        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+        <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
         <!-- slimscroll js -->
-        <script src="assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+        <script src="../assets/vendor/slimscroll/jquery.slimscroll.js"></script>
         <!-- main js -->
-        <script src="assets/libs/js/main-js.js"></script>
+        <script src="../assets/libs/js/main-js.js"></script>
         <!-- chart chartist js -->
-        <script src="assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
+        <script src="../assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
         <!-- sparkline js -->
-        <script src="assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
+        <script src="../assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
         <!-- morris js -->
-        <script src="assets/vendor/charts/morris-bundle/raphael.min.js"></script>
-        <script src="assets/vendor/charts/morris-bundle/morris.js"></script>
+        <script src="../assets/vendor/charts/morris-bundle/raphael.min.js"></script>
+        <script src="../assets/vendor/charts/morris-bundle/morris.js"></script>
         <!-- chart c3 js -->
-        <script src="assets/vendor/charts/c3charts/c3.min.js"></script>
-        <script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
-        <script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
-        <script src="assets/libs/js/dashboard-ecommerce.js"></script>
+        <script src="../assets/vendor/charts/c3charts/c3.min.js"></script>
+        <script src="../assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
+        <script src="../assets/vendor/charts/c3charts/C3chartjs.js"></script>
+        <script src="../assets/libs/js/dashboard-ecommerce.js"></script>
 </body>
 
 </html>

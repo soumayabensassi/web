@@ -13,7 +13,8 @@
     
     <link rel="stylesheet" href="../assets/libs/css/style.css">
     
-    
+    <link  href="../assets/css/styles/error.css" rel="stylesheet">
+
 
    
     <style>
@@ -50,7 +51,9 @@
                 <p>Please enter your user information.</p>
             </div>
             <div class="card-body">
-            
+            <?php if (isset($_GET['error'])) { ?>
+                                        <p class="error"><?php echo $_GET['error']; ?></p>
+                                    <?php } ?>
                 <div class="form-group">
                     <input class="form-control form-control-lg" type="text" name="nick" required="" placeholder="Username" autocomplete="off">
                 </div>

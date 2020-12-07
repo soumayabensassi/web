@@ -9,12 +9,12 @@
     <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/libs/css/style.css">
-
-    
-  
-   
-    
-    
+    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="assets/vendor/charts/chartist-bundle/chartist.css">
+    <link rel="stylesheet" href="assets/vendor/charts/morris-bundle/morris.css">
+    <link rel="stylesheet" href="assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
+    <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
     <title>Pick Medico</title>
 </head>
 
@@ -28,7 +28,7 @@
         <!-- ============================================================== -->
         <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <a class="navbar-brand" href="index.php">Pick Medico</a>
+                <a class="navbar-brand" href="index.php">PICK MEDICO</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -157,13 +157,13 @@
                                 <div id="submenu-1" class="collapse submenu" >
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="../front/view/patients.php">Patients</a>
+                                            <a class="nav-link" href="../front/view/patients.php">patients</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="doctor-finder.php">Medecins</a>
+                                            <a class="nav-link" href="#">medecins</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Admins</a>
+                                            <a class="nav-link" href="#">admins</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -179,16 +179,16 @@
                                             <a class="nav-link" href="#">Medecins</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="gestionreclamation.php">Réclamations</a>
+                                            <a class="nav-link" href="#">Reclamations</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Rendez-vous</a>
+                                            <a class="nav-link" href="#">Rendez vous</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="livraison.php">Livraisons</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="gestion medicaments.php">Medicaments</a>
+                                            <a class="nav-link" href="gestion medicaments.html">Medicaments</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="#">Ordonances</a>
@@ -196,7 +196,31 @@
                                     </ul>
                                 </div>
                             </li>
-                           
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3"><i class="fas fa-fw fa-chart-pie"></i>Chart</a>
+                                <div id="submenu-3" class="collapse submenu" >
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">C3 Charts</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Chartist Charts</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Chart</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Morris</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Sparkline</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Guage</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
                             <li class="nav-item ">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-4" aria-controls="submenu-4"><i class="fab fa-fw fa-wpforms"></i>Forms</a>
                                 <div id="submenu-4" class="collapse submenu" >
@@ -224,7 +248,7 @@
                                 <div id="submenu-5" class="collapse submenu" >
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#"></a>
+                                            <a class="nav-link" href="#">General Tables</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="#">Data Tables</a>
@@ -265,22 +289,134 @@
                                         <li class="breadcrumb-item active" aria-current="page">admin pannel</li>
                                     </ol>
                                 </nav>
-                               
                             </div>
-                            
                         </div>
                     </div>
-                  
                 </div>
                 <!-- ============================================================== -->
-                <img src="assets/images/1.png">
+                <!-- end pageheader  -->
+                <!-- ============================================================== -->
+
+                <!-- ============================================================== -->
+
+                <!-- ============================================================== -->
+
+                <!-- recent orders  -->
+                <!-- ============================================================== -->
+
+                <!-- ============================================================== -->
+                <!-- end recent orders  -->
+
+
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- customer acquistion  -->
+                <!-- ============================================================== -->
+
+                <!-- ============================================================== -->
+                <!-- end product category  -->
+                <!-- product sales  -->
+                <!-- ============================================================== -->
+
+                <!-- ============================================================== -->
+                <!-- end product sales  -->
+                <!-- ============================================================== -->
+
+                <!-- ============================================================== -->
+                <!-- total revenue  -->
+                <!-- ============================================================== -->
+
+
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- category revenue  -->
+                <!-- ============================================================== -->
+
+                <!-- end category revenue  -->
+                <!-- ============================================================== -->
+
+
+                <!-- ============================================================== -->
+                <!-- footer -->
+                <!-- ============================================================== -->
+                <div class="footer">
+                    <div class="container-fluid">
+
+
+
+                        <div class="card">
+                            <h5 class="card-header">les reclamations</h5>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class="bg-light">
+                                            <tr class="border-0">
+                                                <th class="border-0">#</th>
+                                                <th class="border-0">photo de profil</th>
+                                                <th class="border-0">Nom d'utilisateur</th>
+                                                <th class="border-0">Id</th>
+                                                <th class="border-0">role</th>
+                                                <th class="border-0">Temps</th>
+                                                <th class="border-0">reclamtion</th>
+                                                <th class="border-0">Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>
+                                                    <div class="m-r-10"><img src="assets/images/product-pic.jpg" alt="user" class="rounded" width="45"></div>
+                                                </td>
+                                                <td>seif </td>
+                                                <td>id000001 </td>
+                                                <td>medecin</td>
+                                                <td>27-08-2018 01:22:12</td>
+                                                <td><a href="#" class="btn btn-outline-light float">lire reclamation</a></td>
+                                                <td>
+                                                    <label class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" name="radio-inline" checked="" class="custom-control-input"><span class="custom-control-label">traiter</span>
+                                    </label>
+                                                    <label class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" name="radio-inline" class="custom-control-input"><span class="custom-control-label">en attente</span>
+                                    </label></td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>
+                                                    <div class="m-r-10"><img src="assets/images/product-pic-2.jpg" alt="user" class="rounded" width="45"></div>
+                                                </td>
+
+                                                <td>seif </td>
+                                                <td>id000001 </td>
+                                                <td>medecin</td>
+                                                <td>27-08-2018 01:22:12</td>
+                                                <td><a href="#" class="btn btn-outline-light float">lire reclamation</a></td>
+                                                <td>
+                                                    <label class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" name="radio-inline1" checked="" class="custom-control-input"><span class="custom-control-label">traiter</span>
+                                    </label>
+                                                    <label class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" name="radio-inline1" class="custom-control-input"><span class="custom-control-label">en attente</span>
+                                    </label></td>
+                                                <tr>
+                                                    <td colspan="9"><a href="#" class="btn btn-outline-light float-right">View Details</a></td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- end footer -->
+                <!-- ============================================================== -->
             </div>
-            
             <!-- ============================================================== -->
             <!-- end wrapper  -->
             <!-- ============================================================== -->
         </div>
-        
         <!-- ============================================================== -->
         <!-- end main wrapper  -->
         <!-- ============================================================== -->

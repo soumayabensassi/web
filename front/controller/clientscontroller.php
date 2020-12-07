@@ -119,6 +119,20 @@ class clientcontroller
             return $message;
     }
   
-     
+    function chercherEmail($Email){
+        $sql="SELECT * from client where emailClient='$Email'";
+        $db = config::getConnexion();
+        try{
+            $query=$db->prepare($sql);
+            $query->execute();
+            $user=$query->fetch();
+            if($user==false)
+            return 1;
+            else return 0;
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+    }   
  
 }

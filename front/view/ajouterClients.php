@@ -6,8 +6,21 @@ include_once "../controller/clientscontroller.php";
        $emailClient= $_POST['email'];
        $password= $_POST['pass'];
        $passwordVerif= $_POST['passV'];
-$album=new clientcontroller();
-$album->ajouterClient($nomClient,$emailClient,$password,$passwordVerif);
-header('Location:index.php');
+$client=new clientcontroller();
+$test_email=new clientcontroller();
+if( $test_email->chercherEmail($emailClient) == 1){
+
+       $client->ajouterClient($nomClient,$emailClient,$password,$passwordVerif);
+       header('Location:index.php');
+}
+ else 
+{
+   
+   
+    header('location:sign-up.php?error=Email already taken');
+    
+
+}
+
 
 ?>
