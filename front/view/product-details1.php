@@ -240,7 +240,7 @@ if (empty($_SESSION['m_un'])) {?>
 										<input type="text" value="0" />
 										<button type="button" class="btn btn-fefault cart">
 											<i class="fa fa-shopping-cart"></i>
-											<a href="acheter_medicament.php">Acheter Maintenant</a>
+											<a href="#">Acheter Maintenant</a>
 										</button>
 									</span>
 									<p><b>Mode d'administration ?

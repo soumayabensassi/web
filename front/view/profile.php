@@ -53,11 +53,10 @@ session_start();
         <div class="col-md-3 d-none d-md-block" style="height:100%" >
         
             <div class="container-fluid nav sidebar flex-column">
-            
+                
                 <a href="#" class="nav-link active mt-auto"><i class="far fa-user-circle"></i> Profil</a>
-               
-                <a href="#" class="nav-link active"><i class="fas fa-shopping-basket"></i> Panier</a>
-               
+                <a href="index.php" class="nav-link active"><i class="fas fa-home"></i> Accueil</a>
+                <a href="panier.php" class="nav-link active"><i class="fas fa-shopping-basket"></i> Panier</a>
                 <a href="signout.php" class="nav-link active mb-auto"><i class="fas fa-cogs"></i> Déconnexion</a>
             
             </div>
