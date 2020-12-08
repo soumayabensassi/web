@@ -9,11 +9,11 @@
 		isset($_POST["nom"]) && 
         isset($_POST["nomarticle"]) &&
         isset($_POST["categorie"])  
-	){
+	   ){
 		
-            $user = new blog($_POST['nom'],$_POST['nomarticle'],$_POST['date'],$_POST['categorie'],$_POST['blog']);
-           $utilisateur1->modifierblog($user, $_GET['id']);
-          header('refresh:1;url=blog manegment.php');
+            $user = new blog($_POST['nom'],$_POST['nomarticle'],$_POST['date'],$_POST['categorie'],$_POST['img'],$_POST['blog']);
+            $utilisateur1->modifierblog($user, $_GET['id']);
+            header('refresh:1;url=blog manegment.php');
         }
       
      
@@ -58,7 +58,7 @@
                 
                
         ?>
-		<form class="splash-container" action="" method="POST">
+		<form  action="" method="POST">
       
           <div class="card">
             <div class="card-header">
@@ -81,6 +81,9 @@
                 </div>
                 <div class="form-group">
                     <input class="form-control form-control-lg" id="categorie" type="text" name="categorie" required="" placeholder="categorie"value = "<?php echo $user['categorie']; ?>">
+                </div>
+                <div class="form-group">
+                    <input class="form-control form-control-lg" id="img" type="file" name="img" required="" placeholder="img"value = "<?php echo $user['img']; ?>">
                 </div>
                 <div class="form-group">
                     <input class="form-control form-control-lg" type="text" required=""name="blog" placeholder="blog" value = "<?php echo $user['blog']; ?>">

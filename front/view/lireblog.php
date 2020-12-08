@@ -1,11 +1,26 @@
-<?PHP
-include_once "../../back/controller/blogscontroller.php";
+<?php
+	include_once "../../back/controller/blogscontroller.php";
+	include_once '../model/blog.php';
 
-$blog=new blogcontroller();
-$liste=$blog->afficherblog();
-
-
+	$utilisateur1= new blogcontroller();
+	
+	
+	if (
+		isset($_POST["nom"]) && 
+        isset($_POST["nomarticle"]) &&
+        isset($_POST["categorie"])  
+	   ){
+		
+            $user = new blog($_POST['nom'],$_POST['nomarticle'],$_POST['date'],$_POST['categorie'],$_POST['blog']);
+            $utilisateur1->modifierblog($user, $_GET['id']);
+            header('refresh:1;url=blog manegment.php');
+        }
+      
+     
+    
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en"><!-- Basic -->
@@ -17,7 +32,7 @@ $liste=$blog->afficherblog();
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
  
      <!-- Site Metas -->
-    <title>Pick Medico - Responsive HTML5 Template</title>  
+    <title>Pick Medico </title>  
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -34,6 +49,8 @@ $liste=$blog->afficherblog();
     <link rel="stylesheet" href="../assets/css/style.css">    
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="../assets/css/responsive.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/custom.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
 
     <!--[if lt IE 9]>
@@ -71,7 +88,7 @@ $liste=$blog->afficherblog();
 							<li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
 							<li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
 							<li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
-							
+						
 						</ul>
 					</div>
 				</div>
@@ -94,14 +111,14 @@ $liste=$blog->afficherblog();
                     <ul class="navbar-nav">
                         <li><a class="nav-link " href="index.php">Accueil</a></li>
                         <li><a class="nav-link" href="#about">Site</a></li>
-                     
+                        
 						<li><a class="nav-link" href="rendez-vous.php">Rendez-vous</a></li>
-                        <li><a class="nav-link" href="gallery.php">Médicaments</a></li>
-						<li><a class="nav-link" href="doctor.php">Médecins</a></li>
-                        <li><a class="nav-link active" href="blog.php">Blog</a></li>
+                        <li><a class="nav-link " href="gallery.php">Médicaments</a></li>
+						<li><a class="nav-link active" href="#team">Médecins</a></li>
+                        <li><a class="nav-link" href="blog.php">Blog</a></li>
 						<li><a class="nav-link" href="Réclamation.php">Réclamation</a></li>
-						<li><a class="nav-link" href="#contact">Contact</a></li>
-						<?php
+                        <li><a class="nav-link" href="#contact">Contact</a></li>
+                        <?php
 session_start();
 if (empty($_SESSION['m_un'])) {?>
     <li class="nav-link"><a  href="login.php">Se connecter</a></li>
@@ -120,41 +137,60 @@ if (empty($_SESSION['m_un'])) {?>
         </nav>
 	</header>
     <!-- End header -->
-   <!-- Start Blog -->
-   <div id="blog" class="blog-box">
+ 
+	<!-- Start Team -->
+
+    <?php
+  
+  if (isset($_GET['id'])){
+      $user=$utilisateur1->recupererblog($_GET['id']);
+      
+     
+?>
+	<div id="team" class="team-box">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="title-box">
-						<h2>Blog</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+						<h2><?php echo $user['nomarticle']; ?></h2>
+						<p><?php echo $user['blog']; ?> </p>
 					</div>
 				</div>
-            </div>
-            <div class="row">
-			<?php foreach($liste as $blog) { ?>
+			</div>
 			
-				<div class="col-lg-4 col-md-6 col-sm-12">
-					<div class="blog-inner">
-						<div class="blog-img">
-							<img class="img-fluid"  <?PHP  $a=$blog['img']; print"<img src='../assets/images/$a' "?>/>  
-						</div>
-						<div class="item-meta">
-							
-							<a href="#"><i class="fas fa-user"></i><?PHP echo $blog['nom']; ?></a>
-							<span class="dti"><?PHP echo $blog['date']; ?></span>
-						</div>
-						<h2><?PHP echo $blog['nomarticle']; ?></h2>
-						
-						<a class="new-btn-d br-2" href="lireblog.php?id=<?PHP echo $blog['id']; ?>">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-					</div>
-				</div>
-			
-            <?PHP }?>
+			<div class="row">
+                
+       
+                
+                <div class="col-md-4 col-sm-6">
+                    <div class="our-team">
+                        <div class="pic">
+                            <img src="../assets/images/img-1.jpg" alt="">
+                        </div>
+                        <div class="team-content">
+                            <h3 class="title"><?php echo $user['nom']; ?></h3>
+                            <span class="post"><?php echo $user['categorie']; ?></span>
+                            <ul class="social">
+                                <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus" aria-hidden="true"></i></a></li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                
+             
+                
             </div>
+			
 		</div>
 	</div>
-	<!-- End Blog -->
+    <?php
+		}
+		?>
+	<!-- End Team -->
 <!-- Start Contact -->
 <div id="contact" class="contact-box">
     <div class="container">
@@ -188,7 +224,7 @@ if (empty($_SESSION['m_un'])) {?>
                     </div>
                     <div class="media cont-line">
                         <div class="media-left icon-b">
-                            <i class="fab fa-volume-control-phone" aria-hidden="true"></i>
+                            <i class="fa fa-volume-control-phone" aria-hidden="true"></i>
                         </div>
                         <div class="media-body dit-right">
                             <h4>Phone Number</h4>
@@ -211,7 +247,7 @@ if (empty($_SESSION['m_un'])) {?>
 <div class="row">
     <div class="col-lg-12">
         <div class="subscribe-inner text-center clearfix">
-            <h2>S'inscrire</h2>
+            <h2>S'inscrire'</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             <form action="#" method="post">
                 <div class="form-group">
@@ -219,7 +255,7 @@ if (empty($_SESSION['m_un'])) {?>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="new-btn-d br-2">
-                        S'inscrire
+                        S'inscrire'
                     </button>
                 </div>
             </form>
@@ -229,6 +265,7 @@ if (empty($_SESSION['m_un'])) {?>
 </div>
 </div>
 <!-- End Subscribe -->
+
 
 
 <a href="#" id="scroll-to-top" class="new-btn-d br-2"><i class="fa fa-angle-up"></i></a>

@@ -3,16 +3,17 @@ include_once "../model/blog.php" ;
 include_once "../config.php";
 class blogcontroller
 {
-    public function ajouterblog($nom,$nomarticle,$date,$categorie,$blog)
+    public function ajouterblog($nom,$nomarticle,$date,$categorie,$img,$blog)
     {$db=config::getConnexion();
-       try{ $sql="INSERT INTO blogslist(nom,nomarticle,date,categorie,blog)
-        VALUES(:nom,:nomarticle,:date,:categorie,:blog)";
+       try{ $sql="INSERT INTO blogslist(nom,nomarticle,date,categorie,img,blog)
+        VALUES(:nom,:nomarticle,:date,:categorie,:img,:blog)";
     $query = $db->prepare($sql);
     $query->execute([
         'nom'=>$nom,
         'nomarticle'=>$nomarticle,
         'date'=>$date,
         'categorie'=>$categorie,
+        'img'=>$img,
         'blog'=>$blog,
         
     ]);}catch(PDOException $e)
@@ -75,6 +76,7 @@ class blogcontroller
                     nomarticle = :nomarticle,
                     date = :date,
                     categorie = :categorie,
+                    img= :img,
                     blog= :blog
     
                 WHERE id = :id'
@@ -82,8 +84,9 @@ class blogcontroller
             $query->execute([
                 'nom'=>$blogs->getNom(),
                 'nomarticle'=>$blogs->getNomarticle(),
-                'categorie'=>$blogs->getCategorie(),
                 'date'=>$blogs->getDate(),
+                'categorie'=>$blogs->getCategorie(),
+                'img'=>$blogs->getImg(),
                 'blog'=>$blogs->getBlog(),
                 'id' => $id
             ]);

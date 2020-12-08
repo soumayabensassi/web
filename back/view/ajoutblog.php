@@ -57,6 +57,14 @@
                     </div>
                 </div>
             </div>
+            <div class="subject">
+                <div class="form-group row pt-2">
+                    <label class="col-md-1 control-label">  image</label>
+                    
+                        <input class="form-control" type="file" name="img">
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="email editor">
             <div class="col-md-12 p-0">
