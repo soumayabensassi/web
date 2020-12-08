@@ -6,15 +6,15 @@ class medicament
     private ?float $prix = null;
     private ?string $typeMedicament = null;
     private ?string $imgMedicament = null;
-    private ?string $desMedicament = null;
-    function __construct(string $nomMedicament,int $quantite,float $prix,string $typeMedicament,string $imgMedicament,string $desMedicament){
+  
+    function __construct(string $nomMedicament,int $quantite,float $prix,string $typeMedicament,string $imgMedicament){
 			
         $this->nomMedicament=$nomMedicament;
         $this->quantite=$quantite;
         $this->prix=$prix;
         $this->imgMedicament=$imgMedicament;
         $this->typeMedicament=$typeMedicament;
-        $this->desMedicament=$desMedicament;
+       
     }
     
     function getNom(): string{
@@ -35,8 +35,6 @@ class medicament
     function getImgMedicament(): string{
         return $this->imgMedicament;
     }
-    function getDesMedicament(): string{
-        return $this->desMedicament;
-    }
+   
 }
 ?>

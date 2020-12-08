@@ -69,7 +69,7 @@ class medicamentcontroller
                     prix= :prix,
                     typeMedicament= :typeMedicament,
                     imgMedicament= :imgMedicament
-                    desMedicament= :desMedicament
+                    
     
                 WHERE idMedicament= :idMedicament'
             );
@@ -80,7 +80,7 @@ class medicamentcontroller
                'prix'=>$Med->getPrix(),
                'typeMedicament'=>$Med->getTypeMedicament(),
                'imgMedicament'=>$Med->getImgMedicament(),
-               'desMedicament'=>$Med->getDesMedicament(),
+              
 
                'idMedicament'=>$idMedicament   
                ]

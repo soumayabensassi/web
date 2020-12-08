@@ -102,6 +102,7 @@
             </div>
                    <td><input type="text" name="imgMedicament"  value = "<?php echo $user['imgMedicament']; ?>"> </td>
                 </div>
+                
                 <div class="form-group pt-2">
                     <button class="btn btn-block btn-primary" type="submit">Modifier</button>
                 </div>
