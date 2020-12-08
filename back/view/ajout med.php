@@ -65,6 +65,12 @@
             </div>
                    <td><input type='file' name="imgMedicament"></td>
                 </div>
+               
+                <div class="form-group">
+                    <label class="control-label sr-only" for="summernote">Descriptions </label>
+                    <textarea id="summernote" name="desMedicament" rows="6" placeholder="Write Descriptions"></textarea>
+                </div>
+          
                 <div class="form-group pt-2">
                     <button class="btn btn-block btn-primary" type="submit">ajouter medicament</button>
                 </div>

@@ -157,7 +157,7 @@
                                 <div id="submenu-1" class="collapse submenu" >
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="../front/view/patients.php">Patients</a>
+                                            <a class="nav-link" href="../../front/view/patients.php">Patients</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="doctor-finder.php">Medecins</a>

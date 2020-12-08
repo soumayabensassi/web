@@ -1,4 +1,11 @@
+<?PHP
+include_once "../../back/controller/medicamentcontroller.php";
 
+$MED=new medicamentcontroller();
+$liste=$MED->affichermedicament();
+
+
+?>
 <!DOCTYPE html>
 <html lang="en"><!-- Basic -->
 <head>
@@ -204,128 +211,37 @@ if (empty($_SESSION['m_un'])) {?>
 				
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"><!--features_items-->
-						<h2 class="title text-center">Nos Médicaments avec ordonnance</h2>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-										<div class="productinfo text-center">
-											<img src="../assets/images/home/product12.jpg" alt="" />
-											<h2>5DT</h2>
-											<p>nom du médicament</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
-										</div>
-										<div class="product-overlay">
-											<div class="overlay-content">
-												<h2>5DT</h2>
-												<p>nom du médicament</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
-											</div>
-										</div>
-								</div>
+						<h2 class="title text-center">Nos Médicaments Avec ordonnance</h2>
+					
+						<?php foreach($liste as $MED) 
+						 if($MED['typeMedicament']=="avec ordonnance"){?>
 								
-							</div>
-						</div>
 						<div class="col-sm-4">
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
-										<img src="../assets/images/home/product11.jpg" alt="" />
-										<h2>5DT</h2>
-										<p>nom du médicament</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
+									<?PHP $a= $MED['imgMedicament']; print"<img src='../../back/assets/images/$a' >"?>
+										<h2><?PHP echo $MED['prix']; ?>DT</h2>
+										
+										<p><?PHP echo $MED['nomMedicament']; ?></p>
+										<a href="product-details.php?idMedicament=<?PHP echo $MED['idMedicament']; ?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
 									</div>
 									<div class="product-overlay">
 										<div class="overlay-content">
-											<h2>5DT</h2>
-											<p>nom du médicament</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
+											<h2><?PHP echo $MED['prix']; ?>DT</h2>
+											<p><?PHP echo $MED['nomMedicament']; ?></p>
+											<a href="product-details.php?idMedicament=<?PHP echo $MED['idMedicament']; ?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
 										</div>
 									</div>
-								</div>
-								
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="../assets/images/home/product10.jpg" alt="" />
-										<h2>5DT</h2>
-										<p>nom du médicament</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>5DT</h2>
-											<p>nom du médicament</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
-										</div>
-									</div>
-								</div>
-								
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="../assets/images/home/product9.jpg" alt="" />
-										<h2>5DT</h2>
-										<p>nom du médicament</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>5DT</h2>
-											<p>nom du médicament</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
-										</div>
-									</div>
-									<img src="../assets/images/home/new.png" class="new" alt="" />
+							
 								</div>
 								</div>
 						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="../assets/images/home/product8.jpg" alt="" />
-										<h2>5DT</h2>
-										<p>nom du médicament</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>5DT</h2>
-											<p>nom du médicament</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
-										</div>
-									</div>
-									<img src="../assets/images/home/sale.png" class="new" alt="" />
-								</div>
-								
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="../assets/images/home/product7.jpg" alt="" />
-										<h2>5DT</h2>
-										<p>nom du médicament</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>5DT</h2>
-											<p>nom du médicament</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
-										</div>
-									</div>
-								</div>
-								
-							</div>
-						</div>
+						<?PHP
+                           }
+                          ?>
+						
+						
 						
 					</div><!--features_items-->
 

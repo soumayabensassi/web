@@ -3,17 +3,18 @@ include_once "../model/medicament.php" ;
 include_once "../config.php";
 class medicamentcontroller
 {
-    public function ajoutermedicament($nomMedicament,$quantite,$prix,$typeMedicament,$imgMedicament)
+    public function ajoutermedicament($nomMedicament,$quantite,$prix,$typeMedicament,$imgMedicament,$desMedicament)
     {$db=config::getConnexion();
-       try{ $sql="INSERT INTO medicament(nomMedicament,quantite,prix,typeMedicament,imgMedicament)
-        VALUES(:nomMedicament,:quantite,:prix,:typeMedicament,:imgMedicament)";
+       try{ $sql="INSERT INTO medicament(nomMedicament,quantite,prix,typeMedicament,imgMedicament,desMedicament)
+        VALUES(:nomMedicament,:quantite,:prix,:typeMedicament,:imgMedicament,:desMedicament)";
     $query = $db->prepare($sql);
     $query->execute([
         'nomMedicament'=>$nomMedicament,
         'quantite'=>$quantite,
         'prix'=>$prix,
         'typeMedicament'=>$typeMedicament,
-        'imgMedicament'=>$imgMedicament
+        'imgMedicament'=>$imgMedicament,
+        'desMedicament'=>$desMedicament
     ]);}catch(PDOException $e)
     {$e->getMessage();}
     }
@@ -68,7 +69,7 @@ class medicamentcontroller
                     prix= :prix,
                     typeMedicament= :typeMedicament,
                     imgMedicament= :imgMedicament
-    
+                    desMedicament= :desMedicament
     
                 WHERE idMedicament= :idMedicament'
             );
@@ -79,6 +80,7 @@ class medicamentcontroller
                'prix'=>$Med->getPrix(),
                'typeMedicament'=>$Med->getTypeMedicament(),
                'imgMedicament'=>$Med->getImgMedicament(),
+               'desMedicament'=>$Med->getDesMedicament(),
 
                'idMedicament'=>$idMedicament   
                ]

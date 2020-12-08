@@ -191,7 +191,7 @@ $liste=$admin->afficherreclamation();
                                             <a class="nav-link" href="reclamationmanagement.php">Réclamations</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="rendezvousmanagment.php">Rendez-vous</a>
+                                            <a class="nav-link" href="rendezvousmanagement.php">Rendez-vous</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="livraison.php">Livraisons</a>

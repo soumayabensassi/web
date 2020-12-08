@@ -1,4 +1,13 @@
 
+<?php
+	include_once "../../back/controller/medicamentcontroller.php";
+	include_once '../model/medicament.php';
+
+	$medicament= new medicamentcontroller();
+	
+      
+        
+?>
 
 
 <!DOCTYPE html>
@@ -212,7 +221,11 @@ if (empty($_SESSION['m_un'])) {?>
 						<h2 class="title text-center"> Médicament - Allopathie </h2>
 						
 						
+						<?php
 						
+			           if (isset($_GET['idMedicament'])){
+			        	$MED=$medicament->recuperermedicament($_GET['idMedicament']);
+						?>
 								
 								
 							
@@ -222,7 +235,7 @@ if (empty($_SESSION['m_un'])) {?>
 						<div class="product-details"><!--product-details-->
 							<div class="col-sm-5">
 								<div class="view-product">
-									<img src="../assets/images/home/product1.1.jpg" alt="" />
+								<?PHP $a= $MED['imgMedicament']; print"<img  src='../../back/assets/images/$a'>" ?>
 									
 								</div>
 						
@@ -232,13 +245,13 @@ if (empty($_SESSION['m_un'])) {?>
 								<div class="product-information"><!--/product-information-->
 									
 									<h2>
-										Maxilase Maux de gorge Sirop 200 ml</h2>
-									<p>Ce médicament est indiqué dans les maux de gorge peu intenses et sans fièvre.</p>
+									<?PHP echo $MED['nomMedicament']; ?></h2>
+									<p><?PHP echo $MED['desMedicament']; ?></p>
 									
 									<span>
-										<span>5DT</span>
+										<span><?PHP echo $MED['prix']; ?>DT</span>
 										<label>Quantité</label>
-										<input type="text" value="0" />
+										<input type="number" value="0" />
 										<button type="button" class="btn btn-fefault cart">
 											<i class="fa fa-shopping-cart"></i>
 											<a href="#">Acheter Maintenant</a>
@@ -254,7 +267,9 @@ if (empty($_SESSION['m_un'])) {?>
 						</div><!--/product-details-->
 						
 						
-					
+						<?php
+		}
+		?>
 						
 					</div><!--features_items-->
 

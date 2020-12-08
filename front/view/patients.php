@@ -35,7 +35,7 @@ $liste=$Client1->afficherClient();
         <!-- ============================================================== -->
         <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <a class="navbar-brand" href="../../back/index.php">PICK MEDICO</a>
+                <a class="navbar-brand" href="../../back/view/index.php">PICK MEDICO</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -124,7 +124,7 @@ $liste=$Client1->afficherClient();
                                             <a class="nav-link" href="patients.php">patients</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="../../back/doctor-finder.php">medecins</a>
+                                            <a class="nav-link" href="../../back/view/doctor-finder.php">medecins</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="#">admins</a>
@@ -137,19 +137,19 @@ $liste=$Client1->afficherClient();
                                 <div id="submenu-2" class="collapse submenu" >
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">blogs <span class="badge badge-secondary">New</span></a>
+                                            <a class="nav-link" href="../../back/view/blog manegment.php">blogs <span class="badge badge-secondary">New</span></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="../../back/doctor-finder.php">medecins</a>
+                                            <a class="nav-link" href="../../back/view/doctor-finder.php">medecins</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">reclamations</a>
+                                            <a class="nav-link" href="../../back/view/reclamationmanagement.php">reclamations</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">rendez vous</a>
+                                            <a class="nav-link" href="../../back/view/rendezvousmanagement.php">rendez vous</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="../../back/livraison.php">livraisons</a>
+                                            <a class="nav-link" href="../../back/view/livraison.php">livraisons</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="../../back/gestion medicaments.php">medicaments</a>

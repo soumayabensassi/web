@@ -1,4 +1,13 @@
 
+<?PHP
+include_once "../../back/controller/medicamentcontroller.php";
+
+$MED=new medicamentcontroller();
+$liste=$MED->affichermedicament();
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en"><!-- Basic -->
 <head>
@@ -205,128 +214,33 @@ if (empty($_SESSION['m_un'])) {?>
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"><!--features_items-->
 						<h2 class="title text-center">Nos Médicaments sans ordonnance</h2>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-										<div class="productinfo text-center">
-											<a href="product-details.php"><img src="../assets/images/home/product1.jpg" alt="" /></a>
-											<h2>5DT</h2>
-											<p>Maxilase</p>
-											<a href="product-details.php" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
-										</div>
-										<div class="product-overlay">
-											<div class="overlay-content">
-												<h2>5DT</h2>
-												<p>Maxilase</p>
-												<a href="product-details.php" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
-											</div>
-										</div>
-								</div>
+					
+						<?php foreach($liste as $MED) 
+						 if($MED['typeMedicament']=="sans ordonnance"){?>
 								
-							</div>
-						</div>
-						
 						<div class="col-sm-4">
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
-										<img src="../assets/images/home/product3.jpg" alt="" />
-										<h2>5DT</h2>
-										<p>Drill</p>
-										<a href="product-details1.php" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
+									<?PHP $a= $MED['imgMedicament']; print"<img src='../../back/assets/images/$a' >"?>
+										<h2><?PHP echo $MED['prix']; ?>DT</h2>
+										<p><?PHP echo $MED['nomMedicament']; ?></p>
+										<a href="product-details.php?idMedicament=<?PHP echo $MED['idMedicament']; ?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
 									</div>
 									<div class="product-overlay">
 										<div class="overlay-content">
-											<h2>5DT</h2>
-											<p>Drill</p>
-											<a href="product-details1.php" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
-										</div>
-									</div>
-								</div>
-								
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="../assets/images/home/product4.jpg" alt="" />
-										<h2>5DT</h2>
-										<p>HEXASPRAY</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>5DT</h2>
-											<p>HEXASPRAY</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
+											<h2><?PHP echo $MED['prix']; ?>DT</h2>
+											<p><?PHP echo $MED['nomMedicament']; ?></p>
+											<a href="product-details.php?idMedicament=<?PHP echo $MED['idMedicament']; ?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
 										</div>
 									</div>
 							
 								</div>
 								</div>
 						</div>
-						
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="../assets/images/home/product5.jpg" alt="" />
-										<h2>5DT</h2>
-										<p>Bronchokod</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>5DT</h2>
-											<p>Bronchokod</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
-										</div>
-									</div>
-							
-								</div>
-								</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="../assets/images/home/product6.jpg" alt="" />
-										<h2>5DT</h2>
-										<p>Doliprane 1000 mg</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>5DT</h2>
-											<p>Doliprane 1000 mg</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
-										</div>
-									</div>
-							
-								</div>
-								</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="../assets/images/home/product2.jpg" alt="" />
-										<h2>5DT</h2>
-										<p>Colludol</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>5DT</h2>
-											<p>Colludol</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
-										</div>
-									</div>
-							
-								</div>
-								</div>
-						</div>
+						<?PHP
+                           }
+                          ?>
 						
 						
 						
