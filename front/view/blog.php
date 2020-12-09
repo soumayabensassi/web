@@ -17,7 +17,7 @@ $liste=$blog->afficherblog();
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
  
      <!-- Site Metas -->
-    <title>Pick Medico - Responsive HTML5 Template</title>  
+    <title>Pick Medico</title>  
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -91,16 +91,17 @@ $liste=$blog->afficherblog();
 					<span></span>
 				</button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
-                    <ul class="navbar-nav">
-                        <li><a class="nav-link " href="index.php">Accueil</a></li>
+                <ul class="navbar-nav">
+                        <li><a class="nav-link active" href="index.php">Accueil</a></li>
                         <li><a class="nav-link" href="#about">Site</a></li>
-                     
+                        
 						<li><a class="nav-link" href="rendez-vous.php">Rendez-vous</a></li>
                         <li><a class="nav-link" href="gallery.php">Médicaments</a></li>
 						<li><a class="nav-link" href="doctor.php">Médecins</a></li>
-                        <li><a class="nav-link active" href="blog.php">Blog</a></li>
+                        <li><a class="nav-link" href="blog.php">Blog</a></li>
 						<li><a class="nav-link" href="Réclamation.php">Réclamation</a></li>
 						<li><a class="nav-link" href="#contact">Contact</a></li>
+						
 						<?php
 session_start();
 if (empty($_SESSION['m_un'])) {?>
@@ -114,6 +115,7 @@ if (empty($_SESSION['m_un'])) {?>
 
 }
 ?>
+						
                     </ul>
                 </div>
             </div>

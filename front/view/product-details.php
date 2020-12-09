@@ -235,7 +235,7 @@ if (empty($_SESSION['m_un'])) {?>
 						<div class="product-details"><!--product-details-->
 							<div class="col-sm-5">
 								<div class="view-product">
-								<?PHP $a= $MED['imgMedicament']; print"<img  src='../../back/assets/images/$a'>" ?>
+							 <img  src='../../back/assets/images/<?PHP echo $MED['imgMedicament'];?>' > 
 									
 								</div>
 						
@@ -251,10 +251,11 @@ if (empty($_SESSION['m_un'])) {?>
 									<span>
 										<span><?PHP echo $MED['prix']; ?>DT</span>
 										<label>Quantité</label>
-										<input type="number" value="0" />
+										<input type="number" value="1" />
 										<button type="button" class="btn btn-fefault cart">
 											<i class="fa fa-shopping-cart"></i>
-											<a href="#">Acheter Maintenant</a>
+											
+											<a href="panier.php?action=ajout&amp;l=<?PHP echo $MED['nomMedicament']; ?>&amp;q=1&amp;p=<?PHP echo $MED['prix']; ?> return false;">Acheter Maintenant</a>
 										</button>
 									</span>
 									<p><b>Mode d'administration ?

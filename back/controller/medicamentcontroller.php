@@ -45,6 +45,7 @@ class medicamentcontroller
       {$e->getMessage();}
      }
      function recuperermedicament($idMedicament){
+         
         $sql="SELECT * from medicament where idMedicament=$idMedicament";
         $db = config::getConnexion();
         try{
@@ -58,6 +59,8 @@ class medicamentcontroller
             die('Erreur: '.$e->getMessage());
         }
     }  
+   
+      
     function modifiermedicament($Med, $idMedicament){
         try {
             

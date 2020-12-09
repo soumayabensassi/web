@@ -8,7 +8,7 @@ class medicament
     private ?string $imgMedicament = null;
     
     function __construct(string $nomMedicament,int $quantite,float $prix,string $typeMedicament,string $imgMedicament){
-			
+        
         $this->nomMedicament=$nomMedicament;
         $this->quantite=$quantite;
         $this->prix=$prix;

@@ -1,29 +1,84 @@
+[<?php
+session_start();
+include_once("../controller//paniercontroller.php");
+
+$erreur = false;
+
+$action = (isset($_POST['action']) ? $_POST['action'] : (isset($_GET['action']) ? $_GET['action'] : null));
+if ($action !== null) {
+	if (!in_array($action, array('ajout', 'suppression', 'refresh')))
+		$erreur = true;
+
+	//récupération des variables en POST ou GET
+	$l = (isset($_POST['l']) ? $_POST['l'] : (isset($_GET['l']) ? $_GET['l'] : null));
+	$p = (isset($_POST['p']) ? $_POST['p'] : (isset($_GET['p']) ? $_GET['p'] : null));
+	$q = (isset($_POST['q']) ? $_POST['q'] : (isset($_GET['q']) ? $_GET['q'] : null));
+
+	//Suppression des espaces verticaux
+	$l = preg_replace('#\v#', '', $l);
+	//On vérifie que $p est un float
+	$p = floatval($p);
+
+	//On traite $q qui peut être un entier simple ou un tableau d'entiers
+
+	if (is_array($q)) {
+		$QteArticle = array();
+		$i = 0;
+		foreach ($q as $contenu) {
+			$QteArticle[$i++] = intval($contenu);
+		}
+	} else
+		$q = intval($q);
+}
+
+if (!$erreur) {
+	switch ($action) {
+		case "ajout":
+			ajouterArticle($l, $q, $p);
+			break;
+
+		case "suppression":
+			supprimerArticle($l);
+			break;
+
+		case "refresh":
+			for ($i = 0; $i < count($QteArticle); $i++) {
+				modifierQTeArticle($_SESSION['panier']['libelleProduit'][$i], round($QteArticle[$i]));
+			}
+			break;
+
+		default:
+			break;
+	}
+}
+
+echo '<?xml version="1.0" encoding="utf-8"?>'; ?>
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panier</title>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<title>Votre panier</title>
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
- <!-- Site Icons -->
- <link rel="shortcut icon" href="../assets/images/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png">
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!------ Include the above in your HEAD tag ---------->
+	<!-- Site Icons -->
+	<link rel="shortcut icon" href="../assets/images/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-    <!-- Pogo Slider CSS -->
-    <link rel="stylesheet" href="../assets/css/pogo-slider.min.css">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+	<!-- Pogo Slider CSS -->
+	<link rel="stylesheet" href="../assets/css/pogo-slider.min.css">
 	<!-- Site CSS -->
-    <link rel="stylesheet" href="../assets/css/style.css">    
-    <!-- Responsive CSS -->
-    <link rel="stylesheet" href="../assets/css/responsive.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link rel="stylesheet" href="../assets/css/style.css">
+	<!-- Responsive CSS -->
+	<link rel="stylesheet" href="../assets/css/responsive.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
+
 <body>
 	<!-- Start top bar -->
 	<div class="main-top">
@@ -44,7 +99,7 @@
 							<li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
 							<li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
 							<li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
-							
+
 						</ul>
 					</div>
 				</div>
@@ -52,111 +107,121 @@
 		</div>
 	</div>
 	<!-- End top bar -->
-	
 	<!-- Start header -->
 	<header class="top-header">
 		<nav class="navbar header-nav navbar-expand-lg">
-            <div class="container">
+			<div class="container">
 				<a class="navbar-brand" href="index.php"><img src="../assets/images/logo.png" alt="image"></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-wd" aria-controls="navbar-wd" aria-expanded="false" aria-label="Toggle navigation">
 					<span></span>
 					<span></span>
 					<span></span>
 				</button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
-                    <ul class="navbar-nav">
-                        <li><a class="nav-link " href="index.php">Accueil</a></li>
-                        <li><a class="nav-link" href="#about">Site</a></li>
-                        
+				<div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
+					<ul class="navbar-nav">
+						<li><a class="nav-link " href="index.php">Accueil</a></li>
+						<li><a class="nav-link" href="#about">Site</a></li>
+
 						<li><a class="nav-link" href="rendez-vous.php">Rendez-vous</a></li>
-                        <li><a class="nav-link" href="gallery.php">Médicaments</a></li>
+						<li><a class="nav-link" href="gallery.php">Médicaments</a></li>
 						<li><a class="nav-link" href="doctor.php">Médecins</a></li>
-                        <li><a class="nav-link" href="blog.php">Blog</a></li>
+						<li><a class="nav-link" href="blog.php">Blog</a></li>
 						<li><a class="nav-link" href="Réclamation.php">Réclamation</a></li>
 						<li><a class="nav-link" href="#contact">Contact</a></li>
-						
+
 						<?php
-session_start();
-if (empty($_SESSION['m_un'])) {?>
-    <li class="nav-link"><a  href="login.php">Se connecter</a></li>
-    
-<?php } else { ?> 
-    <li class="nav-link" ><?php include "logged.php"; ?></li>
-    
 
-<?php
+						if (empty($_SESSION['m_un'])) { ?>
+							<li class="nav-link"><a href="login.php">Se connecter</a></li>
 
-}
-?>
-						
-                    </ul>
-                </div>
-            </div>
-        </nav>
+						<?php } else { ?>
+							<li class="nav-link"><?php include "logged.php"; ?></li>
+
+
+						<?php
+
+						}
+						?>
+
+					</ul>
+				</div>
+			</div>
+		</nav>
 	</header>
-<section class="jumbotron text-center">
-    <div class="container">
-        <h1 class="jumbotron-heading">PANIER</h1>
-     </div>
-</section>
+	<section class="jumbotron text-center">
+		<div class="container">
+			<h1 class="jumbotron-heading">PANIER</h1>
+		</div>
+	</section>
+	
+		<div class="container mb-4">
+			<div class="row">
+				<div class="col-12">
+				<div class="table-responsive">
+					<form method="post" action="panier.php">
+						<table class="table table-striped">
+							<thead>
+								<tr>
 
-<div class="container mb-4">
-    <div class="row">
-        <div class="col-12">
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col"> </th>
-                            <th scope="col">Medicament</th>
-                            <th scope="col">Disponible</th>
-                            <th scope="col" class="text-center">Quantité</th>
-                            <th scope="col" class="text-right">Prix</th>
-                            <th> </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><img src="" /> </td>
-                            <td>nom du produit</td>
-                            <td>In stock</td>
-                            <form>
-                            <td><input class="form-control" type="number" value="1" /></td>
-                            </form>
-                            <td class="text-right">124,90 €</td>
-                            <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
-                        </tr>
-                        
-                      
-                      
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td><strong>Total</strong></td>
-                            <td class="text-right"><strong>124.90 €</strong></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="col mb-2">
-            <div class="row">
-                <div class="col-sm-12  col-md-6">
-                    <button class="btn btn-block btn-light"><a href="gallery.php">Continuer vos achats</a></button>
-                </div>
-                <div class="col-sm-12 col-md-6 text-right">
-                    <button class="btn btn-lg btn-block btn-success text-uppercase"><a href="acheter_medicament.php">Check-out</a></button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+									<th scope="col">Libellé</th>
+									<th scope="col">Quantité</th>
+									<th scope="col">Prix Unitaire</th>
+									<th scope="col">supprimer</th>
+
+								</tr>
+							</thead>
 
 
+							<tbody>
+                           
+								<?php
+								if (creationPanier()) {
+									$nbArticles = count($_SESSION['panier']['libelleProduit']);
+									if ($nbArticles <= 0)
+										echo "<tr><td>Votre panier est vide </ td></tr>";
+									else {
+										for ($i = 0; $i < $nbArticles; $i++) {
+											echo "<tr>";
+											echo "<td>" . htmlspecialchars($_SESSION['panier']['libelleProduit'][$i]) . "</ td>";
+											echo "<td><input type=\"number\" size=\"4\" name=\"q[]\" value=\"" . htmlspecialchars($_SESSION['panier']['qteProduit'][$i]) . "\"/></td>";
+											echo "<td>" . htmlspecialchars($_SESSION['panier']['prixProduit'][$i]) . "</td>";
+											echo "<td><a  href=\"" . htmlspecialchars("panier.php?action=suppression&l=" . rawurlencode($_SESSION['panier']['libelleProduit'][$i])) . "\" ><i class=\"fa fa-trash \"></i></a></td>";
+											echo "</tr>";
+										}
 
-            <!-- Start Contact -->
+										echo "<tr><td colspan=\"3\"> </td>";
+										echo "<td colspan=\"2\">";
+										echo "Total : " . MontantGlobal() ."DT";
+										echo "</td></tr>";
+
+										echo "<tr><td colspan=\"4\">";
+										echo "<input type=\"submit\" value=\"Rafraichir\"/>";
+										echo "<input type=\"hidden\" name=\"action\" value=\"refresh\"/>";
+
+										echo "</td></tr>";
+									}
+								}
+								?>
+    
+							</tbody>
+						</table>
+					
+					 </form>
+			 </div>
+			</div>
+	<div class="col mb-2">
+		<div class="row">
+			<div class="col-sm-12  col-md-6">
+				<button class="btn btn-block btn-light"><a href="gallery.php">Continuer vos achats</a></button>
+			</div>
+			<div class="col-sm-12 col-md-6 text-right">
+				<button class="btn btn-lg btn-block btn-success text-uppercase"><a href="acheter_medicament.php">Check-out</a></button>
+			</div>
+		</div>
+	</div>
+	</div>
+	</div>
+	<!-- Start Contact -->
 	<div id="Réclamation" class="contact-box">
 		<div class="container">
 			<div class="row">
@@ -168,47 +233,47 @@ if (empty($_SESSION['m_un'])) {?>
 				</div>
 			</div>
 			<div class="row">
-				
+
 				<div class="col-lg-12 col-xs-12">
-				  <div class="contact-block">
-					<form name="f">
-					  <div class="row">
-						<div class="col-md-6">
-							<div class="form-group">
-								<input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required data-error="Please enter your name">
-								<div class="help-block with-errors"></div>
-							</div>                                 
-						</div>
-						<div class="col-md-6">
-							<div class="form-group">
-								<input type="text" placeholder="Your Email" id="email" class="form-control" name="email" required data-error="Please enter your email">
-								<div class="help-block with-errors"></div>
-							</div> 
-						</div>
-						<div class="col-md-12">
-							<div class="form-group">
-								<input type="text" placeholder="Your number" id="number" class="form-control" name="number" required data-error="Please enter your number">
-								<div class="help-block with-errors"></div>
-							</div> 
-						</div>
-						<div class="col-md-12">
-							<div class="form-group"> 
-								<textarea class="form-control" id="message" placeholder="Your Message" rows="8"name="msg" data-error="Write your message" required></textarea>
-								<div class="help-block with-errors"></div>
+					<div class="contact-block">
+						<form name="f">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required data-error="Please enter your name">
+										<div class="help-block with-errors"></div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<input type="text" placeholder="Your Email" id="email" class="form-control" name="email" required data-error="Please enter your email">
+										<div class="help-block with-errors"></div>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="form-group">
+										<input type="text" placeholder="Your number" id="number" class="form-control" name="number" required data-error="Please enter your number">
+										<div class="help-block with-errors"></div>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="form-group">
+										<textarea class="form-control" id="message" placeholder="Your Message" rows="8" name="msg" data-error="Write your message" required></textarea>
+										<div class="help-block with-errors"></div>
+									</div>
+									<div class="submit-button text-center">
+										<input type="submit" id="submit" class="btn btn-common" value="Envoyer une réclamation " onclick="test();">
+
+										<div id="msgSubmit" class="h3 text-center hidden"></div>
+										<div class="clearfix"></div>
+									</div>
+								</div>
 							</div>
-							<div class="submit-button text-center">
-								<input type="submit"  id="submit" class="btn btn-common" value="Envoyer une réclamation " onclick="test();" >
-								
-								<div id="msgSubmit" class="h3 text-center hidden"></div> 
-								<div class="clearfix"></div> 
-							</div>
-						</div>
-					  </div>            
-					</form>
-				  </div>
+						</form>
+					</div>
 				</div>
-				
-				<div id="contact"class="col-lg-12 col-xs-12">
+
+				<div id="contact" class="col-lg-12 col-xs-12">
 					<div class="left-contact">
 						<h2>Adresse</h2>
 						<div class="media cont-line">
@@ -242,15 +307,16 @@ if (empty($_SESSION['m_un'])) {?>
 						</div>
 					</div>
 				</div>
-				
-				
+
+
 			</div>
-		    </div>
-	
-          	<!-- End Contact -->
-            
-        </div>
-    </div>
+		</div>
+
+		<!-- End Contact -->
+
+	</div>
+	</div>
 
 </body>
-</html>
+
+</html>]
