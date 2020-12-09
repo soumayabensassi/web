@@ -87,7 +87,7 @@
                         <li><a class="nav-link " href="index.php">Accueil</a></li>
                         <li><a class="nav-link" href="#about">Site</a></li>
                         
-						<li><a class="nav-link" href="rendez-vous.php">Rendez-vous</a></li>
+						<li><a class="nav-link" href="rendez-vous.php">Rendez_vous</a></li>
                         <li><a class="nav-link" href="gallery.php">Médicaments</a></li>
 						<li><a class="nav-link" href="doctor.php">Médecins</a></li>
                         <li><a class="nav-link " href="blog.php">Blog</a></li>

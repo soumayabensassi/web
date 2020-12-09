@@ -103,8 +103,8 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
                     <ul class="navbar-nav">
                         <li><a class="nav-link " href="index.php">Accueil</a></li>
-						<li><a class="nav-link active" href="consultermedsansordonnance.php">Médicament sans ordonnance</a></li>
-						<li><a class="nav-link " href="consultermedavecordonnance.php">Médicament avec ordonnance</a></li>
+						<li><a class="nav-link active" href="consultermedsansordonnance.php">sans_ordonnance</a></li>
+						<li><a class="nav-link " href="consultermedavecordonnance.php">avec_ordonnance</a></li>
 						<li><a class="nav-link" href="#Réclamation">Réclamation</a></li>
 						<li><a class="nav-link" href="#contact">Contact</a></li>
 						<?php

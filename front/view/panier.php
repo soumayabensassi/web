@@ -1,6 +1,6 @@
-[<?php
+<?php
 session_start();
-include_once("../controller//paniercontroller.php");
+include_once("../controller/paniercontroller.php");
 
 $erreur = false;
 
@@ -50,36 +50,47 @@ if (!$erreur) {
 		default:
 			break;
 	}
-}
-
-echo '<?xml version="1.0" encoding="utf-8"?>'; ?>
+} ?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
-
+<html lang="en"><!-- Basic -->
 <head>
-	<title>Votre panier</title>
-	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">   
+   
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+ 
+     <!-- Site Metas -->
+    <title>Pick Medico </title>  
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<!------ Include the above in your HEAD tag ---------->
-	<!-- Site Icons -->
-	<link rel="shortcut icon" href="../assets/images/favicon.ico" type="image/x-icon">
-	<link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png">
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="../assets/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png">
 
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-	<!-- Pogo Slider CSS -->
-	<link rel="stylesheet" href="../assets/css/pogo-slider.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <!-- Pogo Slider CSS -->
+    <link rel="stylesheet" href="../assets/css/pogo-slider.min.css">
 	<!-- Site CSS -->
-	<link rel="stylesheet" href="../assets/css/style.css">
-	<!-- Responsive CSS -->
-	<link rel="stylesheet" href="../assets/css/responsive.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-</head>
+    <link rel="stylesheet" href="../assets/css/style.css">    
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <!-- Custom CSS -->
+	<link rel="stylesheet" href="../assets/css/custom.css">
 
-<body>
+	<link href="../assets/css/aaa.css" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body id="home" data-spy="scroll" data-target="#navbar-wd" data-offset="98">
 	<!-- Start top bar -->
 	<div class="main-top">
 		<div class="container">
@@ -99,7 +110,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>'; ?>
 							<li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
 							<li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
 							<li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
-
+							
 						</ul>
 					</div>
 				</div>
@@ -122,7 +133,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>'; ?>
 						<li><a class="nav-link " href="index.php">Accueil</a></li>
 						<li><a class="nav-link" href="#about">Site</a></li>
 
-						<li><a class="nav-link" href="rendez-vous.php">Rendez-vous</a></li>
+						<li><a class="nav-link" href="rendez-vous.php">Rendez_vous</a></li>
 						<li><a class="nav-link" href="gallery.php">Médicaments</a></li>
 						<li><a class="nav-link" href="doctor.php">Médecins</a></li>
 						<li><a class="nav-link" href="blog.php">Blog</a></li>
@@ -150,7 +161,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>'; ?>
 	</header>
 	<section class="jumbotron text-center">
 		<div class="container">
-			<h1 class="jumbotron-heading">PANIER</h1>
+			<h2 class="jumbotron-heading"><i class="fas fa-cart-plus"></i>   PANIER</h2>
 		</div>
 	</section>
 	
@@ -297,7 +308,8 @@ echo '<?xml version="1.0" encoding="utf-8"?>'; ?>
 						</div>
 						<div class="media cont-line">
 							<div class="media-left icon-b">
-								<i class="fa fa-volume-control-phone" aria-hidden="true"></i>
+
+<i class="fas fa-phone-volume"></i>
 							</div>
 							<div class="media-body dit-right">
 								<h4>Phone Number</h4>

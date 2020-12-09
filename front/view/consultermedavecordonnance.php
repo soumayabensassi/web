@@ -46,15 +46,6 @@ $liste=$MED->affichermedicament();
 
 </head>
 <body id="home" data-spy="scroll" data-target="#navbar-wd" data-offset="98">
-
-	<!-- LOADER -->
-     <!-- <div id="preloader">
-		<div class="loader">
-			<img src="images/preloader.gif" alt="" />
-		</div>
-    </div>end loader -->
-    <!-- END LOADER -->
-	
 	<!-- Start top bar -->
 	<div class="main-top">
 		<div class="container">
@@ -96,8 +87,8 @@ $liste=$MED->affichermedicament();
                 <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
                     <ul class="navbar-nav">
                         <li><a class="nav-link " href="index.php">Accueil</a></li>
-						<li><a class="nav-link " href="consultermedsansordonnance.php">Sans ordonnance</a></li>
-						<li><a class="nav-link active" href="consultermedavecordonnance.php">Avec ordonnance</a></li>
+						<li><a class="nav-link " href="consultermedsansordonnance.php">Sans_ordonnance</a></li>
+						<li><a class="nav-link active" href="consultermedavecordonnance.php">Avec_ordonnance</a></li>
 						<li><a class="nav-link" href="#Réclamation">Réclamation</a></li>
 						<li><a class="nav-link" href="#contact">Contact</a></li>
 						<?php
@@ -332,8 +323,7 @@ if (empty($_SESSION['m_un'])) {?>
 						</div>
 						<div class="media cont-line">
 							<div class="media-left icon-b">
-								<i class="fa fa-volume-control-phone" aria-hidden="true"></i>
-							</div>
+							<i class="fas fa-phone-volume"></i>							</div>
 							<div class="media-body dit-right">
 								<h4>Phone Number</h4>
 								<a href="#">12345 67890</a><br>
