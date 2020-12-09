@@ -3,19 +3,7 @@
 	include_once '../model/blog.php';
 
 	$utilisateur1= new blogcontroller();
-	
-	
-	if (
-		isset($_POST["nom"]) && 
-        isset($_POST["nomarticle"]) &&
-        isset($_POST["categorie"])  
-	   ){
-		
-            $user = new blog($_POST['nom'],$_POST['nomarticle'],$_POST['date'],$_POST['categorie'],$_POST['blog']);
-            $utilisateur1->modifierblog($user, $_GET['id']);
-            header('refresh:1;url=blog manegment.php');
-        }
-      
+
      
     
 ?>
@@ -114,8 +102,8 @@
                         
 						<li><a class="nav-link" href="rendez-vous.php">Rendez-vous</a></li>
                         <li><a class="nav-link " href="gallery.php">Médicaments</a></li>
-						<li><a class="nav-link active" href="#team">Médecins</a></li>
-                        <li><a class="nav-link" href="blog.php">Blog</a></li>
+						<li><a class="nav-link " href="#team">Médecins</a></li>
+                        <li><a class="nav-link active" href="blog.php">Blog</a></li>
 						<li><a class="nav-link" href="Réclamation.php">Réclamation</a></li>
                         <li><a class="nav-link" href="#contact">Contact</a></li>
                         <?php
@@ -153,7 +141,7 @@ if (empty($_SESSION['m_un'])) {?>
 				<div class="col-lg-12">
 					<div class="title-box">
 						<h2><?php echo $user['nomarticle']; ?></h2>
-						<p><?php echo $user['blog']; ?> </p>
+						
 					</div>
 				</div>
 			</div>
@@ -165,7 +153,7 @@ if (empty($_SESSION['m_un'])) {?>
                 <div class="col-md-4 col-sm-6">
                     <div class="our-team">
                         <div class="pic">
-                            <img src="../assets/images/img-1.jpg" alt="">
+                            <img src="../assets/images/<?php echo $user['img']; ?>" alt="">
                         </div>
                         <div class="team-content">
                             <h3 class="title"><?php echo $user['nom']; ?></h3>
@@ -179,7 +167,17 @@ if (empty($_SESSION['m_un'])) {?>
                         </div>
                     </div>
                 </div>
+                <div class="col-sm-7">
+                <div class="product-information"><!--/product-information-->
+									
+									<h2>
+                                    <?php echo $user['categorie']; ?></h2>
+									<p><?php echo $user['blog']; ?> </p>
 
+									
+								</div><!--/product-information-->
+							</div>
+			</div>
                 
              
                 

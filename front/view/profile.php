@@ -69,13 +69,20 @@ if (
                 <div class="container content clear-fix">
 
                     <h2 class="mt-5 mb-5">Paramètres de profil</h2>
+                    <?php
 
+if (isset($_SESSION['idClient'])) {
+    $user = $utilisateur1->recupererClient($_SESSION['idClient']);
+
+
+
+?>
                     <div class="row" style="height:100%">
 
                         <div class="col-md-3">
 
                             <div href=# class="d-inline"><img src="../assets/images/Profile.png" width=130px style="margin:0;"><br>
-                                <p class="pl-2 mt-2"><a href="#" class="btn" style="color:#8f9096;font-weight:600">Edit Picture</a></p>
+                                <p class="pl-2 mt-2"><a href="#" class="btn" style="color:black;font-weight:600"><?php echo $user['nomClient']; ?></a></p>
                             </div>
 
 
@@ -84,14 +91,7 @@ if (
                         <div class="col-md-9">
 
                             <div class="container">
-                                <?php
-
-                                if (isset($_SESSION['idClient'])) {
-                                    $user = $utilisateur1->recupererClient($_SESSION['idClient']);
-
-
-
-                                ?>
+                               
 
 
                                     <form action="" method="POST">

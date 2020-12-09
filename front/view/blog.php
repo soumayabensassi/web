@@ -92,13 +92,13 @@ $liste=$blog->afficherblog();
 				</button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
                 <ul class="navbar-nav">
-                        <li><a class="nav-link active" href="index.php">Accueil</a></li>
+                        <li><a class="nav-link " href="index.php">Accueil</a></li>
                         <li><a class="nav-link" href="#about">Site</a></li>
                         
 						<li><a class="nav-link" href="rendez-vous.php">Rendez-vous</a></li>
                         <li><a class="nav-link" href="gallery.php">Médicaments</a></li>
 						<li><a class="nav-link" href="doctor.php">Médecins</a></li>
-                        <li><a class="nav-link" href="blog.php">Blog</a></li>
+                        <li><a class="nav-link active" href="blog.php">Blog</a></li>
 						<li><a class="nav-link" href="Réclamation.php">Réclamation</a></li>
 						<li><a class="nav-link" href="#contact">Contact</a></li>
 						

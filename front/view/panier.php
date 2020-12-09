@@ -35,16 +35,21 @@ if (!$erreur) {
 	switch ($action) {
 		case "ajout":
 			ajouterArticle($l, $q, $p);
+			
+			
 			break;
 
 		case "suppression":
 			supprimerArticle($l);
+		
 			break;
 
 		case "refresh":
 			for ($i = 0; $i < count($QteArticle); $i++) {
 				modifierQTeArticle($_SESSION['panier']['libelleProduit'][$i], round($QteArticle[$i]));
+			    
 			}
+
 			break;
 
 		default:
@@ -191,15 +196,19 @@ if (!$erreur) {
 									if ($nbArticles <= 0)
 										echo "<tr><td>Votre panier est vide </ td></tr>";
 									else {
+
 										for ($i = 0; $i < $nbArticles; $i++) {
+										
+											
 											echo "<tr>";
 											echo "<td>" . htmlspecialchars($_SESSION['panier']['libelleProduit'][$i]) . "</ td>";
 											echo "<td><input type=\"number\" size=\"4\" name=\"q[]\" value=\"" . htmlspecialchars($_SESSION['panier']['qteProduit'][$i]) . "\"/></td>";
 											echo "<td>" . htmlspecialchars($_SESSION['panier']['prixProduit'][$i]) . "</td>";
 											echo "<td><a  href=\"" . htmlspecialchars("panier.php?action=suppression&l=" . rawurlencode($_SESSION['panier']['libelleProduit'][$i])) . "\" ><i class=\"fa fa-trash \"></i></a></td>";
 											echo "</tr>";
+											
 										}
-
+										
 										echo "<tr><td colspan=\"3\"> </td>";
 										echo "<td colspan=\"2\">";
 										echo "Total : " . MontantGlobal() ."DT";
@@ -210,20 +219,26 @@ if (!$erreur) {
 										echo "<input type=\"hidden\" name=\"action\" value=\"refresh\"/>";
 
 										echo "</td></tr>";
+
 									}
+									
 								}
+								
 								?>
+								
     
 							</tbody>
 						</table>
 					
 					 </form>
+					
 			 </div>
 			</div>
 	<div class="col mb-2">
 		<div class="row">
 			<div class="col-sm-12  col-md-6">
 				<button class="btn btn-block btn-light"><a href="gallery.php">Continuer vos achats</a></button>
+				
 			</div>
 			<div class="col-sm-12 col-md-6 text-right">
 				<button class="btn btn-lg btn-block btn-success text-uppercase"><a href="acheter_medicament.php">Check-out</a></button>
@@ -231,7 +246,8 @@ if (!$erreur) {
 		</div>
 	</div>
 	</div>
-	</div>
+							</div>
+				
 	<!-- Start Contact -->
 	<div id="Réclamation" class="contact-box">
 		<div class="container">
