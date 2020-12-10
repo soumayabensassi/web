@@ -112,100 +112,98 @@ if (empty($_SESSION['m_un'])) {?>
         </nav>
 	</header>
     <!-- End header -->
-    <script src="../assets/js/test.js"></script>
-<!-- Start Contact -->
-<div id="Réclamation" class="contact-box">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="title-box">
-                    <h2>Réclamation</h2>
-                    <p>Ajouter une réclamation . </p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            
-            <div class="col-lg-12 col-xs-12">
-              <div class="contact-block">
-                <form name="f" action="ajouterreclamation.php" method="POST">
-                  <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required data-error="Please enter your name">
-                            <div class="help-block with-errors"></div>
-                        </div>                                 
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <input type="text" placeholder="Your Email" id="email" class="form-control" name="email" required data-error="Please enter your email">
-                            <div class="help-block with-errors"></div>
-                        </div> 
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <input type="text" placeholder="Your number" id="number" class="form-control" name="number" required data-error="Please enter your number">
-                            <div class="help-block with-errors"></div>
-                        </div> 
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group"> 
-                            <textarea class="form-control" id="message" placeholder="Your Message" rows="8"name="msg" data-error="Write your message" required></textarea>
-                            <div class="help-block with-errors"></div>
-                        </div>
-                        <div class="submit-button text-center">
-                            <input type="submit"  id="submit" class="btn btn-common" value="Envoyer une réclamation " onclick="test();" >
-                            
-                            <div id="msgSubmit" class="h3 text-center hidden"></div> 
-                            <div class="clearfix"></div> 
-                        </div>
-                    </div>
-                  </div>            
-                </form>
-              </div>
-            </div>
-            
-            
-            <div id="contact"class="col-lg-12 col-xs-12">
-                <div class="left-contact">
-                    <h2>Adresse</h2>
-                    <div class="media cont-line">
-                        <div class="media-left icon-b">
-                            <i class="fa fa-location-arrow" aria-hidden="true"></i>
-                        </div>
-                        <div class="media-body dit-right">
-                            <h4>Adresse</h4>
-                            <p>Fleming 196 Woodside Circle Mobile, FL 36602</p>
-                        </div>
-                    </div>
-                    <div class="media cont-line">
-                        <div class="media-left icon-b">
-                            <i class="fa fa-envelope" aria-hidden="true"></i>
-                        </div>
-                        <div class="media-body dit-right">
-                            <h4>Email</h4>
-                            <a href="#">demoinfo@gmail.com</a><br>
-                            <a href="#">demoinfo@gmail.com</a>
-                        </div>
-                    </div>
-                    <div class="media cont-line">
-                        <div class="media-left icon-b">
-                            <i class="fa fa-volume-control-phone" aria-hidden="true"></i>
-                        </div>
-                        <div class="media-body dit-right">
-                            <h4>Phone Number</h4>
-                            <a href="#">12345 67890</a><br>
-                            <a href="#">12345 67890</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-        </div>
-    </div>
-
-<!-- End Contact -->
+  
+    <div id="Réclamation" class="contact-box">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="title-box">
+						<h2>Réclamation</h2>
+						<p>Ajouter une Réclamation </p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				
+				<div class="col-lg-12 col-xs-12">
+				  <div class="contact-block">
+					<form id="contactForm">
+					  <div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required data-error="Please enter your name">
+								<div class="help-block with-errors"></div>
+							</div>                                 
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<input type="email" placeholder="Your Email" id="email" class="form-control" name="name" required data-error="Please enter your email">
+								<div class="help-block with-errors"></div>
+							</div> 
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<input type="text" placeholder="Your number" id="number" class="form-control" name="number" required data-error="Please enter your number">
+								<div class="help-block with-errors"></div>
+							</div> 
+						</div>
+						<div class="col-md-12">
+							<div class="form-group"> 
+								<textarea class="form-control" id="message" placeholder="Your Message" rows="8" data-error="Write your message" required></textarea>
+								<div class="help-block with-errors"></div>
+							</div>
+							<div class="submit-button text-center">
+								<button class="btn btn-common" id="submit" type="submit" onclick="test();">Envoyer Votre Réclamation</button>
+								<div id="msgSubmit" class="h3 text-center hidden"></div> 
+								<div class="clearfix"></div> 
+							</div>
+						</div>
+					  </div>            
+					</form>
+				  </div>
+				</div>
+				
+				
+				<div class="col-lg-12 col-xs-12">
+					<div class="left-contact">
+						<h2>Address</h2>
+						<div class="media cont-line">
+							<div class="media-left icon-b">
+								<i class="fa fa-location-arrow" aria-hidden="true"></i>
+							</div>
+							<div class="media-body dit-right">
+								<h4>Address</h4>
+								<p>Fleming 196 Woodside Circle Mobile, FL 36602</p>
+							</div>
+						</div>
+						<div class="media cont-line">
+							<div class="media-left icon-b">
+								<i class="fa fa-envelope" aria-hidden="true"></i>
+							</div>
+							<div class="media-body dit-right">
+								<h4>Email</h4>
+								<a href="#">demoinfo@gmail.com</a><br>
+								<a href="#">demoinfo@gmail.com</a>
+							</div>
+						</div>
+						<div class="media cont-line">
+							<div class="media-left icon-b">
+								<i class="fa fa-volume-control-phone" aria-hidden="true"></i>
+							</div>
+							<div class="media-body dit-right">
+								<h4>Phone Number</h4>
+								<a href="#">12345 67890</a><br>
+								<a href="#">12345 67890</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				
+			</div>
+		</div>
+	</div>
+	<!-- End Contact -->
 
 <!-- Start Subscribe -->
 <div class="subscribe-box">
@@ -236,23 +234,22 @@ if (empty($_SESSION['m_un'])) {?>
 
 <a href="#" id="scroll-to-top" class="new-btn-d br-2"><i class="fa fa-angle-up"></i></a>
 
-<!-- ALL JS FILES -->
-<script src="../assets/js/jquery.min.js"></script>
-<script src="../assets/js/popper.min.js"></script>
-<script src="../assets/js/bootstrap.min.js"></script>
-<!-- ALL PLUGINS -->
-<script src="../assets/js/jquery.magnific-popup.min.js"></script>
-<script src="../assets/js/jquery.pogo-slider.min.js"></script> 
-<script src="../assets/js/slider-index.js"></script>
-<script src="../assets/js/smoothscroll.js"></script>
-<script src="../assets/js/TweenMax.min.js"></script>
-<script src="../assets/js/main.js"></script>
-<script src="../assets/js/owl.carousel.min.js"></script>
-<script src="../assets/js/form-validator.min.js"></script>
-<script src="../assets/js/contact-form-script.js"></script>
-<script src="../assets/js/isotope.min.js"></script>	
-<script src="../assets/js/images-loded.min.js"></script>	
-<script src="../assets/js/custom.js"></script>
-
+	<!-- ALL JS FILES -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+    <!-- ALL PLUGINS -->
+	<script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/jquery.pogo-slider.min.js"></script> 
+	<script src="js/slider-index.js"></script>
+	<script src="js/smoothscroll.js"></script>
+	<script src="js/TweenMax.min.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/form-validator.min.js"></script>
+    <script src="js/contact-form-script.js"></script>
+	<script src="js/isotope.min.js"></script>	
+	<script src="js/images-loded.min.js"></script>	
+    <script src="js/custom.js"></script>
 </body>
 </html>

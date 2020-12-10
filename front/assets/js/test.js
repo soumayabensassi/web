@@ -133,7 +133,8 @@ function verif_achatmed(){
         expiration = new Date(expiration);
 
     } 
-      else if ((date.getFullYear() - date.getFullYear() > 2) || (date.getFullYear() - date.getFullYear() > 3)) {
+      elseif ((date.getFullYear() - date.getFullYear() > 2) || (date.getFullYear() - date.getFullYear() > 3))
+       {
     alert(" la date d'expiration doit etre au max avant 3 ans ou 2ans de la date d'aujourdhui");
     erreur = false;
 }
