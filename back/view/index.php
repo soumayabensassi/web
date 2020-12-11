@@ -193,6 +193,9 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="#">Ordonances</a>
                                         </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="gestion categorie.php">Categorie</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </li>

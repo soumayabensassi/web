@@ -32,7 +32,7 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+	<link rel="stylesheet" href="../assets/css/styles/fv.css">
 </head>
 <body id="home" data-spy="scroll" data-target="#navbar-wd" data-offset="98">
     <script src="../assets/js/test.js"></script>
@@ -129,23 +129,29 @@ if (empty($_SESSION['m_un'])) {?>
 				  <div class="contact-block">
 					<form id="contactForm">
 					  <div class="row">
+						  <div class="item">
 						<div class="col-md-6">
 							<div class="form-group">
-								<input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required data-error="Please enter your name">
+								<input type="text" style="width:510px;" class="form-control" id="name" name="name" placeholder="Your Name" required data-error="Please enter your name">
 								<div class="help-block with-errors"></div>
 							</div>                                 
 						</div>
+						</div>
+						<div class="item">
 						<div class="col-md-6">
 							<div class="form-group">
-								<input type="email" placeholder="Your Email" id="email" class="form-control" name="name" required data-error="Please enter your email">
+								<input type="email" style="width:560px;" placeholder="Your Email" id="email" class="form-control" name="name" required data-error="Please enter your email">
 								<div class="help-block with-errors"></div>
 							</div> 
 						</div>
+						</div>
+						<div class="item">
 						<div class="col-md-12">
 							<div class="form-group">
-								<input type="text" placeholder="Your number" id="number" class="form-control" name="number" required data-error="Please enter your number">
+								<input type="text" style="width:1110px;" placeholder="Your number" id="number" class="form-control" name="number" required data-error="Please enter your number">
 								<div class="help-block with-errors"></div>
 							</div> 
+						</div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group"> 
@@ -234,22 +240,52 @@ if (empty($_SESSION['m_un'])) {?>
 
 <a href="#" id="scroll-to-top" class="new-btn-d br-2"><i class="fa fa-angle-up"></i></a>
 
-	<!-- ALL JS FILES -->
-	<script src="js/jquery.min.js"></script>
-	<script src="js/popper.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-    <!-- ALL PLUGINS -->
-	<script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/jquery.pogo-slider.min.js"></script> 
-	<script src="js/slider-index.js"></script>
-	<script src="js/smoothscroll.js"></script>
-	<script src="js/TweenMax.min.js"></script>
-	<script src="js/main.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/form-validator.min.js"></script>
-    <script src="js/contact-form-script.js"></script>
-	<script src="js/isotope.min.js"></script>	
-	<script src="js/images-loded.min.js"></script>	
-    <script src="js/custom.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  
+  <script src="../assets/js/validator.js"></script>
+  <script>
+	  // initialize the validator function
+	  validator.message['date'] = 'not a real date';
+
+	  // validate a field on "blur" event, a 'select' on 'change' event & a '.reuired' classed multifield on 'keyup':
+	  $('form')
+		  .on('blur', 'input[required], input.optional, select.required', validator.checkField)
+		  .on('change', 'select.required', validator.checkField)
+		  .on('keypress', 'input[required][pattern]', validator.keypress);
+
+	  $('.multi.required')
+		  .on('keyup blur', 'input', function(){
+			  validator.checkField.apply( $(this).siblings().last()[0] );
+		  });
+
+	  // bind the validation to the form submit event
+	  //$('#send').click('submit');//.prop('disabled', true);
+
+	  $('form').submit(function(e){
+		  e.preventDefault();
+		  var submit = true;
+
+		  // Validate the form using generic validaing
+		  if( !validator.checkAll( $(this) ) ){
+			  submit = false;
+		  }
+
+		  if( submit )
+			  this.submit();
+
+		  return false;
+	  });
+
+	  /* FOR DEMO ONLY */
+	  $('#vfields').change(function(){
+		  $('form').toggleClass('mode2');
+	  }).prop('checked',false);
+
+	  $('#alerts').change(function(){
+		  validator.defaults.alerts = (this.checked) ? false : true;
+		  if( this.checked )
+			  $('form .alert').remove();
+	  }).prop('checked',false);
+  </script>
 </body>
 </html>
