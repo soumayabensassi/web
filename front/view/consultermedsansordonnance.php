@@ -98,8 +98,7 @@ $liste=$MED->affichermedicament();
                 <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
                     <ul class="navbar-nav">
                         <li><a class="nav-link " href="index.php">Accueil</a></li>
-						<li><a class="nav-link active" href="consultermedsansordonnance.php">Sans_ordonnance</a></li>
-						<li><a class="nav-link " href="consultermedavecordonnance.php">Avec_ordonnance</a></li>
+						<li><a class="nav-link active" href="gallery.php">Médicamnet</a></li>
 						<li><a class="nav-link" href="#Réclamation">Réclamation</a></li>
 						<li><a class="nav-link" href="#contact">Contact</a></li>
 						<?php

@@ -3,16 +3,17 @@ include_once "../model/Client.php" ;
 include_once "../config.php";
 class clientcontroller
 {
-    public function ajouterClient($nomClient,$emailClient,$password,$passwordVerif)
+    public function ajouterClient($nomClient,$emailClient,$password,$passwordVerif,$token)
     {$db=config::getConnexion();
-       try{ $sql="INSERT INTO client(nomClient,emailClient,password,passwordVerif)
-        VALUES(:nomClient,:emailClient,:password,:passwordVerif)";
+       try{ $sql="INSERT INTO client(nomClient,emailClient,password,passwordVerif,token)
+        VALUES(:nomClient,:emailClient,:password,:passwordVerif,:token)";
     $query = $db->prepare($sql);
     $query->execute([
         'nomClient'=>$nomClient,
         'emailClient'=>$emailClient,
         'password'=>$password,
-        'passwordVerif'=>$passwordVerif
+        'passwordVerif'=>$passwordVerif,
+        'token'=>$token
     ]);}catch(PDOException $e)
     {$e->getMessage();}
     }
