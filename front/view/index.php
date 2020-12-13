@@ -52,7 +52,7 @@
 				<div class="col-lg-6">
 					<div class="left-top">
 						<a class="new-btn-d br-2" href="#"><span>Conseils</span></a>
-						<div class="mail-b"><a href="#"><i class="fas fa-at" aria-hidden="true"></i> Pick-Medico@gmail.com</a></div>
+						<div class="mail-b"><a href="mailto:pick.medico@gmail.com"><i class="fas fa-at" aria-hidden="true"></i> Pick-Medico@gmail.com</a></div>
 					</div>
 				</div>
 				<div class="col-lg-6">
@@ -61,7 +61,7 @@
 					</div>
 					<div class="right-top">
 						<ul>
-							<li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+							<li><a href="https://www.facebook.com/Pick-Medico-103966288259025"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
 							<li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
 							<li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
 

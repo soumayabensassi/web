@@ -72,12 +72,7 @@
                         <input class="custom-control-input" type="checkbox"><span class="custom-control-label">By creating an account, you agree the <a href="#">terms and conditions</a></span>
                     </label>
                 </div>
-                <div class="form-group row pt-0">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-2">
-                        <button class="btn btn-block btn-social btn-facebook " type="button">Facebook</button>
-                    </div>
-
-                </div>
+            
             </div>
             <div class="card-footer bg-white">
                 <p>Already member? <a href="login.php" class="text-secondary">Login Here.</a></p>

@@ -13,13 +13,15 @@ include_once "../config.php";
     <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/libs/css/style.css">
+    <link href="../assets/css/styles/error.css" rel="stylesheet">
+
     <link rel="stylesheet" href="../assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
     <style>
         html,
         body {
             height: 100%;
         }
-        
+
         body {
             display: -ms-flexbox;
             display: flex;
@@ -39,6 +41,9 @@ include_once "../config.php";
         <div class="card">
             <div class="card-header text-center"><img class="logo-img" src="../assets/images/logo.png" alt="logo"><span class="splash-description">Please enter your user information.</span></div>
             <div class="card-body">
+            <?php if (isset($_GET['error'])) { ?>
+                    <p class="error"><?php echo $_GET['error']; ?></p>
+                <?php } ?>
                 <form method="POST">
                     <p>Don't worry, we'll send you an email to reset your password.</p>
                     <div class="form-group">
@@ -63,19 +68,35 @@ include_once "../config.php";
 
 </html>
 <?php
+include_once "../controller/clientscontroller.php";
+$test_email = new clientcontroller();
 
-if(isset($_POST['emailClient']))
+if (isset($_POST['emailClient'])) 
 {
-$token = uniqid();
+     if ($test_email->chercherEmail($_POST['emailClient']) == 0)
+    {
+        
+        $token = uniqid();
 
-$url= "http://localhost/web-1/front/view/token.php?token=$token";
-$message="bonjour,voici votre lien pour la recuperation de votre mot de passe: $url";
-if(mail($_POST['emailClient'],'Mot de passe oublié',$message,'From: soumaya99bensassi@gmail.com'))
-{$db=config::getConnexion();
-    $sql="UPDATE client SET token=? WHERE emailClient=?";
-    $stmt=$db->prepare($sql);
-    $stmt->execute([$token,$_POST['emailClient']]);
+        $url = "http://localhost/web-1/front/view/token.php?token=$token";
+        $message = "bonjour,voici votre lien pour la recuperation de votre mot de passe: $url";
+        if (mail($_POST['emailClient'], 'Mot de passe oublié', $message, 'From: pick.medico@gmail.com')) 
+        {
+            $db = config::getConnexion();
+            $sql = "UPDATE client SET token=? WHERE emailClient=?";
+            $stmt = $db->prepare($sql);
+            $stmt->execute([$token, $_POST['emailClient']]);
+        }
+
+        header('Location:forgot-password.php?error=Email déjà envoyé');
+
+    }
+     else 
+    {
+
+
+        header('Location:sign-up.php?error=Email n existe pas faire un autre compte');
+    }
 }
 
-}
 ?>

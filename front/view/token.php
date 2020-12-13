@@ -46,7 +46,7 @@ if($email)
                 <form method="POST">
                     <p>vous pouvez maintenant changer votre mot de passe</p>
                     <div class="form-group">
-                        <input class="form-control form-control-lg" type="text" name="newpass" required="" placeholder="nouveau mot de passe" autocomplete="off">
+                        <input class="form-control form-control-lg" type="password" name="newpass" required="" placeholder="nouveau mot de passe" autocomplete="off">
                     </div>
                     <button type="submit" class="btn btn-primary btn-lg btn-block">Réinitialiser le mot de passe</button>
                 </form>
@@ -63,7 +63,7 @@ if($email)
 if(isset($_POST['newpass']))
 {
     $db=config::getConnexion();
-  $sql="UPDATE client SET password=?, token='NULL' WHERE emailClient=?";
+  $sql="UPDATE client SET password=?,token='NULL' WHERE emailClient=?";
     $stmt=$db->prepare($sql);
     $stmt->execute([$_POST['newpass'],$email]);
    header('Location:login.php');
