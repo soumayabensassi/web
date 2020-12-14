@@ -191,7 +191,7 @@ $liste=$admin->afficherreclamation();
                                             <a class="nav-link" href="reclamationmanagement.php">Réclamations</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="rendezvousmanagement.php">Rendez-vous</a>
+                                            <a class="nav-link" href="rendezvousmanagment.php">Rendez-vous</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="livraison.php">Livraisons</a>
@@ -330,8 +330,9 @@ $liste=$admin->afficherreclamation();
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                  
-                                            <?php foreach($liste as $reclamation) { ?>
+                                                <?php $i=0; ?>  
+                                            <?php foreach($liste as $reclamation) {
+                                                $i++; ?>
                                             <tr>
                                                    
                                                    
@@ -342,10 +343,10 @@ $liste=$admin->afficherreclamation();
                                                    <td><?PHP echo $reclamation['message_reclamation']; ?></td> 
                                                    <td>
                                                     <label class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" name="radio-inline" checked="" class="custom-control-input"><span class="custom-control-label">traité</span>
+                                        <input type="radio" name="<?php echo $i; ?>" checked="" class="custom-control-input"><span class="custom-control-label">traité</span>
                                     </label>
                                                     <label class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" name="radio-inline" class="custom-control-input"><span class="custom-control-label">en attente</span>
+                                        <input type="radio" name="<?php echo $i; ?>" class="custom-control-input"><span class="custom-control-label">en attente</span>
                                     </label></td>
                                                     <td> 
                                                         <form method="POST" action="deletereclamation.php">
@@ -357,9 +358,7 @@ $liste=$admin->afficherreclamation();
                                             </tr><?PHP
                                         }?>
 
-                                                <tr>
-                                                    <td colspan="9"><a href="#" class="btn btn-outline-light float-right">View Details</a></td>
-                                                </tr>
+                                               
                                         </tbody>
                                     </table>
                                 </div>

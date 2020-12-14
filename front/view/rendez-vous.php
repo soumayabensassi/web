@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+	include_once "../controller/rendezvouscontroller.php";
+	include_once '../model/rendezvous.php';
+
+    $utilisateur1= new rendezvouscontroller();
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 <!-- Basic -->
@@ -90,7 +98,7 @@
                         <li><a class="nav-link " href="index.php">Accueil</a></li>
                         <li><a class="nav-link" href="#about">Site</a></li>
 
-                        <li><a class="nav-link active" href="#appointment">Rendez_vous</a></li>
+                        <li><a class="nav-link active" href="#appointment">Rendez-vous</a></li>
                         <li><a class="nav-link" href="gallery.php">Mdicaments</a></li>
                         <li><a class="nav-link" href="doctor.php">Médecins</a></li>
                         <li><a class="nav-link" href="blog.php">Blog</a></li>
@@ -139,12 +147,19 @@
                                     </div>
                                 </div>
                                 <!-- Text input-->
+                                <?php if (isset($_SESSION['e'])) { ?>
                                 <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label" for="email">Email</label>
+                                        <input id="email" name="email" type="text" value="<?php echo $_SESSION['e'] ?>" class="form-control input-md">
+                                    </div>
+                                </div>
+                                <?php } else {?>
                                     <div class="form-group">
                                         <label class="control-label" for="email">Email</label>
                                         <input id="email" name="email" type="text" placeholder="E-Mail" class="form-control input-md">
                                     </div>
-                                </div>
+                                <?php } ?>
                                 <!-- Text input-->
                                 <div class="col-md-6">
                                     <div class="form-group">

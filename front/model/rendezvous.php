@@ -1,15 +1,15 @@
 <?php
 class rendezvous
 { private $id_rendezvous;
-    private $nom;
-    private $prenom;
-    private $email;
-    private $date;
-    private $heure;
-    private $doctor;
+    private ?string $nom = null;
+    private ?string $prenom = null;
+    private ?string $email = null;
+    private  ?string $date = null;
+    private ?string $heure = null;
+    private ?string $doctor = null;
 
 
-    function __construct(string $nom, string $prenom, string $email, int  $date, string $heure, string $doctor)
+    function __construct(string $nom,string $prenom,string $email,string $date, string $heure,string $doctor)
     {
         $this->nom=$nom;
         $this->prenom=$prenom;
@@ -21,23 +21,23 @@ class rendezvous
 
 
 
-    function getNomrendezvous(): string{    
+    function getNom(): string{    
         return $this->nom;
     }
-    function getPrenomrendezvous(): string{    
+    function getPrenom(): string{    
         return $this->prenom;
     }
-    function getEmailrendezvous(): string{
+    function getEmail(): string{
         return $this->email;
-    }
-    function getNombre(): string{
+        }
+    function getDate(): string{
         return $this->date; 
         }
     
-    function getMessage(): string{
+    function getHeure(): string{
         return $this->heure;
         }
-    function getDoctorrendezvous(): string{    
+    function getDoctor(): string{    
             return $this->doctor;
         }    
     }

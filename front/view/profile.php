@@ -58,6 +58,8 @@ if (
                     <a href="#" class="nav-link active mt-auto"><i class="far fa-user-circle"></i> Profil</a>
                     <a href="index.php" class="nav-link active"><i class="fas fa-home"></i> Accueil</a>
                     <a href="panier.php" class="nav-link active"><i class="fas fa-shopping-basket"></i> Panier</a>
+                    <a href="gestionrendezvous.php" class="nav-link active"><i class="fas fa-calendar-check"></i>rendez-vous</a>
+                <a href="modifierreclamation.php" class="nav-link active"><i class="fas fa-exclamation"></i>reclamation</a>
                     <a href="signout.php" class="nav-link active mb-auto"><i class="fas fa-cogs"></i> Déconnexion</a>
 
                 </div>

@@ -101,7 +101,9 @@
 							<li class="nav-link"><a href="login.php">Se connecter</a></li>
 
 						<?php } else { ?>
+
 							<li class="nav-link"><?php include "logged.php"; ?></li>
+							
 
 
 						<?php
@@ -126,7 +128,7 @@
 							<div class="lbox-details">
 								<h1>Bienvenue à Pick Medico</h1>
 								<p>Vous avancez, nous assurons!!</p>
-								<a href="#" class="btn">S'inscrire</a>
+								<a href="sign-up.php" class="btn">S'inscrire</a>
 							</div>
 						</div>
 					</div>
@@ -135,7 +137,7 @@
 							<div class="lbox-details">
 								<h1>La vie est dans la santé,</h1>
 								<p>Non dans l'existence.</p>
-								<a href="#" class="btn">Contact</a>
+								<a href="#contact" class="btn">Contact</a>
 							</div>
 						</div>
 					</div>
@@ -144,7 +146,7 @@
 							<div class="lbox-details">
 								<h1>Votre santé nous est précieuse </h1>
 								<p>En mission pour la santé</p>
-								<a href="#" class="btn">Réclamation</a>
+								<a href="Réclamation.php" class="btn">Réclamation</a>
 							</div>
 						</div>
 
@@ -343,8 +345,9 @@
 						</div>
 						<div class="media cont-line">
 							<div class="media-left icon-b">
-								<i class="fa fa-volume-control-phone" aria-hidden="true"></i>
-							</div>
+							<i class="fas fa-phone-volume"></i>
+
+</div>
 							<div class="media-body dit-right">
 								<h4>Phone Number</h4>
 								<a href="#">12345 67890</a><br>

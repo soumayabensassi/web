@@ -7,16 +7,13 @@ class rendezvous
     private $date;
     private $heure;
     private $doctor;
+    private $status;
 
 
-    function __construct(string $nom, string $prenom, string $email, int  $date, string $heure, string $doctor)
+    function __construct( string $status)
     {
-        $this->nom=$nom;
-        $this->prenom=$prenom;
-        $this->email=$email;
-        $this->date=$date;
-        $this->heure=$heure;
-        $this->doctor=$doctor;
+      
+        $this->status=$status;
     }
 
 
@@ -40,6 +37,9 @@ class rendezvous
     function getDoctorrendezvous(): string{    
             return $this->doctor;
         }    
+    function getStatus(): string{    
+            return $this->status;
+        }     
     }
 
 ?>

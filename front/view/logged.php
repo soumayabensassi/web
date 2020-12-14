@@ -15,7 +15,11 @@
                     <ul>
                       <li><a href="profile.php"><br><i class="fas fa-user"></i>Profile</a></li>
                       <li><a href="panier.php"><br><i class="fas fa-shopping-basket"></i> Panier</a></li>
-                      <li><a href="signout.php"><i class="fas fa-sign-out-alt"></i>Signout</a></li>
+                      <a href="gestionrendezvous.php" ><i class="fas fa-calendar-check"></i>rendez-vous</a>
+                      <a href="modifierreclamation.php"><i class="fas fa-exclamation"></i>réclamation</a>
+                      <li><a href="signout.php"><i class="fas fa-sign-out-alt"></i>déconnecter</a></li>
+                      
+
                   </ul>
                 </div>
                 

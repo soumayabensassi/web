@@ -47,6 +47,30 @@ class rendezvouscontroller
         }
     
        }
+
+       function modifierrendezvous($status,$id_rendezvous){
+        try {
+            
+            $db = config::getConnexion();
+            $query = $db->prepare(
+               'UPDATE rendezvous SET 
+                    status=:status
+    
+    
+                WHERE id_rendezvous= :id_rendezvous'
+            );
+         
+            $query->execute([
+               'status'=>$status,
+               'id_rendezvous'=>$id_rendezvous   
+               ]
+);
+            
+           
+        } catch (PDOException $e) {
+            $e->getMessage();
+        }
+    } 
      
 
 

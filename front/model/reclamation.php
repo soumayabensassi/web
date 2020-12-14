@@ -1,10 +1,10 @@
 <?php
 class reclamation
-{ private $id_reclamation;
-    private $nom_reclamation;
-    private $email_reclamation;
-    private $number_reclamation;
-    private $message_reclamation;
+{ private ?int $id_reclamation = null ;
+    private ?string $nom_reclamation = null;
+    private ?string $email_reclamation = null ;
+    private ?string $number_reclamation = null;
+    private ?string $message_reclamation = null;
 
 
     function __construct(string $nom_reclamation, string $email_reclamation, int  $number_reclamation, string $message_reclamation)
@@ -12,7 +12,7 @@ class reclamation
         $this->nom_reclamation=$nom_reclamation;
         $this->email_reclamation=$email_reclamation;
         $this->number_reclamation=$number_reclamation;
-        $this->nom_reclamation=$nom_reclamation;
+        $this->message_reclamation=$message_reclamation;
     }
 
 

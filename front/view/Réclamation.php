@@ -1,3 +1,8 @@
+<?php session_start();
+	include_once "../controller/reclamationscontroller.php";
+	include_once '../model/reclamation.php';
+
+    $utilisateur1= new reclamationcontroller(); ?>
 <!DOCTYPE html>
 <html lang="en"><!-- Basic -->
 <head>
@@ -32,7 +37,7 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-	<link rel="stylesheet" href="../assets/css/styles/fv.css">
+
 </head>
 <body id="home" data-spy="scroll" data-target="#navbar-wd" data-offset="98">
     <script src="../assets/js/test.js"></script>
@@ -87,14 +92,13 @@
                         <li><a class="nav-link " href="index.php">Accueil</a></li>
                         <li><a class="nav-link" href="#about">Site</a></li>
                         
-						<li><a class="nav-link" href="rendez-vous.php">Rendez_vous</a></li>
+						<li><a class="nav-link" href="rendez-vous.php">Rendez-vous</a></li>
                         <li><a class="nav-link" href="gallery.php">Médicaments</a></li>
 						<li><a class="nav-link" href="doctor.php">Médecins</a></li>
                         <li><a class="nav-link " href="blog.php">Blog</a></li>
 						<li><a class="nav-link active" href="Réclamation.php">Réclamation</a></li>
                         <li><a class="nav-link" href="#contact">Contact</a></li>
                         <?php
-session_start();
 if (empty($_SESSION['m_un'])) {?>
     <li class="nav-link"><a  href="login.php">Se connecter</a></li>
     
@@ -112,104 +116,109 @@ if (empty($_SESSION['m_un'])) {?>
         </nav>
 	</header>
     <!-- End header -->
-  
-    <div id="Réclamation" class="contact-box">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="title-box">
-						<h2>Réclamation</h2>
-						<p>Ajouter une Réclamation </p>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				
-				<div class="col-lg-12 col-xs-12">
-				  <div class="contact-block">
-					<form id="contactForm">
-					  <div class="row">
-						  <div class="item">
-						<div class="col-md-6">
-							<div class="form-group">
-								<input type="text" style="width:510px;" class="form-control" id="name" name="name" placeholder="Your Name" required data-error="Please enter your name">
-								<div class="help-block with-errors"></div>
-							</div>                                 
-						</div>
-						</div>
-						<div class="item">
-						<div class="col-md-6">
-							<div class="form-group">
-								<input type="email" style="width:560px;" placeholder="Your Email" id="email" class="form-control" name="name" required data-error="Please enter your email">
-								<div class="help-block with-errors"></div>
-							</div> 
-						</div>
-						</div>
-						<div class="item">
-						<div class="col-md-12">
-							<div class="form-group">
-								<input type="text" style="width:1110px;" placeholder="Your number" id="number" class="form-control" name="number" required data-error="Please enter your number">
-								<div class="help-block with-errors"></div>
-							</div> 
-						</div>
-						</div>
-						<div class="col-md-12">
-							<div class="form-group"> 
-								<textarea class="form-control" id="message" placeholder="Your Message" rows="8" data-error="Write your message" required></textarea>
-								<div class="help-block with-errors"></div>
-							</div>
-							<div class="submit-button text-center">
-								<button class="btn btn-common" id="submit" type="submit" onclick="test();">Envoyer Votre Réclamation</button>
-								<div id="msgSubmit" class="h3 text-center hidden"></div> 
-								<div class="clearfix"></div> 
-							</div>
-						</div>
-					  </div>            
-					</form>
-				  </div>
-				</div>
-				
-				
-				<div class="col-lg-12 col-xs-12">
-					<div class="left-contact">
-						<h2>Address</h2>
-						<div class="media cont-line">
-							<div class="media-left icon-b">
-								<i class="fa fa-location-arrow" aria-hidden="true"></i>
-							</div>
-							<div class="media-body dit-right">
-								<h4>Address</h4>
-								<p>Fleming 196 Woodside Circle Mobile, FL 36602</p>
-							</div>
-						</div>
-						<div class="media cont-line">
-							<div class="media-left icon-b">
-								<i class="fa fa-envelope" aria-hidden="true"></i>
-							</div>
-							<div class="media-body dit-right">
-								<h4>Email</h4>
-								<a href="#">demoinfo@gmail.com</a><br>
-								<a href="#">demoinfo@gmail.com</a>
-							</div>
-						</div>
-						<div class="media cont-line">
-							<div class="media-left icon-b">
-								<i class="fa fa-volume-control-phone" aria-hidden="true"></i>
-							</div>
-							<div class="media-body dit-right">
-								<h4>Phone Number</h4>
-								<a href="#">12345 67890</a><br>
-								<a href="#">12345 67890</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				
-			</div>
-		</div>
-	</div>
-	<!-- End Contact -->
+    <script src="../assets/js/test.js"></script>
+<!-- Start Contact -->
+<div id="Réclamation" class="contact-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="title-box">
+                    <h2>Réclamation</h2>
+                    <p>Ajouter une réclamation . </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            
+            <div class="col-lg-12 col-xs-12">
+              <div class="contact-block">
+                <form name="f" action="ajouterreclamation.php" method="POST">
+                  <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required data-error="Please enter your name">
+                            <div class="help-block with-errors"></div>
+                        </div>                                 
+                    </div>
+                    <?php if (isset($_SESSION['e'])) { ?>
+                     <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" value="<?php echo $_SESSION['e'] ?>" id="email" class="form-control" name="email" required data-error="Please enter your email">
+                            <div class="help-block with-errors"></div>
+                        </div> 
+                    </div>
+                    <?php } else {?>
+                        <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" placeholder="your email" id="email" class="form-control" name="email" required data-error="Please enter your email">
+                            <div class="help-block with-errors"></div>
+                        </div> 
+                    </div> 
+                    <?php } ?>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your number" id="number" class="form-control" name="number" required data-error="Please enter your number">
+                            <div class="help-block with-errors"></div>
+                        </div> 
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group"> 
+                            <textarea class="form-control" id="message" placeholder="Your Message" rows="8"name="msg" data-error="Write your message" required></textarea>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="submit-button text-center">
+                            <input type="submit"  id="submit" class="btn btn-common" value="Envoyer une réclamation " onclick="test();" >
+                            
+                            <div id="msgSubmit" class="h3 text-center hidden"></div> 
+                            <div class="clearfix"></div> 
+                        </div>
+                    </div>
+                  </div>            
+                </form>
+              </div>
+            </div>
+            
+            
+            <div id="contact"class="col-lg-12 col-xs-12">
+                <div class="left-contact">
+                    <h2>Adresse</h2>
+                    <div class="media cont-line">
+                        <div class="media-left icon-b">
+                            <i class="fa fa-location-arrow" aria-hidden="true"></i>
+                        </div>
+                        <div class="media-body dit-right">
+                            <h4>Adresse</h4>
+                            <p>Fleming 196 Woodside Circle Mobile, FL 36602</p>
+                        </div>
+                    </div>
+                    <div class="media cont-line">
+                        <div class="media-left icon-b">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </div>
+                        <div class="media-body dit-right">
+                            <h4>Email</h4>
+                            <a href="#">demoinfo@gmail.com</a><br>
+                            <a href="#">demoinfo@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="media cont-line">
+                        <div class="media-left icon-b">
+                            <i class="fa fa-volume-control-phone" aria-hidden="true"></i>
+                        </div>
+                        <div class="media-body dit-right">
+                            <h4>Phone Number</h4>
+                            <a href="#">12345 67890</a><br>
+                            <a href="#">12345 67890</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+
+<!-- End Contact -->
 
 <!-- Start Subscribe -->
 <div class="subscribe-box">
@@ -240,52 +249,23 @@ if (empty($_SESSION['m_un'])) {?>
 
 <a href="#" id="scroll-to-top" class="new-btn-d br-2"><i class="fa fa-angle-up"></i></a>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  
-  <script src="../assets/js/validator.js"></script>
-  <script>
-	  // initialize the validator function
-	  validator.message['date'] = 'not a real date';
+<!-- ALL JS FILES -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/popper.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<!-- ALL PLUGINS -->
+<script src="../assets/js/jquery.magnific-popup.min.js"></script>
+<script src="../assets/js/jquery.pogo-slider.min.js"></script> 
+<script src="../assets/js/slider-index.js"></script>
+<script src="../assets/js/smoothscroll.js"></script>
+<script src="../assets/js/TweenMax.min.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/owl.carousel.min.js"></script>
+<script src="../assets/js/form-validator.min.js"></script>
+<script src="../assets/js/contact-form-script.js"></script>
+<script src="../assets/js/isotope.min.js"></script>	
+<script src="../assets/js/images-loded.min.js"></script>	
+<script src="../assets/js/custom.js"></script>
 
-	  // validate a field on "blur" event, a 'select' on 'change' event & a '.reuired' classed multifield on 'keyup':
-	  $('form')
-		  .on('blur', 'input[required], input.optional, select.required', validator.checkField)
-		  .on('change', 'select.required', validator.checkField)
-		  .on('keypress', 'input[required][pattern]', validator.keypress);
-
-	  $('.multi.required')
-		  .on('keyup blur', 'input', function(){
-			  validator.checkField.apply( $(this).siblings().last()[0] );
-		  });
-
-	  // bind the validation to the form submit event
-	  //$('#send').click('submit');//.prop('disabled', true);
-
-	  $('form').submit(function(e){
-		  e.preventDefault();
-		  var submit = true;
-
-		  // Validate the form using generic validaing
-		  if( !validator.checkAll( $(this) ) ){
-			  submit = false;
-		  }
-
-		  if( submit )
-			  this.submit();
-
-		  return false;
-	  });
-
-	  /* FOR DEMO ONLY */
-	  $('#vfields').change(function(){
-		  $('form').toggleClass('mode2');
-	  }).prop('checked',false);
-
-	  $('#alerts').change(function(){
-		  validator.defaults.alerts = (this.checked) ? false : true;
-		  if( this.checked )
-			  $('form .alert').remove();
-	  }).prop('checked',false);
-  </script>
 </body>
 </html>

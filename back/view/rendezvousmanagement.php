@@ -325,8 +325,9 @@ $liste=$admin->afficherrendezvous();
                                                 <th class="border-0">date</th>
                                                 <th class="border-0">heure</th>
                                                 <th class="border-0">docteur</th>
+                                                <th class="border-0">status</th>
                                                 <th class="border-0">accepter</th>
-                                                <th class="border-0">supprimer</th>
+                                                <th class="border-0">refuser</th>
                                                 
                                             </tr>
                                         </thead>
@@ -344,12 +345,19 @@ $liste=$admin->afficherrendezvous();
                                                    <td><?PHP echo $rendezvous['date']; ?></td>
                                                    <td><?PHP echo $rendezvous['heure']; ?></td>
                                                    <td><?PHP echo $rendezvous['doctor']; ?></td> 
-                                                   <td>
+                                                   <td><?php echo $rendezvous['status'] ?> </td>
+                                                  <td>
+                                                   <form method="POST" action="gererrendezvous.php">
                                                    <input type="submit" class="btn btn-outline-light float" value="accepter" name="accepter">
-                                                    </td>
-                                                    <td> 
-                                                        <form method="POST" action="deleterendezvous.php">
-                                                        <input type="submit" class="btn btn-outline-light float" value="delete" name="delete">
+                                                   <input type="hidden" value=<?PHP echo $rendezvous['id_rendezvous']; ?> name="id_rendezvous">
+                                                   <input type="hidden" value=<?PHP echo $rendezvous['email']; ?> name="emailclients">
+                                                   </form>
+                                                   </td>
+                                                    
+                                                       <td> 
+                                                        <form method="POST" action="gererrendezvous.php">
+                                                        <input type="submit" class="btn btn-outline-light float" value="refuser" name="refuser">
+                                                        <input type="hidden" value=<?PHP echo $rendezvous['email']; ?> name="emailclients">
                                                    <input type="hidden" value=<?PHP echo $rendezvous['id_rendezvous']; ?> name="id_rendezvous">
                                                    </form>
                                                     </td>
@@ -357,9 +365,7 @@ $liste=$admin->afficherrendezvous();
                                             </tr><?PHP
                                         }?>
 
-                                                <tr>
-                                                    <td colspan="9"><a href="#" class="btn btn-outline-light float-right">View Details</a></td>
-                                                </tr>
+                                               
                                         </tbody>
                                     </table>
                                 </div>
