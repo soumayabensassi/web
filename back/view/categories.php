@@ -1,12 +1,13 @@
-<?PHP
-include_once "../controller/rendezvouscontroller.php";
 
-$admin=new rendezvouscontroller();
-$liste=$admin->afficherrendezvous();
+<?PHP
+include_once "../controller/categoriescontroller.php";
+
+$categorie=new categoriecontroller();
+$liste=$categorie->affichercategorie();
 
 
 ?>
-
+<!doctype html>
 <!doctype html>
 <html lang="en">
 
@@ -127,8 +128,43 @@ $liste=$admin->afficherrendezvous();
                                         </li>
                                     </ul>
                                 </div>
-                                </li>
+                            </li>
                            
+                            <li class="nav-item ">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-4" aria-controls="submenu-4"><i class="fab fa-fw fa-wpforms"></i>Forms</a>
+                                <div id="submenu-4" class="collapse submenu" >
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Form Elements</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Parsely Validations</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Multiselect</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Date Picker</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Bootstrap Select</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class="fas fa-fw fa-table"></i>Tables</a>
+                                <div id="submenu-5" class="collapse submenu" >
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#"></a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Data Tables</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
 
                         </ul>
                     </div>
@@ -138,122 +174,70 @@ $liste=$admin->afficherrendezvous();
             </nav>
         </div>
     </div>
-   
+    </div>
+    <!-- ============================================================== -->
+    <!-- end left sidebar -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- wrapper  -->
+    <!-- ============================================================== -->
     <div class="dashboard-wrapper">
         <div class="dashboard-ecommerce">
             <div class="container-fluid dashboard-content ">
-            <div class="container-fluid dashboard-content ">
                 <!-- ============================================================== -->
-                <!-- end pageheader  -->
+                <!-- pageheader  -->
                 <!-- ============================================================== -->
-
-                <!-- ============================================================== -->
-
-                <!-- ============================================================== -->
-
-                <!-- recent orders  -->
-                <!-- ============================================================== -->
-
-                <!-- ============================================================== -->
-                <!-- end recent orders  -->
-
-
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- customer acquistion  -->
-                <!-- ============================================================== -->
-
-                <!-- ============================================================== -->
-                <!-- end product category  -->
-                <!-- product sales  -->
-                <!-- ============================================================== -->
-
-                <!-- ============================================================== -->
-                <!-- end product sales  -->
-                <!-- ============================================================== -->
-
-                <!-- ============================================================== -->
-                <!-- total revenue  -->
-                <!-- ============================================================== -->
-
-
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- category revenue  -->
-                <!-- ============================================================== -->
-
-                <!-- end category revenue  -->
-                <!-- ============================================================== -->
-
-
-                <!-- ============================================================== -->
-                <!-- footer -->
-                <!-- ============================================================== -->
+               
                 <div class="footer">
                     <div class="container-fluid">
 
-
-
-                        <div class="card">
-                            <h5 class="card-header">les rendezvouss</h5>
-                            <div class="card-body p-0">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead class="bg-light">
-                                            <tr class="border-0">
-                                                <th class="border-0">Id</th>
-                                                <th class="border-0">Nom </th>
-                                                <th class="border-0">penom </th>
-                                                <th class="border-0">email</th>
-                                                <th class="border-0">date</th>
-                                                <th class="border-0">heure</th>
-                                                <th class="border-0">docteur</th>
-                                                <th class="border-0">status</th>
-                                                <th class="border-0">accepter</th>
-                                                <th class="border-0">refuser</th>
-                                                
-                                            </tr>
-                                        </thead>
-                                        <tbody>
+                    <div class="col-xl-9 col-lg-12 col-md-6 col-sm-12 col-12">
+        <div class="card">
+            <h5 class="card-header">categorie</h5>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class="bg-light">
+                            <tr class="border-0">
+                            
+                                <th class="border-0">categorie</th>
+                                <th class="border-0">supprimer</th>
+                                <th class="border-0">modifier</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <?php foreach($liste as $categorie) { ?>
                                             <tr>
+                                                   
+                                                   
+                                                   <td class="nav-item"><a class="nav-link" href="blog manegment.php?id=<?PHP echo $categorie['id']; ?>"><?PHP echo $categorie['nom']; ?></a></td> 
                                                   
-                                            <?php foreach($liste as $rendezvous) { ?>
-                                            <tr>
                                                    
                                                    
-                                                   <td><?PHP echo $rendezvous['id_rendezvous']; ?></td> 
-                                                   <td><?PHP echo $rendezvous['nom']; ?></td>
-                                                   <td><?PHP echo $rendezvous['prenom']; ?></td>
-                                                   <td><?PHP echo $rendezvous['email']; ?></td>
-                                                   <td><?PHP echo $rendezvous['date']; ?></td>
-                                                   <td><?PHP echo $rendezvous['heure']; ?></td>
-                                                   <td><?PHP echo $rendezvous['doctor']; ?></td> 
-                                                   <td><?php echo $rendezvous['status'] ?> </td>
-                                                  <td>
-                                                   <form method="POST" action="gererrendezvous.php">
-                                                   <input type="submit" class="btn btn-outline-light float" value="accepter" name="accepter">
-                                                   <input type="hidden" value=<?PHP echo $rendezvous['id_rendezvous']; ?> name="id_rendezvous">
-                                                   <input type="hidden" value=<?PHP echo $rendezvous['email']; ?> name="emailclients">
-                                                   </form>
-                                                   </td>
-                                                    
-                                                       <td> 
-                                                        <form method="POST" action="gererrendezvous.php">
-                                                        <input type="submit" class="btn btn-outline-light float" value="refuser" name="refuser">
-                                                        <input type="hidden" value=<?PHP echo $rendezvous['email']; ?> name="emailclients">
-                                                   <input type="hidden" value=<?PHP echo $rendezvous['id_rendezvous']; ?> name="id_rendezvous">
-                                                   </form>
+                                                    <td> 
+                                                        <form method="POST" action="deletecategories.php">
+                                                        <input class="btn btn-outline-light float-left" type="submit" name="supprimer" value="supprimer">
+                                                        <input type="hidden" value=<?PHP echo $categorie['id']; ?> name="id">
+                                                        </form>
                                                     </td>
-                                                   
+                                                    <td> 
+                                                    <a class="btn btn-outline-light float-left" href="modifiercategories.php?id=<?PHP echo $categorie['id']; ?>">Modifier</a>
+                            </td>
+                                                    
                                             </tr><?PHP
                                         }?>
+                            <tr>
+                            <td colspan="9"><a href="ajoutcategorie.php" class="btn btn-outline-light float-right">add categorie</a></td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                                               
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
+
 
                     </div>
                 </div>
@@ -274,7 +258,7 @@ $liste=$admin->afficherrendezvous();
         <!-- bootstap bundle js -->
         <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
         <!-- slimscroll js -->
-        <script src="../vassets/vendor/slimscroll/jquery.slimscroll.js"></script>
+        <script src="../assets/vendor/slimscroll/jquery.slimscroll.js"></script>
         <!-- main js -->
         <script src="../assets/libs/js/main-js.js"></script>
         <!-- chart chartist js -->

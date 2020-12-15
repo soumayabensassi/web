@@ -10,6 +10,6 @@ include_once "../controller/blogscontroller.php";
        
 $test=new blogcontroller();
 $test->ajouterblog($nom,$nomarticle,$date,$categorie,$img,$blog);
-header('Location:blog manegment.php');
+header('Location:categories.php');
 
 ?>

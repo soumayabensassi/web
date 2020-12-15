@@ -1,9 +1,23 @@
 
 <?PHP
 include_once "../controller/blogscontroller.php";
+include_once "../controller/categoriescontroller.php";
+include_once '../model/categories.php';
 
 $blog=new blogcontroller();
 $liste=$blog->afficherblog();
+$utilisateur1= new categoriecontroller();
+	
+	
+	if (
+		isset($_POST["nom"]) 
+         
+	   ){
+		
+            $user = new categories($_POST['nom']);
+            $utilisateur1->modifiercategorie($user, $_GET['id']);
+            
+        }
 
 
 ?>
@@ -18,14 +32,13 @@ $liste=$blog->afficherblog();
     <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/libs/css/style.css">
-    <link rel="stylesheet" href="../assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
-    <link rel="stylesheet" href="../assets/vendor/charts/chartist-bundle/chartist.css">
-    <link rel="stylesheet" href="../assets/vendor/charts/morris-bundle/morris.css">
-    <link rel="stylesheet" href="../assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="../assets/vendor/charts/c3charts/c3.css">
-    <link rel="stylesheet" href="../assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-    <title>pick Medico</title>
+
+    
+  
+   
+    
+    
+    <title>Pick Medico</title>
 </head>
 
 <body>
@@ -44,56 +57,25 @@ $liste=$blog->afficherblog();
                 </button>
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto navbar-right-top">
-                        <li class="nav-item">
-                            <div id="custom-search" class="top-search-bar">
-                                <input class="form-control" type="text" placeholder="Search..">
-                            </div>
-                        </li>
+                        
+                        
                        
-                        <li class="nav-item dropdown connection">
-                            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-fw fa-th"></i> </a>
-                            <ul class="dropdown-menu dropdown-menu-right connection-dropdown">
-                                <li class="connection-list">
-                                    <div class="row">
-                                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                            <a href="#" class="connection-item"><img src="../assets/images/github.png" alt=""> <span>Github</span></a>
-                                        </div>
-                                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                            <a href="#" class="connection-item"><img src="../assets/images/dribbble.png" alt=""> <span>Dribbble</span></a>
-                                        </div>
-                                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                            <a href="#" class="connection-item"><img src="../assets/images/dropbox.png" alt=""> <span>Dropbox</span></a>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                            <a href="#" class="connection-item"><img src="../assets/images/bitbucket.png" alt=""> <span>Bitbucket</span></a>
-                                        </div>
-                                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                            <a href="#" class="connection-item"><img src="../assets/images/mail_chimp.png" alt=""><span>Mail chimp</span></a>
-                                        </div>
-                                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                            <a href="#" class="connection-item"><img src="../assets/images/slack.png" alt=""> <span>Slack</span></a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="conntection-footer"><a href="#">More</a></div>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown nav-user">
-                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"></a>
-                            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
-                                <div class="nav-user-info">
-                                    <h5 class="mb-0 text-white nav-user-name">John Abraham </h5>
-                                    <span class="status"></span><span class="ml-2">Available</span>
-                                </div>
-                                <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
-                                <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
-                                <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
-                            </div>
-                        </li>
+                                            <?php
+                                    session_start();
+                                     { ?>
+                                        
+
+                                    
+                                        <li class="nav-link"><?php include "logged.php"; ?></li>
+
+
+                                    <?php
+
+                                    }
+                                    ?>
+                                
+                            
+                        
                     </ul>
                 </div>
             </nav>
@@ -137,7 +119,7 @@ $liste=$blog->afficherblog();
                                 <div id="submenu-2" class="collapse submenu" >
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Blogs <span class="badge badge-secondary">New</span></a>
+                                            <a class="nav-link" href="categories.php">Blogs <span class="badge badge-secondary">New</span></a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="doctor-finder.php">Medecins</a>
@@ -162,19 +144,6 @@ $liste=$blog->afficherblog();
                             </li>
                            
                            
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class="fas fa-fw fa-table"></i>Tables</a>
-                                <div id="submenu-5" class="collapse submenu" >
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">General Tables</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Data Tables</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
 
                         </ul>
                     </div>
@@ -218,9 +187,22 @@ $liste=$blog->afficherblog();
                             </tr>
                         </thead>
                         <tbody>
+                        <?php
+  
+                        if (isset($_GET['id'])){
+                            $user=$utilisateur1->recuperercategorie($_GET['id']);
+                            
+                            
+                            
+                        ?>
+                            <tr class="border-0">
+                            <td>nom de categorie:<?PHP echo $user['nom']; ?></td> 
+                                </tr>
                         <?php foreach($liste as $blog) { ?>
+                            <?php if($blog['categorie']===$user['nom']){ ?>
+                                
                                             <tr>
-                                                   
+                                            
                                                    
                                                    <td><?PHP echo $blog['nom']; ?></td> 
                                                    <td><?PHP echo $blog['id']; ?></td>
@@ -229,18 +211,24 @@ $liste=$blog->afficherblog();
                                                    
                                                     <td> 
                                                         <form method="POST" action="deleteblog.php">
-                                                        <input type="submit" name="supprimer" value="supprimer">
+                                                        <input class="btn btn-outline-light float-right" type="submit" name="supprimer" value="supprimer">
                                                         <input type="hidden" value=<?PHP echo $blog['id']; ?> name="id">
                                                         </form>
                                                     </td>
                                                     <td> 
-                                                    <a href="modifierblog.php?id=<?PHP echo $blog['id']; ?>">Modifier</a>
+                                                    <a class="btn btn-outline-light float-right" href="modifierblog.php?id=<?PHP echo $blog['id']; ?>">Modifier</a>
                             </td>
                                                     
-                                            </tr><?PHP
+                                            </tr>
+                                            <?PHP
                                         }?>
+                                            <?PHP
+                                        }?>
+                                        <?php
+		}
+		?>
                             <tr>
-                            <td colspan="9"><a href="ajoutblog.php" class="btn btn-outline-light float-right">add blogs</a></td>
+                            <td colspan="9"><a href="ajoutblog.php?id=<?PHP echo $user['id']; ?>" class="btn btn-outline-light float-right">add blogs</a></td>
                             </tr>
                             
                         </tbody>

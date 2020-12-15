@@ -1,23 +1,8 @@
-
 <?PHP
-include_once "../../back/controller/blogscontroller.php";
-include_once "../../back/controller/categoriescontroller.php";
-include_once '../model/categories.php';
+include_once "../../back/controller/categoriecontroller.php";
 
-$blog=new blogcontroller();
-$liste=$blog->afficherblog();
-$utilisateur1= new categoriecontroller();
-	
-	
-	if (
-		isset($_POST["nom"]) 
-         
-	   ){
-		
-            $user = new categorie($_POST['nom']);
-            $utilisateur1->modifiercategorie($user, $_GET['id']);
-            
-        }
+$categorie=new categoriecontroller();
+$liste=$categorie->affichercategorie();
 
 
 ?>
@@ -143,39 +128,24 @@ if (empty($_SESSION['m_un'])) {?>
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="title-box">
-						<h2>Blog</h2>
-						<p>Nos docteurs peuvent vous aidez avec des blogs aussi </p>
+						<h2>Blog categories</h2>
+						
 					</div>
 				</div>
             </div>
             <div class="row">
-            <?php
-  
-  if (isset($_GET['id'])){
-      $user=$utilisateur1->recuperercategorie($_GET['id']);
-      
-      
-      
-  ?>
-			<?php foreach($liste as $blog) { ?>
-                <?php if($blog['categorie']===$user['nom']){ ?>
+			<?php foreach($liste as $categorie) { ?>
+			
 				<div class="col-lg-4 col-md-6 col-sm-12">
 					<div class="blog-inner">
-						<div class="blog-img">
-							<img class="img-fluid"  <?PHP  $a=$blog['img']; print"<img src='../assets/images/$a' "?>/>  
-						</div>
-						<div class="item-meta">
-							
-							<a href="#"><i class="fas fa-user"></i><?PHP echo $blog['nom']; ?></a>
-							<span class="dti"><?PHP echo $blog['date']; ?></span>
-						</div>
-						<h2><?PHP echo $blog['nomarticle']; ?></h2>
 						
-						<a class="new-btn-d br-2" href="lireblog.php?id=<?PHP echo $blog['id']; ?>">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+						
+						
+						<a class="new-btn-d br-2" href="blog.php?id=<?PHP echo $categorie['id']; ?>"><?PHP echo $categorie['nom']; ?> <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+						
 					</div>
 				</div>
-                <?PHP }?>
-            <?PHP }?>
+			
             <?PHP }?>
             </div>
 		</div>

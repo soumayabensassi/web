@@ -1,27 +1,4 @@
 <?php session_start() ?>
-<?PHP
-include_once "../controller/blogscontroller.php";
-include_once "../controller/categoriescontroller.php";
-include_once '../model/categories.php';
-
-$blog=new blogcontroller();
-$liste=$blog->afficherblog();
-$utilisateur1= new categoriecontroller();
-	
-	
-	if (
-		isset($_POST["nom"]) 
-         
-	   ){
-		
-            $cat = new categories($_POST['nom']);
-            $utilisateur1->modifiercategorie($cat, $_GET['id']);
-            
-        }
-
-
-?>
-
 <!doctype html>
 <html lang="en">
 
@@ -44,71 +21,25 @@ $utilisateur1= new categoriecontroller();
     <!-- ============================================================== -->
     <!-- main wrapper -->
     <!-- ============================================================== -->
-   <?php
-  
-  if (isset($_GET['id'])){
-      $cat=$utilisateur1->recuperercategorie($_GET['id']);
-      
-    
-     
-?>
-    <form action="ajouterblog.php" method="POST">
+    <form action="ajoutcategoriefonc.php" method="POST">
         <div class="main-content container-fluid p-0">
             <div class="email-head">
-                <div class="email-head-title">Ecrire votre blogue <span class="icon mdi mdi-edit"></span></div>
+                <div class="email-head-title">nouvelle categorie<span class="icon mdi mdi-edit"></span></div>
             </div>
+            
             <div class="subject">
                 <div class="form-group row pt-2">
-                    <label class="col-md-1 control-label">   nom de medecin</label>
+                    <label class="col-md-1 control-label">   nom de categorie </label>
                     <div class="col-md-11">
-                        <input class="form-control" type="text" name="nom" value= "<?php echo $_SESSION['nom']; ?>" >
+                        <input class="form-control" type="text" name="nom">
                     </div>
                 </div>
             </div>
-            <div class="subject">
-                <div class="form-group row pt-2">
-                    <label class="col-md-1 control-label">   nom de larticle </label>
-                    <div class="col-md-11">
-                        <input class="form-control" type="text" name="nomarticle">
-                    </div>
-                </div>
-            </div>
-            <div class="subject">
-                <div class="form-group row pt-2">
-                    <label class="col-md-1 control-label">   date </label>
-                    <div class="col-md-11">
-                        <input class="form-control" type="date" name="date">
-                    </div>
-                </div>
-            </div>
-            <div class="subject">
-                <div class="form-group row pt-2">
-                    <label class="col-md-1 control-label">  categorie</label>
-                    <div class="col-md-11">
-                        <input class="form-control" type="text" name="categorie" value= "<?php echo $cat['nom']; ?>" >
-                    </div>
-                </div>
-            </div>
-            <div class="subject">
-                <div class="form-group row pt-2">
-                    <label class="col-md-1 control-label">  image</label>
-                    
-                        <input class="form-control" type="file" name="img">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="email editor">
-            <div class="col-md-12 p-0">
-                <div class="form-group">
-                    <label class="control-label sr-only" for="summernote">Descriptions </label>
-                    <textarea id="summernote" name="blog" rows="6" placeholder="Write Descriptions"></textarea>
-                </div>
-            </div>
+            
             <div class="email action-send">
                 <div class="col-md-12 ">
                     <div class="form-group">
-                        <button class="btn btn-primary btn-space" type="submit"><i class="icon s7-mail"></i> Publier</button>
+                        <button class="btn btn-primary btn-space" type="submit"><i class="icon s7-mail"></i> ajouter</button>
                         <button class="btn btn-secondary btn-space" type="button"><i class="icon s7-close"></i> Annuler</button>
                     </div>
                 </div>
@@ -117,8 +48,6 @@ $utilisateur1= new categoriecontroller();
         </div>
         </div>
     </form>
-    <?PHP
-                                        }?>
     <!-- ============================================================== -->
     <!-- footer -->
     <!-- ============================================================== -->
