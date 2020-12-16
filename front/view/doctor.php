@@ -91,7 +91,7 @@
 						<li><a class="nav-link" href="rendez-vous.php">Rendez_vous</a></li>
                         <li><a class="nav-link " href="gallery.php">Médicaments</a></li>
 						<li><a class="nav-link active" href="#team">Médecins</a></li>
-                        <li><a class="nav-link" href="blog.php">Blog</a></li>
+                        <li><a class="nav-link" href="categorie.php">Blog</a></li>
 						<li><a class="nav-link" href="Réclamation.php">Réclamation</a></li>
                         <li><a class="nav-link" href="#contact">Contact</a></li>
                         <?php

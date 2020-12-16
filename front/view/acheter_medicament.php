@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
  
@@ -63,7 +66,7 @@
                                                     <div class="col-md-6 mb-3">
                                                         
                                                         <label> <span>Nom</span>
-                                                        <input type="text" class="form-control" name="firstName" id="firstName" placeholder="" value="" required="required">
+                                                        <input type="text" class="form-control" name="firstName" id="firstName" placeholder="" required="required">
                                                     </label>
                                                     </div>
         
@@ -83,7 +86,7 @@
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text">@</span>
                                                         </div>
-                                                        <input type="text" class="form-control" id="username" placeholder="Nom d'utilisateur" required="required">
+                                                        <input type="text" class="form-control" id="username" placeholder="Nom d'utilisateur"  value="<?php  echo $_SESSION['nom']; ?>">
                                                     </label> 
                                                     </div>
                                                 </div>
@@ -91,7 +94,7 @@
                                                 <div class="item">
                                                 <div class="mb-3">
                                                     <label for="email">Email </label>
-                                                    <input type="email" class="form-control" id="email"  placeholder="you@example.com" required="required">
+                                                    <input type="email" class="form-control" id="email"  placeholder="you@example.com" value="<?php echo $_SESSION['m_un'];?>" >
                                                    
                                                 </div>
                                                 </div>

@@ -221,7 +221,7 @@
 							<div class="serviceBox">
 								<div class="service-icon"><i class="fa fa-heart" aria-hidden="true"></i></div>
 
-								<h3 class="title">Lire           des Blogs</h3>
+								<h3 class="title">Lire des Blogs</h3>
 								
 
 							</div>

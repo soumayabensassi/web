@@ -1,7 +1,9 @@
 <?php
 session_start();
 include_once("../controller/paniercontroller.php");
+include_once("../controller/panierC.php");
 
+$po=new panierC();
 $erreur = false;
 
 $action = (isset($_POST['action']) ? $_POST['action'] : (isset($_GET['action']) ? $_GET['action'] : null));
@@ -40,14 +42,15 @@ if (!$erreur) {
 			break;
 
 		case "suppression":
-			supprimerArticle($l);
-		
+			{supprimerArticle($l);
+		   $po->delete($_GET['id']);
+		}
 			break;
 
 		case "refresh":
 			for ($i = 0; $i < count($QteArticle); $i++) {
 				modifierQTeArticle($_SESSION['panier']['libelleProduit'][$i], round($QteArticle[$i]));
-			    
+			    echo round($QteArticle[$i]);
 			}
 
 			break;
@@ -191,6 +194,7 @@ if (!$erreur) {
 							<tbody>
                            
 								<?php
+									
 								if (creationPanier()) {
 									$nbArticles = count($_SESSION['panier']['libelleProduit']);
 									if ($nbArticles <= 0)
@@ -204,8 +208,9 @@ if (!$erreur) {
 											echo "<td>" . htmlspecialchars($_SESSION['panier']['libelleProduit'][$i]) . "</ td>";
 											echo "<td><input type=\"number\" size=\"4\" name=\"q[]\" value=\"" . htmlspecialchars($_SESSION['panier']['qteProduit'][$i]) . "\"/></td>";
 											echo "<td>" . htmlspecialchars($_SESSION['panier']['prixProduit'][$i]) . "</td>";
-											echo "<td><a  href=\"" . htmlspecialchars("panier.php?action=suppression&l=" . rawurlencode($_SESSION['panier']['libelleProduit'][$i])) . "\" ><i class=\"fa fa-trash \"></i></a></td>";
-											echo "</tr>";
+											?>
+											<td><a  href="panier.php?action=suppression&amp;l=<?php echo $_SESSION['panier']['libelleProduit'][$i]; ?>&amp;id=<?php echo $_GET['id']?>"><i class="fa fa-trash "></i></a></td>
+										<?php	echo "</tr>";
 											
 										}
 										
@@ -219,8 +224,13 @@ if (!$erreur) {
 										echo "<input type=\"hidden\" name=\"action\" value=\"refresh\"/>";
 
 										echo "</td></tr>";
-
+										$a=$_GET['id'];
+										echo $a;
+											$c= $_SESSION['idClient'];
+																				 echo $c;
+										$po->ajouterProduit($a,$c,1);
 									}
+									
 									
 								}
 								
