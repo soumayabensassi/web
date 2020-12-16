@@ -3,7 +3,7 @@
 	
 	$album=new clientcontroller();
 
-    $album->delete($_POST["idClient"]);
+    $album->delete($_GET["idClient"]);
         
       
 	

@@ -15,11 +15,21 @@ $liste=$Client1->afficherClient();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../../back/assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link href="../../back/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../back/assets/libs/css/style.css">
-    <link rel="stylesheet" href="../../back/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/libs/css/style.css">
+    <link rel="stylesheet" href="../../front/assets/css/bootstrap.min.css">
+    <!-- Pogo Slider CSS -->
+    <link rel="stylesheet" href="../../front/assets/css/pogo-slider.min.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="../../front/assets/css/style.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="../../front/assets/css/responsive.css">
+
+
+
+
+
     <title>Pick Medico</title>
 </head>
 
@@ -27,73 +37,36 @@ $liste=$Client1->afficherClient();
     <!-- ============================================================== -->
     <!-- main wrapper -->
     <!-- ============================================================== -->
-   <br>
-   <br>
-   <br>
+    <div class="dashboard-main-wrapper">
         <!-- ============================================================== -->
         <!-- navbar -->
         <!-- ============================================================== -->
         <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <a class="navbar-brand" href="../../back/view/index.php">PICK MEDICO</a>
+                <a class="navbar-brand" href="../../back/view/index.php"><img src="../../back/assets/images/logo.png"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto navbar-right-top">
-                        <li class="nav-item">
-                            <div id="custom-search" class="top-search-bar">
-                                <input class="form-control" type="text" placeholder="Search..">
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown notification">
-                            <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span class="indicator"></span></a>
-                            <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
-                                <li>
-                                    <div class="notification-title"> Notification</div>
-                                    <div class="notification-list">
-                                        <div class="list-group">
-                                            <a href="#" class="list-group-item list-group-item-action active">
-                                                <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img src="../php/images/avatar-2.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Jeremy Rakestraw</span>accepted your invitation to join the team.
-                                                        <div class="notification-date">2 min ago</div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="#" class="list-group-item list-group-item-action">
-                                                <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img src="../php/images/avatar-3.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">John Abraham </span>is now following you
-                                                        <div class="notification-date">2 days ago</div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="#" class="list-group-item list-group-item-action">
-                                                <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img src="../php/images/avatar-4.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Monaan Pechi</span> is watching your main repository
-                                                        <div class="notification-date">2 min ago</div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="#" class="list-group-item list-group-item-action">
-                                                <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img src="../php/images/avatar-5.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Jessica Caruso</span>accepted your invitation to join the team.
-                                                        <div class="notification-date">2 min ago</div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="list-footer"> <a href="#">View all notifications</a></div>
-                                </li>
-                            </ul>
-                        </li>
-                      
+
+
+
+                        <?php
+                        session_start(); { ?>
+
+
+
+                            <li class="nav-link"><?php include "../../back/view/logged.php"; ?></li>
+
+
+                        <?php
+
+                        }
+                        ?>
+
+
+
                     </ul>
                 </div>
             </nav>
@@ -104,7 +77,7 @@ $liste=$Client1->afficherClient();
         <!-- ============================================================== -->
         <!-- left sidebar -->
         <!-- ============================================================== -->
-        <div class="nav-left-sidebar sidebar-dark">
+        <div class="nav-left-sidebar sidebar-dark" style="top:150px;">
             <div class="menu-list">
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <a class="d-xl-none d-lg-none" href="#">tasks</a>
@@ -118,108 +91,47 @@ $liste=$Client1->afficherClient();
                             </li>
                             <li class="nav-item ">
                                 <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i class="fa fa-fw fa-user-circle"></i>Accounts Manegment <span class="badge badge-success">6</span></a>
-                                <div id="submenu-1" class="collapse submenu" >
+                                <div id="submenu-1" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="patients.php">patients</a>
+                                            <a class="nav-link" href="../../front/view/patients.php">Patients</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="../../back/view/doctor-finder.php">medecins</a>
+                                            <a class="nav-link" href="../../back/view/doctor-finder.php">Medecins</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">admins</a>
-                                        </li>
+
                                     </ul>
                                 </div>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-rocket"></i>Taches </a>
-                                <div id="submenu-2" class="collapse submenu" >
+                                <div id="submenu-2" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="../../back/view/blog manegment.php">blogs <span class="badge badge-secondary">New</span></a>
+                                            <a class="nav-link" href="../../back/view/categories.php">Blogs <span class="badge badge-secondary">New</span></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="../../back/view/doctor-finder.php">medecins</a>
+                                            <a class="nav-link" href="../../back/view/doctor.profile.php">Medecins</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="../../back/view/reclamationmanagement.php">reclamations</a>
+                                            <a class="nav-link" href="../../back/view/reclamationmanagement.php">Réclamations</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="../../back/view/rendezvousmanagement.php">rendez vous</a>
+                                            <a class="nav-link" href="../../back/view/rendezvousmanagement.php">Rendez-vous</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="../../back/view/livraison.php">livraisons</a>
+                                            <a class="nav-link" href="../../back/view/livraison.php">Livraisons</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="../../back/gestion medicaments.php">medicaments</a>
+                                            <a class="nav-link" href="../../back/view/gestion medicaments.php">Medicaments</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">ordonances</a>
+                                            <a class="nav-link" href="../../back/view/ordonnance.php">Ordonances</a>
                                         </li>
                                     </ul>
                                 </div>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3"><i class="fas fa-fw fa-chart-pie"></i>Chart</a>
-                                <div id="submenu-3" class="collapse submenu">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">C3 Charts</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Chartist Charts</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Chart</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Morris</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Sparkline</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Guage</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-4" aria-controls="submenu-4"><i class="fab fa-fw fa-wpforms"></i>Forms</a>
-                                <div id="submenu-4" class="collapse submenu" >
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Form Elements</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Parsely Validations</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Multiselect</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Date Picker</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Bootstrap Select</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class="fas fa-fw fa-table"></i>Tables</a>
-                                <div id="submenu-5" class="collapse submenu">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">General Tables</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Data Tables</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
+
 
                         </ul>
                     </div>
@@ -228,14 +140,14 @@ $liste=$Client1->afficherClient();
             </div>
             </nav>
         </div>
-   
+    </div>
     <!-- ============================================================== -->
     <!-- end left sidebar -->
     <!-- ============================================================== -->
     <!-- ============================================================== -->
     <!-- wrapper  -->
     <!-- ============================================================== -->
-    <div class="dashboard-wrapper">
+    <div class="dashboard-wrapper"style="top:150px;">
         <div class="dashboard-ecommerce">
             <div class="container-fluid dashboard-content ">
                 <!-- ============================================================== -->
@@ -294,14 +206,11 @@ $liste=$Client1->afficherClient();
                                                    <td><?PHP echo $CLient['password']; ?></td> 
                                                    <td><?PHP echo $CLient['passwordVerif']; ?></td> 
                                                     <td> 
-                                                        
-                                                        <form method="POST" action="deleteClient.php">
-                                                   <input type="submit" name="supprimer" value="supprimer">
-                                                   <input type="hidden" value=<?PHP echo $CLient['idClient']; ?> name="idClient">
-                                                   </form>
+                                                    
+                                                    <a href="deleteClient.php?idClient=<?PHP echo $CLient['idClient']; ?>"> <i class="fas fa-trash-alt"></i></a>
                                                     </td>
                                                     <td> 
-                                                    <a href="modifierClient.php?idClient=<?PHP echo $CLient['idClient']; ?>">Modifier</a>
+                                                    <a href="modifierClient.php?idClient=<?PHP echo $CLient['idClient']; ?>"><i class="fas fa-edit"></i></a>
                                                     </td>
                                             </tr>
                                             <?PHP

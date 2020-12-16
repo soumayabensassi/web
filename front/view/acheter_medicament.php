@@ -55,7 +55,7 @@
                                             <h4 class="mb-0">Adresse de facturation</h4>
                                         </div>
                                         <div class="card-body">
-                                            <form action="" method="post" class="needs-validation" novalidate="">
+                                            <form action="../../back/view/ajoutordonnance.php" method="post" class="needs-validation" novalidate="">
                                                 <fieldset>
                                                 <div class="row">
 
@@ -63,7 +63,7 @@
                                                     <div class="col-md-6 mb-3">
                                                         
                                                         <label> <span>Nom</span>
-                                                        <input type="text" class="form-control" id="firstName" placeholder="" value="" required="required">
+                                                        <input type="text" class="form-control" name="firstName" id="firstName" placeholder="" value="" required="required">
                                                     </label>
                                                     </div>
         
@@ -71,7 +71,7 @@
                                                        <div class="item">
                                                     <div class="col-md-6 mb-3">
                                                         <label> <span>Prenom</span>
-                                                        <input   type="text" class="form-control" id="lastName" placeholder="" value="" required="required">
+                                                        <input   type="text" class="form-control" name="lastName" id="lastName" placeholder="" value="" required="required">
                                                     </label>
                                                     </div>
                                                 </div>
@@ -197,10 +197,10 @@
                                                     </div>
                                                     </div>
                                                 </div>
-                                               <!-- <hr class="mb-4">
+                                              <hr class="mb-4">
                                                 <h4 class="mb-3">Déposer l'odonnance</h4>
                                                 <div class="col-md-3 mb-3">
-                                                <input type = "file" name = "ordonnance" ></div>-->
+                                                <input type = "file" name = "ordonnance" ></div>
                                             </fieldset>
                                                 <hr class="mb-4">
                                                 <button class="btn btn-primary btn-lg btn-block" type="submit">Acheter Maintenant</button>

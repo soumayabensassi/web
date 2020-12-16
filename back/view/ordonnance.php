@@ -1,3 +1,12 @@
+<?PHP
+include_once "../controller/ordonnancecontroller.php";
+
+$ordonnance=new ordonnancecontroller();
+$liste=$ordonnance->afficherordonnance();
+
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -9,18 +18,12 @@
     <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/libs/css/style.css">
-    <link rel="stylesheet" href="../../front/assets/css/bootstrap.min.css">
-    <!-- Pogo Slider CSS -->
-    <link rel="stylesheet" href="../../front/assets/css/pogo-slider.min.css">
-    <!-- Site CSS -->
-    <link rel="stylesheet" href="../../front/assets/css/style.css">
-    <!-- Responsive CSS -->
-    <link rel="stylesheet" href="../../front/assets/css/responsive.css">
 
-
-
-
-
+    
+  
+   
+    
+    
     <title>Pick Medico</title>
 </head>
 
@@ -38,27 +41,27 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto navbar-right-top">
+                        
+                        
+                       
+                                            <?php
+                                    session_start();
+                                     { ?>
+                                        
+
+                                    
+                                        <li class="nav-link"><?php include "logged.php"; ?></li>
 
 
+                                    <?php
 
-                        <?php
-                        session_start(); { ?>
-
-
-
-                            <li class="nav-link"><?php include "logged.php"; ?></li>
-
-
-                        <?php
-
-                        }
-                        ?>
-
-
-
+                                    }
+                                    ?>
+                                
+                            
+                        
                     </ul>
                 </div>
             </nav>
@@ -69,9 +72,7 @@
         <!-- ============================================================== -->
         <!-- left sidebar -->
         <!-- ============================================================== -->
-      
-        <div class="nav-left-sidebar sidebar-dark" style="top:150px;">
-        
+        <div class="nav-left-sidebar sidebar-dark"  style="top:160px;">
             <div class="menu-list">
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <a class="d-xl-none d-lg-none" href="#">tasks</a>
@@ -85,7 +86,7 @@
                             </li>
                             <li class="nav-item ">
                                 <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i class="fa fa-fw fa-user-circle"></i>Accounts Manegment <span class="badge badge-success">6</span></a>
-                                <div id="submenu-1" class="collapse submenu">
+                                <div id="submenu-1" class="collapse submenu" >
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
                                             <a class="nav-link" href="../../front/view/patients.php">Patients</a>
@@ -93,25 +94,27 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="doctor-finder.php">Medecins</a>
                                         </li>
-
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">ordonnances</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-rocket"></i>Taches </a>
-                                <div id="submenu-2" class="collapse submenu">
+                                <div id="submenu-2" class="collapse submenu" >
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
                                             <a class="nav-link" href="categories.php">Blogs <span class="badge badge-secondary">New</span></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="doctor.profile.php">Medecins</a>
+                                            <a class="nav-link" href="#">Medecins</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="reclamationmanagement.php">Réclamations</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="rendezvousmanagement.php">Rendez-vous</a>
+                                            <a class="nav-link" href="ordonnancemanagement.php">Rendez-vous</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="livraison.php">Livraisons</a>
@@ -122,11 +125,10 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="ordonnance.php">Ordonances</a>
                                         </li>
-
                                     </ul>
                                 </div>
-                            </li>
-
+                                </li>
+                           
 
                         </ul>
                     </div>
@@ -136,42 +138,115 @@
             </nav>
         </div>
     </div>
-    <!-- ============================================================== -->
-    <!-- end left sidebar -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- wrapper  -->
-    <!-- ============================================================== -->
-    <div class="dashboard-wrapper" style="top:150px;">
+   
+    <div class="dashboard-wrapper" style="top:160px;">
         <div class="dashboard-ecommerce">
             <div class="container-fluid dashboard-content ">
+            <div class="container-fluid dashboard-content ">
                 <!-- ============================================================== -->
-                <!-- pageheader  -->
+                <!-- end pageheader  -->
                 <!-- ============================================================== -->
-                <div class="row">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <div class="page-header">
-                            <h2 class="pageheader-title">Accueil</h2>
-                            <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
-                            <div class="page-breadcrumb">
-                                <nav aria-label="breadcrumb">
-                                    <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">admin pannel</li>
-                                    </ol>
-                                </nav>
 
+                <!-- ============================================================== -->
+
+                <!-- ============================================================== -->
+
+                <!-- recent orders  -->
+                <!-- ============================================================== -->
+
+                <!-- ============================================================== -->
+                <!-- end recent orders  -->
+
+
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- customer acquistion  -->
+                <!-- ============================================================== -->
+
+                <!-- ============================================================== -->
+                <!-- end product category  -->
+                <!-- product sales  -->
+                <!-- ============================================================== -->
+
+                <!-- ============================================================== -->
+                <!-- end product sales  -->
+                <!-- ============================================================== -->
+
+                <!-- ============================================================== -->
+                <!-- total revenue  -->
+                <!-- ============================================================== -->
+
+
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- category revenue  -->
+                <!-- ============================================================== -->
+
+                <!-- end category revenue  -->
+                <!-- ============================================================== -->
+
+
+                <!-- ============================================================== -->
+                <!-- footer -->
+                <!-- ============================================================== -->
+                <div class="footer">
+                    <div class="container-fluid">
+
+
+
+                        <div class="card">
+                            <h5 class="card-header">les ordonnances</h5>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class="bg-light">
+                                            <tr class="border-0">
+                                                <th class="border-0">Id</th>
+                                                <th class="border-0">Nom_Patients</th>
+                                                <th class="border-0">Prenom_Patients</th>
+                                                <th class="border-0">ordonnances </th>
+                                                <th class="border-0">supprimer </th>
+                                             
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                  
+                                            <?php foreach($liste as $ordonnance) { ?>
+                                            <tr>
+                                                   
+                                                   
+                                                   <td><?PHP echo $ordonnance['id_ordonnance']; ?></td> 
+                                                   <td><?PHP echo $ordonnance['nom_patients']; ?></td>
+                                                   <td><?PHP echo $ordonnance['prenom_patients']; ?></td>
+                                                   <td><img src="../assets/images/<?PHP echo $ordonnance['img']; ?>"></td>
+                                                   <td> 
+                                                    
+                                                    <a href="deleteordonnance.php?idordonnance=<?PHP echo $ordonnance['id_ordonnance']; ?>"> <i class="fas fa-trash-alt"></i></a>
+                                                    </td>
+                                                       
+                                            </tr>
+                                            <?PHP
+                                             }?>
+
+                                               
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-
                         </div>
+
                     </div>
-                    <img src="../assets/images/2 (2).jpg" width="1200px">
                 </div>
                 <!-- ============================================================== -->
-
+                <!-- end footer -->
+                <!-- ============================================================== -->
             </div>
+            <!-- ============================================================== -->
+            <!-- end wrapper  -->
+            <!-- ============================================================== -->
         </div>
-
         <!-- ============================================================== -->
         <!-- end main wrapper  -->
         <!-- ============================================================== -->
@@ -181,7 +256,7 @@
         <!-- bootstap bundle js -->
         <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
         <!-- slimscroll js -->
-        <script src="../assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+        <script src="../vassets/vendor/slimscroll/jquery.slimscroll.js"></script>
         <!-- main js -->
         <script src="../assets/libs/js/main-js.js"></script>
         <!-- chart chartist js -->

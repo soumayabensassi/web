@@ -38,7 +38,7 @@ $liste=$categorie->affichercategorie();
         <!-- ============================================================== -->
         <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <a class="navbar-brand" href="index.php">Pick Medico</a>
+                <a class="navbar-brand" href="index.php"><img src="../assets/images/logo.png"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -73,7 +73,7 @@ $liste=$categorie->affichercategorie();
         <!-- ============================================================== -->
         <!-- left sidebar -->
         <!-- ============================================================== -->
-        <div class="nav-left-sidebar sidebar-dark">
+        <div class="nav-left-sidebar sidebar-dark" style="top:160px;">
             <div class="menu-list">
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <a class="d-xl-none d-lg-none" href="#">tasks</a>
@@ -95,9 +95,7 @@ $liste=$categorie->affichercategorie();
                                         <li class="nav-item">
                                             <a class="nav-link" href="doctor-finder.php">Medecins</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Admins</a>
-                                        </li>
+                                     
                                     </ul>
                                 </div>
                             </li>
@@ -124,47 +122,12 @@ $liste=$categorie->affichercategorie();
                                             <a class="nav-link" href="gestion medicaments.php">Medicaments</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Ordonances</a>
+                                            <a class="nav-link" href="ordonnance.php">Ordonances</a>
                                         </li>
                                     </ul>
                                 </div>
                             </li>
-                           
-                            <li class="nav-item ">
-                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-4" aria-controls="submenu-4"><i class="fab fa-fw fa-wpforms"></i>Forms</a>
-                                <div id="submenu-4" class="collapse submenu" >
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Form Elements</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Parsely Validations</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Multiselect</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Date Picker</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Bootstrap Select</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class="fas fa-fw fa-table"></i>Tables</a>
-                                <div id="submenu-5" class="collapse submenu" >
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#"></a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Data Tables</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
+                            
 
                         </ul>
                     </div>
@@ -181,7 +144,7 @@ $liste=$categorie->affichercategorie();
     <!-- ============================================================== -->
     <!-- wrapper  -->
     <!-- ============================================================== -->
-    <div class="dashboard-wrapper">
+    <div class="dashboard-wrapper"style="top:160px;">
         <div class="dashboard-ecommerce">
             <div class="container-fluid dashboard-content ">
                 <!-- ============================================================== -->

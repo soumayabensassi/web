@@ -85,9 +85,7 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="doctor-finder.php">Medecins</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Admins</a>
-                                        </li>
+                                        
                                     </ul>
                                 </div>
                             </li>
@@ -99,7 +97,7 @@
                                             <a class="nav-link" href="categories.php">Blogs <span class="badge badge-secondary">New</span></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Medecins</a>
+                                            <a class="nav-link" href="doctor.profile.php">Medecins</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="reclamationmanagement.php">Réclamations</a>
@@ -114,7 +112,7 @@
                                             <a class="nav-link" href="gestion medicaments.php">Medicaments</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Ordonances</a>
+                                            <a class="nav-link" href="ordonnance.php">Ordonances</a>
                                         </li>
                                     </ul>
                                 </div>

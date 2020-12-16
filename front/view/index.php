@@ -221,10 +221,8 @@
 							<div class="serviceBox">
 								<div class="service-icon"><i class="fa fa-heart" aria-hidden="true"></i></div>
 
-								<h3 class="title">Lire des Blogs</h3>
-								<p class="description">
-									Lorem ipsum dolor sit , consectetur adipisicing elit. Accusantium consequuntur.
-								</p>
+								<h3 class="title">Lire           des Blogs</h3>
+								
 
 							</div>
 						</div>
@@ -233,9 +231,7 @@
 							<div class="serviceBox">
 								<div class="service-icon"><i class="fa fa-stethoscope" aria-hidden="true"></i></div>
 								<h3 class="title">Prendre des Rendez-vous chez des spécialistes</h3>
-								<p class="description">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequuntur.
-								</p>
+								
 
 							</div>
 						</div>
@@ -244,9 +240,7 @@
 							<div class="serviceBox">
 								<div class="service-icon"><i class="fa fa-plus-square" aria-hidden="true"></i></div>
 								<h3 class="title">Acheter des Médicaments</h3>
-								<p class="description">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequuntur.
-								</p>
+
 
 							</div>
 						</div>
@@ -254,9 +248,7 @@
 							<div class="serviceBox">
 								<div class="service-icon"><i class="fa fa-medkit" aria-hidden="true"></i></div>
 								<h3 class="title">Deposer une Réclamation sur le site</h3>
-								<p class="description">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequuntur.
-								</p>
+								
 
 							</div>
 						</div>

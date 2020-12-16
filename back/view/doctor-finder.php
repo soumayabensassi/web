@@ -38,7 +38,7 @@ $liste=$blog->afficherdoctor();
         <!-- ============================================================== -->
         <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <a class="navbar-brand" href="index.php">Pick Medico</a>
+                <a class="navbar-brand" href="index.php"><img src="../assets/images/logo.png"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -73,7 +73,7 @@ $liste=$blog->afficherdoctor();
         <!-- ============================================================== -->
         <!-- left sidebar -->
         <!-- ============================================================== -->
-        <div class="nav-left-sidebar sidebar-dark">
+        <div class="nav-left-sidebar sidebar-dark" style="top:160px;">
             <div class="menu-list">
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <a class="d-xl-none d-lg-none" href="#">tasks</a>
@@ -95,9 +95,7 @@ $liste=$blog->afficherdoctor();
                                         <li class="nav-item">
                                             <a class="nav-link" href="doctor-finder.php">Medecins</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Admins</a>
-                                        </li>
+                                       
                                     </ul>
                                 </div>
                             </li>
@@ -109,7 +107,7 @@ $liste=$blog->afficherdoctor();
                                             <a class="nav-link" href="categories.php">Blogs <span class="badge badge-secondary">New</span></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Medecins</a>
+                                            <a class="nav-link" href="doctor-finder.php">Medecins</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="reclamationmanagement.php">Réclamations</a>
@@ -123,9 +121,11 @@ $liste=$blog->afficherdoctor();
                                         <li class="nav-item">
                                             <a class="nav-link" href="gestion medicaments.php">Medicaments</a>
                                         </li>
+
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Ordonances</a>
+                                            <a class="nav-link" href="ordonnance.php">Ordonances</a>
                                         </li>
+                                        
                                     </ul>
                                 </div>
                             </li>
@@ -146,7 +146,7 @@ $liste=$blog->afficherdoctor();
     <!-- ============================================================== -->
     <!-- wrapper  -->
     <!-- ============================================================== -->
-    <div class="dashboard-wrapper">
+    <div class="dashboard-wrapper"style="top:150px;">
         <div class="dashboard-ecommerce">
             <div class="container-fluid dashboard-content ">
                 <!-- ============================================================== -->
