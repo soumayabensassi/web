@@ -5,39 +5,43 @@ include_once "../config.php";
 include_once "../model/panier.php";
 class panierC
 {
-    public function ajouterProduit($idMedicament,$idClient,$qte)
+    public function ajouterProduit($idMedicament,$idClient,$qte,$nom_Medicament)
     {$db=config::getConnexion();
-       try{ $sql="INSERT INTO panier(idMedicament,idClient,qte)
-        VALUES(:idMedicament,:idClient,:qte)";
+       try{ $sql="INSERT INTO panier(idMedicament,idClient,qte,nom_Medicament)
+        VALUES(:idMedicament,:idClient,:qte,:nom_Medicament)";
     $query = $db->prepare($sql);
     $query->execute([
         'idMedicament'=>$idMedicament,
         'idClient'=>$idClient,
-        'qte'=>$qte
+        'qte'=>$qte,
+        'nom_Medicament'=>$nom_Medicament
     ]);}catch(PDOException $e)
     {$e->getMessage();}
     }
-//     function afficher_panier(){
-
-//         $sql="SELECT * FROM _panier";
-//         $db = config::getConnexion();
-//         try{
-//             $liste = $db->query($sql);
-//             return $liste;
-//         }
-//         catch (Exception $e){
-//             die('Erreur: '.$e->getMessage());
-//         }
     
-//     }
+    function  afficher_panier($idClient){
+        $db = config::getConnexion();
+        $sql="SELECT * from panier where idClient=$idClient";
+                try{
+                  $liste=$db->query($sql);
+                   
+        
+                   
+                    return $liste;
+              }
+               catch (Exception $e){
+                     die('Erreur: '.$e->getMessage());
+            }
+           }  
+  
      
-     public function delete($idMedicament)
+     public function delete($nom_Medicament)
     {$db=config::getConnexion();
     try{
     
-   $query=$db->prepare('DELETE FROM panier WHERE idMedicament= :idMedicament');
+   $query=$db->prepare('DELETE FROM panier WHERE nom_Medicament= :nom_Medicament');
     $query->execute([
-       'idMedicament'=>$idMedicament
+       'nom_Medicament'=>$nom_Medicament
    ]);
     
      }catch(PDOException $e)
@@ -62,7 +66,7 @@ class panierC
 
 
 //     //modifier
-     function modifierproduit($qte, $idMedicament){
+     function modifierproduit($qte, $nom_Medicament){
         try {
             
             $db = config::getConnexion();
@@ -72,13 +76,13 @@ class panierC
                     qte=:qte
     
     
-                WHERE idMedicament= :idMedicament'
+                WHERE nom_Medicament= :nom_Medicament'
              );
          
              $query->execute([
                 'qte'=>$qte,
                 
-               'idMedicament'=>$idMedicament  
+               'nom_Medicament'=>$nom_Medicament 
                 ]
  );
             

@@ -37,21 +37,20 @@ if (!$erreur) {
 	switch ($action) {
 		case "ajout":
 			ajouterArticle($l, $q, $p);
-			
+			$po->ajouterProduit($_GET['id'],$_SESSION['idClient'],1,$_GET['l']);
 			
 			break;
 
 		case "suppression":
 			{supprimerArticle($l);
-		   $po->delete($_GET['id']);
+		   $po->delete($_GET['l']);
 		}
 			break;
 
 		case "refresh":
 			for ($i = 0; $i < count($QteArticle); $i++) {
 				modifierQTeArticle($_SESSION['panier']['libelleProduit'][$i], round($QteArticle[$i]));
-			    echo round($QteArticle[$i]);
-			}
+						}
 
 			break;
 
@@ -195,49 +194,44 @@ if (!$erreur) {
                            
 								<?php
 									
-								if (creationPanier()) {
-									$nbArticles = count($_SESSION['panier']['libelleProduit']);
-									if ($nbArticles <= 0)
-										echo "<tr><td>Votre panier est vide </ td></tr>";
-									else {
-
-										for ($i = 0; $i < $nbArticles; $i++) {
-										
+									if (creationPanier()) {
+										$nbArticles = count($_SESSION['panier']['libelleProduit']);
+										if ($nbArticles <= 0)
+											echo "<tr><td>Votre panier est vide </ td></tr>";
+										else {
+	
+											for ($i = 0; $i < $nbArticles; $i++) {
 											
-											echo "<tr>";
-											echo "<td>" . htmlspecialchars($_SESSION['panier']['libelleProduit'][$i]) . "</ td>";
-											echo "<td><input type=\"number\" size=\"4\" name=\"q[]\" value=\"" . htmlspecialchars($_SESSION['panier']['qteProduit'][$i]) . "\"/></td>";
-											echo "<td>" . htmlspecialchars($_SESSION['panier']['prixProduit'][$i]) . "</td>";
-											?>
-											<td><a  href="panier.php?action=suppression&amp;l=<?php echo $_SESSION['panier']['libelleProduit'][$i]; ?>&amp;id=<?php echo $_GET['id']?>"><i class="fa fa-trash "></i></a></td>
-										<?php	echo "</tr>";
+												
+												echo "<tr>";
+												echo "<td>" . htmlspecialchars($_SESSION['panier']['libelleProduit'][$i]) . "</ td>";
+												echo "<td><input type=\"number\" size=\"4\" name=\"q[]\" value=\"" . htmlspecialchars($_SESSION['panier']['qteProduit'][$i]) . "\"/></td>";
+												echo "<td>" . htmlspecialchars($_SESSION['panier']['prixProduit'][$i]) . "</td>";
+												?>
+												<td><a  href="panier.php?action=suppression&amp;l=<?php echo $_SESSION['panier']['libelleProduit'][$i]; ?>"><i class="fa fa-trash "></i></a></td>
+											<?php	echo "</tr>";
+												
+											}
+											
+											echo "<tr><td colspan=\"3\"> </td>";
+											echo "<td colspan=\"2\">";
+											echo "Total : " . MontantGlobal() ."DT";
+											echo "</td></tr>";
+	
+											echo "<tr><td colspan=\"4\">";
+											echo "<input type=\"submit\" value=\"Rafraichir\"/>";
+											echo "<input type=\"hidden\" name=\"action\" value=\"refresh\"/>";
+											echo "</td></tr>";
 											
 										}
 										
-										echo "<tr><td colspan=\"3\"> </td>";
-										echo "<td colspan=\"2\">";
-										echo "Total : " . MontantGlobal() ."DT";
-										echo "</td></tr>";
-
-										echo "<tr><td colspan=\"4\">";
-										echo "<input type=\"submit\" value=\"Rafraichir\"/>";
-										echo "<input type=\"hidden\" name=\"action\" value=\"refresh\"/>";
-
-										echo "</td></tr>";
-										$a=$_GET['id'];
-										echo $a;
-											$c= $_SESSION['idClient'];
-																				 echo $c;
-										$po->ajouterProduit($a,$c,1);
+										
 									}
 									
+									?>
 									
-								}
-								
-								?>
-								
-    
-							</tbody>
+		
+								</tbody>
 						</table>
 					
 					 </form>

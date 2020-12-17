@@ -1,5 +1,14 @@
 <?php
 session_start();
+
+include_once "../controller/panierC.php";
+
+$Client1=new panierC();
+$liste=$Client1->afficher_panier($_SESSION['idClient']);
+
+
+
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -14,7 +23,8 @@ session_start();
     <link rel="stylesheet" href="../assets/css/styles/fv.css" type="text/css" />
 
     
-    
+    <link rel="stylesheet" href="../assets/css/style.css">
+
     
     <title>Acheter Maintenant </title>
 </head>
@@ -209,11 +219,49 @@ session_start();
                                                 <button class="btn btn-primary btn-lg btn-block" type="submit">Acheter Maintenant</button>
                                             </form>
                                         </div>
+                                        
                                     </div>
+                                    
                                 </div>
                               
                             </div>
                         </div>
+                        
+                        <div class="item"  >
+							<div class="serviceBox"  style="right:-990px;top:-1250px;">
+								
+								
+                            <table class="table">
+                                        <thead class="bg-light">
+                                        <tr class="border-0" >
+                                        <th class="border-0"></th>
+                                        <th class="border-0" >Vos Médicaments</th>
+                                        
+                                        </tr>
+                                            <tr class="border-0" >
+                                             <th class="border-0">Quantité</th>
+                                            <th class="border-0">Nom Medicament</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                        <?php foreach($liste as $CLient) { ?>
+                                            <tr>
+                                                   
+                                            <td><?PHP echo $CLient['qte']; ?></td>
+
+                                                   <td><?PHP echo $CLient['nom_Medicament']; ?></td>
+                                                    
+                                                    <br>
+                                            </tr>
+                                            <?PHP
+                                              }
+                                              ?>
+                                                </tbody>
+                                    </table>
+
+							</div>
+						</div>
+                    </div>
                     </div>
                 </div>
                
@@ -222,6 +270,7 @@ session_start();
             <!-- end wrapper  -->
             <!-- ============================================================== -->
         </div>
+       
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   
