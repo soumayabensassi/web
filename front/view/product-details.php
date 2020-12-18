@@ -118,6 +118,7 @@ session_start();
 
 						<?php } else { ?>
 							<li class="nav-link"><?php include "logged.php"; ?></li>
+                            <li class="nav-link"><?php include "notification.php"; ?></li>
 
 
 						<?php

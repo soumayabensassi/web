@@ -187,12 +187,12 @@ $liste=$admin->afficherreclamation();
                 <!-- ============================================================== -->
                 <!-- footer -->
                 <!-- ============================================================== -->
-                <div class="footer">
-                    <div class="container-fluid">
+                <div class="footer" >
+                    <div class="container-fluid" style="top:800px;">
 
 
 
-                        <div class="card">
+                        <div class="card" >
                             <h5 class="card-header">les reclamations</h5>
                             <div class="card-body p-0">
                                 <div class="table-responsive">
@@ -207,6 +207,8 @@ $liste=$admin->afficherreclamation();
                                                 <th class="border-0">message</th>
                                                 <th class="border-0">Status</th>
                                                 <th class="border-0"></th>
+                                                <th class="border-0"></th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -222,13 +224,15 @@ $liste=$admin->afficherreclamation();
                                                    <td><?PHP echo $reclamation['number_reclamation']; ?></td>
                                                    <td><?PHP echo $reclamation['email_reclamation']; ?></td>
                                                    <td><?PHP echo $reclamation['message_reclamation']; ?></td> 
+                                                   <td><?PHP echo $reclamation['status']; ?></td> 
                                                    <td>
-                                                    <label class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" name="<?php echo $i; ?>" checked="" class="custom-control-input"><span class="custom-control-label">traité</span>
-                                    </label>
-                                                    <label class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" name="<?php echo $i; ?>" class="custom-control-input"><span class="custom-control-label">en attente</span>
-                                    </label></td>
+                                                   <form method="POST" action="gererreclamation.php">
+                                                   <input type="submit" class="btn btn-outline-light float" value="traiter" name="traiter">
+                                                   <input type="hidden" value=<?PHP echo $reclamation['id_reclamation']; ?> name="id_reclamation">
+                                                   <input type="hidden" value=<?PHP echo $reclamation['email_reclamation']; ?> name="email_reclamation">
+                                                   <input type="hidden" value=<?PHP echo $reclamation['client']; ?> name="idClient">
+                                                   </form>
+                                                    </td>
                                                     <td> 
                                                         <form method="POST" action="deletereclamation.php">
                                                         <input type="submit" class="btn btn-outline-light float" value="delete" name="delete">

@@ -2,9 +2,13 @@
 session_start();
 
 	include_once "../controller/rendezvouscontroller.php";
-	include_once '../model/rendezvous.php';
+    include_once '../model/rendezvous.php';
+    include_once "../../back/controller/doctorcontroller.php";
+	include_once '../model/docteur.php';
 
     $utilisateur1= new rendezvouscontroller();
+    $utilisateur2= new doctorcontroller();
+    $list=$utilisateur2->afficherdoctor();
     ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -99,14 +103,30 @@ session_start();
                         <li><a class="nav-link" href="#about">Site</a></li>
 
                         <li><a class="nav-link active" href="#appointment">Rendez-vous</a></li>
-                        <li><a class="nav-link" href="gallery.php">Medicaments</a></li>
+                        <li><a class="nav-link" href="gallery.php">Mdicaments</a></li>
                         <li><a class="nav-link" href="doctor.php">Médecins</a></li>
-                        <li><a class="nav-link" href="categorie.php">Blog</a></li>
+                        <li><a class="nav-link" href="blog.php">Blog</a></li>
                         <li><a class="nav-link" href="Réclamation.php">Réclamation</a></li>
                         <li><a class="nav-link" href="#contact">Contact</a></li>
                        
 
-		
+                        <?php
+						
+						if (empty($_SESSION['m_un'])) { ?>
+
+							<li class="nav-link"><a href="login.php">Se connecter</a></li>
+
+						<?php } else { ?>
+							<li class="nav-link"><?php include "logged.php"; ?></li>
+                            <li class="nav-link"><?php include "notification.php"; ?></li>
+							
+							
+
+
+						<?php
+
+						}
+						?>
                         
                     </ul>
                 </div>
@@ -190,15 +210,14 @@ session_start();
                                         <label class="control-label" for="appointmentfor">Nom du Doctor</label>
                                         <select id="appointmentfor" name="appointmentfor" class="form-control">
                                             <option value="Choose Department">Doctor</option>
-											<option value="Gynacology">Gynacology</option>
-											<option value="Dermatologist">Dermatologist</option>
-											<option value="Orthology">Orthology</option>
-											<option value="Anesthesiology">Anesthesiology</option>
-											<option value="Ayurvedic">Ayurvedic</option>
+                                            <?php foreach ($list as $docteur ) { ?>
+                                            <option value="<?php echo $docteur['id'] ?>"><?php echo $docteur['nom'] ?></option>
+                                            <?php } ?>
                                         </select>
                                     </div>
                                 </div>
                                 <!-- Button -->
+                                <input type="hidden" id="idClient"  name="idClient" value="<?php echo $_SESSION['idClient'] ?>">
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <button id="singlebutton" name="singlebutton" class="new-btn-d br-2" onclick="verif_rendezvous();">Passez votre Rendez-vous</button>

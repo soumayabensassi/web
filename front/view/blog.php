@@ -1,13 +1,14 @@
-
 <?PHP
 include_once "../../back/controller/blogscontroller.php";
 include_once "../../back/controller/categoriescontroller.php";
+include_once "../../back/controller/doctorcontroller.php";
 include_once '../model/categories.php';
 
 $blog=new blogcontroller();
 $liste=$blog->afficherblog($_GET['id']);
 $utilisateur1= new categoriecontroller();
-	
+$doc=new doctorcontroller();
+$liste1=$doc->afficherdoctor();	
 	
 	if (
 		isset($_POST["medecin"]) 
@@ -166,7 +167,9 @@ if (empty($_SESSION['m_un'])) {?>
 						</div>
 						<div class="item-meta">
 							
-							<a href="#"><i class="fas fa-user"></i><?PHP echo $blog['medecin']; ?></a>
+							<a href="#"><i class="fas fa-user"></i><?php foreach($liste1 as $doc) { ?>
+                            <?php if($blog['medecin']===$doc['id']){  
+                                                   echo  $doc['nom'];}}?></a>
 							<span class="dti"><?PHP echo $blog['date']; ?></span>
 						</div>
 						<h2><?PHP echo $blog['nomarticle']; ?></h2>

@@ -100,7 +100,8 @@ if (empty($_SESSION['m_un'])) {?>
     <li class="nav-link"><a  href="login.php">Se connecter</a></li>
     
 <?php } else { ?> 
-    <li class="nav-link" ><?php include "logged.php"; ?></li>
+    <li class="nav-link"><?php include "logged.php"; ?></li>
+                            <li class="nav-link"><?php include "notification.php"; ?></li>
     
 
 <?php

@@ -31,7 +31,20 @@ class blogcontroller
                catch (Exception $e){
                      die('Erreur: '.$e->getMessage());
             }
-           }  
+           }
+           function  afficher_cate_nom($categorie){
+        
+            try{$db = config::getConnexion();
+                $query=$db->prepare('SELECT * from categorie where id=:id');
+                 $query->execute(['id'=>$categorie]);
+                
+                     
+                        return $query->fetchAll();
+                  }
+                   catch (Exception $e){
+                         die('Erreur: '.$e->getMessage());
+                }
+               }    
 
     public function delete($id)
     {$db=config::getConnexion();

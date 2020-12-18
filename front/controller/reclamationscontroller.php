@@ -4,17 +4,18 @@ include_once "../config.php";
 
 class reclamationcontroller
 {
-    public function ajouterreclamation($nom_reclamation,$email_reclamation,$number_reclamation,$message_reclamation)
+    public function ajouterreclamation($nom_reclamation,$email_reclamation,$number_reclamation,$message_reclamation,$client)
     {$db=config::getConnexion();
-       try{ $sql="INSERT INTO reclamation (nom_reclamation,email_reclamation,number_reclamation,message_reclamation,status)
-        VALUES(:nom_reclamation,:email_reclamation,:number_reclamation,:message_reclamation,:status)";
+       try{ $sql="INSERT INTO reclamation (nom_reclamation,email_reclamation,number_reclamation,message_reclamation,status,client)
+        VALUES(:nom_reclamation,:email_reclamation,:number_reclamation,:message_reclamation,:status,:client)";
     $query = $db->prepare($sql);
     $query->execute([
         'nom_reclamation'=>$nom_reclamation,
         'email_reclamation'=>$email_reclamation,
         'number_reclamation'=>$number_reclamation,
         'message_reclamation'=>$message_reclamation,
-        'status'=>'en attente'
+        'status'=>'en attente',
+        'client'=>$client
     ]);}catch(PDOException $e)
     {$e->getMessage();}
     }
@@ -96,5 +97,7 @@ class reclamationcontroller
             $e->getMessage();
         }
     } 
+
+  
 
 }

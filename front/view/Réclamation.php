@@ -95,7 +95,7 @@
 						<li><a class="nav-link" href="rendez-vous.php">Rendez-vous</a></li>
                         <li><a class="nav-link" href="gallery.php">Médicaments</a></li>
 						<li><a class="nav-link" href="doctor.php">Médecins</a></li>
-                        <li><a class="nav-link " href="categorie.php">Blog</a></li>
+                        <li><a class="nav-link " href="blog.php">Blog</a></li>
 						<li><a class="nav-link active" href="Réclamation.php">Réclamation</a></li>
                         <li><a class="nav-link" href="#contact">Contact</a></li>
                         <?php
@@ -103,7 +103,8 @@ if (empty($_SESSION['m_un'])) {?>
     <li class="nav-link"><a  href="login.php">Se connecter</a></li>
     
 <?php } else { ?> 
-    <li class="nav-link" ><?php include "logged.php"; ?></li>
+    <li class="nav-link"><?php include "logged.php"; ?></li>
+                            <li class="nav-link"><?php include "notification.php"; ?></li>
     
 
 <?php
@@ -166,6 +167,7 @@ if (empty($_SESSION['m_un'])) {?>
                             <textarea class="form-control" id="message" placeholder="Your Message" rows="8"name="msg" data-error="Write your message" required></textarea>
                             <div class="help-block with-errors"></div>
                         </div>
+                        <input type="hidden" id="idClient"  name="idClient" value="<?php echo $_SESSION['idClient'] ?>">
                         <div class="submit-button text-center">
                             <input type="submit"  id="submit" class="btn btn-common" value="Envoyer une réclamation " onclick="test();" >
                             

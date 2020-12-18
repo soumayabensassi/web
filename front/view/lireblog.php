@@ -1,11 +1,17 @@
 <?php
 include_once "../../back/controller/blogscontroller.php";
 include_once "../controller/ratingcontroller.php";
+include_once "../../back/controller/categoriecontroller.php";
+include_once "../../back/controller/doctorcontroller.php";
 include_once '../model/blog.php';
 include_once '../model/rating.php';
 
+$cat=new categoriecontroller();
+$liste2=$cat->affichercategorie();	
 $note = new ratingcontroller();
 $liste1 = $note->affichernote();
+$doc=new doctorcontroller();
+$liste3=$doc->afficherdoctor();	
 
 $utilisateur1 = new blogcontroller();
 
@@ -171,8 +177,12 @@ $rate = 0;
                                 <img src="../assets/images/<?php echo $user['img']; ?>" alt="">
                             </div>
                             <div class="team-content">
-                                <h3 class="title"><?php echo $user['nom']; ?></h3>
-                                <span class="post"><?php echo $user['categorie']; ?></span>
+                                <h3 class="title"><?php foreach($liste3 as $doc) { ?>
+                            <?php if($user['medecin']===$doc['id']){  
+                                                   echo  $doc['nom'];}}?></h3>
+                                <span class="post"><?php foreach($liste2 as $cat) { ?>
+                            <?php if($user['categorie']===$cat['id']){  
+                                                $x=$cat['nom']; echo  $cat['nom'];}}?></span>
                                 <ul class="social">
                                     <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
                                     <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
@@ -187,8 +197,8 @@ $rate = 0;
                         <div class="product-information">
                             <!--/product-information-->
 
-                            <h2>
-                                <?php echo $user['categorie']; ?></h2>
+                            <h2><?php echo $x; ?>
+                            </h2>
                             <p><?php echo $user['blog']; ?> </p>
 
 

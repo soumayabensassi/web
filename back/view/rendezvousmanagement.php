@@ -1,8 +1,11 @@
 <?PHP
 include_once "../controller/rendezvouscontroller.php";
+include_once "../controller/doctorcontroller.php";
 
 $admin=new rendezvouscontroller();
 $liste=$admin->afficherrendezvous();
+$utilisateur2= new doctorcontroller();
+
 
 
 ?>
@@ -218,6 +221,10 @@ $liste=$admin->afficherrendezvous();
                                             <tr>
                                                   
                                             <?php foreach($liste as $rendezvous) { ?>
+
+                                                <?PHP
+                                                    $id= $rendezvous['doctor'];
+                                                    $list=$utilisateur2->recupererdoctor($id); ?>
                                             <tr>
                                                    
                                                    
@@ -227,13 +234,14 @@ $liste=$admin->afficherrendezvous();
                                                    <td><?PHP echo $rendezvous['email']; ?></td>
                                                    <td><?PHP echo $rendezvous['date']; ?></td>
                                                    <td><?PHP echo $rendezvous['heure']; ?></td>
-                                                   <td><?PHP echo $rendezvous['doctor']; ?></td> 
+                                                   <td> <?php echo $list['nom'] ;?></td> 
                                                    <td><?php echo $rendezvous['status'] ?> </td>
                                                   <td>
                                                    <form method="POST" action="gererrendezvous.php">
                                                    <input type="submit" class="btn btn-outline-light float" value="accepter" name="accepter">
                                                    <input type="hidden" value=<?PHP echo $rendezvous['id_rendezvous']; ?> name="id_rendezvous">
                                                    <input type="hidden" value=<?PHP echo $rendezvous['email']; ?> name="emailclients">
+                                                   <input type="hidden" value=<?PHP echo $rendezvous['client']; ?> name="idClient">
                                                    </form>
                                                    </td>
                                                     

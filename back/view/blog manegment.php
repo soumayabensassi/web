@@ -1,13 +1,18 @@
-
 <?PHP
 session_start();
 include_once "../controller/blogscontroller.php";
 include_once "../controller/categoriescontroller.php";
+include_once "../controller/doctorcontroller.php";
 include_once '../model/categories.php';
 
 $blog=new blogcontroller();
 $liste=$blog->afficherblog($_GET['id']);
 $utilisateur1= new categoriecontroller();
+
+$doc=new doctorcontroller();
+$liste1=$doc->afficherdoctor();
+
+
 	
 	
 	if (
@@ -17,8 +22,9 @@ $utilisateur1= new categoriecontroller();
 		
             $user = new categories($_POST['nom']);
             $utilisateur1->modifiercategorie($user, $_GET['id']);
-            
+           
         }
+        
 
 
 ?>
@@ -202,8 +208,15 @@ $utilisateur1= new categoriecontroller();
                                 
                                             <tr>
                                             
-                                                   
-                                                   <td><?PHP echo  $blog['medecin']; ?></td> 
+
+     
+      
+      
+  
+
+                                                   <td><?php foreach($liste1 as $doc) { ?>
+                            <?php if($blog['medecin']===$doc['id']){  
+                                                   echo  $doc['nom'];}}?></td> 
                                                    <td><?PHP echo $blog['id']; ?></td>
                                                    <td><?PHP echo $blog['nomarticle']; ?></td> 
                                                    <td><?PHP echo $blog['date']; ?></td>

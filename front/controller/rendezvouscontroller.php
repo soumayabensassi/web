@@ -4,10 +4,10 @@ include_once "../config.php";
 
 class rendezvouscontroller
 {
-    public function ajouterrendezvous($nom,$prenom,$email,$date,$heure,$doctor)
+    public function ajouterrendezvous($nom,$prenom,$email,$date,$heure,$doctor,$client)
     {$db=config::getConnexion();
-       try{ $sql="INSERT INTO rendezvous (nom,prenom,email,date,heure,doctor,status)
-        VALUES(:nom,:prenom,:email,:date,:heure,:doctor,:status)";
+       try{ $sql="INSERT INTO rendezvous (nom,prenom,email,date,heure,doctor,status,client)
+        VALUES(:nom,:prenom,:email,:date,:heure,:doctor,:status,:client)";
     $query = $db->prepare($sql);
     $query->execute([
         'nom'=>$nom,
@@ -16,7 +16,8 @@ class rendezvouscontroller
         'date'=>$date,
         'heure'=>$heure,
         'doctor'=>$doctor,
-        'status'=>'en attente'
+        'status'=>'en attente',
+        'client'=>$client
     ]);}catch(PDOException $e)
     {$e->getMessage();}
     }

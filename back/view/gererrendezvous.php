@@ -24,7 +24,10 @@
         $message="votre rendez vous a ete ";
         $datetime = date("Y-m-d H:i:s");
         echo $datetime;
-        $notification->ajouternotification($_POST['emailclients'],$datetime,$message,$status);
+
+        $client=$_POST['idClient'];
+
+        $notification->ajouternotification($_POST['emailclients'],$datetime,$message,$status,$client);
         $utilisateur1->modifierrendezvous($status,$_POST['id_rendezvous']);
             
        header('Location:rendezvousmanagement.php');

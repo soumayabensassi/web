@@ -8,8 +8,9 @@ include_once "../controller/rendezvouscontroller.php";
        $date= $_POST['date'];
        $heure= $_POST['time'];
        $doctor= $_POST['appointmentfor'];
+       $client=$_POST['idClient'];
      
 $rendezvous= new rendezvouscontroller();
-$rendezvous->ajouterrendezvous($nom,$prenom,$email,$date,$heure,$doctor);
+$rendezvous->ajouterrendezvous($nom,$prenom,$email,$date,$heure,$doctor,$client);
 header('Location:index.php');
 ?>
