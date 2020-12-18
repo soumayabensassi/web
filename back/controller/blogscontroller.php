@@ -2,36 +2,37 @@
 include_once "../model/blog.php" ;
 include_once "../config.php";
 class blogcontroller
-{
-    public function ajouterblog($nom,$nomarticle,$date,$categorie,$img,$blog)
+{   
+  public function ajouterblog($medecin,$nomarticle,$date,$categorie,$img,$blog)
     {$db=config::getConnexion();
-       try{ $sql="INSERT INTO blogslist(nom,nomarticle,date,categorie,img,blog)
-        VALUES(:nom,:nomarticle,:date,:categorie,:img,:blog)";
+       try{ $sql="INSERT INTO blogslist(medecin,nomarticle,date,categorie,img,blog)
+        VALUES(:medecin,:nomarticle,:date,:categorie,:img,:blog)";
     $query = $db->prepare($sql);
     $query->execute([
-        'nom'=>$nom,
+        'medecin'=>$medecin,
         'nomarticle'=>$nomarticle,
         'date'=>$date,
         'categorie'=>$categorie,
         'img'=>$img,
-        'blog'=>$blog,
+        'blog'=>$blog
         
     ]);}catch(PDOException $e)
     {$e->getMessage();}
     }
-    function afficherblog(){
+    function  afficherblog($categorie){
+        
+        try{$db = config::getConnexion();
+            $query=$db->prepare('SELECT * from blogslist where categorie=:categorie');
+             $query->execute(['categorie'=>$categorie]);
+            
+                 
+                    return $query->fetchAll();
+              }
+               catch (Exception $e){
+                     die('Erreur: '.$e->getMessage());
+            }
+           }  
 
-        $sql="SELECT * FROM blogslist";
-        $db = config::getConnexion();
-        try{
-            $liste = $db->query($sql);
-            return $liste;
-        }
-        catch (Exception $e){
-            die('Erreur: '.$e->getMessage());
-        }
-    
-    }
     public function delete($id)
     {$db=config::getConnexion();
     try{
@@ -72,7 +73,7 @@ class blogcontroller
             $db = config::getConnexion();
             $query = $db->prepare(
                 'UPDATE blogslist SET 
-                    nom = :nom, 
+                    medecin = :medecin, 
                     nomarticle = :nomarticle,
                     date = :date,
                     categorie = :categorie,
@@ -82,7 +83,7 @@ class blogcontroller
                 WHERE id = :id'
             );
             $query->execute([
-                'nom'=>$blogs->getNom(),
+                'medecin'=>$blogs->getNom(),
                 'nomarticle'=>$blogs->getNomarticle(),
                 'date'=>$blogs->getDate(),
                 'categorie'=>$blogs->getCategorie(),

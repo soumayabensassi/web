@@ -121,7 +121,7 @@ class doctorcontroller
 
              session_start(); 
     $_SESSION['id']= $x['id'];
-    $_SESSION['nom']=$x['nom'];
+    $_SESSION['nomdoc']=$x['nom'];
     
             }
         }            catch (Exception $e)

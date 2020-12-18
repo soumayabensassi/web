@@ -8,7 +8,7 @@
             <ul>
               <li>
                 <a href="#">
-                <p><?php  echo $_SESSION['nom']; ?><br> </p><img src="../assets/images/Profile.png" alt="" width="40"><i class="fas fa-angle-down"></i>
+                <p><?php  echo $_SESSION['nomdoc']; ?><br> </p><img src="../assets/images/Profile.png" alt="" width="40"><i class="fas fa-angle-down"></i>
                 </a>
                  
                 <div class="dropdown">

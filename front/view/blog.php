@@ -5,16 +5,16 @@ include_once "../../back/controller/categoriescontroller.php";
 include_once '../model/categories.php';
 
 $blog=new blogcontroller();
-$liste=$blog->afficherblog();
+$liste=$blog->afficherblog($_GET['id']);
 $utilisateur1= new categoriecontroller();
 	
 	
 	if (
-		isset($_POST["nom"]) 
+		isset($_POST["medecin"]) 
          
 	   ){
 		
-            $user = new categorie($_POST['nom']);
+            $user = new categorie($_POST['medecin']);
             $utilisateur1->modifiercategorie($user, $_GET['id']);
             
         }
@@ -158,7 +158,7 @@ if (empty($_SESSION['m_un'])) {?>
       
   ?>
 			<?php foreach($liste as $blog) { ?>
-                <?php if($blog['categorie']===$user['nom']){ ?>
+                <?php if($blog['categorie']===$user['id']){ ?>
 				<div class="col-lg-4 col-md-6 col-sm-12">
 					<div class="blog-inner">
 						<div class="blog-img">
@@ -166,7 +166,7 @@ if (empty($_SESSION['m_un'])) {?>
 						</div>
 						<div class="item-meta">
 							
-							<a href="#"><i class="fas fa-user"></i><?PHP echo $blog['nom']; ?></a>
+							<a href="#"><i class="fas fa-user"></i><?PHP echo $blog['medecin']; ?></a>
 							<span class="dti"><?PHP echo $blog['date']; ?></span>
 						</div>
 						<h2><?PHP echo $blog['nomarticle']; ?></h2>

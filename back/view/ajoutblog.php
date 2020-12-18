@@ -1,20 +1,20 @@
-<?php session_start() ?>
-<?PHP
+<?php session_start(); 
+
 include_once "../controller/blogscontroller.php";
 include_once "../controller/categoriescontroller.php";
 include_once '../model/categories.php';
 
 $blog=new blogcontroller();
-$liste=$blog->afficherblog();
+$liste=$blog->afficherblog($_GET['id']);
 $utilisateur1= new categoriecontroller();
 	
 	
 	if (
-		isset($_POST["nom"]) 
+		isset($_POST["nomdoc"]) 
          
 	   ){
 		
-            $cat = new categories($_POST['nom']);
+            $cat = new categories($_POST['nomdoc']);
             $utilisateur1->modifiercategorie($cat, $_GET['id']);
             
         }
@@ -55,13 +55,13 @@ $utilisateur1= new categoriecontroller();
     <form action="ajouterblog.php" method="POST">
         <div class="main-content container-fluid p-0">
             <div class="email-head">
-                <div class="email-head-title">Ecrire votre blogue <span class="icon mdi mdi-edit"></span></div>
+                <div class="email-head-title">Ecrire votre blog<span class="icon mdi mdi-edit"></span></div>
             </div>
             <div class="subject">
                 <div class="form-group row pt-2">
                     <label class="col-md-1 control-label">   nom de medecin</label>
                     <div class="col-md-11">
-                        <input class="form-control" type="text" name="nom" value= "<?php echo $_SESSION['nom']; ?>" >
+                        <input class="form-control" type="text" name="nom" value= "<?php echo $_SESSION['nomdoc']; ?>" >
                     </div>
                 </div>
             </div>
@@ -85,7 +85,7 @@ $utilisateur1= new categoriecontroller();
                 <div class="form-group row pt-2">
                     <label class="col-md-1 control-label">  categorie</label>
                     <div class="col-md-11">
-                        <input class="form-control" type="text" name="categorie" value= "<?php echo $cat['nom']; ?>" >
+                        <input class="form-control" type="text" name="categorie" value= "<?php echo $cat['id']; ?>" >
                     </div>
                 </div>
             </div>

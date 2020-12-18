@@ -29,7 +29,7 @@
             
             <div class="subject">
                 <div class="form-group row pt-2">
-                    <label class="col-md-1 control-label">   nom de categorie </label>
+                    <label class="col-md-1 control-label">nom de categorie</label>
                     <div class="col-md-11">
                         <input class="form-control" type="text" name="nom">
                     </div>

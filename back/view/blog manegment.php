@@ -1,11 +1,12 @@
 
 <?PHP
+session_start();
 include_once "../controller/blogscontroller.php";
 include_once "../controller/categoriescontroller.php";
 include_once '../model/categories.php';
 
 $blog=new blogcontroller();
-$liste=$blog->afficherblog();
+$liste=$blog->afficherblog($_GET['id']);
 $utilisateur1= new categoriecontroller();
 	
 	
@@ -61,7 +62,7 @@ $utilisateur1= new categoriecontroller();
                         
                        
                                             <?php
-                                    session_start();
+                                    
                                      { ?>
                                         
 
@@ -197,12 +198,12 @@ $utilisateur1= new categoriecontroller();
                             <td>nom de categorie:<?PHP echo $user['nom']; ?></td> 
                                 </tr>
                         <?php foreach($liste as $blog) { ?>
-                            <?php if($blog['categorie']===$user['nom']){ ?>
+                            <?php if($blog['categorie']===$user['id']){ ?>
                                 
                                             <tr>
                                             
                                                    
-                                                   <td><?PHP echo $blog['nom']; ?></td> 
+                                                   <td><?PHP echo  $blog['medecin']; ?></td> 
                                                    <td><?PHP echo $blog['id']; ?></td>
                                                    <td><?PHP echo $blog['nomarticle']; ?></td> 
                                                    <td><?PHP echo $blog['date']; ?></td>

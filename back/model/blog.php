@@ -1,15 +1,15 @@
 <?php
 class blog
 { private  $id= null;
-    private  ?string $nom= null;
+    private  ?string $medecin= null;
     private  ?string $nomarticle= null;
     private   $date;
     private  ?string $categorie= null;
     private  ?string $img= null;
     private  ?string $blog= null;
-    function __construct(string $nom,string $nomarticle,$date,string $categorie ,string $img,string $blog){
+    function __construct(string $medecin,string $nomarticle,$date,string $categorie ,string $img,string $blog){
 			
-        $this->nom=$nom;
+        $this->medecin=$medecin;
         $this->nomarticle=$nomarticle;
         $this->date=$date;
         $this->categorie=$categorie;
@@ -20,7 +20,7 @@ class blog
         return $this->id;
     }
     function getNom(): string{
-        return $this->nom;
+        return $this->medecin;
     }
     function getNomarticle(): string{
         return $this->nomarticle;
