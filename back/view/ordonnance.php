@@ -1,8 +1,9 @@
 <?PHP
+session_start();
 include_once "../controller/ordonnancecontroller.php";
 
 $ordonnance=new ordonnancecontroller();
-$liste=$ordonnance->afficherordonnance();
+$liste=$ordonnance->afficherordonnance($_SESSION['idClient']);
 
 
 ?>
@@ -47,7 +48,7 @@ $liste=$ordonnance->afficherordonnance();
                         
                        
                                             <?php
-                                    session_start();
+                                    
                                      { ?>
                                         
 
@@ -203,7 +204,6 @@ $liste=$ordonnance->afficherordonnance();
                                             <tr class="border-0">
                                                 <th class="border-0">Id</th>
                                                 <th class="border-0">Nom_Patients</th>
-                                                <th class="border-0">Prenom_Patients</th>
                                                 <th class="border-0">ordonnances </th>
                                                 <th class="border-0">supprimer </th>
                                              
@@ -218,8 +218,7 @@ $liste=$ordonnance->afficherordonnance();
                                                    
                                                    
                                                    <td><?PHP echo $ordonnance['id_ordonnance']; ?></td> 
-                                                   <td><?PHP echo $ordonnance['nom_patients']; ?></td>
-                                                   <td><?PHP echo $ordonnance['prenom_patients']; ?></td>
+                                                   <td><?PHP echo $_SESSION['nom'] ?></td>
                                                    <td><img src="../assets/images/<?PHP echo $ordonnance['img']; ?>"></td>
                                                    <td> 
                                                     

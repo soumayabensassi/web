@@ -1,13 +1,14 @@
 <?php
-include_once "../controller/ordonnancecontroller.php";
 
-    
-       $nom_patients= $_POST['firstName'];
-       $prenom_patients=$_POST['lastName'];
+session_start();
+include_once "../controller/ordonnancecontroller.php";
+  
+      
+       $client=$_SESSION['idClient'];
+
        $img= $_POST['ordonnance'];
-     
-$ord=new ordonnancecontroller();
-$ord->ajouterordonnance($nom_patients,$prenom_patients,$img);
+       $ord=new ordonnancecontroller();
+$ord->ajouterordonnance($client,$img);
 header('Location:../../front/view/index.php');
 
 ?>

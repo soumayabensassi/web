@@ -5,14 +5,14 @@ include_once "../config.php";
 include_once "../model/panier.php";
 class panierC
 {
-    public function ajouterProduit($idMedicament,$idClient,$qte,$nom_Medicament)
+    public function ajouterProduit($medicament,$client,$qte,$nom_Medicament)
     {$db=config::getConnexion();
-       try{ $sql="INSERT INTO panier(idMedicament,idClient,qte,nom_Medicament)
-        VALUES(:idMedicament,:idClient,:qte,:nom_Medicament)";
+       try{ $sql="INSERT INTO panier(medicament,client,qte,nom_Medicament)
+        VALUES(:medicament,:client,:qte,:nom_Medicament)";
     $query = $db->prepare($sql);
     $query->execute([
-        'idMedicament'=>$idMedicament,
-        'idClient'=>$idClient,
+        'medicament'=>$medicament,
+        'client'=>$client,
         'qte'=>$qte,
         'nom_Medicament'=>$nom_Medicament
     ]);}catch(PDOException $e)
@@ -20,14 +20,13 @@ class panierC
     }
     
     function  afficher_panier($idClient){
-        $db = config::getConnexion();
-        $sql="SELECT * from panier where idClient=$idClient";
-                try{
-                  $liste=$db->query($sql);
-                   
         
-                   
-                    return $liste;
+        try{$db = config::getConnexion();
+            $query=$db->prepare('SELECT * from panier where client=:id');
+             $query->execute(['id'=>$idClient]);
+            
+                 
+                    return $query->fetchAll();
               }
                catch (Exception $e){
                      die('Erreur: '.$e->getMessage());
