@@ -97,7 +97,6 @@ if (empty($_SESSION['m_un'])) {?>
     
 <?php } else { ?> 
     <li class="nav-link" ><?php include "logged.php"; ?></li>
-    
 
 <?php
 
