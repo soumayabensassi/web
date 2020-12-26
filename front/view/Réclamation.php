@@ -23,6 +23,8 @@
     <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png">
 
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../assets/css/styles/fv.css" type="text/css" />
+
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
     <!-- Pogo Slider CSS -->
     <link rel="stylesheet" href="../assets/css/pogo-slider.min.css">
@@ -135,41 +137,55 @@ if (empty($_SESSION['m_un'])) {?>
               <div class="contact-block">
                 <form name="f" action="ajouterreclamation.php" method="POST">
                   <div class="row">
-                    <div class="col-md-6">
+                  <div class="item">
+                    <div class="col-md-12">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required data-error="Please enter your name">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="votre nom" required="">
                             <div class="help-block with-errors"></div>
                         </div>                                 
+                    </div>
+                    </div><div class="item">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Prénom" required="">
+                            <div class="help-block with-errors"></div>
+                        </div>                                 
+                    </div>
                     </div>
                     <?php if (isset($_SESSION['e'])) { ?>
                      <div class="col-md-6">
                         <div class="form-group">
-                            <input type="text" value="<?php echo $_SESSION['e'] ?>" id="email" class="form-control" name="email" required data-error="Please enter your email">
+                            <input type="text" value="<?php echo $_SESSION['e'] ?>" id="email" class="form-control" name="email" required="">
                             <div class="help-block with-errors"></div>
                         </div> 
                     </div>
                     <?php } else {?>
                         <div class="col-md-6">
                         <div class="form-group">
-                            <input type="text" placeholder="your email" id="email" class="form-control" name="email" required data-error="Please enter your email">
+                            <input type="text" placeholder="your email" id="email" class="form-control" name="email" required="">
                             <div class="help-block with-errors"></div>
                         </div> 
                     </div> 
                     <?php } ?>
-                    <div class="col-md-12">
+                    <div class="item">
+                    <div class="col-md-12" >
                         <div class="form-group">
-                            <input type="text" placeholder="Your number" id="number" class="form-control" name="number" required data-error="Please enter your number">
+                            <input type="text" placeholder="Your number" id="number" class="form-control" name="number" required="">
                             <div class="help-block with-errors"></div>
                         </div> 
                     </div>
+                    </div>
                     <div class="col-md-12">
                         <div class="form-group"> 
-                            <textarea class="form-control" id="message" placeholder="Your Message" rows="8"name="msg" data-error="Write your message" required></textarea>
+                            <textarea class="form-control" id="message" placeholder="Your Message" rows="8"name="msg" data-error="Write your message" required=""></textarea>
                             <div class="help-block with-errors"></div>
                         </div>
+                     </div>
+                     
+                        <div class="col-md-12">
                         <input type="hidden" id="idClient"  name="idClient" value="<?php echo $_SESSION['idClient'] ?>">
                         <div class="submit-button text-center">
-                            <input type="submit"  id="submit" class="btn btn-common" value="Envoyer une réclamation " onclick="test();" >
+                            <input type="submit"  id="submit" class="btn btn-common" value="Envoyer une réclamation "  >
                             
                             <div id="msgSubmit" class="h3 text-center hidden"></div> 
                             <div class="clearfix"></div> 
@@ -250,7 +266,53 @@ if (empty($_SESSION['m_un'])) {?>
 
 
 <a href="#" id="scroll-to-top" class="new-btn-d br-2"><i class="fa fa-angle-up"></i></a>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
+<script src="../assets/js/validator.js"></script>
+<script>
+    // initialize the validator function
+    validator.message['date'] = 'not a real date';
+
+    // validate a field on "blur" event, a 'select' on 'change' event & a '.reuired' classed multifield on 'keyup':
+    $('form')
+        .on('blur', 'input[required], input.optional, select.required', validator.checkField)
+        .on('change', 'select.required', validator.checkField)
+        .on('keypress', 'input[required][pattern]', validator.keypress);
+
+    $('.multi.required')
+        .on('keyup blur', 'input', function() {
+            validator.checkField.apply($(this).siblings().last()[0]);
+        });
+
+    // bind the validation to the form submit event
+    //$('#send').click('submit');//.prop('disabled', true);
+
+    $('form').submit(function(e) {
+        e.preventDefault();
+        var submit = true;
+
+        // Validate the form using generic validaing
+        if (!validator.checkAll($(this))) {
+            submit = false;
+        }
+
+        if (submit)
+            this.submit();
+
+        return false;
+    });
+
+    /* FOR DEMO ONLY */
+    $('#vfields').change(function() {
+        $('form').toggleClass('mode2');
+    }).prop('checked', false);
+
+    $('#alerts').change(function() {
+        validator.defaults.alerts = (this.checked) ? false : true;
+        if (this.checked)
+            $('form .alert').remove();
+    }).prop('checked', false);
+</script>
 <!-- ALL JS FILES -->
 <script src="../assets/js/jquery.min.js"></script>
 <script src="../assets/js/popper.min.js"></script>
