@@ -88,7 +88,7 @@ $liste=$MED->affichermedicament();
                     <ul class="navbar-nav">
                         <li><a class="nav-link " href="index.php">Accueil</a></li>
 						<li><a class="nav-link active" href="gallery.php">Médicamnet</a></li>
-						<li><a class="nav-link" href="#Réclamation">Réclamation</a></li>
+						<li><a class="nav-link" href="Réclamation.php">Réclamation</a></li>
 						<li><a class="nav-link" href="#contact">Contact</a></li>
 						<?php
 session_start();

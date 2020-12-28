@@ -1,3 +1,11 @@
+<?PHP
+include_once "../../back/controller/doctorcontroller.php";
+
+$doc=new doctorcontroller();
+$liste=$doc->afficherdoctor();
+
+
+?>
 <!DOCTYPE html>
 <html lang="en"><!-- Basic -->
 <head>
@@ -101,7 +109,6 @@ if (empty($_SESSION['m_un'])) {?>
     
 <?php } else { ?> 
     <li class="nav-link"><?php include "logged.php"; ?></li>
-                            <li class="nav-link"><?php include "notification.php"; ?></li>
     
 
 <?php
@@ -127,15 +134,18 @@ if (empty($_SESSION['m_un'])) {?>
 				</div>
 			</div>
 			
+            
 			<div class="row">
+            <?php foreach($liste as $doc) 
+						{?>
                 <div class="col-md-4 col-sm-6">
                     <div class="our-team">
                         <div class="pic">
-                            <img src="../assets/images/img-1.jpg" alt="">
+                        <?PHP $a= $doc['img']; print"<img src='../../back/assets/images/$a' >"?>
                         </div>
                         <div class="team-content">
-                            <h3 class="title">Williamson</h3>
-                            <span class="post">web developer</span>
+                            <h3 class="title"><?PHP echo $doc['nom']; ?></h3>
+                            <span class="post"><?PHP echo $doc['specealite']; ?></span>
                             <ul class="social">
                                 <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
                                 <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
@@ -145,44 +155,12 @@ if (empty($_SESSION['m_un'])) {?>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-4 col-sm-6">
-                    <div class="our-team">
-                        <div class="pic">
-                            <img src="../assets/images/img-2.jpg" alt="">
-                        </div>
-                        <div class="team-content">
-                            <h3 class="title">kristina</h3>
-                            <span class="post">Web Designer</span>
-                            <ul class="social">
-                                <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fab fa-google-plus" aria-hidden="true"></i></a></li>
-                                
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-sm-6">
-                    <div class="our-team">
-                        <div class="pic">
-                            <img src="../assets/images/img-3.jpg" alt="">
-                        </div>
-                        <div class="team-content">
-                            <h3 class="title">Steve Thomas</h3>
-                            <span class="post">web developer</span>
-                            <ul class="social">
-                                <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fab fa-google-plus" aria-hidden="true"></i></a></li>
-                               
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <?PHP
+                           }
+                          ?>
+               
             </div>
-			
+		
 		</div>
 	</div>
 	

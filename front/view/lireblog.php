@@ -121,7 +121,7 @@ $rate = 0;
 
                         <li><a class="nav-link" href="rendez-vous.php">Rendez-vous</a></li>
                         <li><a class="nav-link " href="gallery.php">Médicaments</a></li>
-                        <li><a class="nav-link " href="#team">Médecins</a></li>
+                        <li><a class="nav-link " href="doctor.php">Médecins</a></li>
                         <li><a class="nav-link active" href="categorie.php">Blog</a></li>
                         <li><a class="nav-link" href="Réclamation.php">Réclamation</a></li>
                         <li><a class="nav-link" href="#contact">Contact</a></li>

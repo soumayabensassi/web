@@ -107,7 +107,7 @@ $liste=$categorie->affichercategorie();
                                             <a class="nav-link" href="categories.php">Blogs <span class="badge badge-secondary">New</span></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Medecins</a>
+                                            <a class="nav-link" href="doctor-finder">Medecins</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="reclamationmanagement.php">Réclamations</a>
