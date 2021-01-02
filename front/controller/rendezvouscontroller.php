@@ -51,8 +51,8 @@ class rendezvouscontroller
     
        }
 
-       function recupererrendezvous($email){
-        $sql="SELECT * from rendezvous where email='$email'";
+       function recupererrendezvous($id_rendezvous){
+        $sql="SELECT * from rendezvous where id_rendezvous='$id_rendezvous'";
         $db = config::getConnexion();
         try{
             $query=$db->prepare($sql);
@@ -90,8 +90,8 @@ class rendezvouscontroller
                     prenom=:prenom, 
                     email=:email,
                     date=:date,
-                    heure=:heure,
-                    doctor=:doctor
+                    heure=:heure
+                    
     
     
                 WHERE id_rendezvous= :id_rendezvous'
@@ -103,7 +103,6 @@ class rendezvouscontroller
                'email'=>$rendezvous->getEmail(),
                'date'=>$rendezvous->getDate(),
                'heure'=>$rendezvous->getHeure(),
-               'doctor'=>$rendezvous->getDoctor(),
                'id_rendezvous'=>$id_rendezvous   
                ]
 );

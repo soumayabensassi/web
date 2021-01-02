@@ -3,7 +3,7 @@
 	
 	$Cat=new categoriecontroller();
 
-    $Cat->delete($_POST["idcategorie"]);
+    $Cat->delete($_GET["idcategorie"]);
         
       
 	

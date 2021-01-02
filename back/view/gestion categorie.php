@@ -7,203 +7,176 @@ $liste=$Cat->affichercategorie();
 
 
 ?>
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bootstrap Table with Add and Delete Row Feature</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<style>
-    #content1::after{
-  content: "\a";
-  white-space: pre;
-}
-.container-contact100 {
-  width: 100%;  
-  min-height: 100vh;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 15px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-}
- input[type=submit] {
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 5px 8px;
-  text-decoration: none;
-  margin: 2px 1px;
-  cursor: pointer;
-}
-    body {
-        color: #404E67;
-        background: #F5F7FA;
-		font-family: 'Open Sans', sans-serif;
-	}
-	.table-wrapper {
-		width: 700px;
-		margin: 30px auto;
-        background: #fff;
-        padding: 20px;	
-        box-shadow: 0 1px 1px rgba(0,0,0,.05);
-    }
-    .table-title {
-        padding-bottom: 10px;
-        margin: 0 0 10px;
-    }
-    .table-title h2 {
-        margin: 6px 0 0;
-        font-size: 22px;
-    }
-    .table-title .add-new {
-        float: right;
-		height: 30px;
-		font-weight: bold;
-		font-size: 12px;
-		text-shadow: none;
-		min-width: 100px;
-		border-radius: 50px;
-		line-height: 13px;
-    }
-	.table-title .add-new i {
-		margin-right: 10px;
-	}
-    table.table {
-        table-layout: fixed;
-    }
-    table.table tr th, table.table tr td {
-        border-color: #e9e9e9;
-    }
-    table.table th i {
-        font-size: 13px;
-        margin: 0 5px;
-        cursor: pointer;
-    }
-    table.table th:last-child {
-        width: 100px;
-    }
-    table.table td a {
-		cursor: pointer;
-        display: inline-block;
-        margin: 0 5px;
-		min-width: 24px;
-    }    
-	table.table td a.add {
-        color: #27C46B;
-    }
-    table.table td a.edit {
-        color:#4CAF50 ;
-    }
-    table.table td a.delete {
-        color: #E34724;
-    }
-    table.table td i {
-        font-size: 19px;
-    }
-	table.table td a.add i {
-        font-size: 24px;
-    	margin-right: -1px;
-        position: relative;
-        top: 3px;
-    }    
-    table.table .form-control {
-        height: 32px;
-        line-height: 32px;
-        box-shadow: none;
-        border-radius: 2px;
-    }
-	table.table .form-control.error {
-		border-color: #f50000;
-	}
-	table.table td .add {
-		display: none;
-	}
-</style>
-<script>
-$(document).ready(function(){
-	$('[data-toggle="tooltip"]').tooltip();
-	var actions = $("table td:last-child").html();
-	// Append table with add row form on add new button click
-    $(".add-new").click(function(){
-		$(this).attr("disabled", "disabled");
-		var index = $("table tbody tr:last-child").index();
-        var row = '<tr>' +
-            '<td><input type="text" class="form-control" name="name" id="name"></td>' +
-            '<td><input type="text" class="form-control" name="department" id="department"></td>' +
-            '<td><input type="text" class="form-control" name="phone" id="phone"></td>' +
-			'<td>' + actions + '</td>' +
-        '</tr>';
-    	$("table").append(row);		
-		$("table tbody tr").eq(index + 1).find(".add, .edit").toggle();
-        $('[data-toggle="tooltip"]').tooltip();
-    });
-	// Add row on add button click
-	$(document).on("click", ".add", function(){
-		var empty = false;
-		var input = $(this).parents("tr").find('input[type="text"]');
-        input.each(function(){
-			if(!$(this).val()){
-				$(this).addClass("error");
-				empty = true;
-			} else{
-                $(this).removeClass("error");
-            }
-		});
-		$(this).parents("tr").find(".error").first().focus();
-		if(!empty){
-			input.each(function(){
-				$(this).parent("td").html($(this).val());
-			});			
-			$(this).parents("tr").find(".add, .edit").toggle();
-			$(".add-new").removeAttr("disabled");
-		}		
-    });
-	// Edit row on edit button click
-	$(document).on("click", ".edit", function(){		
-        $(this).parents("tr").find("td:not(:last-child)").each(function(){
-			$(this).html('<input type="text" class="form-control" value="' + $(this).text() + '">');
-		});		
-		$(this).parents("tr").find(".add, .edit").toggle();
-		$(".add-new").attr("disabled", "disabled");
-    });
-	// Delete row on delete button click
-	$(document).on("click", ".delete", function(){
-        $(this).parents("tr").remove();
-		$(".add-new").removeAttr("disabled");
-    });
-});
-</script>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/libs/css/style.css">
+
+    
+  
+   
+    
+    
+    <title>Pick Medico</title>
 </head>
+
 <body>
-<div class="container-contact100" style="background-image: url('../assets/images/bg-01.jpg');">
-    <div class="container">
-        <div class="table-wrapper">
-            <div class="table-title">
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
+        <!-- ============================================================== -->
+        <!-- navbar -->
+        <!-- ============================================================== -->
+        <div class="dashboard-header">
+            <nav class="navbar navbar-expand-lg bg-white fixed-top">
+                <a class="navbar-brand" href="index.php"><img src="../assets/images/logo.png"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto navbar-right-top">
+                        
+                        
+                       
+                                            <?php
+                                    session_start();
+                                     { ?>
+                                        
+
+                                    
+                                        <li class="nav-link"><?php include "logged.php"; ?></li>
+
+
+                                    <?php
+
+                                    }
+                                    ?>
+                                
+                            
+                        
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end navbar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- left sidebar -->
+        <!-- ============================================================== -->
+        <div class="nav-left-sidebar sidebar-dark" style="top:160px;">
+            <div class="menu-list">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="d-xl-none d-lg-none" href="#">tasks</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav flex-column">
+                            <li class="nav-divider">
+                                Menu
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i class="fa fa-fw fa-user-circle"></i>Accounts Manegment <span class="badge badge-success">6</span></a>
+                                <div id="submenu-1" class="collapse submenu" >
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="../../front/view/patients.php">Patients</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="doctor-finder.php">Medecins</a>
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-rocket"></i>Taches </a>
+                                <div id="submenu-2" class="collapse submenu" >
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="categories.php">Blogs <span class="badge badge-secondary">New</span></a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="doctor.profile.php">Medecins</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="reclamationmanagement.php">Réclamations</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="rendezvousmanagement.php">Rendez-vous</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="livraison.php">Livraisons</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="gestion medicaments.php">Medicaments</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="gestion categorie.php">Categories Medicaments</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="ordonnance.php">Ordonances</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="gestion fournisseur.php">Fournisseur</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                </li>
+                           
+
+                        </ul>
+                    </div>
+                    </li>
+                    </ul>
+            </div>
+            </nav>
+        </div>
+    </div>
+    
+    <div class="dashboard-wrapper"  style="top:160px;">
+        <div class="dashboard-ecommerce">
+            <div class="container-fluid dashboard-content ">
+                <!-- ============================================================== -->
+                <!-- pageheader  -->
+                <!-- ============================================================== -->
                 <div class="row">
-                    <div class="col-sm-8"><h2>Categorie <b>Details</b></h2></div>
-                    <div class="col-sm-4">
-                        <a href="ajout categorie.php" class="btn btn-info add-new"><i class="fa fa-plus"></i> Ajouter</a>
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="page-header">
+                            <h2 class="pageheader-title">Categories Medicaments</h2>
+                            <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
+                            <div class="page-breadcrumb">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Categories Medicaments pannel</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <table class="table table-bordered">
-                <thead>
+                <div class="footer">
+                    <div class="container-fluid">
+
+
+
+                        <div class="card">
+                            <h5 class="card-header">STOCK</h5>
+                            <td colspan="9"><a href="ajout categorie.php" class="btn btn-outline-light float-right"><i class="fas fa-plus"></i></a></td>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                    <thead>
                     <tr>
                         <th>Nom categorie</th>
                         <th>Sous categorie</th>
@@ -218,27 +191,59 @@ $(document).ready(function(){
 					<td><?PHP echo $Cat['nom_categorie']; ?></td>
                     <td><?PHP echo $Cat['sous_categorie']; ?></td>
                     <td><?PHP echo $Cat['idcategorie']; ?></td>
-                                    
-					<td >
-
+                    <td> 
                                                     
-                                                    <form method="POST" action="deletecategorie.php">
-                                                      <input type="submit"  name="supprimer"  class="btn btn-outline-light float-right" value="supprimer">
-                                                      <input type="hidden" value=<?PHP echo  $Cat['idcategorie']; ?> name="idcategorie">
-
-													</form></td>
+                      <a href="deletecategorie.php?idcategorie=<?PHP echo $Cat['idcategorie']; ?>"> <i class="fas fa-trash-alt"></i></a>
+                      </td>              
+					
 												 
 			                                	<td>
-												 <a class="edit" title="Edit" data-toggle="tooltip" href="modifiercategorie.php?idcategorie=<?PHP echo $Cat['idcategorie']; ?>" ><i class="material-icons">&#xE254;</i></a>	</td>				
+												 <a class="edit" title="Edit" data-toggle="tooltip" href="modifiercategorie.php?idcategorie=<?PHP echo $Cat['idcategorie']; ?>" ><i class="fas fa-edit"></i></a>	</td>				
 												</td>
-                                                </tr> 
+                      </tr> 
 					<?PHP
                       }
                      ?>     
 				</tbody>
-                                
-            </table>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- end footer -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- end wrapper  -->
+            <!-- ============================================================== -->
         </div>
-    </div>     
+        <!-- ============================================================== -->
+        <!-- end main wrapper  -->
+        <!-- ============================================================== -->
+        <!-- Optional JavaScript -->
+        <!-- jquery 3.3.1 -->
+        <script src="../assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+        <!-- bootstap bundle js -->
+        <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+        <!-- slimscroll js -->
+        <script src="../assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+        <!-- main js -->
+        <script src="../assets/libs/js/main-js.js"></script>
+        <!-- chart chartist js -->
+        <script src="../assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
+        <!-- sparkline js -->
+        <script src="../assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
+        <!-- morris js -->
+        <script src="../assets/vendor/charts/morris-bundle/raphael.min.js"></script>
+        <script src="../assets/vendor/charts/morris-bundle/morris.js"></script>
+        <!-- chart c3 js -->
+        <script src="../assets/vendor/charts/c3charts/c3.min.js"></script>
+        <script src="../assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
+        <script src="../assets/vendor/charts/c3charts/C3chartjs.js"></script>
+        <script src="../assets/libs/js/dashboard-ecommerce.js"></script>
 </body>
+
 </html>

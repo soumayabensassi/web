@@ -46,8 +46,8 @@ class reclamationcontroller
         }
     
        }
-       function recupererreclamation($email){
-        $sql="SELECT * from reclamation where email_reclamation='$email'";
+       function recupererreclamation($id_reclamation){
+        $sql="SELECT * from reclamation where id_reclamation='$id_reclamation'";
         $db = config::getConnexion();
         try{
             $query=$db->prepare($sql);

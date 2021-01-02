@@ -94,7 +94,39 @@ class medicamentcontroller
             $e->getMessage();
         }
     }
+
+
+    public function getMedicamentByNom($nomMedicament) {
+        try {
+            $db = config::getConnexion();
+            $query = $db->prepare(
+                'SELECT * FROM medicament WHERE nomMedicament = :nomMedicament
+                  UNION ALL
+                 SELECT id, nomMedicament,quantite,prix,typeMedicament,imgMedicament,desMedicament  FROM fourni WHERE nomMedicament = :nomMedicament'
+            );
+            $query->execute([
+                'nomMedicament' => $nomMedicament
+            ]);
+            return $query->fetch();
+        } catch (PDOException $e) {
+            $e->getMessage();
+        }
+    }
    
-     
- 
+    function medicament(){
+
+        $sql="SELECT idMedicament,nomMedicament,quantite,prix,typeMedicament,imgMedicament,desMedicament FROM medicament
+        UNION ALL
+        SELECT id, nomMedicament,quantite,prix,typeMedicament,imgMedicament,desMedicament FROM fourni
+        ";
+        $db = config::getConnexion();
+        try{
+            $liste = $db->query($sql);
+            return $liste;
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+    
+    }
 }

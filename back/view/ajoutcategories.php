@@ -40,8 +40,7 @@
                 <div class="col-md-12 ">
                     <div class="form-group">
                         <button class="btn btn-primary btn-space" type="submit"><i class="icon s7-mail"></i> ajouter</button>
-                        <button class="btn btn-secondary btn-space" type="button"><i class="icon s7-close"></i> Annuler</button>
-                    </div>
+                        <a href="categories.php">   <button class="btn btn-secondary btn-space"  type="button"><i class="icon s7-close"> </i> Annuler</button></a>                    </div>
                 </div>
             </div>
         </div>

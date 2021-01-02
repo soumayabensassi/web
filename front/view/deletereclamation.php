@@ -4,5 +4,5 @@
 	$reclamation=new reclamationcontroller();
     $reclamation->delete($_POST["id_reclamation"]);
 
-header('Location:modifierreclamation.php');
+header('Location:testreclamation.php');
 ?>

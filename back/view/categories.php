@@ -190,7 +190,7 @@ $liste=$categorie->affichercategorie();
                                             </tr><?PHP
                                         }?>
                             <tr>
-                            <td colspan="9"><a href="ajoutcategorie.php" class="btn btn-outline-light float-right">add categorie</a></td>
+                            <td colspan="9"><a href="ajoutcategories.php" class="btn btn-outline-light float-right">add categorie</a></td>
                             </tr>
                             
                         </tbody>

@@ -142,7 +142,13 @@ $liste1=$doc->afficherdoctor();
                                             <a class="nav-link" href="gestion medicaments.php">Medicaments</a>
                                         </li>
                                         <li class="nav-item">
+                                            <a class="nav-link" href="gestion categorie.php">Categories Medicaments</a>
+                                        </li>
+                                        <li class="nav-item">
                                             <a class="nav-link" href="ordonnance.php">Ordonances</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="gestion fournisseur.php">Fournisseur</a>
                                         </li>
                                     </ul>
                                 </div>

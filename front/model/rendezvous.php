@@ -9,14 +9,13 @@ class rendezvous
     private ?string $doctor = null;
 
 
-    function __construct(string $nom,string $prenom,string $email,string $date, string $heure,string $doctor)
+    function __construct(string $nom,string $prenom,string $email,string $date, string $heure)
     {
         $this->nom=$nom;
         $this->prenom=$prenom;
         $this->email=$email;
         $this->date=$date;
         $this->heure=$heure;
-        $this->doctor=$doctor;
     }
 
 

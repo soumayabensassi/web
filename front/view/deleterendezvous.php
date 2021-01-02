@@ -6,5 +6,5 @@
         
       
 	
-header('Location:gestionrendezvous.php');
+header('Location:testrendezvous.php');
 ?>

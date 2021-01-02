@@ -4,7 +4,7 @@ require_once "../controller/medicamentcontroller.php";
 
 $MED=new medicamentcontroller();
 $liste=$MED->affichermedicament();
-
+$liste=$MED->medicament();
 
 ?>
 <!doctype html>
@@ -121,7 +121,13 @@ $liste=$MED->affichermedicament();
                                             <a class="nav-link" href="gestion medicaments.php">Medicaments</a>
                                         </li>
                                         <li class="nav-item">
+                                            <a class="nav-link" href="gestion categorie.php">Categories Medicaments</a>
+                                        </li>
+                                        <li class="nav-item">
                                             <a class="nav-link" href="ordonnance.php">Ordonances</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="gestion fournisseur.php">Fournisseur</a>
                                         </li>
                                     </ul>
                                 </div>

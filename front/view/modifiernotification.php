@@ -6,11 +6,9 @@ $date=$_POST['date'];
 $message=$_POST['message'];
 $status=$_POST['status'];
 
-$read='read';
-
 $notificationcontroller = new notificationcontroller();
 
-$notificationcontroller->modifiernotification($_POST['id_notification'],$read);
+$notificationcontroller->modifiernotification($_POST['id_notification']);
 
 header('Location:index.php');
 

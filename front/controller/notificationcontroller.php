@@ -20,7 +20,7 @@ function affichernotification($email){
    }
 
 
-function modifiernotification($id){
+function modifiernotification($id_notification){
     try {
         
         $db = config::getConnexion();
@@ -29,12 +29,12 @@ function modifiernotification($id){
                 status_notification=:status_notification
 
 
-            WHERE id= :id'
+            WHERE id_notification= :id_notification'
         );
      
         $query->execute([
            'status_notification'=>'read',
-           'id'=>$id 
+           'id_notification'=>$id_notification 
            ]
 );
         

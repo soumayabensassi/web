@@ -5,7 +5,7 @@ class categoriecontroller
 {
     public function ajoutercategorie($nom_categorie,$sous_categorie)
     {$db=config::getConnexion();
-       try{ $sql="INSERT INTO categorie(nom_categorie,sous_categorie)
+       try{ $sql="INSERT INTO categories(nom_categorie,sous_categorie)
         VALUES(:nom_categorie,:sous_categorie)";
     $query = $db->prepare($sql);
     $query->execute([
@@ -17,7 +17,7 @@ class categoriecontroller
     }
     function affichercategorie(){
 
-        $sql="SELECT * FROM categorie";
+        $sql="SELECT * FROM categories";
         $db = config::getConnexion();
         try{
             $liste = $db->query($sql);
@@ -33,7 +33,7 @@ class categoriecontroller
     {$db=config::getConnexion();
     try{
     
-    $query=$db->prepare('DELETE FROM categorie WHERE idcategorie= :idcategorie');
+    $query=$db->prepare('DELETE FROM categories WHERE idcategorie= :idcategorie');
     $query->execute([
         'idcategorie'=>$idcategorie
     ]);
@@ -42,7 +42,7 @@ class categoriecontroller
       {$e->getMessage();}
      }
      function recuperercategorie($idcategorie){
-        $sql="SELECT * from categorie where idcategorie=$idcategorie";
+        $sql="SELECT * from categories where idcategorie=$idcategorie";
         $db = config::getConnexion();
         try{
             $query=$db->prepare($sql);
@@ -60,7 +60,7 @@ class categoriecontroller
             
             $db = config::getConnexion();
             $query = $db->prepare(
-                'UPDATE categorie SET 
+                'UPDATE categories SET 
                     nom_categorie= :nom_categorie, 
                     sous_categorie= :sous_categorie
 
@@ -74,7 +74,7 @@ class categoriecontroller
                'sous_categorie'=>$Cat->getSouscategorie(),
                'idcategorie'=>$idcategorie   
                ]
-);
+ );
             
            
         } catch (PDOException $e) {

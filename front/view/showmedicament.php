@@ -1,7 +1,6 @@
-
 <?PHP
-include_once "../../back/controller/medicamentcontroller.php";
 include_once "../../back/controller/categoriecontroller.php";
+include_once "../../back/controller/medicamentcontroller.php";
 
 $MED=new medicamentcontroller();
 $liste=$MED->affichermedicament();
@@ -11,7 +10,6 @@ $categorie=$Cat->affichercategorie();
 
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en"><!-- Basic -->
 <head>
@@ -22,7 +20,7 @@ $categorie=$Cat->affichercategorie();
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
  
      <!-- Site Metas -->
-    <title>Pick Medico</title>  
+    <title>Pick Medico </title>  
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -45,7 +43,6 @@ $categorie=$Cat->affichercategorie();
 	<link rel="stylesheet" href="../assets/css/custom.css">
 
 	<link href="../assets/css/aaa.css" rel="stylesheet">
-
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
 
     <!--[if lt IE 9]>
@@ -55,15 +52,6 @@ $categorie=$Cat->affichercategorie();
 
 </head>
 <body id="home" data-spy="scroll" data-target="#navbar-wd" data-offset="98">
-
-	<!-- LOADER -->
-     <!-- <div id="preloader">
-		<div class="loader">
-			<img src="images/preloader.gif" alt="" />
-		</div>
-    </div>end loader -->
-    <!-- END LOADER -->
-	
 	<!-- Start top bar -->
 	<div class="main-top">
 		<div class="container">
@@ -83,6 +71,7 @@ $categorie=$Cat->affichercategorie();
 							<li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
 							<li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
 							<li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+							
 						</ul>
 					</div>
 				</div>
@@ -107,7 +96,7 @@ $categorie=$Cat->affichercategorie();
 						<li><a class="nav-link active" href="gallery.php">Médicamnet</a></li>
 						<li><a class="nav-link" href="#Réclamation">Réclamation</a></li>
 						<li><a class="nav-link" href="#contact">Contact</a></li>
-						<?php
+<?php
 session_start();
 if (empty($_SESSION['m_un'])) {?>
     <li class="nav-link"><a  href="login.php">Se connecter</a></li>
@@ -121,7 +110,7 @@ if (empty($_SESSION['m_un'])) {?>
 }
 ?>
 <div class="wrap">
-<form action="showmedicament.php" method = 'POST'>
+<form action="" method = 'POST'>
    <div class="search">
       <input type="text"  name="medical" class="searchTerm" placeholder="chercher votre medicament">
       <button type="submit" value = "Search" name ="search" class="searchButton">
@@ -130,12 +119,19 @@ if (empty($_SESSION['m_un'])) {?>
    </div>
    </form>
 </div>
+
+
+
+
+
+
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
     
+	
 
 	<section>
 		<div class="container">
@@ -182,40 +178,50 @@ if (empty($_SESSION['m_un'])) {?>
 					</div>
 				</div>
 				
+				<?php
+				
+		if (isset($_POST['medical']) && isset($_POST['search'])){
+			$result = $MED->getMedicamentByNom($_POST['medical']);
+			if ($result !== false) {
+				?>
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"><!--features_items-->
-						<h2 class="title text-center">Nos Médicaments sans ordonnance</h2>
-					
-						<?php foreach($liste as $MED) 
-						 if($MED['typeMedicament']=="sans ordonnance"){?>
-								
+						<h2 class="title text-center">Nos Médicaments </h2>
 						<div class="col-sm-4">
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
-									<?PHP $a= $MED['imgMedicament']; print"<img src='../../back/assets/images/$a' >"?>
-										<h2><?PHP echo $MED['prix']; ?>DT</h2>
-										<p><?PHP echo $MED['nomMedicament']; ?></p>
-										<a href="product-details.php?idMedicament=<?PHP echo $MED['idMedicament']; ?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
-									</div>
-									<div class="product-overlay">
+
+								<?PHP $a= $result['imgMedicament']; print"<img src='../../back/assets/images/$a' >"?>
+								<div class="shop-item-details">
+									<span class="shop-item-price"><?= $result['prix'] ?> dt.</span>
+									<p><?PHP echo $result['nomMedicament']; ?></p>
+									<a href="product-details.php?idMedicament=<?PHP echo $result['idMedicament']; ?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
+								</div>
+
+								<div class="product-overlay">
 										<div class="overlay-content">
-											<h2><?PHP echo $MED['prix']; ?>DT</h2>
-											<p><?PHP echo $MED['nomMedicament']; ?></p>
-											<a href="product-details.php?idMedicament=<?PHP echo $MED['idMedicament']; ?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
+											<h2><?PHP echo $result['prix']; ?>DT</h2>
+											<p><?PHP echo $result['nomMedicament']; ?></p>
+											<a href="product-details.php?idMedicament=<?PHP echo $result['idMedicament']; ?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter Maintenant </a>
 										</div>
 									</div>
-							
+							       </div>
+				
 								</div>
-								</div>
-						</div>
-						<?PHP
-                           }
-                          ?>
-						
-						
-						
-					</div><!--features_items-->
+						    </div>
+					     </div>
+					</div>
+				</div>
+				<?php
+					}
+					 else {
+						echo "<div style='font-size:1.70em;font-color:#0e3c68;  margin:70px 0 0 180px;'> Le medicament que vous cherchez est intouvable !!! </div>";
+					}
+				}
+				?>
+
+			
 
 	
 					
@@ -227,6 +233,7 @@ if (empty($_SESSION['m_un'])) {?>
 	
     <script src="../assets/js/jquery.js"></script>
 	<script src="../assets/js/bootstrap1.min.js"></script>
+
 	<script src="../assets/js/test.js"></script>
 	<!-- Start Contact -->
 	<div id="Réclamation" class="contact-box">
@@ -279,7 +286,6 @@ if (empty($_SESSION['m_un'])) {?>
 					</form>
 				  </div>
 				</div>
-				
 				<div id="contact" class="col-lg-12 col-xs-12">
 					<div class="left-contact">
 						<h2>Adresse</h2>
@@ -304,8 +310,7 @@ if (empty($_SESSION['m_un'])) {?>
 						</div>
 						<div class="media cont-line">
 							<div class="media-left icon-b">
-								<i class="fa fa-volume-control-phone" aria-hidden="true"></i>
-							</div>
+							<i class="fas fa-phone-volume"></i>							</div>
 							<div class="media-body dit-right">
 								<h4>Phone Number</h4>
 								<a href="#">12345 67890</a><br>
@@ -327,7 +332,7 @@ if (empty($_SESSION['m_un'])) {?>
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="subscribe-inner text-center clearfix">
-						<h2>S'inscrire'</h2>
+						<h2>S'inscrire</h2>
 						<p>Acheter Maintenant sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 						<form action="#" method="post">
 							<div class="form-group">
@@ -335,7 +340,7 @@ if (empty($_SESSION['m_un'])) {?>
 							</div>
 							<div class="form-group">
 								<button type="submit" class="new-btn-d br-2">
-									S'inscrire
+									S'inscrire'
 								</button>
 							</div>
 						</form>
@@ -346,7 +351,7 @@ if (empty($_SESSION['m_un'])) {?>
 	</div>
 	<!-- End Subscribe -->
 	
-
+	
 	
 	<a href="#" id="scroll-to-top" class="new-btn-d br-2"><i class="fa fa-angle-up"></i></a>
 
@@ -364,7 +369,7 @@ if (empty($_SESSION['m_un'])) {?>
 	<script src="../assets/js/owl.carousel.min.js"></script>
 	<script src="../assets/js/form-validator.min.js"></script>
     <script src="../assets/js/contact-form-script.js"></script>
-	<script src="js/isotope.min.js"></script>	
+	<script src="../assets/js/isotope.min.js"></script>	
 	<script src="../assets/js/images-loded.min.js"></script>	
 	<script src="../assets/js/custom.js"></script>
 

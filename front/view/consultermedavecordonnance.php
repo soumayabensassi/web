@@ -1,8 +1,12 @@
 <?PHP
+include_once "../../back/controller/categoriecontroller.php";
 include_once "../../back/controller/medicamentcontroller.php";
 
 $MED=new medicamentcontroller();
 $liste=$MED->affichermedicament();
+$liste=$MED->medicament();
+$Cat=new categoriecontroller();
+$categorie=$Cat->affichercategorie();
 
 
 ?>
@@ -33,6 +37,8 @@ $liste=$MED->affichermedicament();
     <link rel="stylesheet" href="../assets/css/style.css">    
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="../assets/css/responsive.css">
+	<!-- Search CSS -->
+	<link rel="stylesheet" href="../assets/css/search.css"> 
     <!-- Custom CSS -->
 	<link rel="stylesheet" href="../assets/css/custom.css">
 
@@ -88,26 +94,44 @@ $liste=$MED->affichermedicament();
                     <ul class="navbar-nav">
                         <li><a class="nav-link " href="index.php">Accueil</a></li>
 						<li><a class="nav-link active" href="gallery.php">Médicamnet</a></li>
-						<li><a class="nav-link" href="Réclamation.php">Réclamation</a></li>
+						<li><a class="nav-link" href="#Réclamation">Réclamation</a></li>
 						<li><a class="nav-link" href="#contact">Contact</a></li>
-						<?php
+<?php
 session_start();
 if (empty($_SESSION['m_un'])) {?>
     <li class="nav-link"><a  href="login.php">Se connecter</a></li>
     
 <?php } else { ?> 
     <li class="nav-link" ><?php include "logged.php"; ?></li>
+    
 
 <?php
 
 }
 ?>
+<div class="wrap">
+<form action="showmedicament.php" method = 'POST'>
+   <div class="search">
+      <input type="text"  name="medical" class="searchTerm" placeholder="chercher votre medicament">
+      <button type="submit" value = "Search" name ="search" class="searchButton">
+        <i class="fa fa-search"></i>
+     </button>
+   </div>
+   </form>
+</div>
+
+
+
+
+
+
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
     
+	
 
 	<section>
 		<div class="container">
@@ -115,80 +139,36 @@ if (empty($_SESSION['m_un'])) {?>
 				<div class="col-sm-3">
 					<div class="left-sidebar">
 						<h2>Categories</h2>
+						<?php foreach($categorie as $Cat) {?>
 						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a data-toggle="collapse1" data-parent="#accordian" href="#Par symptome">
+
+									<h4 class="panel-title"> <?PHP echo $Cat['nom_categorie']; ?>
+								
+										<a data-toggle="collapse1" data-parent="#accordian" href="#">
 											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											Par symptome
+											<?PHP echo $Cat['nom_categorie']; ?>
 										</a>
 									</h4>
 								</div>
-								<div id="Par symptome" class="panel-collapse1 collapse1">
+								<div  class="panel-collapse1 collapse1">
 									<div class="panel-body">
 										<ul>
-											<li><a href="#">Doleur et fiévres </a></li>
-											<li><a href="#">Etat grippal </a></li>
-											<li><a href="#">Maux de gorge et taux</a></li>
-											<li><a href="#">Maux de bouche</a></li>
-											<li><a href="#">Troubles veineux </a></li>
+											<li style="white-space:pre" ><a href="#"><?PHP echo $Cat['sous_categorie']; ?></a></li>
+											
+
+
 										</ul>
 									</div>
 								</div>
 							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a data-toggle="collapse1" data-parent="#accordian" href="#mens">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											Par Maladie
-										</a>
-									</h4>
-								</div>
-								<div id="mens" class="panel-collapse1 collapse1">
-									<div class="panel-body">
-										<ul>
-											<li><a href="#">Angine</a></li>
-											<li><a href="#">Acné</a></li>
-											<li><a href="#">Asthme</a></li>
-											<li><a href="#">Branchite</a></li>
-											<li><a href="#">Cholestérol et Triglycérides</a></li>
-											<li><a href="#">Conjoctivite</a></li>
-											<li><a href="#">Eczéma</a></li>
-											<li><a href="#">Gastro-entérite</a></li>
-											<li><a href="#">Grippe</a></li>
-											<li><a href="#">Herpès</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
+
+							</div><!--/category-products-->
 							
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a data-toggle="collapse1" data-parent="#accordian" href="#womens">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											Par principe actif
-										</a>
-									</h4>
-								</div>
-								<div id="womens" class="panel-collapse1 collapse1">
-									<div class="panel-body">
-										<ul>
-											<li><a href="#">Cétirizine</a></li>
-											<li><a href="#">Magnésium</a></li>
-											<li><a href="#">Vitamine C</a></li>
-											<li><a href="#">Vitamine D</a></li>
-											<li><a href="#">Zinc</a></li>
-											<li><a href="#">Fer</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							
-						
-						</div><!--/category-products-->
+							<?PHP
+                           }
+                          ?>
 					
 					
 					
@@ -198,6 +178,8 @@ if (empty($_SESSION['m_un'])) {?>
 					</div>
 				</div>
 				
+
+
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"><!--features_items-->
 						<h2 class="title text-center">Nos Médicaments Avec ordonnance</h2>

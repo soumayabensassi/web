@@ -3,8 +3,13 @@ session_start();
 
 include_once "../controller/rendezvouscontroller.php";
 include_once '../model/rendezvous.php';
+include_once "../controller/doctorcontroller.php";
 
 $utilisateur1 = new rendezvouscontroller();
+$utilisateur2= new doctorcontroller();
+
+
+
 if (
     isset($_POST['id_rendezvous'])
 
@@ -14,10 +19,10 @@ if (
     $rendezvous = new rendezvous($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['date'], $_POST['heure'], $_POST['doctor']);
     $utilisateur1->modifierrendezvous($rendezvous, $_POST['id_rendezvous']);
 
-    header('Location:gestionrendezvous.php');
+    header('Location:testrendezvous.php');
 }
 
-
+$id_rendezvous=$_POST["id_rendezvouss"];
 ?>
 
 <!DOCTYPE html>
@@ -57,22 +62,25 @@ if (
                     <a href="profile.php" class="nav-link active mt-auto"><i class="far fa-user-circle"></i> Profil</a>
                     <a href="index.php" class="nav-link active"><i class="fas fa-home"></i> Accueil</a>
                     <a href="panier.php" class="nav-link active"><i class="fas fa-shopping-basket"></i> Panier</a>
-                    <a href="gestionrendezvous.php" class="nav-link active"><i class="fas fa-calendar-check"></i>rendez-vous</a>
-                    <a href="modifierreclamation.php" class="nav-link active"><i class="fas fa-exclamation"></i>reclamation</a>
+                    <a href="testrendezvous.php" class="nav-link active"><i class="fas fa-calendar-check"></i>rendez-vous</a>
+                    <a href="testreclamation.php" class="nav-link active"><i class="fas fa-exclamation"></i>reclamation</a>
                     <a href="signout.php" class="nav-link active mb-auto"><i class="fas fa-cogs"></i> Déconnexion</a>
 
                 </div>
 
             </div>
+            
+         
+
             <?php
-            $i = 0;
+              
 
-            if (isset($_SESSION['e'])) {
-                $rendezvous = $utilisateur1->afficherRV($_SESSION['e']);
-                    if (!empty($user['email'])) {
-                        foreach ($rendezvous as $user) {
-
-                        $i++;
+                
+                $user = $utilisateur1->recupererrendezvous($id_rendezvous);
+               
+                $id= $user['doctor'];
+                $list=$utilisateur2->recupererdoctor($id); 
+            
 
             ?>
                         <div class="col-md-4 d-none d-md-block" style="height:100%">
@@ -80,7 +88,7 @@ if (
 
                                 <div class="container content clear-fix">
 
-                                    <h2 class="mt-5 mb-5">Paramètres de rendez-vous n°<?php echo $i ?></h2>
+                                    <h2 class="mt-5 mb-5">Paramètres de rendez-vous </h2>
 
                                     <div class="row" style="height:100%">
 
@@ -121,7 +129,7 @@ if (
                                                     </div>
                                                     <div class="form-group">
                                                         <label for=doctor>doctor </label>
-                                                        <input type="text" class="form-control" id="doctor" name="doctor" value="<?php echo $user['doctor']; ?>">
+                                                        <?php echo "<br>"; echo $list['nom'] ?> 
 
                                                     </div>
 
@@ -164,24 +172,9 @@ if (
 
                             </div>
                         </div>
-                    <?php
+                    
+                     
 
-                    } }else {
-                    ?>
-                        <div class="col-md-9">
-
-                            <div class="container content clear-fix">
-
-                                <h2 class="mt-5 mb-5">vous n'avez pas de rendez-vous</h2>
-                                <a class="nav-link" href="rendez-vous.php">
-                                    <h5>prendre un rendez-vous</h5>
-                                </a>
-                            </div>
-                        </div>
-
-            <?php 
-                }
-            } ?>
 
         </div>
 

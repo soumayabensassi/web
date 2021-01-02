@@ -5,6 +5,7 @@ include_once "../controller/reclamationscontroller.php";
 include_once '../model/reclamation.php';
 
 $utilisateur1 = new reclamationcontroller();
+$count = new reclamationcontroller();
 
 if (
     isset($_POST['nom'])
@@ -16,8 +17,10 @@ if (
     $user = new reclamation($_POST['nom'], $_POST['email'], $_POST['number'], $_POST['message']);
     $utilisateur1->modifierreclamation($user, $_POST['id_reclamation']);
 
-    header('refresh:1;url=modifierreclamation.php');
+    header('refresh:1;url=testreclamation.php');
 }
+
+$id_reclamation=$_POST['id_reclamation'];
 
 ?>
 
@@ -59,22 +62,19 @@ if (
                     <a href="profile.php" class="nav-link active mt-auto"><i class="far fa-user-circle"></i> Profil</a>
                     <a href="index.php" class="nav-link active"><i class="fas fa-home"></i> Accueil</a>
                     <a href="panier.php" class="nav-link active"><i class="fas fa-shopping-basket"></i> Panier</a>
-                    <a href="gestionrendezvous.php" class="nav-link active"><i class="fas fa-calendar-check"></i>rendez-vous</a>
-                    <a href="modifierreclamation.php" class="nav-link active"><i class="fas fa-exclamation"></i>reclamation</a>
+                    <a href="testrendezvous.php" class="nav-link active"><i class="fas fa-calendar-check"></i>rendez-vous</a>
+                    <a href="testreclamation.php" class="nav-link active"><i class="fas fa-exclamation"></i>reclamation</a>
                     <a href="signout.php" class="nav-link active mb-auto"><i class="fas fa-cogs"></i> Déconnexion</a>
 
                 </div>
 
             </div>
-            <?php
-            $i = 0;
+            
 
-            if (isset($_SESSION['e'])) {
-                $reclamation = $utilisateur1->afficherR($_SESSION['e']);
-                    if (!empty($user['email_reclamation'])) {
-                        foreach ($reclamation as $user) {
 
-                        $i++;
+           <?php
+                $user = $utilisateur1->recupererreclamation($id_reclamation);
+                
 
             ?>
                         <div class="col-md-4 d-none d-md-block" style="height:100%">
@@ -83,7 +83,7 @@ if (
 
                                 <div class="container content clear-fix">
 
-                                    <h2 class="mt-5 mb-5">Paramètres de reclamation n°<?php echo $i ?></h2>
+                                    <h2 class="mt-5 mb-5">Paramètres de reclamation </h2>
 
                                     <div class="row" style="height:100%">
 
@@ -156,30 +156,6 @@ if (
 
                             </div>
                         </div>
-
-                    <?php
-
-                    }} else {
-                    ?>
-                        <div class="col-md-9">
-
-                            <div class="container content clear-fix">
-
-                                <h2 class="mt-5 mb-5">vous n'avez pas de reclamation</h2>
-                                <div class="col-md-3 d-none d-md-block" style="height:100%">
-
-
-                                    <a class="nav-link" href="Réclamation.php">
-                                        <h5>passer une reclamation</h5>
-                                    </a>
-
-
-                                </div>
-                            </div>
-                        </div>
-            <?php }
-                
-            } ?>
 
         </div>
 

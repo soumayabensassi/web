@@ -29,7 +29,7 @@
             
             <div class="subject">
                 <div class="form-group row pt-2">
-                    <label class="col-md-1 control-label">nom de categorie</label>
+                    <label class="col-md-1 control-label">   nom de categorie </label>
                     <div class="col-md-11">
                         <input class="form-control" type="text" name="nom">
                     </div>
@@ -40,7 +40,7 @@
                 <div class="col-md-12 ">
                     <div class="form-group">
                         <button class="btn btn-primary btn-space" type="submit"><i class="icon s7-mail"></i> ajouter</button>
-                        <a href="categories.php">   <button class="btn btn-secondary btn-space"  type="button"><i class="icon s7-close"> </i> Annuler</button></a>
+                        <button class="btn btn-secondary btn-space" type="button"><i class="icon s7-close"></i> Annuler</button>
                     </div>
                 </div>
             </div>
