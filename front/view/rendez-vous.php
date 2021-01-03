@@ -39,13 +39,16 @@ session_start();
     <link rel="stylesheet" href="../assets/css/style.css">
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="../assets/css/responsive.css">
+    <link rel="stylesheet" href="../assets/css/styles/fv.css" type="text/css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
 
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/php5shiv/3.7.0/php5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script src="../assets/js/test.js"></script>
+    
+ 
+
 </head>
 
 <body id="home" data-spy="scroll" data-target="#navbar-wd" data-offset="98">
@@ -154,24 +157,28 @@ session_start();
                         <form name="f" action="ajouterrendezvous.php" method="POST">
                             <!-- Form start -->
                             <div class="row">
+                            <div class="item">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="control-label" for="name">Nom</label>
-                                        <input id="nom" name="name" type="text" placeholder="Votre nom" class="form-control input-md">
-                                    </div>
+                                        <label class="control-label" for="name"><span>Nom</span>
+                                        <input type="text" id="nom" name="name"  placeholder="Votre nom"   class="form-control input-md" required="required">
+                                        </label>   </div>
                                 </div>
+                            </div>
+                            <div class="item">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="control-label" for="name">Prenom</label>
-                                        <input id="prenom" name="prenom" type="text" placeholder="Votre prenom" class="form-control input-md">
+                                        <input id="prenom" name="prenom" type="text" placeholder="Votre prenom" class="form-control input-md" required="required">
                                     </div>
+                                </div>
                                 </div>
                                 <!-- Text input-->
                                 <?php if (isset($_SESSION['e'])) { ?>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="control-label" for="email">Email</label>
-                                        <input id="email" name="email" type="text" value="<?php echo $_SESSION['e'] ?>" class="form-control input-md">
+                                        <input id="email" name="email" type="text" value="<?php echo $_SESSION['e'] ?>" class="form-control input-md" >
                                     </div>
                                 </div>
                                 <?php } else {?>
@@ -181,34 +188,38 @@ session_start();
                                     </div>
                                 <?php } ?>
                                 <!-- Text input-->
+                                <div class="item">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="control-label" for="date">Date</label>
-                                        <input id="date" name="date" type="date" class="form-control input-md">
+                                        <input type="date"  id="date" name="date" class="form-control input-md" required="required">
                                     </div>
                                 </div>
+                                </div>
                                 <!-- Select Basic -->
+                                <div class="item">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="control-label" for="time">Heure</label>
-                                        <select id="time" name="time" class="form-control">
-                                            <option value="select">select</option>
+                                        <select type="time" id="time" name="time" class="form-control input-md" required="required">
+                                            <option value="select" >Heure</option >
                                             <option value="8:00 to 9:00">8:00 à 9:00</option>
                                             <option value="9:00 to 10:00">9:00 à 10:00</option>
-											<option value="10:00 to 1:00">10:00 à 11:00</option>
-											<option value="10:00 to 1:00">11:00 à 12:00</option>
-											<option value="10:00 to 1:00">12:00 à 13:00</option>
-											<option value="10:00 to 1:00">15:00 à 16:00</option>
-											<option value="10:00 to 1:00">16:00 à 17:00</option>
-											<option value="10:00 to 1:00">17:00 à 18:00</option>
+											<option value="10:00 to 11:00">10:00 à 11:00</option>
+											<option value="11:00 to 12:00">11:00 à 12:00</option>
+											<option value="12:00 to 13:00">12:00 à 13:00</option>
+											<option value="15:00 to 16:00">15:00 à 16:00</option>
+											<option value="16:00 to 17:00">16:00 à 17:00</option>
+											<option value="17:00 to 18:00">17:00 à 18:00</option>
                                         </select>
                                     </div>
+                                </div>
                                 </div>
                                 <!-- Select Basic -->
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label class="control-label" for="appointmentfor">Nom du Doctor</label>
-                                        <select id="appointmentfor" name="appointmentfor" class="form-control">
+                                        <select id="appointmentfor" name="appointmentfor" class="form-control" required="required">
                                             <option value="Choose Department">Doctor</option>
                                             <?php foreach ($list as $docteur ) { ?>
                                             <option value="<?php echo $docteur['id'] ?>"><?php echo $docteur['nom'] ?></option>
@@ -335,7 +346,53 @@ session_start();
         
 
         <a href="#" id="scroll-to-top" class="new-btn-d br-2"><i class="fa fa-angle-up"></i></a>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
+<script src="../assets/js/validator.js"></script>
+<script>
+    // initialize the validator function
+    validator.message['date'] = 'not a real date';
+
+    // validate a field on "blur" event, a 'select' on 'change' event & a '.reuired' classed multifield on 'keyup':
+    $('form')
+        .on('blur', 'input[required], input.optional, select.required', validator.checkField)
+        .on('change', 'select.required', validator.checkField)
+        .on('keypress', 'input[required][pattern]', validator.keypress);
+
+    $('.multi.required')
+        .on('keyup blur', 'input', function() {
+            validator.checkField.apply($(this).siblings().last()[0]);
+        });
+
+    // bind the validation to the form submit event
+    //$('#send').click('submit');//.prop('disabled', true);
+
+    $('form').submit(function(e) {
+        e.preventDefault();
+        var submit = true;
+
+        // Validate the form using generic validaing
+        if (!validator.checkAll($(this))) {
+            submit = false;
+        }
+
+        if (submit)
+            this.submit();
+
+        return false;
+    });
+
+    /* FOR DEMO ONLY */
+    $('#vfields').change(function() {
+        $('form').toggleClass('mode2');
+    }).prop('checked', false);
+
+    $('#alerts').change(function() {
+        validator.defaults.alerts = (this.checked) ? false : true;
+        if (this.checked)
+            $('form .alert').remove();
+    }).prop('checked', false);
+</script>
         <!-- ALL JS FILES -->
         <script src="../assets/js/jquery.min.js"></script>
         <script src="../assets/js/popper.min.js"></script>

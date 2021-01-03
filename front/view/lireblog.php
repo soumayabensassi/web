@@ -1,7 +1,7 @@
 <?php
 include_once "../../back/controller/blogscontroller.php";
 include_once "../controller/ratingcontroller.php";
-include_once "../../back/controller/categoriecontroller.php";
+include_once "../../back/controller/categoriescontroller.php";
 include_once "../../back/controller/doctorcontroller.php";
 include_once '../model/blog.php';
 include_once '../model/rating.php';

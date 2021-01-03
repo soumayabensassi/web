@@ -1,5 +1,5 @@
 <?PHP
-include_once "../../back/controller/categoriecontroller.php";
+include_once "../../back/controller/categoriescontroller.php";
 
 $categorie=new categoriecontroller();
 $liste=$categorie->affichercategorie();
