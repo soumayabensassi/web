@@ -55,7 +55,7 @@ if (
             <div class="container-fluid nav sidebar flex-column">
 
                 <a href="#" class="nav-link active mt-auto"><i class="far fa-user-circle"></i> Profil</a>
-                <a href="index.php" class="nav-link active"><i class="fas fa-home"></i> Accueil</a>
+                <a href="index0.php" class="nav-link active"><i class="fas fa-home"></i> Accueil</a>
 
                 <a href="signout.php" class="nav-link active mb-auto"><i class="fas fa-cogs"></i> Déconnexion</a>
 
