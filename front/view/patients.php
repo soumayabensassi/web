@@ -59,12 +59,12 @@ $liste=$Client1->afficherClient();
 <?php
                           if ( $log==='azer@azer.az'){ ?>
 
-<li class="nav-link"><?php include "logged1.php"; ?></li>
+<li class="nav-link"><?php include "../../back/view/logged1.php"; ?></li>
 <?php
 
                         }else{
                         ?>
-                            <li class="nav-link"><?php include "logged.php"; ?></li>
+                            <li class="nav-link"><?php include "../../back/view/logged.php"; ?></li>
 
 
                         <?php
@@ -108,10 +108,10 @@ $liste=$Client1->afficherClient();
                                             <a class="nav-link" href="../../front/view/patients.php">Patients</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="doctor-finder.php">Medecins</a>
+                                            <a class="nav-link" href="../../back/view/doctor-finder.php">Medecins</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="admins.php">admins</a>
+                                            <a class="nav-link" href="../../back/view/admins.php">admins</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -121,31 +121,31 @@ $liste=$Client1->afficherClient();
                                 <div id="submenu-2" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="categories.php">Blogs <span class="badge badge-secondary">New</span></a>
+                                            <a class="nav-link" href="../../back/view/categories.php">Blogs <span class="badge badge-secondary">New</span></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="doctor-finder.php">Medecins</a>
+                                            <a class="nav-link" href="../../back/view/doctor-finder.php">Medecins</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="reclamationmanagement.php">Réclamations</a>
+                                            <a class="nav-link" href="../../back/view/reclamationmanagement.php">Réclamations</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="rendezvousmanagement.php">Rendez-vous</a>
+                                            <a class="nav-link" href="../../back/view/rendezvousmanagement.php">Rendez-vous</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="livraison.php">Livraisons</a>
+                                            <a class="nav-link" href="../../back/view/livraison.php">Livraisons</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="gestion medicaments.php">Medicaments</a>
+                                            <a class="nav-link" href="../../back/view/gestion medicaments.php">Medicaments</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="gestion categorie.php">Categories Medicaments</a>
+                                            <a class="nav-link" href="../../back/view/gestion categorie.php">Categories Medicaments</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="ordonnance.php">Ordonances</a>
+                                            <a class="nav-link" href="../../back/view/ordonnance.php">Ordonances</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="gestion fournisseur.php">Fournisseur</a>
+                                            <a class="nav-link" href="../../back/view/gestion fournisseur.php">Fournisseur</a>
                                         </li>
                                     </ul>
                                 </div>

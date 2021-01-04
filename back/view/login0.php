@@ -18,17 +18,17 @@ if ($message!='pseudo ou mot de passe incorrect'){
 header('Location:index1.php');}
 else{
     $message='pseudo ou mot de passe incorrect';
-    header("Location: login.php?error=Incorect email or password");
+    header("Location: login0.php?error=Incorect email or password");
     
 }
     }
     else{
     $message ="Missing information";
     if (empty($_POST["email"])) {
-        header("Location: login.php?error=Email is required");
+        header("Location: login0.php?error=Email is required");
     }
     if (empty($_POST["mdp"])) {
-        header("Location: login.php?error=Password is required");
+        header("Location: login0.php?error=Password is required");
     }
 }
 }

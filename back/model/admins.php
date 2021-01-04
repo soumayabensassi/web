@@ -8,7 +8,7 @@ class admin
     private  ?string $mdp= null;
    
     
-    function __construct(string $nom,string $username,string $email ,string $mdp,){
+    function __construct(string $nom,string $username,string $email ,string $mdp){
 			
         $this->nom=$nom;
         $this->username=$username;
