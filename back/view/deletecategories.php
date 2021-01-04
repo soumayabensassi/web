@@ -3,7 +3,7 @@
 	
 	$album=new categoriecontroller();
 
-    $album->delete($_POST["id"]);
+    $album->delete($_GET["id"]);
         
       
 	

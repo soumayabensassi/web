@@ -1,12 +1,5 @@
 
-<?PHP
-require_once "../controller/categoriecontroller.php";
 
-$Cat=new categoriecontroller();
-$liste=$Cat->affichercategorie();
-
-
-?>
 <!doctype html>
 <html lang="en">
 
@@ -54,7 +47,8 @@ $liste=$Cat->affichercategorie();
 
 
 
-                       
+                        <?php
+                         { ?>
 <?php
                           if ( $log==='azer@azer.az'){ ?>
 
@@ -68,7 +62,7 @@ $liste=$Cat->affichercategorie();
 
                         <?php
                         }
-                        
+                        }
                         ?>
 
 
@@ -84,7 +78,7 @@ $liste=$Cat->affichercategorie();
         <!-- left sidebar -->
         <!-- ============================================================== -->
         <?php
-                          if ( $log==='azer@azer.az'){ ?>
+                          if ( $_SESSION['e1']==='azer@azer.az'){ ?>
 
         <div class="nav-left-sidebar sidebar-dark" style="top:150px;">
         
@@ -216,8 +210,14 @@ $liste=$Cat->affichercategorie();
                         
                         }
                         ?>
-    
-    <div class="dashboard-wrapper"  style="top:160px;">
+
+    <!-- ============================================================== -->
+    <!-- end left sidebar -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- wrapper  -->
+    <!-- ============================================================== -->
+    <div class="dashboard-wrapper" style="top:150px;">
         <div class="dashboard-ecommerce">
             <div class="container-fluid dashboard-content ">
                 <!-- ============================================================== -->
@@ -226,74 +226,27 @@ $liste=$Cat->affichercategorie();
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Categories Medicaments</h2>
+                            <h2 class="pageheader-title">Accueil</h2>
                             <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Categories Medicaments pannel</li>
+                                        <li class="breadcrumb-item active" aria-current="page">admin pannel</li>
                                     </ol>
                                 </nav>
+
                             </div>
+
                         </div>
                     </div>
-                </div>
-                <div class="footer">
-                    <div class="container-fluid">
-
-
-
-                        <div class="card">
-                            <h5 class="card-header">STOCK</h5>
-                            <td colspan="9"><a href="ajout categorie.php" class="btn btn-outline-light float-right"><i class="fas fa-plus"></i></a></td>
-                            <div class="card-body p-0">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                    <thead>
-                    <tr>
-                        <th>Nom categorie</th>
-                        <th>Sous categorie</th>
-                        <th>Id</th>
-                        <th>supprimer</th>
-                        <th>modifier</th>
-                    </tr>
-                </thead>
-                <tbody>
-			    	<?php foreach($liste as $Cat) { ?>
-                    <tr>
-					<td><?PHP echo $Cat['nom_categorie']; ?></td>
-                    <td><?PHP echo $Cat['sous_categorie']; ?></td>
-                    <td><?PHP echo $Cat['idcategorie']; ?></td>
-                    <td> 
-                                                    
-                      <a href="deletecategorie.php?idcategorie=<?PHP echo $Cat['idcategorie']; ?>"> <i class="fas fa-trash-alt"></i></a>
-                      </td>              
-					
-												 
-			                                	<td>
-												 <a class="edit" title="Edit" data-toggle="tooltip" href="modifiercategorie.php?idcategorie=<?PHP echo $Cat['idcategorie']; ?>" ><i class="fas fa-edit"></i></a>	</td>				
-												</td>
-                      </tr> 
-					<?PHP
-                      }
-                     ?>     
-				</tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
+                    <img src="../assets/images/2 (2).jpg" width="1200px">
                 </div>
                 <!-- ============================================================== -->
-                <!-- end footer -->
-                <!-- ============================================================== -->
+
             </div>
-            <!-- ============================================================== -->
-            <!-- end wrapper  -->
-            <!-- ============================================================== -->
         </div>
+
         <!-- ============================================================== -->
         <!-- end main wrapper  -->
         <!-- ============================================================== -->

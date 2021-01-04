@@ -3,7 +3,7 @@
 	
 	$album=new blogcontroller();
 $a=$_GET["id"];
-    $album->delete($_POST["id"]);
+    $album->delete($_GET["id"]);
         
       
 	

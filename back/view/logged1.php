@@ -8,12 +8,12 @@
             <ul>
               <li>
                 <a href="#">
-                <p><?php  echo $_SESSION['nomdoc']; ?><br> </p><i class="fas fa-angle-down"></i>
+                <p><?php  echo $_SESSION['nom']; ?><br> </p>
                 </a>
                  
                 <div class="dropdown">
                     <ul>
-                      <li><a href="profile.php"><br><i class="fas fa-user"></i>Profile</a></li>
+                      <li><a href="profile1.php"><br><i class="fas fa-user"></i>Profile</a></li>
                       
                       <li><a href="signout.php"><i class="fas fa-sign-out-alt"></i>Signout</a></li>
                   </ul>

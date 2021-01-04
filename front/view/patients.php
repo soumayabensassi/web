@@ -1,3 +1,4 @@
+
 <?PHP
 include_once "../controller/clientscontroller.php";
 
@@ -34,6 +35,7 @@ $liste=$Client1->afficherClient();
 </head>
 
 <body>
+<?php session_start();  $log=$_SESSION['e1'];     ?>
     <!-- ============================================================== -->
     <!-- main wrapper -->
     <!-- ============================================================== -->
@@ -43,26 +45,31 @@ $liste=$Client1->afficherClient();
         <!-- ============================================================== -->
         <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <a class="navbar-brand" href="../../back/view/index.php"><img src="../../back/assets/images/logo.png"></a>
+                <a class="navbar-brand" href="index1.php"><img src="../assets/images/logo.png"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto navbar-right-top">
 
 
 
+                        
+<?php
+                          if ( $log==='azer@azer.az'){ ?>
+
+<li class="nav-link"><?php include "logged1.php"; ?></li>
+<?php
+
+                        }else{
+                        ?>
+                            <li class="nav-link"><?php include "logged.php"; ?></li>
+
+
                         <?php
-                        session_start(); { ?>
-
-
-
-                            <li class="nav-link"><?php include "../../back/view/logged.php"; ?></li>
-
-
-                        <?php
-
                         }
+                        
                         ?>
 
 
@@ -77,7 +84,11 @@ $liste=$Client1->afficherClient();
         <!-- ============================================================== -->
         <!-- left sidebar -->
         <!-- ============================================================== -->
+        <?php
+                          if ( $log==='azer@azer.az'){ ?>
+
         <div class="nav-left-sidebar sidebar-dark" style="top:150px;">
+        
             <div class="menu-list">
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <a class="d-xl-none d-lg-none" href="#">tasks</a>
@@ -97,9 +108,11 @@ $liste=$Client1->afficherClient();
                                             <a class="nav-link" href="../../front/view/patients.php">Patients</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="../../back/view/doctor-finder.php">Medecins</a>
+                                            <a class="nav-link" href="doctor-finder.php">Medecins</a>
                                         </li>
-
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="admins.php">admins</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </li>
@@ -108,25 +121,31 @@ $liste=$Client1->afficherClient();
                                 <div id="submenu-2" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="../../back/view/categories.php">Blogs <span class="badge badge-secondary">New</span></a>
+                                            <a class="nav-link" href="categories.php">Blogs <span class="badge badge-secondary">New</span></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="../../back/view/doctor.profile.php">Medecins</a>
+                                            <a class="nav-link" href="doctor-finder.php">Medecins</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="../../back/view/reclamationmanagement.php">Réclamations</a>
+                                            <a class="nav-link" href="reclamationmanagement.php">Réclamations</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="../../back/view/rendezvousmanagement.php">Rendez-vous</a>
+                                            <a class="nav-link" href="rendezvousmanagement.php">Rendez-vous</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="../../back/view/livraison.php">Livraisons</a>
+                                            <a class="nav-link" href="livraison.php">Livraisons</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="../../back/view/gestion medicaments.php">Medicaments</a>
+                                            <a class="nav-link" href="gestion medicaments.php">Medicaments</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="../../back/view/ordonnance.php">Ordonances</a>
+                                            <a class="nav-link" href="gestion categorie.php">Categories Medicaments</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="ordonnance.php">Ordonances</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="gestion fournisseur.php">Fournisseur</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -140,7 +159,64 @@ $liste=$Client1->afficherClient();
             </div>
             </nav>
         </div>
+   
     </div>
+<?php }else{
+                        ?>
+                        <div class="nav-left-sidebar sidebar-dark" style="top:150px;">
+        
+            <div class="menu-list">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="d-xl-none d-lg-none" href="#">tasks</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav flex-column">
+                            <li class="nav-divider">
+                                Menu
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-rocket"></i>Taches </a>
+                                <div id="submenu-2" class="collapse submenu">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="categories.php">Blogs <span class="badge badge-secondary">New</span></a>
+                                        </li>
+                                        
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="rendezvousmanagement.php">Rendez-vous</a>
+                                        </li>
+                                        
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="gestion medicaments.php">Medicaments</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="gestion categorie.php">Categories Medicaments</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="ordonnance.php">Ordonances</a>
+                                        </li>
+                                       
+                                    </ul>
+                                </div>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                    </li>
+                    </ul>
+            </div>
+            </nav>
+        </div>
+   
+    </div>
+    <?php
+                        
+                        }
+                        ?>
     <!-- ============================================================== -->
     <!-- end left sidebar -->
     <!-- ============================================================== -->

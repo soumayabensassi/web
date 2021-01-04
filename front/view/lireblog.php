@@ -204,7 +204,8 @@ $rate = 0;
 
                         </div>
                         <!--/product-information-->
-                    
+                        <?php
+											if (!empty( $_SESSION['idClient'])) {?>
                     <div class="col-sm-7">
                     <div class="product-information">
                     <div class="card-body border-top">
@@ -304,6 +305,7 @@ $rate = 0;
                     </div>
                     </div>
                 </div>
+                <?php } ?>
 
                 </div>
 

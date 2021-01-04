@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-include_once "../controller/doctorcontroller.php";
-include_once '../Model/docteur.php';
+include_once "../controller/adminscontroller.php";
+include_once '../Model/admins.php';
 
-$utilisateur1 = new doctorcontroller();
+$utilisateur1 = new adminscontroller();
 
 if (
     isset($_POST["nom"]) &&
@@ -14,8 +14,8 @@ if (
 ) {
 
 
-    $user = new docteur($_POST['nom'], $_POST['username'], $_POST['email'], $_POST['mdp'], $_POST['specealite'], $_POST['img']);
-    $utilisateur1->modifierdoctor($user, $_SESSION['id']);
+    $user = new admin($_POST['nom'], $_POST['username'], $_POST['email'], $_POST['mdp'], $_POST['specealite'], $_POST['img']);
+    $utilisateur1->modifieradmin($user, $_SESSION['id']);
 
     header('refresh:1;url=profile.php');
 }
@@ -72,7 +72,7 @@ if (
                     <?php
 
                     if (isset($_SESSION['id'])) {
-                        $user = $utilisateur1->recupererdoctor($_SESSION['id']);
+                        $user = $utilisateur1->recupereradmin($_SESSION['id']);
 
 
 
@@ -81,15 +81,7 @@ if (
 
                             <div class="col-md-3">
 
-                                <div class="form-group">
-
-                                    <div class="blog-img">
-                                        <img class="img-fluid" <?PHP $a = $user['img'];
-                                                                print "<img src='../../front/assets/images/$a' " ?> />
-                                        <input type="file" class="form-control" name="img" value="<?php echo $user['img']; ?>">
-                                    </div>
-                                </div>
-
+                                
 
                             </div>
 
@@ -136,12 +128,7 @@ if (
                                             }
                                         </script>
                                     </div>
-                                    <div class="form-group">
-
-                                        <label for=pass>specealite</label>
-                                        <input type="text" class="form-control" name="specealite" value="<?php echo $user['specealite']; ?>">
-
-                                    </div>
+                                    
 
 
 

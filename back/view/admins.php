@@ -1,12 +1,13 @@
 
 <?PHP
-require_once "../controller/categoriecontroller.php";
+include_once "../controller/adminscontroller.php";
 
-$Cat=new categoriecontroller();
-$liste=$Cat->affichercategorie();
+$admin1=new adminscontroller();
+$liste=$admin1->afficheradmin();
 
 
 ?>
+
 <!doctype html>
 <html lang="en">
 
@@ -54,9 +55,9 @@ $liste=$Cat->affichercategorie();
 
 
 
-                       
+                      
 <?php
-                          if ( $log==='azer@azer.az'){ ?>
+                          if ( $log=='azer@azer.az'){ ?>
 
 <li class="nav-link"><?php include "logged1.php"; ?></li>
 <?php
@@ -83,11 +84,7 @@ $liste=$Cat->affichercategorie();
         <!-- ============================================================== -->
         <!-- left sidebar -->
         <!-- ============================================================== -->
-        <?php
-                          if ( $log==='azer@azer.az'){ ?>
-
         <div class="nav-left-sidebar sidebar-dark" style="top:150px;">
-        
             <div class="menu-list">
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <a class="d-xl-none d-lg-none" href="#">tasks</a>
@@ -109,9 +106,7 @@ $liste=$Cat->affichercategorie();
                                         <li class="nav-item">
                                             <a class="nav-link" href="doctor-finder.php">Medecins</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="admins.php">admins</a>
-                                        </li>
+
                                     </ul>
                                 </div>
                             </li>
@@ -123,7 +118,7 @@ $liste=$Cat->affichercategorie();
                                             <a class="nav-link" href="categories.php">Blogs <span class="badge badge-secondary">New</span></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="doctor-finder.php">Medecins</a>
+                                            <a class="nav-link" href="doctor.profile.php">Medecins</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="reclamationmanagement.php">Réclamations</a>
@@ -138,13 +133,7 @@ $liste=$Cat->affichercategorie();
                                             <a class="nav-link" href="gestion medicaments.php">Medicaments</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="gestion categorie.php">Categories Medicaments</a>
-                                        </li>
-                                        <li class="nav-item">
                                             <a class="nav-link" href="ordonnance.php">Ordonances</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="gestion fournisseur.php">Fournisseur</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -158,66 +147,14 @@ $liste=$Cat->affichercategorie();
             </div>
             </nav>
         </div>
-   
     </div>
-<?php }else{
-                        ?>
-                        <div class="nav-left-sidebar sidebar-dark" style="top:150px;">
-        
-            <div class="menu-list">
-                <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="d-xl-none d-lg-none" href="#">tasks</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav flex-column">
-                            <li class="nav-divider">
-                                Menu
-                            </li>
-                            
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-rocket"></i>Taches </a>
-                                <div id="submenu-2" class="collapse submenu">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="categories.php">Blogs <span class="badge badge-secondary">New</span></a>
-                                        </li>
-                                        
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="rendezvousmanagement.php">Rendez-vous</a>
-                                        </li>
-                                        
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="gestion medicaments.php">Medicaments</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="gestion categorie.php">Categories Medicaments</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="ordonnance.php">Ordonances</a>
-                                        </li>
-                                       
-                                    </ul>
-                                </div>
-                            </li>
-
-
-                        </ul>
-                    </div>
-                    </li>
-                    </ul>
-            </div>
-            </nav>
-        </div>
-   
-    </div>
-    <?php
-                        
-                        }
-                        ?>
-    
-    <div class="dashboard-wrapper"  style="top:160px;">
+    <!-- ============================================================== -->
+    <!-- end left sidebar -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- wrapper  -->
+    <!-- ============================================================== -->
+    <div class="dashboard-wrapper"style="top:150px;">
         <div class="dashboard-ecommerce">
             <div class="container-fluid dashboard-content ">
                 <!-- ============================================================== -->
@@ -226,59 +163,60 @@ $liste=$Cat->affichercategorie();
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Categories Medicaments</h2>
+                            <h2 class="pageheader-title">admins</h2>
                             <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Categories Medicaments pannel</li>
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Menu</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">admins</li>
                                     </ol>
                                 </nav>
                             </div>
                         </div>
                     </div>
                 </div>
+               
+                <!-- ============================================================== -->
                 <div class="footer">
                     <div class="container-fluid">
 
 
 
                         <div class="card">
-                            <h5 class="card-header">STOCK</h5>
-                            <td colspan="9"><a href="ajout categorie.php" class="btn btn-outline-light float-right"><i class="fas fa-plus"></i></a></td>
+                            <h5 class="card-header">les admins</h5>
                             <div class="card-body p-0">
                                 <div class="table-responsive">
                                     <table class="table">
-                                    <thead>
-                    <tr>
-                        <th>Nom categorie</th>
-                        <th>Sous categorie</th>
-                        <th>Id</th>
-                        <th>supprimer</th>
-                        <th>modifier</th>
-                    </tr>
-                </thead>
-                <tbody>
-			    	<?php foreach($liste as $Cat) { ?>
-                    <tr>
-					<td><?PHP echo $Cat['nom_categorie']; ?></td>
-                    <td><?PHP echo $Cat['sous_categorie']; ?></td>
-                    <td><?PHP echo $Cat['idcategorie']; ?></td>
-                    <td> 
+                                        <thead class="bg-light">
+                                            <tr class="border-0">
+                                               
+                                        
+                                            
+                                                <th class="border-0">Idadmin</th>
+                                                <th class="border-0">Nomadmin</th>
+                                                <th class="border-0">Emailadmin</th>
+                                                <th class="border-0">password</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php foreach($liste as $admin) { ?>
+                                            <tr>
+                                                   
+                                                   
+                                                   <td><?PHP echo $admin['id']; ?></td> 
+                                                   <td><?PHP echo $admin['nom']; ?></td>
+                                                   <td><?PHP echo $admin['email']; ?></td> 
+                                                   <td><?PHP echo $admin['mdp']; ?></td> 
+                                                  
                                                     
-                      <a href="deletecategorie.php?idcategorie=<?PHP echo $Cat['idcategorie']; ?>"> <i class="fas fa-trash-alt"></i></a>
-                      </td>              
-					
-												 
-			                                	<td>
-												 <a class="edit" title="Edit" data-toggle="tooltip" href="modifiercategorie.php?idcategorie=<?PHP echo $Cat['idcategorie']; ?>" ><i class="fas fa-edit"></i></a>	</td>				
-												</td>
-                      </tr> 
-					<?PHP
-                      }
-                     ?>     
-				</tbody>
+                                            </tr>
+                                            <?PHP
+                                              }
+                                              ?>
+                                                
+                                        </tbody>
                                     </table>
                                 </div>
                             </div>
