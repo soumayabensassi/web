@@ -32,7 +32,20 @@ class fournisseurcontroller
         }
     
     }
-     
+   
+    function afficherfourni(){
+
+        $sql="SELECT * FROM fourni";
+        $db = config::getConnexion();
+        try{
+            $liste = $db->query($sql);
+            return $liste;
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+    
+    }
     public function delete($id)
     {$db=config::getConnexion();
     try{

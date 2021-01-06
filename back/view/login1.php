@@ -32,6 +32,15 @@ else{
     }
 }
 }
+if(!empty($_POST["remember"])) {
+	setcookie ("email",$_POST["email"],time()+ 86400);
+	setcookie ("mdp",$_POST["mdp"],time()+ 86400);
+	
+} else {
+	setcookie("email","");
+	setcookie("mdp","");
+	
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -79,14 +88,14 @@ else{
           ?>
                 <form action="" method="POST">
                     <div class="form-group">
-                        <input class="form-control form-control-lg" id="email" name="email" type="email" placeholder="Username" autocomplete="off">
+                        <input class="form-control form-control-lg" id="email" name="email" type="email" placeholder="Username"value="<?php if(isset($_COOKIE["email"])) { echo $_COOKIE["email"]; } ?>" autocomplete="off">
                     </div>
                     <div class="form-group">
-                        <input class="form-control form-control-lg" id="mdp" name="mdp" type="password" placeholder="Password">
+                        <input class="form-control form-control-lg" id="mdp" name="mdp" type="password" value="<?php if(isset($_COOKIE["mdp"])) { echo $_COOKIE["mdp"]; } ?>"  placeholder="Password">
                     </div>
                     <div class="form-group">
                         <label class="custom-control custom-checkbox">
-                            <input class="custom-control-input" type="checkbox"><span class="custom-control-label">Remember Me</span>
+                            <input class="custom-control-input" name="remember" type="checkbox"><span class="custom-control-label">Remember Me</span>
                         </label>
                     </div>
                     <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>

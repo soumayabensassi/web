@@ -1,12 +1,25 @@
 <?php
-include_once "../model/docteur.php" ;
+include_once "../model/Client.php" ;
 include_once "../config.php";
-class adminscontroller
+class clientcontroller
 {
-    
-    function afficheradmin(){
+    public function ajouterClient($nomClient,$emailClient,$password,$passwordVerif,$token)
+    {$db=config::getConnexion();
+       try{ $sql="INSERT INTO client(nomClient,emailClient,password,passwordVerif,token)
+        VALUES(:nomClient,:emailClient,:password,:passwordVerif,:token)";
+    $query = $db->prepare($sql);
+    $query->execute([
+        'nomClient'=>$nomClient,
+        'emailClient'=>$emailClient,
+        'password'=>$password,
+        'passwordVerif'=>$passwordVerif,
+        'token'=>$token
+    ]);}catch(PDOException $e)
+    {$e->getMessage();}
+    }
+    function afficherClient(){
 
-        $sql="SELECT * FROM adminslist";
+        $sql="SELECT * FROM client";
         $db = config::getConnexion();
         try{
             $liste = $db->query($sql);
@@ -17,24 +30,21 @@ class adminscontroller
         }
     
     }
-    public function delete($id)
+     
+    public function delete($idClient)
     {$db=config::getConnexion();
     try{
     
-    $query=$db->prepare('DELETE FROM adminslist WHERE id= :id');
+    $query=$db->prepare('DELETE FROM client WHERE idClient= :idClient');
     $query->execute([
-        'id'=>$id
+        'idClient'=>$idClient
     ]);
-    echo $query->rowCount() ;
+    echo $query->rowCount() . "records DELETED successfully";
      }catch(PDOException $e)
       {$e->getMessage();}
      }
-
-
-
-
-     function recupereradmin($id){
-        $sql="SELECT * from adminslist where id=$id";
+     function recupererClient($idClient){
+        $sql="SELECT * from client where idClient=$idClient";
         $db = config::getConnexion();
         try{
             $query=$db->prepare($sql);
@@ -47,41 +57,42 @@ class adminscontroller
             die('Erreur: '.$e->getMessage());
         }
     }  
+   
 
 
 
-
-     function modifieradmin($admin, $id){
-        
+    //modifier
+    function modifierClient($Cli, $idClient){
         try {
+            
             $db = config::getConnexion();
             $query = $db->prepare(
-                'UPDATE adminslist SET 
-                    nom = :nom, 
-                    username = :username,
-                    email = :email,
-                    mdp = :mdp,
-                   
-                   
+                'UPDATE client SET 
+                    nomClient=:nomClient, 
+                    emailClient=:emailClient,
+                    password=:password,
+                    passwordVerif=:passwordVerif
     
-                WHERE id = :id'
+    
+                WHERE idClient= :idClient'
             );
+         
             $query->execute([
-                'nom'=>$admin->getNom(),
-                'username'=>$admin->getUsername(),
-                'email'=>$admin->getEmail(),
-                'mdp'=>$admin->getMdp(),
-                'specealite'=>$admin->getSpecealite(),
-               
-            ]);
+                'nomClient'=>$Cli->getNom(),
+               'emailClient'=>$Cli->getEmail(),
+               'password'=>$Cli->getPassword(),
+               'passwordVerif'=>$Cli->getPasswordV(),
+               'idClient'=>$idClient   
+               ]
+);
             
+           
         } catch (PDOException $e) {
             $e->getMessage();
         }
-        
     }
     function connexionAccount($Email,$Password) {
-        $sql="SELECT * FROM adminslist WHERE email='" . $Email ."' and mdp = '". $Password."'";
+        $sql="SELECT * FROM client WHERE emailClient='" . $Email ."' and Password = '". $Password."'";
         $db = config::getConnexion();
         
         
@@ -102,8 +113,8 @@ class adminscontroller
               
 
              session_start(); 
-    $_SESSION['id']= $x['id'];
-    $_SESSION['nomadmin']=$x['nom'];
+    $_SESSION['idClient']= $x['idClient'];
+    $_SESSION['nom']=$x['nomClient'];
     
             }
         }            catch (Exception $e)
@@ -114,7 +125,7 @@ class adminscontroller
     }
   
     function chercherEmail($Email){
-        $sql="SELECT * from adminslist where email='$Email'";
+        $sql="SELECT * from client where emailClient='$Email'";
         $db = config::getConnexion();
         try{
             $query=$db->prepare($sql);
@@ -130,5 +141,3 @@ class adminscontroller
     }   
  
 }
-
- 

@@ -1,3 +1,39 @@
+<?php
+include_once "../controller/clientscontroller.php";
+include_once "../controller/medicamentcontroller.php";
+include_once "../controller/doctorcontroller.php";
+include_once "../controller/fournisseurcontroller.php";
+include_once "../controller/rendezvouscontroller.php";
+include_once "../controller/reclamationscontroller.php";
+include_once "../controller/blogscontroller.php";
+include_once "../controller/ordonnancecontroller.php";
+$client=new clientcontroller();
+$l1=$client->afficherClient();
+$nbr1=0;
+$medicament=new medicamentcontroller();
+$l2=$medicament->affichermedicament();
+$nbr2=0;
+$doc=new doctorcontroller();
+$l3=$doc->afficherdoctor();
+$nbr3=0;
+$fourni=new fournisseurcontroller();
+$l4=$fourni->afficherfourni();
+$nbr4=0;
+
+$rendez=new rendezvouscontroller();
+$l5=$rendez->afficherrendezvous();
+$nbr5=0;
+
+$reclamation=new reclamationcontroller();
+$l6=$reclamation->afficherreclamation();
+$nbr6=0;
+$ord=new ordonnancecontroller();
+$l7=$ord->afficherordonnance();
+$nbr7=0;
+$blog=new blogcontroller();
+$l8=$blog->afficherblog1();
+$nbr8=0;
+?>
 <!doctype html>
 <html lang="en">
 
@@ -22,6 +58,15 @@
 
 
     <title>Pick Medico</title>
+    <style type="text/css">
+			#chart-container {
+                position: relative;
+                right: 70px;
+                top: -80px;
+				width: 940px;
+				padding : -9000px
+			}
+		</style>
 </head>
 
 <body>
@@ -53,7 +98,7 @@
                                 <li class="nav-link"><?php include "logged1.php"; ?></li>
                             <?php
 
-                            } else {
+                            } elseif ($log != 'azer@azer.az'){
                             ?>
                                 <li class="nav-link"><?php include "logged.php"; ?></li>
 
@@ -138,6 +183,9 @@
                                             <li class="nav-item">
                                                 <a class="nav-link" href="gestion fournisseur.php">Fournisseur</a>
                                             </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="gestionconseil.php">Conseils</a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </li>
@@ -181,14 +229,14 @@
                                     </li>
 
                                     <li class="nav-item">
-                                        <a class="nav-link" href="gestion medicaments.php">Medicaments</a>
-                                    </li>
+                                                <a class="nav-link" href="doctor-finder.php">Medecins</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="reclamationmanagement.php">Réclamations</a>
+                                            </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="gestion categorie.php">Categories Medicaments</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="ordonnance.php">Ordonances</a>
-                                    </li>
+                                                <a class="nav-link" href="gestionconseil.php">Conseils</a>
+                                            </li>
 
                                 </ul>
                             </div>
@@ -250,9 +298,12 @@
                     <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="text-muted">Revenu totale</h5>
+                                <h5 class="text-muted">Nombre des Clients</h5>
                                 <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">$12099</h1>
+                                <?php foreach($l1 as $client) {
+                                    $nbr1 = $nbr1 + 1; 
+                                    }?>
+                                    <h1 class="mb-1"><?php echo $nbr1;?></h1>
                                 </div>
                                 <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                                     <span><i class="fa fa-fw fa-arrow-up"></i></span><span>5.86%</span>
@@ -266,7 +317,10 @@
                             <div class="card-body">
                                 <h5 class="text-muted">Nombre des Medicaments</h5>
                                 <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">$12099</h1>
+                                <?php foreach($l2 as $medicament) {
+                                    $nbr2 = $nbr2 + 1; 
+                                    }?>
+                                    <h1 class="mb-1"><?php echo $nbr2 ;?></h1>
                                 </div>
                                 <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                                     <span><i class="fa fa-fw fa-arrow-up"></i></span><span>5.86%</span>
@@ -280,7 +334,10 @@
                             <div class="card-body">
                                 <h5 class="text-muted">Nombre des Médecins</h5>
                                 <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">0.00</h1>
+                                <?php foreach($l3 as $doc) {
+                                    $nbr3 = $nbr3 + 1; 
+                                    }?>
+                                    <h1 class="mb-1"><?php echo $nbr3 ;?></h1>
                                 </div>
                                 <div class="metric-label d-inline-block float-right text-primary font-weight-bold">
                                     <span>N/A</span>
@@ -292,9 +349,12 @@
                     <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="text-muted">Nombre Des Réclamations</h5>
+                                <h5 class="text-muted">Nombre Des fournisseurs</h5>
                                 <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">$28000</h1>
+                                <?php foreach($l4 as $fourni) {
+                                    $nbr4 = $nbr4 + 1; 
+                                    }?>
+                                    <h1 class="mb-1"><?php echo $nbr4;?></h1>
                                 </div>
                                 <div class="metric-label d-inline-block float-right text-secondary font-weight-bold">
                                     <span>-2.00%</span>
@@ -313,7 +373,10 @@
                             <div class="card-body">
                                 <h5 class="text-muted">Nombre Des Rendez-vous</h5>
                                 <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">$12099</h1>
+                                <?php foreach($l5 as $rendez) {
+                                    $nbr5 = $nbr5 + 1; 
+                                    }?>
+                                    <h1 class="mb-1"><?php echo $nbr5;?></h1>
                                 </div>
                                 <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                                     <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5.86%</span>
@@ -332,7 +395,10 @@
                             <div class="card-body">
                                 <h5 class="text-muted">Nombre Des ordonnances</h5>
                                 <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">1245</h1>
+                                <?php foreach($l7 as $ord) {
+                                    $nbr7 = $nbr7 + 1; 
+                                    }?>
+                                    <h1 class="mb-1"><?php echo $nbr7 ;?></h1>
                                 </div>
                                 <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                                     <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">10%</span>
@@ -351,7 +417,10 @@
                             <div class="card-body">
                                 <h5 class="text-muted">Nombre Des blogs</h5>
                                 <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">13000</h1>
+                                <?php foreach($l8 as $blog) {
+                                    $nbr8 = $nbr8 + 1; 
+                                    }?>
+                                    <h1 class="mb-1"><?php echo $nbr8; ?></h1>
                                 </div>
                                 <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                                     <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
@@ -368,9 +437,12 @@
                     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
                         <div class="card border-3 border-top border-top-primary">
                             <div class="card-body">
-                                <h5 class="text-muted">Nombre Des fournisseurs</h5>
+                                <h5 class="text-muted">Nombre Des Réclamations</h5>
                                 <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">1340</h1>
+                                <?php foreach($l6 as $reclamation) {
+                                    $nbr6 = $nbr6 + 1; 
+                                    }?>
+                                    <h1 class="mb-1"><?php echo $nbr6;?></h1>
                                 </div>
                                 <div class="metric-label d-inline-block float-right text-danger font-weight-bold">
                                     <span class="icon-circle-small icon-box-xs text-danger bg-danger-light bg-danger-light "><i class="fa fa-fw fa-arrow-down"></i></span><span class="ml-1">4%</span>
@@ -380,7 +452,29 @@
                     </div>
                     <!-- ============================================================== -->
                     <!-- end total orders  -->
+                   
+                   
                     <!-- ============================================================== -->
+               
+                    <div class="dashboard-wrapper" style="top:150px;">
+        
+		<div id="chart-container">
+			<canvas id="mycanvas"></canvas>
+		</div>
+    <!-- ============================================================== -->
+    <!-- end left sidebar -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- wrapper  -->
+    <!-- ============================================================== -->
+
+
+		<!-- javascript -->
+        <!-- chart  js -->
+		<script type="text/javascript" src="../assets/js/jquery.min.js"></script>
+		<script type="text/javascript" src="../assets/js/Chart.min.js"></script>
+		<script type="text/javascript" src="../assets/js/app.js"></script>
+               
                 </div>
             </div>
         </div>

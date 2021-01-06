@@ -22,13 +22,6 @@ $utilisateur2= new doctorcontroller();
     <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/libs/css/style.css">
-    <link rel="stylesheet" href="../../front/assets/css/bootstrap.min.css">
-    <!-- Pogo Slider CSS -->
-    <link rel="stylesheet" href="../../front/assets/css/pogo-slider.min.css">
-    <!-- Site CSS -->
-    <link rel="stylesheet" href="../../front/assets/css/style.css">
-    <!-- Responsive CSS -->
-    <link rel="stylesheet" href="../../front/assets/css/responsive.css">
 
 
 
@@ -320,11 +313,11 @@ $utilisateur2= new doctorcontroller();
                                                    <input type="hidden" value=<?PHP echo $rendezvous['id_rendezvous']; ?> name="id_rendezvous">
                                                    <input type="hidden" value=<?PHP echo $rendezvous['email']; ?> name="emailclients">
                                                    <input type="hidden" value=<?PHP echo $rendezvous['client']; ?> name="idClient">
-                                                   </form>
+                                                   
                                                    </td>
                                                     
                                                        <td> 
-                                                        <form method="POST" action="gererrendezvous.php">
+                                                        
                                                         <input type="submit" class="btn btn-outline-light float" value="refuser" name="refuser">
                                                         <input type="hidden" value=<?PHP echo $rendezvous['email']; ?> name="emailclients">
                                                    <input type="hidden" value=<?PHP echo $rendezvous['id_rendezvous']; ?> name="id_rendezvous">

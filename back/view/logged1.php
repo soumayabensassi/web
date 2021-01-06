@@ -8,7 +8,7 @@
             <ul>
               <li>
                 <a href="#">
-                <p><?php  echo $_SESSION['nom']; ?><br> </p>
+                <p><?php  echo $_SESSION['nomadmin']; ?><br> </p>
                 </a>
                  
                 <div class="dropdown">

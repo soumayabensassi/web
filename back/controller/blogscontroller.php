@@ -19,6 +19,19 @@ class blogcontroller
     ]);}catch(PDOException $e)
     {$e->getMessage();}
     }
+    function afficherblog1(){
+
+        $sql="SELECT * FROM blogslist";
+        $db = config::getConnexion();
+        try{
+            $liste = $db->query($sql);
+            return $liste;
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+    
+    }
     function  afficherblog($categorie){
         
         try{$db = config::getConnexion();

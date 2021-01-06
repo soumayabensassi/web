@@ -51,7 +51,7 @@
 			<div class="row">
 				<div class="col-lg-6">
 					<div class="left-top">
-						<a class="new-btn-d br-2" href="#"><span>Conseils</span></a>
+						<a class="new-btn-d br-2" href="conseils.php"><span>Conseils</span></a>
 						<div class="mail-b"><a href="mailto:pick.medico@gmail.com"><i class="fas fa-at" aria-hidden="true"></i> Pick-Medico@gmail.com</a></div>
 					</div>
 				</div>
