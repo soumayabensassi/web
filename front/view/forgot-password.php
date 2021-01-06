@@ -78,7 +78,7 @@ if (isset($_POST['emailClient']))
         
         $token = uniqid();
 
-        $url = "http://localhost/web-1/front/view/token.php?token=$token";
+        $url = "http://localhost/test/web/front/view/token.php?token=$token";
         $message = "bonjour,voici votre lien pour la recuperation de votre mot de passe: $url";
         if (mail($_POST['emailClient'], 'Mot de passe oublié', $message, 'From: pick.medico@gmail.com')) 
         {
