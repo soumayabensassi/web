@@ -14,19 +14,21 @@ class ordonnancecontroller
     ]);}catch(PDOException $e)
     {$e->getMessage();}
     }
-    function  afficherordonnance($idClient){
-        
-        try{$db = config::getConnexion();
-            $query=$db->prepare('SELECT * from ordonnance where client=:id');
-             $query->execute(['id'=>$idClient]);
-            
-                 
-                    return $query->fetchAll();
-              }
-               catch (Exception $e){
-                     die('Erreur: '.$e->getMessage());
-            }
-           }  
+    function afficherordonnance(){
+
+        $sql="SELECT * FROM ordonnance";
+        $db = config::getConnexion();
+        try{
+            $liste = $db->query($sql);
+            return $liste;
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+    
+    }
+     
+   
     
      
     public function delete($id_ordonnance)

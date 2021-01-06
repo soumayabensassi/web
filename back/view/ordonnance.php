@@ -4,7 +4,7 @@
 include_once "../controller/ordonnancecontroller.php";
 
 $ordonnance=new ordonnancecontroller();
-$liste=$ordonnance->afficherordonnance(35);
+$liste=$ordonnance->afficherordonnance();
 
 
 ?>
