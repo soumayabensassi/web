@@ -92,7 +92,7 @@ $rate = 0;
                 </div>
                 <div class="col-lg-6">
                     <div class="wel-nots">
-                        <p>Welcome to Our Pick Medico!</p>
+                        <p>Bienvenue dans notre site Pick Medico!</p>
                     </div>
                     <div class="right-top">
                         <ul>
@@ -132,7 +132,7 @@ $rate = 0;
 
                         <?php } else { ?>
                             <li class="nav-link"><?php include "logged.php"; ?></li>
-
+                            <li class="nav-link"><?php include "notification.php"; ?></li>
 
                         <?php
 
@@ -174,7 +174,7 @@ $rate = 0;
                     <div class="col-md-4 col-sm-6">
                         <div class="our-team">
                             <div class="pic">
-                                <img src="../assets/images/<?php echo $user['img']; ?>" alt="">
+                                <img src="../../back/assets/images/<?php echo $user['img']; ?>" alt="">
                             </div>
                             <div class="team-content">
                                 <h3 class="title"><?php foreach($liste3 as $doc) { ?>
@@ -372,30 +372,7 @@ $rate = 0;
 
             <!-- End Contact -->
 
-            <!-- Start Subscribe -->
-            <div class="subscribe-box">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="subscribe-inner text-center clearfix">
-                                <h2>S'inscrire'</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                <form action="#" method="post">
-                                    <div class="form-group">
-                                        <input class="form-control-1" id="email-1" name="email" placeholder="Email Address" required="" type="text">
-                                    </div>
-                                    <div class="form-group">
-                                        <button type="submit" class="new-btn-d br-2">
-                                            S'inscrire'
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Subscribe -->
+            
 
 
 

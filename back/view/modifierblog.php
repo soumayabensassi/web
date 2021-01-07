@@ -13,7 +13,7 @@
 		
             $user = new blog($_POST['nom'],$_POST['nomarticle'],$_POST['date'],$_POST['categorie'],$_POST['img'],$_POST['blog']);
             $utilisateur1->modifierblog($user, $_GET['id']);
-            header('refresh:1;url=blog manegment.php');
+            header("refresh:1;url=categories.php");
         }
       
      
@@ -58,7 +58,7 @@
                 
                
         ?>
-		<form  action="" method="POST">
+		<form class="splash-container"   action="" method="POST">
       
           <div class="card">
             <div class="card-header">
@@ -71,7 +71,7 @@
 						<input type="text" name="id" id="id"  value = "<?php echo $user['id']; ?>" disabled>
                         </div>
                 <div class="form-group">
-                    <input class="form-control form-control-lg" type="text" name="nom" required="" placeholder="nom" autocomplete="off" value = "<?php echo $user['nom']; ?>">
+                    <input class="form-control form-control-lg" type="text" name="nom" required="" placeholder="nom" autocomplete="off" value = "<?php echo $user['medecin']; ?>">
                 </div>
                 <div class="form-group">
                     <input class="form-control form-control-lg" type="text" name="nomarticle" required="" placeholder="nomarticle" autocomplete="off" value="<?php echo $user['nomarticle']; ?>">

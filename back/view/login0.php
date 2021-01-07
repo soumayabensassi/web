@@ -33,8 +33,8 @@ else{
 }
 }
 if(!empty($_POST["remember"])) {
-	setcookie ("email0",$_POST["email"],time()+ 3600);
-	setcookie ("mdp0",$_POST["mdp"],time()+ 3600);
+	setcookie ("email0",$_POST["email"],time()+ 86400);
+	setcookie ("mdp0",$_POST["mdp"],time()+ 86400);
 	
 } else {
 	setcookie("email0","");
@@ -80,7 +80,7 @@ if(!empty($_POST["remember"])) {
     <div class="splash-container">
         <div class="card ">
             <div class="card-header text-center">
-                <a><img class="logo-img" src="../assets/images/logo.png" alt="logo"></a><span class="splash-description">Please enter your user information.</span></div>
+                <a><img class="logo-img" src="../assets/images/logo.png" alt="logo"></a><span class="splash-description">Veuillez saisir vos informations d'utilisateur.</span></div>
             <div class="card-body">
             <?php if (isset($_GET['error'])) { ?>
      		<p class="error"><?php echo $_GET['error']; ?></p>
@@ -88,17 +88,17 @@ if(!empty($_POST["remember"])) {
           ?>
                 <form action="" method="POST">
                     <div class="form-group">
-                        <input class="form-control form-control-lg" id="email" name="email" type="email" placeholder="Username" value="<?php if(isset($_COOKIE["email0"])) { echo $_COOKIE["email0"]; } ?>" autocomplete="off">
+                        <input class="form-control form-control-lg" id="email" name="email" type="email" placeholder="nom d'Utilistaeur" value="<?php if(isset($_COOKIE["email0"])) { echo $_COOKIE["email0"]; } ?>" autocomplete="off">
                     </div>
                     <div class="form-group">
-                        <input class="form-control form-control-lg" id="mdp" name="mdp" type="password"  value="<?php if(isset($_COOKIE["mdp0"])) { echo $_COOKIE["mdp0"]; } ?>" placeholder="Password">
+                        <input class="form-control form-control-lg" id="mdp" name="mdp" type="password"  value="<?php if(isset($_COOKIE["mdp0"])) { echo $_COOKIE["mdp0"]; } ?>" placeholder="mot de passe">
                     </div>
                     <div class="form-group">
                         <label class="custom-control custom-checkbox">
-                            <input class="custom-control-input" type="checkbox" name="remember" ><span class="custom-control-label">Remember Me</span>
+                            <input class="custom-control-input" type="checkbox" name="remember" ><span class="custom-control-label">Souviens-toi de moi</span>
                         </label>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">se connecter</button>
                 </form>
             </div>
             

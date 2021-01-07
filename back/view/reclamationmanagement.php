@@ -93,7 +93,7 @@ $liste=$admin->afficherreclamation();
                                 Menu
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i class="fa fa-fw fa-user-circle"></i>Accounts Manegment <span class="badge badge-success">6</span></a>
+                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i class="fa fa-fw fa-user-circle"></i>Gestion des comptes<span class="badge badge-success">6</span></a>
                                 <div id="submenu-1" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
@@ -279,8 +279,8 @@ $liste=$admin->afficherreclamation();
                                                 <th class="border-0">numero tel</th>
                                                 <th class="border-0">message</th>
                                                 <th class="border-0">Status</th>
-                                                <th class="border-0"></th>
-                                                <th class="border-0"></th>
+                                                <th class="border-0">traiter</th>
+                                                <th class="border-0">supprimer</th>
 
                                             </tr>
                                         </thead>
@@ -308,7 +308,7 @@ $liste=$admin->afficherreclamation();
                                                     </td>
                                                     <td> 
                                                         <form method="POST" action="deletereclamation.php">
-                                                        <input type="submit"  value="delete" name="delete">
+                                                        <input type="submit"  class="btn btn-outline-light float"  value="supprimer" name="delete">
                                                    <input type="hidden" value=<?PHP echo $reclamation['id_reclamation']; ?> name="id_reclamation">
                                                    </form>
                                                     </td>

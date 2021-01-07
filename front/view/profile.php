@@ -114,7 +114,7 @@ if (isset($_SESSION['idClient'])) {
 
                                             <label for=pass>Mot de passe</label>
                                             <input type="password" class="form-control" id="myInput" name="pass" value="<?php echo $user['password']; ?>">
-                                            <input type="checkbox" onclick="myFunction()">Show Password
+                                            <input type="checkbox" onclick="myFunction()">Montrer le mot de passe
 
                                             <script>
                                                 function myFunction() {

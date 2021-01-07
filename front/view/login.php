@@ -41,12 +41,12 @@ else{
 
 
 if(!empty($_POST["remember"])) {
-	setcookie ("email1",$_POST["email"],time()+ 3600);
-	setcookie ("mdp1",$_POST["mdp"],time()+ 3600);
+	setcookie ("email1",$_POST["email"],time()+ 86400);
+	setcookie ("pass",$_POST["pass"],time()+ 86400);
 	
 } else {
 	setcookie("email1","");
-	setcookie("mdp1","");
+	setcookie("pass","");
 	
 }
 
@@ -92,7 +92,7 @@ if(!empty($_POST["remember"])) {
     <div class="splash-container">
         <div class="card ">
             <div class="card-header text-center">
-                <a href="index.php"><img class="logo-img" src="../assets/images/logo.png" alt="logo"></a><span class="splash-description">Please enter your user information.</span></div>
+                <a href="index.php"><img class="logo-img" src="../assets/images/logo.png" alt="logo"></a><span class="splash-description">Veuillez saisir vos informations d'utilisateur.</span></div>
             <div class="card-body">
             <?php if (isset($_GET['error'])) { ?>
      		<p class="error"><?php echo $_GET['error']; ?></p>
@@ -100,24 +100,24 @@ if(!empty($_POST["remember"])) {
           ?>
                 <form action="" method="POST">
                     <div class="form-group">
-                        <input class="form-control form-control-lg" id="email" name="email" type="email" placeholder="Username" value="<?php if(isset($_COOKIE["email1"])) { echo $_COOKIE["email1"]; } ?>" autocomplete="off">
+                        <input class="form-control form-control-lg" id="email" name="email" type="email" placeholder="Nom d'Utilisateur" value="<?php if(isset($_COOKIE["email1"])) { echo $_COOKIE["email1"]; } ?>" autocomplete="off">
                     </div>
                     <div class="form-group">
-                        <input class="form-control form-control-lg" id="pass" name="pass" type="password"  value="<?php if(isset($_COOKIE["mdp1"])) { echo $_COOKIE["mdp1"]; } ?>" placeholder="Password">
+                        <input class="form-control form-control-lg" id="pass" name="pass" type="password"  value="<?php if(isset($_COOKIE["pass"])) { echo $_COOKIE["pass"]; } ?>" placeholder="mot de passe">
                     </div>
                     <div class="form-group">
                         <label class="custom-control custom-checkbox">
-                            <input class="custom-control-input" type="checkbox"name="remember" > <span class="custom-control-label">Remember Me</span>
+                            <input class="custom-control-input" type="checkbox"name="remember" > <span class="custom-control-label">Souviens-toi de moi</span>
                         </label>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Connecter</button>
                 </form>
             </div>
             <div class="card-footer bg-white p-0  ">
                 <div class="card-footer-item card-footer-item-bordered">
-                    <a href="sign-up.php" class="footer-link">Create An Account</a></div>
+                    <a href="sign-up.php" class="footer-link">Créer un compte</a></div>
                 <div class="card-footer-item card-footer-item-bordered">
-                    <a href="forgot-password.php" class="footer-link">Forgot Password</a>
+                    <a href="forgot-password.php" class="footer-link">Mdp oublié</a>
                 </div>
             </div>
         </div>

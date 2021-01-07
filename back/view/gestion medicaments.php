@@ -17,14 +17,7 @@ $liste=$MED->medicament();
     <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/libs/css/style.css">
-    <link rel="stylesheet" href="../../front/assets/css/bootstrap.min.css">
-    <!-- Pogo Slider CSS -->
-    <link rel="stylesheet" href="../../front/assets/css/pogo-slider.min.css">
-    <!-- Site CSS -->
-    <link rel="stylesheet" href="../../front/assets/css/style.css">
-    <!-- Responsive CSS -->
-    <link rel="stylesheet" href="../../front/assets/css/responsive.css">
-
+   
 
 
 
@@ -230,7 +223,7 @@ $liste=$MED->medicament();
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">menu</a></li>
                                         <li class="breadcrumb-item active" aria-current="page">Medicament pannel</li>
                                     </ol>
                                 </nav>

@@ -65,7 +65,7 @@ $liste=$doc->afficherdoctor();
 				</div>
 				<div class="col-lg-6">
 					<div class="wel-nots">
-						<p>Welcome to Our Pick Medico!</p>
+						<p>Bienvenue dans notre site Pick Medico!</p>
 					</div>
 					<div class="right-top">
 						<ul>

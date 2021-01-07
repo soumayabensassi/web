@@ -41,7 +41,7 @@ if($email)
     <body>
     <div class="splash-container">
         <div class="card">
-            <div class="card-header text-center"><img class="logo-img" src="../assets/images/logo.png" alt="logo"><span class="splash-description">Please enter your user information.</span></div>
+            <div class="card-header text-center"><img class="logo-img"  src="../assets/images/logo.png" alt="logo"><span class="splash-description">Veuillez saisir vos informations d'utilisateur.</span></div>
             <div class="card-body">
                 <form method="POST">
                     <p>vous pouvez maintenant changer votre mot de passe</p>

@@ -2,7 +2,7 @@
 include_once "../../back/controller/categoriescontroller.php";
 
 $categorie=new categoriecontroller();
-$liste=$categorie->affichercategorie();
+$liste1=$categorie->affichercategorie();
 
 
 ?>
@@ -64,7 +64,7 @@ $liste=$categorie->affichercategorie();
 				</div>
 				<div class="col-lg-6">
 					<div class="wel-nots">
-						<p>Welcome to Our Pick Medico!</p>
+						<p>Bienvenue dans notre site Pick Medico!</p>
 					</div>
 					<div class="right-top">
 						<ul>
@@ -109,7 +109,7 @@ if (empty($_SESSION['m_un'])) {?>
     
 <?php } else { ?> 
     <li class="nav-link" ><?php include "logged.php"; ?></li>
-    
+    <li class="nav-link"><?php include "notification.php"; ?></li>
 
 <?php
 
@@ -134,7 +134,7 @@ if (empty($_SESSION['m_un'])) {?>
 				</div>
             </div>
             <div class="row">
-			<?php foreach($liste as $categorie) { ?>
+			<?php foreach($liste1 as $categorie) { ?>
 			
 				<div class="col-lg-4 col-md-6 col-sm-12">
 					<div class="blog-inner">

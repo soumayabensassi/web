@@ -74,7 +74,7 @@ session_start();
                 </div>
                 <div class="col-lg-6">
                     <div class="wel-nots">
-                        <p>Welcome to Our Pick Medico!</p>
+                        <p>Bienvenue dans notre site Pick Medico!</p>
                     </div>
                     <div class="right-top">
                         <ul>
@@ -105,8 +105,8 @@ session_start();
                         <li><a class="nav-link " href="index.php">Accueil</a></li>
                         <li><a class="nav-link" href="#about">Site</a></li>
 
-                        <li><a class="nav-link active" href="#appointment">Rendez-vous</a></li>
-                        <li><a class="nav-link" href="gallery.php">Mdicaments</a></li>
+                        <li><a class="nav-link active" href="#appointment">Rendez_vous</a></li>
+                        <li><a class="nav-link" href="gallery.php">Medicaments</a></li>
                         <li><a class="nav-link" href="doctor.php">Médecins</a></li>
                         <li><a class="nav-link" href="blog.php">Blog</a></li>
                         <li><a class="nav-link" href="Réclamation.php">Réclamation</a></li>
@@ -248,19 +248,19 @@ session_start();
                             <div class="feature feature-blurb-text">
                                 <h4 class="feature-title">24/7 heures disponibles</h4>
                                 <div class="feature-content">
-                                    <p>Integer nec nisi sed mi hendrerit mattis. Vestibulum mi nunc, ultricies quis vehicula et, iaculis in magnestibulum.</p>
+                                    <p></p>
                                 </div>
                             </div>
                             <div class="feature feature-blurb-text">
                                 <h4 class="feature-title">Personnel expérimenté disponible</h4>
                                 <div class="feature-content">
-                                    <p>Aliquam sit amet mi eu libero fermentum bibendum pulvinar a turpis. Vestibulum quis feugiat risus. </p>
+                                    <p></p>
                                 </div>
                             </div>
                             <div class="feature feature-blurb-text">
                                 <h4 class="feature-title">Prix bas et frais</h4>
                                 <div class="feature-content">
-                                    <p>Praesent eu sollicitudin nunc. Cras malesuada vel nisi consequat pretium. Integer auctor elementum nulla suscipit in.</p>
+                                    <p></p>
                                 </div>
                             </div>
                         </div>
@@ -319,29 +319,6 @@ session_start();
         </div>
 
         <!-- End Contact -->
-
-        <!-- Start Subscribe -->
-        <div class="subscribe-box">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="subscribe-inner text-center clearfix">
-                            <h2>Subscribe</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            <form action="#" method="post">
-                                <div class="form-group">
-                                    <input class="form-control-1" id="email-1" name="email" placeholder="Email Address" required="" type="text">
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="new-btn-d br-2">Subscribe</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Subscribe -->
 
         
 

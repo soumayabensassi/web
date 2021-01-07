@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Modifier blog</title>
+		<title>Pick Medico</title>
 		<meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>sign up</title>
@@ -40,7 +40,7 @@
           <div class="card" style="width: 550px;">
             <div class="card-header">
                 <h3 class="mb-1">Ajouter un nouveau docteur </h3>
-                <p>Please enter your user information.</p>
+                <p>Veuillez saisir vos informations d'utilisateur.</p>
             </div>
             <div class="card-body">
             <div class="item">
@@ -75,7 +75,7 @@
                 </div>
                 
                 <div class="form-group pt-2">
-                    <button class="btn btn-block btn-primary" type="submit">ADD </button>
+                    <button class="btn btn-block btn-primary" type="submit">Ajouter </button>
                 </div>
                
             

@@ -56,17 +56,17 @@
                 
                
         ?>
-		<form  action="" method="POST">
+		<form  class="splash-container"  action="" method="POST">
       
           <div class="card">
             <div class="card-header">
-                <h3 class="mb-1">Modifier le blog
+                <h3 class="mb-1">Modifier  categorie
                 </h3>
-                <p>Please enter your user information.</p>
+                <p></p>
             </div>
             <div class="card-body">
             <div class="form-group">
-						<input type="text" name="id" id="id"  value = "<?php echo $user['id']; ?>" disabled>
+						<input type="text" name="id" id="id"  value = "<?php echo $user['id']; ?>" disabled hidden>
                         </div>
                 <div class="form-group">
                     <input class="form-control form-control-lg" type="text" name="nom" required="" placeholder="nom" autocomplete="off" value = "<?php echo $user['nom']; ?>">

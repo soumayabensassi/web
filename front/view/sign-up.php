@@ -46,8 +46,8 @@
     <form class="splash-container" action="ajouterClients.php" method="POST">
         <div class="card" style="width: 550px;">
             <div class="card-header">
-                <h3 class="mb-1">Registrations Form</h3>
-                <p>Please enter your user information.</p>
+                <h3 class="mb-1">Formulaire d'inscription</h3>
+                <p>Veuillez saisir vos informations d'utilisateur.</p>
             </div>
             <div class="card-body">
                 <?php if (isset($_GET['error'])) { ?>
@@ -55,7 +55,7 @@
                 <?php } ?>
                 <div class="item">
                 <div class="form-group">
-                    <input class="form-control form-control-lg" type="text" name="nick" required="" placeholder="Username" autocomplete="off">
+                    <input class="form-control form-control-lg" type="text" name="nick" required="" placeholder="Nom d'Utilisateur" autocomplete="off">
                 </div>
                 </div>
                 <div class="item">
@@ -67,27 +67,23 @@
                 <div class="item">
 
                 <div class="form-group">
-                    <input class="form-control form-control-lg" id="pass1" type="password" name="pass" required="" placeholder="Password">
+                    <input class="form-control form-control-lg" id="pass1" type="password" name="pass" required="" placeholder="mot de passe">
                 </div>
                 </div>
                 <div class="item">
 
                 <div class="form-group">
-                    <input class="form-control form-control-lg" type="password" required="" name="passV" placeholder="Confirm">
+                    <input class="form-control form-control-lg" type="password" required="" name="passV" placeholder="confirmer mot de passe">
                 </div>
                 </div>
                 <div class="form-group pt-2">
-                    <button class="btn btn-block btn-primary" type="submit">Register My Account</button>
+                    <button class="btn btn-block btn-primary" type="submit">Enregistrer mon compte</button>
                 </div>
-                <div class="form-group">
-                    <label class="custom-control custom-checkbox">
-                        <input class="custom-control-input" type="checkbox"><span class="custom-control-label">By creating an account, you agree the <a href="#">terms and conditions</a></span>
-                    </label>
-                </div>
+                
             
             </div>
             <div class="card-footer bg-white">
-                <p>Already member? <a href="login.php" class="text-secondary">Login Here.</a></p>
+                <p>Déjà membre? <a href="login.php" class="text-secondary">Connectez-vous ici.</a></p>
             </div>
         </div>
     </form>

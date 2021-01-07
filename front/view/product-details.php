@@ -1,9 +1,11 @@
 <?php
 include_once "../../back/controller/medicamentcontroller.php";
+include_once "../../back/controller/categoriecontroller.php";
 include_once '../model/medicament.php';
 
 $medicament = new medicamentcontroller();
-
+$Cat=new categoriecontroller();
+$categorie=$Cat->affichercategorie();
 
 
 ?>
@@ -79,7 +81,7 @@ $medicament = new medicamentcontroller();
 				</div>
 				<div class="col-lg-6">
 					<div class="wel-nots">
-						<p>Welcome to Our Pick Medico!</p>
+						<p>Bienvenue dans notre site Pick Medico!</p>
 					</div>
 					<div class="right-top">
 						<ul>
@@ -136,89 +138,43 @@ session_start();
 			<div class="row">
 				<div class="col-sm-3">
 					<div class="left-sidebar">
-						<h2>Categories</h2>
-						<div class="panel-group category-products" id="accordian">
-							<!--category-productsr-->
+					<h2>Categories</h2>
+						<?php foreach($categorie as $Cat) {?>
+						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a data-toggle="collapse1" data-parent="#accordian" href="#Par symptome">
+
+									<h4 class="panel-title"> <?PHP echo $Cat['nom_categorie']; ?>
+								
+										<a data-toggle="collapse1" data-parent="#accordian" href="#">
 											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											Par symptome
+											<?PHP echo $Cat['nom_categorie']; ?>
 										</a>
 									</h4>
 								</div>
-								<div id="Par symptome" class="panel-collapse1 collapse1">
+								<div  class="panel-collapse1 collapse1">
 									<div class="panel-body">
 										<ul>
-											<li><a href="#">Doleur et fiévres </a></li>
-											<li><a href="#">Etat grippal </a></li>
-											<li><a href="#">Maux de gorge et taux</a></li>
-											<li><a href="#">Maux de bouche</a></li>
-											<li><a href="#">Troubles veineux </a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a data-toggle="collapse1" data-parent="#accordian" href="#mens">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											Par Maladie
-										</a>
-									</h4>
-								</div>
-								<div id="mens" class="panel-collapse1 collapse1">
-									<div class="panel-body">
-										<ul>
-											<li><a href="#">Angine</a></li>
-											<li><a href="#">Acné</a></li>
-											<li><a href="#">Asthme</a></li>
-											<li><a href="#">Branchite</a></li>
-											<li><a href="#">Cholestérol et Triglycérides</a></li>
-											<li><a href="#">Conjoctivite</a></li>
-											<li><a href="#">Eczéma</a></li>
-											<li><a href="#">Gastro-entérite</a></li>
-											<li><a href="#">Grippe</a></li>
-											<li><a href="#">Herpès</a></li>
+											<li style="white-space:pre" ><a href="#"><?PHP echo $Cat['sous_categorie']; ?></a></li>
+											
+
+
 										</ul>
 									</div>
 								</div>
 							</div>
 
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a data-toggle="collapse1" data-parent="#accordian" href="#womens">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											Par principe actif
-										</a>
-									</h4>
-								</div>
-								<div id="womens" class="panel-collapse1 collapse1">
-									<div class="panel-body">
-										<ul>
-											<li><a href="#">Cétirizine</a></li>
-											<li><a href="#">Magnésium</a></li>
-											<li><a href="#">Vitamine C</a></li>
-											<li><a href="#">Vitamine D</a></li>
-											<li><a href="#">Zinc</a></li>
-											<li><a href="#">Fer</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-
-
-						</div>
-						<!--/category-products-->
-
-
-
-
-
-
+							</div><!--/category-products-->
+							
+							<?PHP
+                           }
+                          ?>
+					
+					
+					
+						
+						
+					
 					</div>
 				</div>
 
@@ -404,31 +360,6 @@ session_start();
 		</div>
 	</div>
 	<!-- End Contact -->
-
-	<!-- Start Subscribe -->
-	<div class="subscribe-box">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="subscribe-inner text-center clearfix">
-						<h2>S'inscrire'</h2>
-						<p>Acheter Maintenant sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-						<form action="#" method="post">
-							<div class="form-group">
-								<input class="form-control-1" id="email-1" name="email" placeholder="Email Address" required="" type="text">
-							</div>
-							<div class="form-group">
-								<button type="submit" class="new-btn-d br-2">
-									S'inscrire
-								</button>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- End Subscribe -->
 
 
 

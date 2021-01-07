@@ -18,13 +18,7 @@ $liste=$categorie->affichercategorie();
     <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/libs/css/style.css">
-    <link rel="stylesheet" href="../../front/assets/css/bootstrap.min.css">
-    <!-- Pogo Slider CSS -->
-    <link rel="stylesheet" href="../../front/assets/css/pogo-slider.min.css">
-    <!-- Site CSS -->
-    <link rel="stylesheet" href="../../front/assets/css/style.css">
-    <!-- Responsive CSS -->
-    <link rel="stylesheet" href="../../front/assets/css/responsive.css">
+    
 
 
 
@@ -235,7 +229,7 @@ $liste=$categorie->affichercategorie();
 
                     <div class="col-xl-9 col-lg-12 col-md-6 col-sm-12 col-12">
         <div class="card">
-            <h5 class="card-header"><a href="ajoutcategories.php"><i class="fas fa-plus"></i></a></h5>
+            <td> <a href="ajoutcategories.php" class="btn btn-outline-light float-right"><i class="fas fa-plus"></i></a></td>
             
             <div class="card-body p-0">
                 <div class="table-responsive">
@@ -268,9 +262,7 @@ $liste=$categorie->affichercategorie();
                                                     
                                             </tr><?PHP
                                         }?>
-                            <tr>
-                            <td colspan="9"><a href="ajoutcategories.php" class="btn btn-outline-light float-right"><i class="fas fa-plus"></i></a></td>
-                            </tr>
+                           
                             
                         </tbody>
                     </table>

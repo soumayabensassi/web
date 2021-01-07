@@ -39,13 +39,13 @@ include_once "../config.php";
     <!-- ============================================================== -->
     <div class="splash-container">
         <div class="card">
-            <div class="card-header text-center"><img class="logo-img" src="../assets/images/logo.png" alt="logo"><span class="splash-description">Please enter your user information.</span></div>
+            <div class="card-header text-center"><img class="logo-img" src="../assets/images/logo.png" alt="logo"><span class="splash-description">Veuillez saisir vos informations d'utilisateur.</span></div>
             <div class="card-body">
             <?php if (isset($_GET['error'])) { ?>
                     <p class="error"><?php echo $_GET['error']; ?></p>
                 <?php } ?>
                 <form method="POST">
-                    <p>Don't worry, we'll send you an email to reset your password.</p>
+                    <p>Ne vous inquiétez pas, nous vous enverrons un e-mail pour réinitialiser votre mot de passe.</p>
                     <div class="form-group">
                         <input class="form-control form-control-lg" type="email" name="emailClient" required="" placeholder="Your Email" autocomplete="off">
                     </div>
@@ -53,7 +53,7 @@ include_once "../config.php";
                 </form>
             </div>
             <div class="card-footer text-center">
-                <span>Don't have an account? <a href="sign-up.php">Sign Up</a></span>
+                <span>Vous n'avez pas de compte? <a href="sign-up.php">S'inscrire</a></span>
             </div>
         </div>
     </div>

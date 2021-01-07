@@ -123,7 +123,7 @@ if (
 
                                         <label for=pass>Mot de passe</label>
                                         <input type="password" class="form-control" id="myInput" name="mdp" value="<?php echo $user['mdp']; ?>">
-                                        <input type="checkbox" onclick="myFunction()">Show Password
+                                        <input type="checkbox" onclick="myFunction()">Montrer le mot de passe
 
                                         <script>
                                             function myFunction() {

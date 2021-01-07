@@ -15,7 +15,7 @@
                     <ul>
                       <li><a href="profile1.php"><br><i class="fas fa-user"></i>Profile</a></li>
                       
-                      <li><a href="signout.php"><i class="fas fa-sign-out-alt"></i>Signout</a></li>
+                      <li><a href="signout.php"><i class="fas fa-sign-out-alt"></i>Déconnexion</a></li>
                   </ul>
                 </div>
                 

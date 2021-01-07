@@ -20,14 +20,7 @@ $liste=$ordonnance->afficherordonnance();
     <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/libs/css/style.css">
-    <link rel="stylesheet" href="../../front/assets/css/bootstrap.min.css">
-    <!-- Pogo Slider CSS -->
-    <link rel="stylesheet" href="../../front/assets/css/pogo-slider.min.css">
-    <!-- Site CSS -->
-    <link rel="stylesheet" href="../../front/assets/css/style.css">
-    <!-- Responsive CSS -->
-    <link rel="stylesheet" href="../../front/assets/css/responsive.css">
-
+   
 
 
 
@@ -102,7 +95,7 @@ $liste=$ordonnance->afficherordonnance();
                                 Menu
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i class="fa fa-fw fa-user-circle"></i>Accounts Manegment <span class="badge badge-success">6</span></a>
+                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i class="fa fa-fw fa-user-circle"></i>Gestion des comptes<span class="badge badge-success">6</span></a>
                                 <div id="submenu-1" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">

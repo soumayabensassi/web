@@ -4,8 +4,8 @@ include_once "../../back/controller/medicamentcontroller.php";
 include_once "../../back/controller/categoriecontroller.php";
 
 $MED=new medicamentcontroller();
-$liste=$MED->affichermedicament();
-$liste=$MED->medicament();
+$liste1=$MED->affichermedicament();
+$liste1=$MED->medicament();
 $Cat=new categoriecontroller();
 $categorie=$Cat->affichercategorie();
 
@@ -76,7 +76,7 @@ $categorie=$Cat->affichercategorie();
 				</div>
 				<div class="col-lg-6">
 					<div class="wel-nots">
-						<p>Welcome to Our Pick Medico!</p>
+						<p>Bienvenue dans notre site Pick Medico!</p>
 					</div>
 					<div class="right-top">
 						<ul>
@@ -114,7 +114,7 @@ if (empty($_SESSION['m_un'])) {?>
     
 <?php } else { ?> 
     <li class="nav-link" ><?php include "logged.php"; ?></li>
-    
+    <li class="nav-link"><?php include "notification.php"; ?></li>
 
 <?php
 
@@ -186,7 +186,7 @@ if (empty($_SESSION['m_un'])) {?>
 					<div class="features_items"><!--features_items-->
 						<h2 class="title text-center">Nos Médicaments sans ordonnance</h2>
 					
-						<?php foreach($liste as $MED) 
+						<?php foreach($liste1 as $MED) 
 						 if($MED['typeMedicament']=="sans ordonnance"){?>
 								
 						<div class="col-sm-4">
@@ -321,30 +321,6 @@ if (empty($_SESSION['m_un'])) {?>
 	</div>
 	<!-- End Contact -->
 	
-	<!-- Start Subscribe -->
-	<div class="subscribe-box">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="subscribe-inner text-center clearfix">
-						<h2>S'inscrire'</h2>
-						<p>Acheter Maintenant sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-						<form action="#" method="post">
-							<div class="form-group">
-								<input class="form-control-1" id="email-1" name="email" placeholder="Email Address" required="" type="text">
-							</div>
-							<div class="form-group">
-								<button type="submit" class="new-btn-d br-2">
-									S'inscrire
-								</button>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- End Subscribe -->
 	
 
 	

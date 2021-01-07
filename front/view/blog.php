@@ -5,7 +5,7 @@ include_once "../../back/controller/doctorcontroller.php";
 include_once '../model/categories.php';
 
 $blog=new blogcontroller();
-$liste=$blog->afficherblog($_GET['id']);
+$liste2=$blog->afficherblog($_GET['id']);
 $utilisateur1= new categoriecontroller();
 $doc=new doctorcontroller();
 $liste1=$doc->afficherdoctor();	
@@ -80,7 +80,7 @@ $liste1=$doc->afficherdoctor();
 				</div>
 				<div class="col-lg-6">
 					<div class="wel-nots">
-						<p>Welcome to Our Pick Medico!</p>
+						<p>Bienvenue dans notre site Pick Medico!</p>
 					</div>
 					<div class="right-top">
 						<ul>
@@ -125,7 +125,7 @@ if (empty($_SESSION['m_un'])) {?>
     
 <?php } else { ?> 
     <li class="nav-link" ><?php include "logged.php"; ?></li>
-    
+    <li class="nav-link"><?php include "notification.php"; ?></li>
 
 <?php
 
@@ -158,12 +158,12 @@ if (empty($_SESSION['m_un'])) {?>
       
       
   ?>
-			<?php foreach($liste as $blog) { ?>
+			<?php foreach($liste2 as $blog) { ?>
                 <?php if($blog['categorie']===$user['id']){ ?>
 				<div class="col-lg-4 col-md-6 col-sm-12">
 					<div class="blog-inner">
 						<div class="blog-img">
-							<img class="img-fluid"  <?PHP  $a=$blog['img']; print"<img src='../assets/images/$a' "?>/>  
+							<img class="img-fluid"  <?PHP  $a=$blog['img']; print"<img src='../../back/assets/images/$a' "?>/>  
 						</div>
 						<div class="item-meta">
 							
@@ -234,30 +234,6 @@ if (empty($_SESSION['m_un'])) {?>
 
 <!-- End Contact -->
 
-<!-- Start Subscribe -->
-<div class="subscribe-box">
-<div class="container">
-<div class="row">
-    <div class="col-lg-12">
-        <div class="subscribe-inner text-center clearfix">
-            <h2>S'inscrire</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <form action="#" method="post">
-                <div class="form-group">
-                    <input class="form-control-1" id="email-1" name="email" placeholder="Email Address" required="" type="text">
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="new-btn-d br-2">
-                        S'inscrire
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-</div>
-</div>
-<!-- End Subscribe -->
 
 
 <a href="#" id="scroll-to-top" class="new-btn-d br-2"><i class="fa fa-angle-up"></i></a>
