@@ -209,7 +209,7 @@ $rate = 0;
                     <div class="col-sm-7">
                     <div class="product-information">
                     <div class="card-body border-top">
-                        <h3 class="font-16">Rating</h3>
+                        <h3 class="font-16">Évaluation</h3>
                         <?php foreach ($liste1 as $note) { ?>
                             <?php if ($note['idblog'] === $user['id']) { ?>
                                 <?php $n = $n + 1; ?>
@@ -288,7 +288,7 @@ $rate = 0;
                                 </div>
 
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary btn-lg btn-block">rate the blog</button>
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block">évaluer le blog</button>
                                 </div>
                             </form>
 
@@ -296,9 +296,9 @@ $rate = 0;
                         }
                         ?>
 
-                        <p><?php echo "noted by= (" ?><?php echo $n ?><?php echo ") P" ?> </p>
+                        <p><?php echo "noté par= (" ?><?php echo $n ?><?php echo ") Personnes" ?> </p>
                         <?php if ($n != 0) { ?>
-                            <p><?php echo "global rating = " ?><?php echo $somme / $n; ?><label class="custom-control-label" for="customRadio5"><i class="fas fa-star rating-color fa-xs"></i></label> </p>
+                            <p><?php echo "note globale = " ?><?php echo $somme / $n; ?><label class="custom-control-label" for="customRadio5"><i class="fas fa-star rating-color fa-xs"></i></label> </p>
                         <?php } ?>
 
                     </div>
@@ -355,10 +355,10 @@ $rate = 0;
                             </div>
                             <div class="media cont-line">
                                 <div class="media-left icon-b">
-                                    <i class="fa fa-volume-control-phone" aria-hidden="true"></i>
+                                <i class="fas fa-phone-volume"></i>
                                 </div>
                                 <div class="media-body dit-right">
-                                    <h4>Phone Number</h4>
+                                    <h4>Numero de Telephone</h4>
                                     <a href="#">12345 67890</a><br>
                                     <a href="#">12345 67890</a>
                                 </div>

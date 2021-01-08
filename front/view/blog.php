@@ -217,7 +217,7 @@ if (empty($_SESSION['m_un'])) {?>
                     </div>
                     <div class="media cont-line">
                         <div class="media-left icon-b">
-                            <i class="fab fa-volume-control-phone" aria-hidden="true"></i>
+                        <i class="fas fa-phone-volume"></i>
                         </div>
                         <div class="media-body dit-right">
                             <h4>Phone Number</h4>

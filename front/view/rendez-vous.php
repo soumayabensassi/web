@@ -108,7 +108,7 @@ session_start();
                         <li><a class="nav-link active" href="#appointment">Rendez_vous</a></li>
                         <li><a class="nav-link" href="gallery.php">Medicaments</a></li>
                         <li><a class="nav-link" href="doctor.php">Médecins</a></li>
-                        <li><a class="nav-link" href="blog.php">Blog</a></li>
+                        <li><a class="nav-link" href="categorie.php">Blog</a></li>
                         <li><a class="nav-link" href="Réclamation.php">Réclamation</a></li>
                         <li><a class="nav-link" href="#contact">Contact</a></li>
                        
