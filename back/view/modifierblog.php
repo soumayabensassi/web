@@ -1,17 +1,19 @@
 <?php
-	include_once "../controller/blogscontroller.php";
+session_start();
+    include_once "../controller/blogscontroller.php";
+    include_once "../controller/categoriescontroller.php";
 	include_once '../model/blog.php';
 
 	$utilisateur1= new blogcontroller();
 	
-	
+	$utilisateur2= new categoriecontroller();
 	if (
-		isset($_POST["nom"]) && 
-        isset($_POST["nomarticle"]) &&
-        isset($_POST["categorie"])  
+
+        isset($_POST["nomarticle"]) 
+        
 	   ){
 		
-            $user = new blog($_POST['nom'],$_POST['nomarticle'],$_POST['date'],$_POST['categorie'],$_POST['img'],$_POST['blog']);
+            $user = new blog($_POST['nomarticle'],$_POST['date'],$_POST['img'],$_POST['blog']);
             $utilisateur1->modifierblog($user, $_GET['id']);
             header("refresh:1;url=categories.php");
         }
@@ -64,29 +66,36 @@
             <div class="card-header">
                 <h3 class="mb-1">Modifier le blog
                 </h3>
-                <p>Please enter your user information.</p>
+                
             </div>
             <div class="card-body">
             <div class="form-group">
-						<input type="text" name="id" id="id"  value = "<?php echo $user['id']; ?>" disabled>
+						<input type="text" name="id" id="id"  value = "<?php echo $user['id']; ?>" disabled >
                         </div>
                 <div class="form-group">
-                    <input class="form-control form-control-lg" type="text" name="nom" required="" placeholder="nom" autocomplete="off" value = "<?php echo $user['medecin']; ?>">
+                <label for=nom>Nom docteur: </label>
+                   <?php echo $_SESSION['nomdoc']; ?>
                 </div>
                 <div class="form-group">
+                <label for=nom>Nom article: </label>
                     <input class="form-control form-control-lg" type="text" name="nomarticle" required="" placeholder="nomarticle" autocomplete="off" value="<?php echo $user['nomarticle']; ?>">
                 </div>
                 <div class="form-group">
+                <label for=nom>date </label>
                     <input class="form-control form-control-lg" type="date" name="date" required="" placeholder="date" autocomplete="off" value="<?php echo $user['date']; ?>">
                 </div>
                 <div class="form-group">
-                    <input class="form-control form-control-lg" id="categorie" type="text" name="categorie" required="" placeholder="categorie"value = "<?php echo $user['categorie']; ?>">
+                <label for=nom>Nom categorie: </label>
+                <?php $cata=$utilisateur2->recuperercategorie($user['id']); ?>
+                    <?php echo $cata['nom']; ?>
                 </div>
                 <div class="form-group">
+                <label for=nom>Image: </label>
                     <input class="form-control form-control-lg" id="img" type="file" name="img" required="" placeholder="img"value = "<?php echo $user['img']; ?>">
                 </div>
                 <div class="form-group">
-                    <input class="form-control form-control-lg" type="text" required=""name="blog" placeholder="blog" value = "<?php echo $user['blog']; ?>">
+                <label for=nom>Blog: </label>
+                <textarea class="form-control form-control-lg" type="text" required=""name="blog" placeholder="blog" value = "<?php echo $user['blog']; ?>"><?php echo $user['blog']; ?></textarea>
                 </div>
                 <div class="form-group pt-2">
                     <button class="btn btn-block btn-primary" type="submit">Modifier </button>

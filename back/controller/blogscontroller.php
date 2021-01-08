@@ -99,20 +99,19 @@ class blogcontroller
             $db = config::getConnexion();
             $query = $db->prepare(
                 'UPDATE blogslist SET 
-                    medecin = :medecin, 
+                    
                     nomarticle = :nomarticle,
                     date = :date,
-                    categorie = :categorie,
+                    
                     img= :img,
                     blog= :blog
     
                 WHERE id = :id'
             );
             $query->execute([
-                'medecin'=>$blogs->getNom(),
+                
                 'nomarticle'=>$blogs->getNomarticle(),
                 'date'=>$blogs->getDate(),
-                'categorie'=>$blogs->getCategorie(),
                 'img'=>$blogs->getImg(),
                 'blog'=>$blogs->getBlog(),
                 'id' => $id
@@ -120,6 +119,7 @@ class blogcontroller
             
         } catch (PDOException $e) {
             $e->getMessage();
+            
         }
         
     }

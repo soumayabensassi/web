@@ -7,7 +7,7 @@ include_once '../model/categories.php';
 $blog=new blogcontroller();
 $liste=$blog->afficherblog($_GET['id']);
 $utilisateur1= new categoriecontroller();
-	
+
 	
 	if (
 		isset($_POST["nomdoc"]) 
@@ -85,7 +85,8 @@ $utilisateur1= new categoriecontroller();
                 <div class="form-group row pt-2">
                     <label class="col-md-1 control-label">  categorie</label>
                     <div class="col-md-11">
-                        <input class="form-control" type="text" name="categorie" value= "<?php echo $cat['id']; ?>" >
+                    <?php $cata=$utilisateur1->recuperercategorie($cat['id']); ?>
+                        <input class="form-control" type="text" name="categorie" value= "<?php echo $cata['nom']; ?>" >
                     </div>
                 </div>
             </div>

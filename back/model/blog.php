@@ -7,12 +7,12 @@ class blog
     private  ?string $categorie= null;
     private  ?string $img= null;
     private  ?string $blog= null;
-    function __construct(string $medecin,string $nomarticle,$date,string $categorie ,string $img,string $blog){
+    function __construct(string $nomarticle,$date ,string $img,string $blog){
 			
-        $this->medecin=$medecin;
+        
         $this->nomarticle=$nomarticle;
         $this->date=$date;
-        $this->categorie=$categorie;
+        
         $this->img=$img;
         $this->blog=$blog;
     }
